@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050000">
+<meta name="theme-color" content="#05000d">
+
 <title>DARK | Gaming Store</title>
 
 <style>
@@ -19,7 +20,7 @@ html{
 
 body{
   font-family:Arial,Helvetica,sans-serif;
-  background:#030000;
+  background:#05000d url("images/site-background.jpg") center top/cover fixed no-repeat;
   color:#fff;
   overflow-x:hidden;
 }
@@ -28,1052 +29,925 @@ body:before{
   content:"";
   position:fixed;
   inset:0;
-  z-index:-6;
-  background-image:url("images/site-background.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,0,170,.12),
+      transparent 42%,
+      rgba(0,110,255,.13)
+    );
+  pointer-events:none;
+  z-index:-1;
 }
 
-body:after{
-  content:"";
+/* =========================
+   ENTER SCREEN
+========================= */
+
+#enterScreen{
   position:fixed;
   inset:0;
-  z-index:-5;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   background:
-    radial-gradient(circle at 20% 20%,rgba(255,0,0,.10),transparent 30%),
-    radial-gradient(circle at 80% 70%,rgba(255,0,0,.07),transparent 30%),
-    linear-gradient(135deg,rgba(3,0,0,.55),rgba(9,0,0,.6) 50%,rgba(2,0,0,.7));
+    linear-gradient(
+      90deg,
+      rgba(20,0,30,.78),
+      rgba(0,0,20,.72)
+    ),
+    url("images/site-background.jpg") center/cover no-repeat;
+  transition:opacity .7s ease,visibility .7s ease;
 }
 
-/* =========================================================
-   HEADER ICONS (cart / account)
-   ========================================================= */
-
-.nav-icons{
-  display:flex;
-  align-items:center;
-  gap:16px;
-}
-
-.icon-btn{
-  position:relative;
-  width:38px;
-  height:38px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border:1px solid rgba(255,255,255,.15);
-  border-radius:10px;
-  background:#0a0a0a;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.icon-btn:hover{
-  border-color:#ff2020;
-  box-shadow:0 0 12px rgba(255,0,0,.3);
-}
-
-.icon-btn svg{
-  width:18px;
-  height:18px;
-  stroke:#fff;
-  fill:none;
-  stroke-width:1.8;
-}
-
-.cart-badge{
-  position:absolute;
-  top:-6px;
-  right:-6px;
-  min-width:17px;
-  height:17px;
-  padding:0 4px;
-  border-radius:50%;
-  background:#e50909;
-  color:#fff;
-  font-size:10px;
-  font-weight:900;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 8px rgba(255,0,0,.6);
-}
-
-.cart-badge.show{
-  display:flex;
-}
-
-/* =========================================================
-   HERO CAROUSEL
-   ========================================================= */
-
-.hero-carousel{
-  position:relative;
-  height:350px;
-  border-radius:25px;
-  background:
-    radial-gradient(circle at 50% 55%,rgba(255,0,0,.22),transparent 55%),
-    linear-gradient(145deg,#160000,#050000);
-  border:1px solid rgba(255,0,0,.25);
-  box-shadow:0 0 60px rgba(255,0,0,.15);
-  overflow:hidden;
-}
-
-.hero-carousel:before{
-  content:"DARK";
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:110px;
-  font-weight:1000;
-  letter-spacing:-3px;
-  color:transparent;
-  -webkit-text-stroke:1.5px rgba(255,23,23,.18);
+#enterScreen.hide{
+  opacity:0;
+  visibility:hidden;
   pointer-events:none;
 }
 
-.hero-slide-track{
-  height:100%;
-  display:flex;
-  transition:transform .5s ease;
-}
-
-.hero-slide{
-  flex:none;
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-}
-
-.hero-slide-ring{
-  position:absolute;
-  bottom:34px;
-  width:230px;
-  height:26px;
-  border-radius:50%;
-  background:rgba(255,0,0,.25);
-  filter:blur(10px);
-}
-
-.hero-slide .hero-slide-name{
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:2px;
-  color:#ff3030;
-  text-shadow:0 0 15px rgba(255,0,0,.5);
-  z-index:2;
-}
-
-.hero-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:1px solid rgba(255,0,0,.6);
-  background:rgba(0,0,0,.55);
-  color:#fff;
-  font-size:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:5;
-  transition:.2s;
-}
-
-.hero-arrow:hover{
-  background:#ff1717;
-  box-shadow:0 0 16px rgba(255,0,0,.5);
-}
-
-.hero-arrow.prev{ left:12px; }
-.hero-arrow.next{ right:12px; }
-
-.hero-dots{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin-top:16px;
-}
-
-.hero-dot{
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:#3a3a3a;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.hero-dot.active{
-  background:#ff1717;
-  box-shadow:0 0 8px rgba(255,0,0,.7);
-  width:20px;
-  border-radius:5px;
-}
-
-/* =========================================================
-   PRODUCT GRID (tile style)
-   ========================================================= */
-
-.section-head-row{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  margin-bottom:22px;
-}
-
-.view-all{
-  color:#ff1717;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.5px;
-  text-decoration:none;
-}
-
-.tile-grid{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:12px;
-}
-
-.tile-card{
-  cursor:pointer;
+.enterBox{
+  width:min(90%,600px);
   text-align:center;
-  padding:16px 10px;
-  border-radius:14px;
-  border:1px solid rgba(255,0,0,.22);
-  background:#090909;
-  transition:.25s;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  min-height:100px;
+  padding:55px 35px;
+  border:1px solid rgba(255,0,180,.55);
+  border-radius:28px;
+  background:rgba(5,0,18,.72);
+  backdrop-filter:blur(15px);
+  box-shadow:
+    0 0 35px rgba(255,0,180,.35),
+    0 0 80px rgba(0,110,255,.18);
 }
 
-.tile-card:hover{
-  border-color:#ff1717;
-  box-shadow:0 0 18px rgba(255,0,0,.25);
-  transform:translateY(-4px);
+.enterLogo{
+  font-size:70px;
+  font-weight:1000;
+  letter-spacing:10px;
+  color:#fff;
+  text-shadow:
+    0 0 10px #ff168d,
+    0 0 30px #ff168d,
+    0 0 60px #1d75ff;
 }
 
-.tile-img{
-  width:46px;
-  height:46px;
-  border-radius:12px;
-  object-fit:cover;
-  border:1px solid rgba(255,0,0,.3);
-  background:#050505;
+.enterSub{
+  margin-top:8px;
+  color:#ff238f;
+  letter-spacing:6px;
+  font-size:14px;
+  font-weight:bold;
 }
 
-.tile-card .tile-name{
-  font-size:12px;
-  font-weight:800;
-  color:#ddd;
+.enterTitle{
+  margin-top:35px;
+  font-size:34px;
+  font-weight:900;
 }
 
-/* =========================================================
-   DEALS + FEATURE STACK
-   ========================================================= */
-
-.deals-grid{
-  display:grid;
-  grid-template-columns:1.4fr 1fr;
-  gap:15px;
+.enterText{
+  margin:15px auto 30px;
+  max-width:440px;
+  color:#c8c5d1;
+  line-height:1.6;
 }
 
-.feature-stack{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-.mini-feature{
-  flex:1;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:18px;
-  border:1px solid rgba(255,0,0,.2);
-  border-radius:14px;
-  background:#080808;
-}
-
-.mini-feature .mini-icon{
-  width:40px;
-  height:40px;
-  flex:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.enterBtn{
+  border:0;
+  padding:17px 35px;
   border-radius:10px;
-  background:rgba(255,0,0,.12);
-  font-size:18px;
+  color:#fff;
+  font-weight:900;
+  font-size:15px;
+  cursor:pointer;
+  background:linear-gradient(90deg,#ff164f,#ff009d);
+  box-shadow:
+    0 0 20px rgba(255,0,130,.5);
+  transition:.25s;
 }
 
-.mini-feature h4{
-  font-size:13px;
-  margin-bottom:4px;
+.enterBtn:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:
+    0 0 30px rgba(255,0,170,.75);
 }
 
-.mini-feature p{
-  font-size:11px;
-  color:#888;
-  line-height:1.4;
-}
-
-/* =========================================================
+/* =========================
    HEADER
-   ========================================================= */
+========================= */
 
 header{
   position:sticky;
   top:0;
-  z-index:1000;
-  height:70px;
-  background:rgba(0,0,0,.9);
-  border-bottom:1px solid rgba(255,0,0,.25);
-  backdrop-filter:blur(12px);
-}
-
-.nav{
-  width:min(1100px,94%);
-  height:100%;
-  margin:auto;
+  z-index:5000;
+  height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
+  padding:0 5%;
+  background:rgba(4,0,14,.82);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid rgba(255,0,170,.25);
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:24px;
+  font-size:25px;
   font-weight:1000;
   letter-spacing:3px;
   color:#fff;
-  text-shadow:0 0 14px red;
+  text-shadow:0 0 14px #ff008c;
 }
 
 .logo span{
-  color:#ff1515;
+  display:block;
+  color:#ff1a8d;
+  font-size:9px;
+  letter-spacing:4px;
+  margin-top:2px;
 }
 
-.nav-links{
+nav{
   display:flex;
-  gap:22px;
+  gap:30px;
+  align-items:center;
 }
 
-.nav-links a{
-  color:#ddd;
+nav a{
+  color:#fff;
   text-decoration:none;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
+  font-size:13px;
+  font-weight:bold;
   transition:.2s;
 }
 
-.nav-links a:hover{
-  color:#ff2020;
-  text-shadow:0 0 10px red;
+nav a:hover{
+  color:#ff1992;
+  text-shadow:0 0 10px #ff1992;
 }
 
-/* =========================================================
+.headerIcons{
+  display:flex;
+  gap:10px;
+}
+
+.iconBtn{
+  width:42px;
+  height:42px;
+  border:1px solid rgba(255,0,170,.55);
+  border-radius:10px;
+  background:rgba(10,0,25,.75);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  position:relative;
+}
+
+.cartBadge{
+  position:absolute;
+  top:-7px;
+  right:-7px;
+  min-width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#ff174f;
+  font-size:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+/* =========================
    HERO
-   ========================================================= */
+========================= */
 
 .hero{
   min-height:540px;
   display:flex;
   align-items:center;
-  position:relative;
-  overflow:hidden;
+  gap:45px;
+  padding:60px 7%;
+  border-bottom:1px solid rgba(255,0,170,.25);
 }
 
-.hero:before{
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  right:-120px;
-  top:20px;
-  background:radial-gradient(circle,rgba(255,0,0,.28),transparent 65%);
-  filter:blur(20px);
+.heroText{
+  width:42%;
 }
 
-.hero-inner{
-  width:min(1100px,94%);
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-  align-items:center;
-}
-
-.hero-small{
-  color:#ff2020;
+.heroMini{
+  color:#ff168d;
   font-size:13px;
-  font-weight:900;
-  letter-spacing:3px;
-  margin-bottom:12px;
+  letter-spacing:4px;
+  font-weight:bold;
+  margin-bottom:14px;
 }
 
 .hero h1{
-  font-size:clamp(52px,8vw,92px);
-  line-height:.86;
+  font-size:clamp(45px,6vw,80px);
+  line-height:.9;
   font-weight:1000;
-  letter-spacing:-4px;
+  text-transform:uppercase;
 }
 
 .hero h1 span{
-  color:#ff1616;
-  text-shadow:0 0 25px rgba(255,0,0,.5);
+  color:#ff164f;
+  text-shadow:0 0 25px rgba(255,0,80,.45);
 }
 
 .hero p{
+  margin-top:22px;
   max-width:520px;
-  margin:25px 0;
-  color:#aaa;
-  line-height:1.7;
+  color:#d0cbd7;
+  line-height:1.6;
 }
 
-.hero-buttons{
+.heroButtons{
   display:flex;
+  gap:14px;
+  margin-top:28px;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  text-decoration:none;
+  cursor:pointer;
+  padding:14px 22px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:900;
+  color:#fff;
+}
+
+.btnRed{
+  background:linear-gradient(90deg,#ff174f,#ff009d);
+  box-shadow:0 0 20px rgba(255,0,120,.35);
+}
+
+.btnGhost{
+  background:rgba(5,0,15,.65);
+  border:1px solid rgba(255,0,180,.6);
+}
+
+/* =========================
+   IMAGE FEATURED SIDE
+========================= */
+
+.featured{
+  width:58%;
+  position:relative;
+  min-height:310px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.featuredWindow{
+  width:100%;
+  max-width:760px;
+  padding:20px;
+  border-radius:25px;
+  border:1px solid rgba(255,0,180,.55);
+  background:rgba(3,0,15,.6);
+  backdrop-filter:blur(12px);
+  box-shadow:
+    0 0 35px rgba(255,0,180,.2),
+    0 0 50px rgba(0,100,255,.15);
+}
+
+.featuredTrack{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+
+.featureCard{
+  height:220px;
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid rgba(0,150,255,.5);
+  background:#080615;
+  position:relative;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.featureCard:hover{
+  transform:translateY(-7px);
+  border-color:#ff1590;
+  box-shadow:0 0 25px rgba(255,0,160,.4);
+}
+
+.featureCard img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.featureCard:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 45%,
+    rgba(0,0,0,.7)
+  );
+}
+
+.featureDots{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:15px;
+}
+
+.featureDots span{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#777;
+}
+
+.featureDots span:first-child{
+  background:#ff164f;
+  box-shadow:0 0 10px #ff164f;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  padding:55px 7%;
+}
+
+.sectionTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:25px;
+}
+
+.sectionMini{
+  color:#ff198d;
+  font-size:11px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.sectionTitle h2{
+  font-size:29px;
+  font-weight:1000;
+}
+
+.viewAll{
+  color:#ff1a8c;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:15px;
+}
+
+.productCard{
+  min-height:150px;
+  padding:10px;
+  border-radius:14px;
+  background:rgba(5,2,18,.72);
+  border:1px solid rgba(255,0,180,.38);
+  cursor:pointer;
+  transition:.3s;
+  text-align:center;
+}
+
+.productCard:hover{
+  transform:translateY(-6px);
+  border-color:#ff1590;
+  box-shadow:
+    0 0 20px rgba(255,0,160,.3);
+}
+
+.productImage{
+  width:100%;
+  height:95px;
+  border-radius:10px;
+  overflow:hidden;
+  background:#0a0715;
+}
+
+.productImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.productName{
+  margin-top:10px;
+  font-size:11px;
+  font-weight:900;
+}
+
+/* =========================
+   DEALS
+========================= */
+
+.dealGrid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:15px;
+}
+
+.dealBox{
+  min-height:190px;
+  padding:28px;
+  border-radius:18px;
+  background:rgba(4,0,18,.75);
+  border:1px solid rgba(255,0,180,.4);
+  box-shadow:0 0 25px rgba(0,0,0,.25);
+}
+
+.dealBox h3{
+  font-size:23px;
+  margin-bottom:12px;
+}
+
+.dealBox p{
+  color:#bbb7c5;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.dealLabel{
+  color:#ff188b;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+/* =========================
+   PAYMENT
+========================= */
+
+.paymentBox{
+  border-radius:20px;
+  padding:30px;
+  background:rgba(3,0,16,.78);
+  border:1px solid rgba(0,130,255,.45);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.paymentItem{
+  padding:18px;
+  border:1px solid rgba(255,0,170,.25);
+  border-radius:12px;
+}
+
+.paymentItem span{
+  color:#9993a5;
+  font-size:11px;
+  display:block;
+  margin-bottom:7px;
+}
+
+.paymentItem strong{
+  font-size:20px;
+}
+
+.paymentNote{
+  grid-column:1/-1;
+  color:#bbb7c5;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+}
+
+.contact p{
+  color:#bcb7c6;
+  margin:10px 0 25px;
+}
+
+.contactButtons{
+  display:flex;
+  justify-content:center;
   gap:12px;
   flex-wrap:wrap;
 }
 
-.btn{
-  border:0;
-  padding:14px 20px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:900;
-  font-size:12px;
-  letter-spacing:1px;
-  cursor:pointer;
-}
-
-.btn-red{
-  background:#e50909;
-  color:#fff;
-  box-shadow:0 0 20px rgba(255,0,0,.3);
-}
-
-.btn-dark{
-  background:#090909;
-  color:#fff;
-  border:1px solid #333;
-}
-
-/* =========================================================
-   SECTIONS
-   ========================================================= */
-
-.wrap{
-  width:min(1100px,94%);
-  margin:auto;
-}
-
-.section{
-  padding:70px 0;
-}
-
-.section-tag{
-  color:#ff1717;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:3px;
-  margin-bottom:8px;
-}
-
-.section h2{
-  font-size:38px;
-  font-weight:1000;
-  margin-bottom:10px;
-}
-
-.section-sub{
-  color:#888;
-  margin-bottom:30px;
-}
-
-/* =========================================================
-   PAYMENT
-   ========================================================= */
-
-.payment-box{
-  padding:30px;
-  border:1px solid rgba(255,0,0,.25);
-  border-radius:16px;
-  background:linear-gradient(145deg,#0b0000,#070707);
-}
-
-.payment-box h3{
-  color:#ff2020;
-  font-size:25px;
-  margin-bottom:15px;
-}
-
-.payment-row{
-  display:flex;
-  justify-content:space-between;
-  padding:14px 0;
-  border-bottom:1px solid #191919;
-}
-
-.payment-row span:first-child{
-  color:#777;
-}
-
-.payment-row span:last-child{
-  font-weight:900;
-}
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-
-.contact{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-  padding:35px;
-  border:1px solid rgba(255,0,0,.25);
-  border-radius:16px;
-  background:#080808;
-}
-
-.contact h2{
-  margin-bottom:8px;
-}
-
-.contact p{
-  color:#888;
-}
-
-.contact-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-/* =========================================================
+/* =========================
    FOOTER
-   ========================================================= */
+========================= */
 
 footer{
-  margin-top:60px;
-  padding:35px 0;
-  border-top:1px solid #171717;
+  padding:30px 7%;
+  text-align:center;
+  color:#777180;
+  font-size:11px;
+  border-top:1px solid rgba(255,0,180,.2);
 }
 
-.footer-inner{
-  width:min(1100px,94%);
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:#777;
-  font-size:12px;
-}
-
-.footer-logo{
-  color:#ff1717;
-  font-size:30px;
-  font-weight:1000;
-  letter-spacing:4px;
-}
-
-/* =========================================================
+/* =========================
    PRODUCT MODAL
-   ========================================================= */
+========================= */
 
 .modal{
   position:fixed;
   inset:0;
-  z-index:10000;
+  z-index:9000;
   display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(10px);
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(8px);
 }
 
 .modal.show{
   display:flex;
 }
 
-.modal-box{
-  width:min(550px,100%);
-  max-height:90vh;
+.modalBox{
+  width:min(94%,600px);
+  max-height:92vh;
   overflow:auto;
-  position:relative;
   padding:25px;
-  border:1px solid rgba(255,0,0,.45);
-  border-radius:18px;
+  border-radius:20px;
   background:
-    linear-gradient(145deg,#100000,#050505);
-  box-shadow:0 0 50px rgba(255,0,0,.22);
+    linear-gradient(
+      145deg,
+      rgba(14,3,28,.98),
+      rgba(2,5,25,.98)
+    );
+  border:1px solid rgba(255,0,180,.55);
+  box-shadow:
+    0 0 40px rgba(255,0,180,.25);
+  position:relative;
 }
 
 .close{
   position:absolute;
+  top:13px;
   right:15px;
-  top:12px;
   width:35px;
   height:35px;
-  border:0;
   border-radius:50%;
-  background:#150000;
+  border:1px solid #ff1a91;
+  background:transparent;
   color:#fff;
-  font-size:20px;
   cursor:pointer;
+  font-size:18px;
 }
 
-.modal-title{
-  color:#ff2020;
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:900;
-  margin-bottom:5px;
-}
-
-.modal-header-row{
+.modalProductTop{
   display:flex;
+  gap:18px;
   align-items:center;
-  gap:14px;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
-.modal-img{
-  width:54px;
-  height:54px;
-  border-radius:12px;
+.modalImg{
+  width:105px;
+  height:105px;
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid rgba(255,0,170,.45);
+}
+
+.modalImg img{
+  width:100%;
+  height:100%;
   object-fit:cover;
-  border:1px solid rgba(255,0,0,.35);
-  flex:none;
 }
 
-.modal-content h2{
-  font-size:26px;
-  margin-bottom:4px;
+.modalInfo h2{
+  font-size:25px;
 }
 
-.modal-type{
-  color:#777;
-  font-size:13px;
+.modalInfo p{
+  color:#ff1b91;
+  margin-top:5px;
+  font-size:12px;
 }
 
-.modal-label{
-  color:#ff2020;
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:1.5px;
+.packageTitle{
+  font-size:12px;
+  color:#aaa4b4;
   margin-bottom:10px;
 }
 
 .packages{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  margin-bottom:20px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:9px;
 }
 
 .package{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:11px 12px;
-  border:1px solid #291515;
-  border-radius:9px;
-  background:#090909;
+  padding:13px;
+  border:1px solid rgba(255,0,170,.28);
+  border-radius:10px;
+  background:rgba(8,4,22,.8);
   color:#fff;
   cursor:pointer;
   text-align:left;
-  transition:.2s;
-}
-
-.package:hover{
-  border-color:#5a1414;
 }
 
 .package.active{
-  border-color:#ff1c1c;
-  background:#180000;
-  box-shadow:0 0 12px rgba(255,0,0,.18);
-}
-
-.package-radio{
-  width:15px;
-  height:15px;
-  flex:none;
-  border-radius:50%;
-  border:1.5px solid #444;
-  position:relative;
-  transition:.2s;
-}
-
-.package.active .package-radio{
-  border-color:#ff1c1c;
-}
-
-.package.active .package-radio:after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  border-radius:50%;
-  background:#ff1c1c;
+  border-color:#ff178e;
+  box-shadow:0 0 15px rgba(255,0,160,.25);
 }
 
 .package strong{
-  flex:1;
-  color:#fff;
-  font-size:12px;
-  font-weight:700;
+  display:block;
+  font-size:13px;
 }
 
 .package span{
-  color:#ff2020;
-  font-size:12px;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.qty-hint-row{
-  display:flex;
-  align-items:stretch;
-  gap:10px;
-  margin-bottom:16px;
-}
-
-.qty-hint-row .qty-row{
-  flex:none;
-  width:auto;
-}
-
-.qty-hint{
-  flex:1;
-  display:flex;
-  align-items:center;
-  padding:8px 12px;
-  border:1px solid #291515;
-  border-radius:8px;
-  background:#080808;
-  color:#888;
-  font-size:10px;
-  line-height:1.4;
-}
-
-.field{
-  width:100%;
-  margin-bottom:12px;
-}
-
-.field label{
   display:block;
-  color:#aaa;
+  color:#ff1b91;
+  margin-top:5px;
+  font-weight:bold;
+}
+
+.formGroup{
+  margin-top:17px;
+}
+
+.formGroup label{
+  display:block;
   font-size:11px;
-  font-weight:800;
-  margin-bottom:6px;
+  color:#aaa4b4;
+  margin-bottom:7px;
 }
 
-.field textarea,
-.field input{
+.formGroup input,
+.formGroup select{
   width:100%;
-  border:1px solid #292929;
-  border-radius:8px;
-  background:#030303;
-  color:#fff;
-  padding:12px;
+  padding:13px;
+  border-radius:9px;
   outline:none;
-  resize:none;
+  border:1px solid rgba(255,0,170,.3);
+  background:#080511;
+  color:#fff;
 }
 
-.field textarea:focus,
-.field input:focus{
-  border-color:#ff2020;
-}
-
-.qty-row{
+.quantityRow{
   display:flex;
   align-items:center;
-  gap:10px;
+  justify-content:space-between;
+  margin-top:17px;
+  padding:12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.03);
 }
 
-.qty-btn{
-  width:38px;
-  height:38px;
-  flex:none;
-  border:1px solid #321010;
+.qtyControls{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.qtyBtn{
+  width:34px;
+  height:34px;
   border-radius:8px;
-  background:#090909;
+  border:1px solid #ff198d;
+  background:transparent;
   color:#fff;
-  font-size:18px;
-  font-weight:900;
   cursor:pointer;
-  transition:.2s;
+  font-size:18px;
 }
 
-.qty-btn:hover{
-  border-color:#ff1c1c;
-  background:#180000;
-  box-shadow:0 0 12px rgba(255,0,0,.18);
-}
-
-.qty-row input{
-  width:56px;
-  text-align:center;
-  border:1px solid #292929;
-  border-radius:8px;
-  background:#030303;
-  color:#fff;
-  padding:10px;
-  outline:none;
-  font-weight:900;
-}
-
-.qty-row input:focus{
-  border-color:#ff2020;
-}
-
-.total-row{
+.total{
+  margin-top:18px;
+  padding:15px;
+  border-radius:10px;
+  background:rgba(255,0,150,.08);
+  border:1px solid rgba(255,0,150,.25);
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  padding:12px 14px;
-  margin-bottom:14px;
-  border:1px solid rgba(255,0,0,.3);
-  border-radius:9px;
-  background:linear-gradient(145deg,rgba(255,0,0,.08),rgba(0,0,0,.6));
 }
 
-.total-row span:first-child{
-  color:#aaa;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
+.total strong{
+  color:#ff1a90;
 }
 
-.total-row span:last-child{
-  color:#ff2020;
-  font-size:18px;
-  font-weight:1000;
-}
-
-.send-order{
+.sendBtn{
   width:100%;
-  padding:14px;
+  margin-top:18px;
+  padding:15px;
   border:0;
   border-radius:9px;
-  background:#e50909;
   color:#fff;
-  font-weight:1000;
+  font-weight:900;
+  background:linear-gradient(90deg,#ff174f,#ff009d);
   cursor:pointer;
-  box-shadow:0 0 20px rgba(255,0,0,.25);
 }
 
-/* =========================================================
-   POPUPS
-   ========================================================= */
+/* =========================
+   THANK YOU / REWARD POPUPS
+========================= */
 
 .popup{
   position:fixed;
   inset:0;
-  z-index:11000;
+  z-index:10000;
   display:none;
   align-items:center;
   justify-content:center;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(7px);
   padding:20px;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(9px);
 }
 
 .popup.show{
   display:flex;
 }
 
-.popup-box{
-  width:min(460px,100%);
+.popupBox{
+  width:min(90%,430px);
+  padding:35px;
   text-align:center;
-  padding:35px 25px;
-  border:1px solid rgba(255,0,0,.5);
-  border-radius:18px;
-  background:#080000;
-  box-shadow:0 0 50px rgba(255,0,0,.3);
+  border-radius:22px;
+  background:#080313;
+  border:1px solid #ff178d;
+  box-shadow:0 0 40px rgba(255,0,170,.35);
 }
 
-.popup-box .popup-icon{
-  font-size:45px;
-  margin-bottom:15px;
+.popupBox h2{
+  font-size:28px;
+  margin-bottom:10px;
 }
 
-.popup-box h2{
-  color:#ff2020;
-  margin-bottom:12px;
-}
-
-.popup-box p{
-  color:#999;
+.popupBox p{
+  color:#bbb6c5;
   line-height:1.6;
-  margin-bottom:20px;
+  font-size:13px;
 }
 
-/* =========================================================
+.popupBtn{
+  margin-top:22px;
+  padding:13px 25px;
+  border:0;
+  border-radius:8px;
+  background:linear-gradient(90deg,#ff174f,#ff009d);
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* =========================
    RESPONSIVE
-   ========================================================= */
+========================= */
 
 @media(max-width:1100px){
 
-  .tile-grid{
+  nav{
+    gap:16px;
+  }
+
+  .hero{
+    padding:45px 4%;
+  }
+
+  .products{
     grid-template-columns:repeat(4,1fr);
   }
 
-  .hero-inner{
-    width:94%;
+  .featuredTrack{
+    grid-template-columns:repeat(5,1fr);
+  }
+}
+
+@media(max-width:750px){
+
+  header{
+    height:auto;
+    min-height:70px;
+    padding:12px 4%;
+    gap:12px;
   }
 
-  .deals-grid{
+  nav{
+    display:none;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .hero{
+    min-height:auto;
+    flex-direction:column;
+    padding:45px 5%;
+  }
+
+  .heroText,
+  .featured{
+    width:100%;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+
+  .featured{
+    min-height:210px;
+  }
+
+  .featuredWindow{
+    padding:10px;
+  }
+
+  .featureCard{
+    height:150px;
+  }
+
+  .featuredTrack{
+    gap:7px;
+  }
+
+  .products{
+    grid-template-columns:repeat(3,1fr);
+    gap:9px;
+  }
+
+  .productCard{
+    min-height:120px;
+    padding:7px;
+  }
+
+  .productImage{
+    height:75px;
+  }
+
+  .productName{
+    font-size:9px;
+  }
+
+  .dealGrid{
+    grid-template-columns:1fr;
+  }
+
+  .paymentBox{
+    grid-template-columns:1fr;
+  }
+
+  .paymentNote{
+    grid-column:auto;
+  }
+
+  .section{
+    padding:40px 5%;
+  }
+
+  .packages{
     grid-template-columns:1fr;
   }
 }
 
-@media(max-width:700px){
+@media(max-width:450px){
 
-  header{
-    height:58px;
+  .enterLogo{
+    font-size:48px;
+    letter-spacing:6px;
   }
 
-  .nav-icons{
-    gap:8px;
-  }
-
-  .icon-btn{
-    width:32px;
-    height:32px;
-  }
-
-  .hero-carousel{
-    height:220px;
-    border-radius:18px;
-  }
-
-  .hero-slide-ring{
-    bottom:20px;
-    width:150px;
-    height:18px;
-  }
-
-  .hero-arrow{
-    width:30px;
-    height:30px;
-    font-size:13px;
-  }
-
-  .hero-arrow.prev{ left:6px; }
-  .hero-arrow.next{ right:6px; }
-
-  .tile-grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-  }
-
-  .tile-img{
-    width:38px;
-    height:38px;
-  }
-
-  .tile-card .tile-name{
-    font-size:10px;
-  }
-
-  .deals-grid{
-    grid-template-columns:1fr;
-  }
-
-  .nav{
-    width:94%;
-  }
-
-  .logo{
-    font-size:18px;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero{
-    min-height:470px;
-  }
-
-  .hero-inner{
-    grid-template-columns:1fr;
-    gap:20px;
+  .enterTitle{
+    font-size:25px;
   }
 
   .hero h1{
-    font-size:43px;
-    letter-spacing:-2px;
+    font-size:40px;
   }
 
-  .hero p{
-    font-size:11px;
-    line-height:1.5;
-    margin:16px 0;
+  .products{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .hero-small{
-    font-size:9px;
-    letter-spacing:1.5px;
-  }
-
-  .btn{
-    padding:10px 12px;
-    font-size:9px;
-  }
-
-  .section{
-    padding:45px 0;
-  }
-
-  .section h2{
-    font-size:27px;
-  }
-
-  .contact{
+  .heroButtons{
     flex-direction:column;
-    align-items:flex-start;
   }
 
-  .footer-inner{
-    flex-direction:column;
-    gap:12px;
+  .heroButtons .btn{
     text-align:center;
-  }
-
-  .modal-box{
-    padding:18px;
-  }
-
-  .packages{
-    grid-template-columns:repeat(1,1fr);
   }
 }
 </style>
@@ -1081,933 +955,933 @@ footer{
 
 <body>
 
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
+<!-- =========================
+     ENTER DARK STORE
+========================= -->
 
-<header>
-  <div class="nav">
+<div id="enterScreen">
 
-    <div class="logo">
-      <span>DARK</span>
-      <small>GAMING STORE</small>
+  <div class="enterBox">
+
+    <div class="enterLogo">DARK</div>
+
+    <div class="enterSub">
+      GAMING STORE
     </div>
 
-    <nav class="nav-links">
-      <a href="#home">HOME</a>
-      <a href="#gaming">GAMING</a>
-      <a href="#deals">DEALS</a>
-      <a href="#payment">PAYMENT</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
-
-    <div class="nav-icons">
-
-      <div class="icon-btn" title="Your orders" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <svg viewBox="0 0 24 24"><path d="M3 3h2l2.4 12.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L22 8H6"/><circle cx="9" cy="21" r="1.4" fill="#fff" stroke="none"/><circle cx="18" cy="21" r="1.4" fill="#fff" stroke="none"/></svg>
-        <span class="cart-badge" id="cartBadge">0</span>
-      </div>
-
-      <div class="icon-btn" title="Contact / account" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4 20c1.6-3.7 4.8-5.6 8-5.6s6.4 1.9 8 5.6"/></svg>
-      </div>
-
+    <div class="enterTitle">
+      WELCOME TO DARK
     </div>
+
+    <p class="enterText">
+      Gaming top-ups, gift cards, digital products
+      and exclusive deals — all in one place.
+    </p>
+
+    <button class="enterBtn" onclick="enterStore()">
+      EXPLORE → ENTER DARK STORE
+    </button>
 
   </div>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="logo">
+    DARK
+    <span>GAMING STORE</span>
+  </div>
+
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#products">GAMING</a>
+    <a href="#deals">DEALS</a>
+    <a href="#payment">PAYMENT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+
+  <div class="headerIcons">
+
+    <button class="iconBtn" onclick="scrollToSection('products')">
+      🛒
+      <span class="cartBadge" id="cartCount">0</span>
+    </button>
+
+    <button class="iconBtn" onclick="scrollToSection('contact')">
+      ♙
+    </button>
+
+  </div>
+
 </header>
 
-<!-- =========================================================
+
+<!-- =========================
      HERO
-     ========================================================= -->
+========================= -->
 
 <section class="hero" id="home">
 
-  <div class="hero-inner">
+  <div class="heroText">
 
-    <div>
-      <div class="hero-small">DARK DIGITAL GAMING</div>
-
-      <h1>
-        LEVEL UP<br>
-        YOUR<br>
-        <span>GAME.</span>
-      </h1>
-
-      <p>
-        Gaming top-ups, digital products and exclusive deals.
-        Choose your game, choose your package and order directly
-        through DARK.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#gaming" class="btn btn-red">EXPLORE GAMING →</a>
-        <a href="#contact" class="btn btn-dark">CONTACT DARK</a>
-      </div>
+    <div class="heroMini">
+      DARK DIGITAL GAMING
     </div>
 
-    <div>
+    <h1>
+      LEVEL UP<br>
+      YOUR <span>GAME.</span>
+    </h1>
 
-      <div class="hero-carousel">
-
-        <div class="hero-arrow prev" onclick="heroPrev()">‹</div>
-        <div class="hero-arrow next" onclick="heroNext()">›</div>
-
-        <div class="hero-slide-track" id="heroTrack"></div>
-
-      </div>
-
-      <div class="hero-dots" id="heroDots"></div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- =========================================================
-     GAMING PRODUCTS
-     ========================================================= -->
-
-<section class="section" id="gaming">
-<div class="wrap">
-
-  <div class="section-head-row">
-    <div>
-      <div class="section-tag">DARK GAMING</div>
-      <h2 style="margin-bottom:0;">CHOOSE YOUR GAME</h2>
-    </div>
-    <a href="#gaming" class="view-all">VIEW ALL →</a>
-  </div>
-
-  <div class="tile-grid" id="products"></div>
-
-</div>
-</section>
-
-<!-- =========================================================
-     DEALS
-     ========================================================= -->
-
-<section class="section" id="deals">
-<div class="wrap">
-
-  <div class="section-tag">DARK EXCLUSIVE</div>
-  <h2>DEALS & DROPS</h2>
-
-  <div class="deals-grid">
-
-    <div class="deal-box">
-      <h3>5 PURCHASES = FREE!</h3>
-      <p>
-        Buy from DARK five times using the same Gamer ID and
-        unlock a free gaming top-up reward.
-      </p>
-      <a href="#gaming" class="btn btn-red">LEARN MORE</a>
-    </div>
-
-    <div class="feature-stack">
-
-      <div class="mini-feature">
-        <div class="mini-icon">⚡</div>
-        <div>
-          <h4>Fast Ordering</h4>
-          <p>Quick and easy order process</p>
-        </div>
-      </div>
-
-      <div class="mini-feature">
-        <div class="mini-icon">🛡️</div>
-        <div>
-          <h4>Secure Payment</h4>
-          <p>Safe and trusted payment methods</p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- =========================================================
-     PAYMENT
-     ========================================================= -->
-
-<section class="section" id="payment">
-<div class="wrap">
-
-  <div class="section-tag">MMG PAYMENT</div>
-  <h2>COMPLETE YOUR ORDER</h2>
-
-  <div class="payment-box">
-
-    <h3>MMG</h3>
-
-    <div class="payment-row">
-      <span>Number</span>
-      <span>📱 762-6433</span>
-    </div>
-
-    <div class="payment-row">
-      <span>Merchant</span>
-      <span>CASSIA</span>
-    </div>
-
-    <p style="color:#777;margin-top:20px;font-size:12px;">
-      After payment, enter your MMG Transaction ID in the
-      order window before sending your order.
+    <p>
+      Gaming top-ups, gift cards, digital products
+      and exclusive deals. Choose your product,
+      choose your package and order directly through DARK.
     </p>
 
+    <div class="heroButtons">
+
+      <a class="btn btnRed" href="#products">
+        EXPLORE GAMING →
+      </a>
+
+      <a class="btn btnGhost" href="#contact">
+        CONTACT DARK
+      </a>
+
+    </div>
+
   </div>
 
-</div>
+
+  <!-- IMAGE SIDE -->
+  <div class="featured">
+
+    <div class="featuredWindow">
+
+      <div class="featuredTrack" id="featuredTrack">
+
+        <!-- Images only on the side -->
+        <div class="featureCard"
+             onclick="openProductByName('Google Play')">
+          <img src="images/IMG_0235.jpeg" alt="Google Play">
+        </div>
+
+        <div class="featureCard"
+             onclick="openProductByName('Amazon Gift Card')">
+          <img src="images/IMG_0234.jpeg" alt="Amazon Gift Card">
+        </div>
+
+        <div class="featureCard"
+             onclick="openProductByName('Binance Gift Card')">
+          <img src="images/IMG_0233.jpeg" alt="Binance Gift Card">
+        </div>
+
+        <div class="featureCard"
+             onclick="openProductByName('Razer Gold')">
+          <img src="images/IMG_0232.jpeg" alt="Razer Gold">
+        </div>
+
+        <div class="featureCard"
+             onclick="openProductByName('Fortnite')">
+          <img src="images/IMG_0231.jpeg" alt="Fortnite">
+        </div>
+
+      </div>
+
+      <div class="featureDots">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
 
-<section class="section" id="contact">
-<div class="wrap">
+<!-- =========================
+     PRODUCTS
+========================= -->
 
-  <div class="contact">
+<section class="section" id="products">
+
+  <div class="sectionTitle">
 
     <div>
-      <div class="section-tag">CONTACT DARK</div>
-      <h2>READY TO LEVEL UP?</h2>
-      <p>Message DARK to place your gaming order.</p>
+      <div class="sectionMini">
+        DARK GAMING
+      </div>
+
+      <h2>CHOOSE YOUR GAME</h2>
     </div>
 
-    <div class="contact-buttons">
-      <a
-        class="btn btn-red"
-        href="https://wa.me/13436555995"
-        target="_blank">
-        WHATSAPP
-      </a>
-
-      <a
-        class="btn btn-dark"
-        href="https://wa.me/5927002769"
-        target="_blank">
-        SECOND CONTACT
-      </a>
+    <div class="viewAll">
+      VIEW ALL →
     </div>
 
   </div>
 
-</div>
+  <div class="products" id="productGrid"></div>
+
 </section>
 
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
 
-<footer>
-  <div class="footer-inner">
+<!-- =========================
+     DEALS
+========================= -->
 
-    <div class="footer-logo">DARK</div>
+<section class="section" id="deals">
 
-    <div>Digital Gaming Store • Guyana</div>
+  <div class="sectionTitle">
 
-    <div>©️ 2026 DARK</div>
+    <div>
+      <div class="sectionMini">
+        DARK EXCLUSIVE
+      </div>
+
+      <h2>DEALS & REWARDS</h2>
+    </div>
 
   </div>
+
+  <div class="dealGrid">
+
+    <div class="dealBox">
+
+      <div class="dealLabel">
+        DARK REWARD
+      </div>
+
+      <h3>
+        5 PURCHASES = FREE!
+      </h3>
+
+      <p>
+        Buy from DARK five times using the same
+        Gamer ID or account information and unlock
+        a free gaming top-up reward.
+      </p>
+
+    </div>
+
+    <div class="dealBox">
+
+      <div class="dealLabel">
+        FAST
+      </div>
+
+      <h3>FAST ORDERING</h3>
+
+      <p>
+        Select your package, enter your details
+        and send your order directly through WhatsApp.
+      </p>
+
+    </div>
+
+    <div class="dealBox">
+
+      <div class="dealLabel">
+        SECURE
+      </div>
+
+      <h3>PAYMENT</h3>
+
+      <p>
+        Complete your payment and enter your
+        MMG transaction ID with your order.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PAYMENT
+========================= -->
+
+<section class="section" id="payment">
+
+  <div class="sectionTitle">
+
+    <div>
+      <div class="sectionMini">
+        MMG PAYMENT
+      </div>
+
+      <h2>COMPLETE YOUR ORDER</h2>
+    </div>
+
+  </div>
+
+  <div class="paymentBox">
+
+    <div class="paymentItem">
+
+      <span>NUMBER</span>
+
+      <strong>762-6433</strong>
+
+    </div>
+
+    <div class="paymentItem">
+
+      <span>MERCHANT</span>
+
+      <strong>CASSIA</strong>
+
+    </div>
+
+    <div class="paymentNote">
+
+      After payment, enter your MMG Transaction ID
+      inside the order window before sending your order.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="section contact" id="contact">
+
+  <div class="sectionMini">
+    NEED HELP?
+  </div>
+
+  <h2>CONTACT DARK</h2>
+
+  <p>
+    Message DARK for orders, questions and support.
+  </p>
+
+  <div class="contactButtons">
+
+    <a
+      class="btn btnRed"
+      href="https://wa.me/13436555995"
+      target="_blank">
+      WHATSAPP DARK
+    </a>
+
+    <a
+      class="btn btnGhost"
+      href="https://wa.me/5927002769"
+      target="_blank">
+      CONTACT SUPPORT
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+  ©️ 2026 DARK • Digital Gaming Store • Guyana
 </footer>
 
-<!-- =========================================================
+
+<!-- =========================
      PRODUCT MODAL
-     ========================================================= -->
+========================= -->
 
 <div class="modal" id="productModal">
 
-  <div class="modal-box">
+  <div class="modalBox">
 
-    <button class="close" onclick="closeProduct()">×</button>
+    <button class="close" onclick="closeProduct()">
+      ×
+    </button>
 
-    <div class="modal-content">
+    <div class="modalProductTop">
 
-      <div class="modal-title">DIGITAL PRODUCT</div>
-
-      <div class="modal-header-row">
-        <img id="modalImg" class="modal-img" src="" alt="" style="display:none;">
-        <div>
-          <h2 id="modalName"></h2>
-          <div class="modal-type" id="modalType"></div>
-        </div>
+      <div class="modalImg">
+        <img id="modalImage" src="" alt="">
       </div>
 
-      <div class="modal-label">SELECT PACKAGE</div>
-
-      <div class="packages" id="packages"></div>
-
-      <div class="modal-label">QUANTITY</div>
-
-      <div class="qty-hint-row">
-
-        <div class="qty-row">
-          <button type="button" class="qty-btn" onclick="changeQty(-1)">−</button>
-          <input id="quantity" type="number" min="1" value="1" oninput="updateTotal()">
-          <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
-        </div>
-
-        <div class="qty-hint">
-          Increase the quantity to order more than one of this package.
-        </div>
-
+      <div class="modalInfo">
+        <h2 id="modalName"></h2>
+        <p id="modalType"></p>
       </div>
-
-      <div class="total-row">
-        <span>TOTAL</span>
-        <span id="totalPrice">GYD $0</span>
-      </div>
-
-      <div class="field">
-        <label id="playerLabel">GAMER ID / USERNAME</label>
-        <textarea
-          id="player"
-          rows="2"
-          placeholder="Enter Gamer ID / Username"></textarea>
-      </div>
-
-      <div class="field">
-        <label>MMG TRANSACTION ID</label>
-        <input
-          id="transaction"
-          type="text"
-          placeholder="Enter MMG Transaction ID">
-      </div>
-
-      <button class="send-order" onclick="sendOrder()">
-        SEND ORDER →
-      </button>
 
     </div>
 
-  </div>
-</div>
+    <div class="packageTitle">
+      SELECT YOUR PACKAGE
+    </div>
 
-<!-- =========================================================
-     THANK YOU POPUP
-     ========================================================= -->
+    <div class="packages" id="packageList"></div>
 
-<div class="popup" id="thankPopup">
+    <div class="formGroup">
 
-  <div class="popup-box">
+      <label id="playerLabel">
+        GAMER ID / USERNAME
+      </label>
 
-    <div class="popup-icon">✓</div>
+      <input
+        id="playerInput"
+        type="text"
+        placeholder="Enter Gamer ID / Username">
 
-    <h2>THANK YOU!</h2>
+    </div>
 
-    <p>
-      Your order details and MMG Transaction ID are ready
-      to be sent to DARK.
-    </p>
+    <div class="formGroup">
 
-    <button class="btn btn-red" onclick="continueWhatsApp()">
-      CONTINUE →
+      <label>
+        MMG TRANSACTION ID
+      </label>
+
+      <input
+        id="transactionInput"
+        type="text"
+        placeholder="Enter MMG Transaction ID">
+
+    </div>
+
+    <div class="quantityRow">
+
+      <strong>QUANTITY</strong>
+
+      <div class="qtyControls">
+
+        <button class="qtyBtn" onclick="changeQty(-1)">
+          −
+        </button>
+
+        <strong id="quantity">
+          1
+        </strong>
+
+        <button class="qtyBtn" onclick="changeQty(1)">
+          +
+        </button>
+
+      </div>
+
+    </div>
+
+    <div class="total">
+
+      <span>TOTAL</span>
+
+      <strong id="totalPrice">
+        GYD $0
+      </strong>
+
+    </div>
+
+    <button class="sendBtn" onclick="sendOrder()">
+      SEND ORDER →
     </button>
 
   </div>
+
 </div>
 
-<!-- =========================================================
+
+<!-- =========================
+     THANK YOU POPUP
+========================= -->
+
+<div class="popup" id="thankyouPopup">
+
+  <div class="popupBox">
+
+    <h2>
+      ORDER READY! 🔥
+    </h2>
+
+    <p>
+      Your order has been prepared.
+      Tap continue to send it to DARK on WhatsApp.
+    </p>
+
+    <button class="popupBtn" onclick="continueWhatsApp()">
+      CONTINUE TO WHATSAPP →
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
      REWARD POPUP
-     ========================================================= -->
+========================= -->
 
 <div class="popup" id="rewardPopup">
 
-  <div class="popup-box">
+  <div class="popupBox">
 
-    <div class="popup-icon">🎁</div>
-
-    <h2>YOU UNLOCKED A REWARD!</h2>
+    <h2>
+      🎁 DARK REWARD!
+    </h2>
 
     <p>
-      You reached 5 purchases using the same Gamer ID.
-      Your DARK reward is ready.
+      Congratulations! You reached 5 purchases
+      using the same Gamer ID/account.
+      Your free top-up reward has been unlocked!
     </p>
 
-    <p style="color:#ff2020;font-weight:900;">
-      Choose your FREE reward after contacting DARK.
-    </p>
-
-    <button class="btn btn-red"
-      onclick="document.getElementById('rewardPopup').classList.remove('show')">
-      AWESOME →
+    <button class="popupBtn"
+            onclick="closeReward()">
+      AWESOME!
     </button>
 
   </div>
+
 </div>
+
 
 <script>
 
-/* =========================================================
-   CART BADGE
-   ========================================================= */
+/* =========================
+   ENTER STORE
+========================= */
 
-let cartCount=0;
+function enterStore(){
 
-function updateCartBadge(){
+  const screen =
+    document.getElementById("enterScreen");
 
-  const badge=document.getElementById("cartBadge");
+  screen.classList.add("hide");
 
-  badge.textContent=cartCount;
-  badge.classList.toggle("show",cartCount>0);
+  document.body.style.overflow = "auto";
 
 }
 
-/* =========================================================
-   ALL PRODUCTS
-   ========================================================= */
+
+/* =========================
+   PRODUCT DATA
+========================= */
 
 const products = [
 
-/* ---------------- FACEBOOK ---------------- */
+  {
+    name:"Facebook",
+    type:"Stars",
+    img:"images/IMG_0229.jpeg",
+    packages:[
+      ["100 Stars","500"],
+      ["500 Stars","2,000"],
+      ["1,000 Stars","3,800"],
+      ["5,000 Stars","17,000"]
+    ]
+  },
 
-{
- name:"Facebook",
- type:"Stars",
- img:"images/IMG_0229.jpeg",
- packages:[
-  ["100 Stars","400"],
-  ["310 Stars","1,100"],
-  ["550 Stars","1,900"],
-  ["1,150 Stars","3,800"],
-  ["2,350 Stars","7,500"],
-  ["5,850 Stars","18,000"]
- ]
-},
+  {
+    name:"TikTok",
+    type:"Coins",
+    img:"images/IMG_0236.jpeg",
+    packages:[
+      ["30 Coins","300"],
+      ["350 Coins","1,200"],
+      ["700 Coins","2,000"],
+      ["1,400 Coins","4,500"],
+      ["3,500 Coins","10,000"],
+      ["7,000 Coins","20,000"],
+      ["17,500 Coins","42,000"]
+    ]
+  },
 
-/* ---------------- TIKTOK ---------------- */
+  {
+    name:"Roblox Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0230.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$25 USD","6,500"],
+      ["$50 USD","12,000"],
+      ["$100 USD","24,000"],
+      ["$200 USD","48,500"]
+    ]
+  },
 
-{
- name:"TikTok",
- type:"Coins",
- img:"images/IMG_0236.jpeg",
- packages:[
-  ["30 Coins","150"],
-  ["70 Coins","300"],
-  ["150 Coins","600"],
-  ["350 Coins","1,200"],
-  ["700 Coins","2,100"],
-  ["1,400 Coins","4,100"],
-  ["3,500 Coins","10,400"],
-  ["7,000 Coins","21,000"]
- ]
-},
+  {
+    name:"Roblox",
+    type:"Robux",
+    img:"images/f93f089a3d8211ede4c832c3a24efe1e.jpg",
+    packages:[
+      ["400 Robux","1,400"],
+      ["800 Robux","2,800"],
+      ["1,700 Robux","4,900"],
+      ["4,500 Robux","11,800"],
+      ["10,000 Robux","23,500"]
+    ]
+  },
 
-/* ---------------- ROBLOX GIFT CARD ---------------- */
+  {
+    name:"Free Fire",
+    type:"Diamonds",
+    img:"images/30de15ba0e69c62e5e5987ceaae08401.jpg",
+    packages:[
+      ["100 Diamonds","300"],
+      ["210 Diamonds","600"],
+      ["530 Diamonds","1,300"],
+      ["1,080 Diamonds","2,500"],
+      ["2,200 Diamonds","5,200"]
+    ]
+  },
 
-{
- name:"Roblox Gift Card",
- type:"Gift Card",
- img:"images/IMG_0235.jpeg",
- packages:[
-  ["$10 USD","2,800"],
-  ["$25 USD","6,500"],
-  ["$50 USD","12,000"],
-  ["$100 USD","24,000"],
-  ["$200 USD","48,500"]
- ]
-},
+  {
+    name:"Call of Duty Mobile",
+    type:"CP",
+    img:"images/f9f56c26780ac312b21e2d3a7da703f5.jpg",
+    packages:[
+      ["80 CP","400"],
+      ["420 CP","1,300"],
+      ["880 CP","2,300"],
+      ["2,400 CP","5,500"],
+      ["5,000 CP","11,000"],
+      ["10,800 CP","21,500"]
+    ]
+  },
 
-/* ---------------- ROBLOX IN-GAME PURCHASE ---------------- */
+  {
+    name:"PUBG Mobile",
+    type:"UC",
+    img:"images/f31054399c0c2604548ba7dfdced2a62.jpg",
+    packages:[
+      ["60 UC","300"],
+      ["325 UC","1,300"],
+      ["660 UC","2,300"],
+      ["1,800 UC","5,500"],
+      ["3,850 UC","11,400"],
+      ["8,100 UC","21,500"]
+    ]
+  },
 
-{
- name:"Roblox",
- type:"In-Game Purchase (Robux)",
- img:"images/IMG_0235.jpeg",
- packages:[
-  ["20 Robux","150"],
-  ["40 Robux","300"],
-  ["80 Robux","600"],
-  ["250 Robux","900"],
-  ["500 Robux","1,300"],
-  ["1,000 Robux","2,300"],
-  ["2,000 Robux","4,600"],
-  ["4,500 Robux","11,300"],
-  ["10,000 Robux","21,500"],
-  ["22,500 Robux","43,000"]
- ]
-},
+  {
+    name:"Apex Legends",
+    type:"Coins",
+    img:"images/apex.jpeg",
+    packages:[
+      ["500 Coins","2,000"],
+      ["1,000 Coins","3,800"],
+      ["2,150 Coins","7,500"]
+    ]
+  },
 
-/* ---------------- FREE FIRE ---------------- */
+  {
+    name:"Arena Breakout",
+    type:"Bonds",
+    img:"images/arena-breakout.jpeg",
+    packages:[
+      ["100 Bonds","500"],
+      ["500 Bonds","2,000"],
+      ["1,000 Bonds","3,800"]
+    ]
+  },
 
-{
- name:"Free Fire",
- type:"Diamonds",
- img:"images/IMG_0232.jpeg",
- packages:[
-  ["50 Diamonds","150"],
-  ["100 Diamonds","300"],
-  ["210 Diamonds","600"],
-  ["310 Diamonds","900"],
-  ["530 Diamonds","1,300"],
-  ["1,080 Diamonds","2,500"],
-  ["2,200 Diamonds","5,200"]
- ]
-},
+  {
+    name:"Blood Strike",
+    type:"Gold",
+    img:"images/blood-strike.jpeg",
+    packages:[
+      ["100 Gold","400"],
+      ["500 Gold","1,800"],
+      ["1,000 Gold","3,500"]
+    ]
+  },
 
-/* ---------------- COD MOBILE ---------------- */
+  {
+    name:"Amazon Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0234.jpeg",
+    packages:[
+      ["$10 USD","2,500"],
+      ["$20 USD","4,800"],
+      ["$25 USD","6,000"],
+      ["$50 USD","12,000"],
+      ["$100 USD","23,800"]
+    ]
+  },
 
-{
- name:"Call of Duty Mobile",
- type:"CP",
- img:"images/IMG_0243.jpeg",
- packages:[
-  ["40 CP","200"],
-  ["80 CP","400"],
-  ["200 CP","700"],
-  ["420 CP","1,300"],
-  ["880 CP","2,300"],
-  ["2,400 CP","5,500"],
-  ["5,000 CP","11,000"],
-  ["10,800 CP","21,500"]
- ]
-},
+  {
+    name:"Binance Gift Card",
+    type:"Gift Card",
+    img:"images/binance.jpeg",
+    packages:[
+      ["$10 USD","3,000"],
+      ["$25 USD","7,000"],
+      ["$50 USD","13,500"],
+      ["$100 USD","26,000"]
+    ]
+  },
 
-/* ---------------- PUBG ---------------- */
+  {
+    name:"Fortnite",
+    type:"V-Bucks",
+    img:"images/fortnite.jpeg",
+    packages:[
+      ["1,000 V-Bucks","3,500"],
+      ["2,800 V-Bucks","8,500"],
+      ["5,000 V-Bucks","14,500"]
+    ]
+  },
 
-{
- name:"PUBG Mobile",
- type:"UC",
- img:"images/IMG_0231.jpeg",
- packages:[
-  ["30 UC","150"],
-  ["60 UC","300"],
-  ["150 UC","700"],
-  ["325 UC","1,300"],
-  ["660 UC","2,300"],
-  ["1,800 UC","5,500"],
-  ["3,850 UC","11,400"],
-  ["8,100 UC","21,500"]
- ]
-},
+  {
+    name:"Razer Gold",
+    type:"Gift Card",
+    img:"images/IMG_0232.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$20 USD","5,200"],
+      ["$50 USD","12,200"],
+      ["$100 USD","24,000"],
+      ["$200 USD","49,000"]
+    ]
+  },
 
-/* ---------------- APEX ---------------- */
+  {
+    name:"Google Play",
+    type:"Gift Card",
+    img:"images/IMG_0235.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$25 USD","6,000"],
+      ["$50 USD","12,000"],
+      ["$100 USD","23,700"]
+    ]
+  },
 
-{
- name:"Apex Legends",
- type:"Coins",
- img:"images/IMG_0241.jpeg",
- packages:[
-  ["100 Apex Coins","350"],
-  ["500 Apex Coins","1,500"],
-  ["1,000 Apex Coins","2,800"],
-  ["2,150 Apex Coins","5,600"],
-  ["4,350 Apex Coins","11,000"]
- ]
-},
+  {
+    name:"Website Creator",
+    type:"Website",
+    img:"images/website.jpeg",
+    packages:[
+      ["Basic Website","10,000"],
+      ["Gaming Website","20,000"],
+      ["Premium Website","35,000"]
+    ]
+  },
 
-/* ---------------- ARENA ---------------- */
+  {
+    name:"Netflix",
+    type:"Subscription",
+    img:"images/netflix.jpeg",
+    packages:[
+      ["1 Month","2,500"],
+      ["3 Months","6,500"],
+      ["6 Months","12,000"]
+    ]
+  },
 
-{
- name:"Arena Breakout",
- type:"Bonds",
- img:"images/IMG_0242.jpeg",
- packages:[
-  ["60 Bonds","300"],
-  ["300 Bonds","1,300"],
-  ["680 Bonds","2,600"],
-  ["1,380 Bonds","5,200"],
-  ["3,280 Bonds","11,500"]
- ]
-},
-
-/* ---------------- BLOOD STRIKE ---------------- */
-
-{
- name:"Blood Strike",
- type:"Gold / Strike Pass",
- img:"images/IMG_0240.jpeg",
- packages:[
-  ["105 Gold (100 + 5)","400"],
-  ["320 Gold (300 + 20)","1,000"],
-  ["540 Gold (500 + 40)","1,500"],
-  ["1,100 Gold (1,000 + 100)","3,200"],
-  ["Strike Pass Elite","1,500"]
- ]
-},
-
-/* ---------------- AMAZON ---------------- */
-
-{
- name:"Amazon Gift Card",
- type:"Gift Card",
- img:"images/IMG_0234.jpeg",
- packages:[
-  ["$5 USD","1,600"],
-  ["$10 USD","2,500"],
-  ["$20 USD","4,500"],
-  ["$50 USD","11,000"],
-  ["$100 USD","22,000"]
- ]
-},
-
-/* ---------------- BINANCE ---------------- */
-
-{
- name:"Binance Gift Card",
- type:"USDT Gift Card",
- img:"images/IMG_0233.jpeg",
- packages:[
-  ["$5 USDT","1,700"],
-  ["$10 USDT","3,000"],
-  ["$20 USDT","6,500"],
-  ["$50 USDT","12,000"],
-  ["$100 USDT","24,000"],
-  ["$150 USDT","36,000"]
- ]
-},
-
-/* ---------------- FORTNITE ---------------- */
-
-{
- name:"Fortnite",
- type:"V-Bucks",
- packages:[
-  ["800 V-Bucks","2,000"],
-  ["2,400 V-Bucks","5,000"],
-  ["4,500 V-Bucks","8,000"],
-  ["12,500 V-Bucks","19,500"]
- ]
-},
-
-/* ---------------- RAZER GOLD ---------------- */
-
-{
- name:"Razer Gold",
- type:"Gift Card",
- img:"images/IMG_0237.jpeg",
- packages:[
-  ["$5 USD","1,500"],
-  ["$10 USD","2,200"],
-  ["$20 USD","4,300"],
-  ["$50 USD","11,000"],
-  ["$100 USD","21,500"]
- ]
-},
-
-/* ---------------- GOOGLE PLAY ---------------- */
-
-{
- name:"Google Play",
- type:"Gift Card",
- packages:[
-  ["$5 USD","1,900"],
-  ["$10 USD","3,600"],
-  ["$20 USD","6,000"],
-  ["$50 USD","12,500"],
-  ["$100 USD","25,000"]
- ]
-},
-
-/* ---------------- WEBSITE CREATOR ---------------- */
-
-{
- name:"Website Creator",
- type:"Website Creation",
- packages:[
-  ["Website Creation","10,000"],
-  ["Premium Website","20,000"]
- ]
-},
-
-/* ---------------- NETFLIX ---------------- */
-
-{
- name:"Netflix",
- type:"Subscription",
- img:"images/IMG_0238.jpeg",
- packages:[
-  ["1 Week Account","1,200"],
-  ["1 Month Standard","3,500"],
-  ["1 Month Premium 4K","5,000"]
- ]
-},
-
-/* ---------------- PRIME VIDEO ---------------- */
-
-{
- name:"Prime Video",
- type:"Subscription",
- img:"images/IMG_0239.jpeg",
- packages:[
-  ["1 Month Access","2,000"],
-  ["3 Months Access","5,500"],
-  ["6 Months Access","10,000"]
- ]
-}
+  {
+    name:"Prime Video",
+    type:"Subscription",
+    img:"images/prime-video.jpeg",
+    packages:[
+      ["1 Month","2,000"],
+      ["3 Months","5,500"],
+      ["6 Months","10,000"]
+    ]
+  }
 
 ];
 
-/* =========================================================
-   RENDER PRODUCTS (tile grid)
-   ========================================================= */
 
-const productContainer=document.getElementById("products");
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+const productGrid =
+  document.getElementById("productGrid");
 
 products.forEach((product,index)=>{
 
-  const card=document.createElement("div");
+  const card =
+    document.createElement("div");
 
-  card.className="tile-card";
+  card.className="productCard";
 
-  card.onclick=()=>openProduct(index);
+  card.onclick=()=>{
+    openProduct(index);
+  };
 
   card.innerHTML=`
-    ${product.img?`<img class="tile-img" src="${product.img}" alt="${product.name}">`:""}
-    <div class="tile-name">${product.name}</div>
+
+    <div class="productImage">
+
+      <img
+        src="${product.img}"
+        alt="${product.name}"
+        onerror="this.style.display='none'"
+      >
+
+    </div>
+
+    <div class="productName">
+      ${product.name}
+    </div>
+
   `;
 
-  productContainer.appendChild(card);
+  productGrid.appendChild(card);
 
 });
 
-/* =========================================================
-   HERO CAROUSEL (built from a featured subset of products)
-   ========================================================= */
 
-const heroFeaturedNames=[
-  "Google Play",
-  "Amazon Gift Card",
-  "Binance Gift Card",
-  "Razer Gold",
-  "Fortnite"
-];
+/* =========================
+   MODAL
+========================= */
 
-const heroSlides=heroFeaturedNames
-  .map(name=>products.find(p=>p.name===name))
-  .filter(Boolean);
-
-let heroIndex=0;
-
-function renderHero(){
-
-  const track=document.getElementById("heroTrack");
-  const dotsBox=document.getElementById("heroDots");
-
-  track.innerHTML=heroSlides.map(product=>`
-    <div class="hero-slide">
-      <div class="hero-slide-ring"></div>
-      <div class="hero-slide-name">${product.name}</div>
-    </div>
-  `).join("");
-
-  dotsBox.innerHTML=heroSlides.map((_,i)=>`
-    <div class="hero-dot${i===0?" active":""}" onclick="heroGoTo(${i})"></div>
-  `).join("");
-
-  updateHeroPosition();
-
-}
-
-function updateHeroPosition(){
-
-  const track=document.getElementById("heroTrack");
-
-  track.style.transform=`translateX(-${heroIndex*100}%)`;
-
-  document.querySelectorAll(".hero-dot").forEach((dot,i)=>{
-    dot.classList.toggle("active",i===heroIndex);
-  });
-
-}
-
-function heroNext(){
-  heroIndex=(heroIndex+1)%heroSlides.length;
-  updateHeroPosition();
-}
-
-function heroPrev(){
-  heroIndex=(heroIndex-1+heroSlides.length)%heroSlides.length;
-  updateHeroPosition();
-}
-
-function heroGoTo(i){
-  heroIndex=i;
-  updateHeroPosition();
-}
-
-renderHero();
-
-setInterval(heroNext,5000);
-
-/* =========================================================
-   OPEN PRODUCT
-   ========================================================= */
-
-let selectedProduct=null;
-let selectedPackage=null;
-let pendingWhatsAppUrl="";
+let selectedProduct = null;
+let selectedPackage = null;
+let quantity = 1;
+let pendingWhatsApp = "";
+let pendingReward = false;
 
 function openProduct(index){
 
-  selectedProduct=products[index];
-  selectedPackage=null;
+  selectedProduct = products[index];
 
-  document.getElementById("modalName").textContent=selectedProduct.name;
-  document.getElementById("modalType").textContent=selectedProduct.type;
+  selectedPackage =
+    selectedProduct.packages[0];
 
-  const modalImg=document.getElementById("modalImg");
+  quantity=1;
 
-  if(selectedProduct.img){
-    modalImg.src=selectedProduct.img;
-    modalImg.alt=selectedProduct.name;
-    modalImg.style.display="block";
-  }else{
-    modalImg.style.display="none";
-  }
+  document.getElementById("quantity")
+    .textContent=quantity;
 
-  const packageBox=document.getElementById("packages");
+  document.getElementById("modalImage")
+    .src=selectedProduct.img;
 
-  packageBox.innerHTML="";
+  document.getElementById("modalName")
+    .textContent=selectedProduct.name;
+
+  document.getElementById("modalType")
+    .textContent=selectedProduct.type;
+
+  const packageList =
+    document.getElementById("packageList");
+
+  packageList.innerHTML="";
 
   selectedProduct.packages.forEach((pkg,i)=>{
 
-    const button=document.createElement("button");
+    const button =
+      document.createElement("button");
 
-    button.className="package";
+    button.className=
+      "package"+(i===0?" active":"");
 
     button.innerHTML=`
-      <span class="package-radio"></span>
       <strong>${pkg[0]}</strong>
-      <span>GYD $${pkg[1]}</span>
+      <span>GYD $${Number(pkg[1]).toLocaleString()}</span>
     `;
 
     button.onclick=()=>{
 
-      document.querySelectorAll(".package")
+      selectedPackage=pkg;
+
+      document
+        .querySelectorAll(".package")
         .forEach(x=>x.classList.remove("active"));
 
       button.classList.add("active");
-
-      selectedPackage=pkg;
 
       updateTotal();
 
     };
 
-    packageBox.appendChild(button);
+    packageList.appendChild(button);
 
   });
 
-  const player=document.getElementById("player");
-  const label=document.getElementById("playerLabel");
 
-  if(selectedProduct.name==="TikTok"){
+  const label =
+    document.getElementById("playerLabel");
 
-    label.textContent="LOGIN DETAILS";
+  const input =
+    document.getElementById("playerInput");
 
-    player.placeholder=
-      "Enter Login Details (Username/Email & Password)";
 
-  }else if(
-    selectedProduct.name==="Netflix" ||
-    selectedProduct.name==="Prime Video"
-  ){
+  if(selectedProduct.name==="Netflix" ||
+     selectedProduct.name==="Prime Video"){
 
-    label.textContent="ACCOUNT CONTACT INFO";
+    label.textContent="ACCOUNT EMAIL / CONTACT";
 
-    player.placeholder=
-      "Enter Email / Account Contact Info";
+    input.placeholder=
+      "Enter account email or contact information";
 
-  }else if(
-    selectedProduct.name==="Website Creator"
-  ){
+  }
+
+  else if(selectedProduct.name==="Website Creator"){
 
     label.textContent="WEBSITE DETAILS";
 
-    player.placeholder=
-      "Tell us what type of website you want";
+    input.placeholder=
+      "Tell us what website you want";
 
-  }else if(
-    selectedProduct.name==="Roblox Gift Card"
-  ){
+  }
+
+  else if(selectedProduct.name==="Roblox Gift Card"){
 
     label.textContent="ROBLOX ACCOUNT / EMAIL";
 
-    player.placeholder=
-      "Enter Roblox Username or Account Email";
+    input.placeholder=
+      "Enter Roblox account or email";
 
-  }else{
+  }
 
-    label.textContent="GAMER ID / USERNAME";
+  else if(selectedProduct.name==="TikTok"){
 
-    player.placeholder=
+    label.textContent="TIKTOK USERNAME / PROFILE";
+
+    input.placeholder=
+      "Enter TikTok username or profile";
+
+  }
+
+  else{
+
+    label.textContent=
+      "GAMER ID / USERNAME";
+
+    input.placeholder=
       "Enter Gamer ID / Username";
 
   }
 
-  player.value="";
-  document.getElementById("transaction").value="";
-  document.getElementById("quantity").value="1";
+
+  document.getElementById("playerInput").value="";
+  document.getElementById("transactionInput").value="";
+
   updateTotal();
 
-  document.getElementById("productModal")
+  document
+    .getElementById("productModal")
     .classList.add("show");
 
 }
 
-/* =========================================================
-   QUANTITY / TOTAL
-   ========================================================= */
 
-function changeQty(delta){
+function openProductByName(name){
 
-  const qtyInput=document.getElementById("quantity");
-
-  let qty=parseInt(qtyInput.value)||1;
-
-  qty=Math.max(1,qty+delta);
-
-  qtyInput.value=qty;
-
-  updateTotal();
-
-}
-
-function updateTotal(){
-
-  const qtyInput=document.getElementById("quantity");
-
-  let qty=parseInt(qtyInput.value)||1;
-
-  if(qty<1){
-    qty=1;
-    qtyInput.value=1;
-  }
-
-  const totalEl=document.getElementById("totalPrice");
-
-  if(!selectedPackage){
-
-    totalEl.textContent="GYD $0";
-
-    return;
-
-  }
-
-  const unitPrice=parseInt(
-    selectedPackage[1].toString().replace(/,/g,"")
-  );
-
-  const total=unitPrice*qty;
-
-  totalEl.textContent="GYD $"+total.toLocaleString();
-
-}
-
-/* =========================================================
-   SIDE EFFECT CLICK (by name, kept for compatibility)
-   ========================================================= */
-
-function openByName(name){
-
-  const index=products.findIndex(
-    p=>p.name.toLowerCase()===name.toLowerCase()
-  );
+  const index =
+    products.findIndex(
+      p=>p.name===name
+    );
 
   if(index>=0){
     openProduct(index);
@@ -2015,54 +1889,73 @@ function openByName(name){
 
 }
 
-/* =========================================================
-   CLOSE
-   ========================================================= */
 
 function closeProduct(){
 
-  document.getElementById("productModal")
+  document
+    .getElementById("productModal")
     .classList.remove("show");
 
 }
 
-/* =========================================================
+
+function changeQty(amount){
+
+  quantity+=amount;
+
+  if(quantity<1)
+    quantity=1;
+
+  if(quantity>20)
+    quantity=20;
+
+  document.getElementById("quantity")
+    .textContent=quantity;
+
+  updateTotal();
+
+}
+
+
+function updateTotal(){
+
+  if(!selectedPackage)
+    return;
+
+  const price =
+    Number(selectedPackage[1]);
+
+  const total =
+    price*quantity;
+
+  document.getElementById("totalPrice")
+    .textContent=
+    "GYD $"+total.toLocaleString();
+
+}
+
+
+/* =========================
    SEND ORDER
-   ========================================================= */
+========================= */
 
 function sendOrder(){
 
-  if(!selectedProduct){
-
-    alert("Please choose a product.");
-
+  if(!selectedProduct ||
+     !selectedPackage)
     return;
 
-  }
+  const player =
+    document.getElementById("playerInput")
+      .value.trim();
 
-  if(!selectedPackage){
-
-    alert("Please choose a package first.");
-
-    return;
-
-  }
-
-  const qtyInput=document.getElementById("quantity");
-
-  let qty=parseInt(qtyInput.value)||1;
-
-  if(qty<1)qty=1;
-
-  const player=
-    document.getElementById("player").value.trim();
-
-  const transaction=
-    document.getElementById("transaction").value.trim();
+  const transaction =
+    document.getElementById("transactionInput")
+      .value.trim();
 
   if(!player){
 
-    alert("Please enter your Gamer ID / required details.");
+    alert("Please enter your Gamer ID / Username.");
 
     return;
 
@@ -2076,90 +1969,106 @@ function sendOrder(){
 
   }
 
-  const purchaseKey=
-    "DARK_PURCHASES_"+player.toLowerCase();
 
-  let purchases=
-    parseInt(localStorage.getItem(purchaseKey)||"0");
+  const price =
+    Number(selectedPackage[1]);
 
-  purchases+=qty;
+  const total =
+    price*quantity;
+
+
+  /* Purchase tracking */
+
+  const storageKey =
+    "dark_purchase_"+player.toLowerCase();
+
+  let purchaseCount =
+    Number(localStorage.getItem(storageKey)||0);
+
+  purchaseCount+=quantity;
 
   localStorage.setItem(
-    purchaseKey,
-    purchases
+    storageKey,
+    purchaseCount
   );
 
-  const unitPrice=parseInt(
-    selectedPackage[1].toString().replace(/,/g,"")
-  );
 
-  const total=unitPrice*qty;
+  pendingReward =
+    purchaseCount>=5 &&
+    purchaseCount%5===0;
 
-  const message=
-`🔥 DARK STORE ORDER 🔥
 
-Product: ${selectedProduct.name}
-Type: ${selectedProduct.type}
+  pendingWhatsApp =
+`🔥 DARK GAMING STORE ORDER
 
-Package: ${selectedPackage[0]}
-Unit Price: GYD $${selectedPackage[1]}
-Quantity: ${qty}
-Total: GYD $${total.toLocaleString()}
+🎮 Product: ${selectedProduct.name}
+📦 Package: ${selectedPackage[0]}
+🔢 Quantity: ${quantity}
+💰 Total: GYD $${total.toLocaleString()}
 
-Gamer / Account Details:
+👤 Gamer / Account:
 ${player}
 
-MMG Transaction ID:
+💳 Payment: MMG
+🧾 Transaction ID:
 ${transaction}
 
-Purchase Count:
-${purchases}
+🎁 Purchase Count:
+${purchaseCount}
 
-Please process my order.`;
+Please confirm my DARK order.`;
 
-  pendingWhatsAppUrl=
-    "https://wa.me/13436555995?text="+
-    encodeURIComponent(message);
 
   closeProduct();
 
-  document.getElementById("thankPopup")
+  document
+    .getElementById("thankyouPopup")
     .classList.add("show");
-
-  window.currentPurchaseCount=purchases;
-
-  cartCount+=qty;
-  updateCartBadge();
 
 }
 
-/* =========================================================
-   CONTINUE TO WHATSAPP
-   ========================================================= */
+
+/* =========================
+   WHATSAPP
+========================= */
 
 function continueWhatsApp(){
 
-  document.getElementById("thankPopup")
+  document
+    .getElementById("thankyouPopup")
     .classList.remove("show");
 
-  if(pendingWhatsAppUrl){
 
-    window.open(
-      pendingWhatsAppUrl,
-      "_blank"
-    );
+  const whatsappURL =
+    "https://wa.me/5927002769?text="+
+    encodeURIComponent(pendingWhatsApp);
 
-  }
 
-  if(
-    window.currentPurchaseCount &&
-    window.currentPurchaseCount>=5 &&
-    window.currentPurchaseCount%5===0
-  ){
+  /* cart badge */
+
+  const badge =
+    document.getElementById("cartCount");
+
+  let current =
+    Number(badge.textContent||0);
+
+  current+=quantity;
+
+  badge.textContent=current;
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+
+  if(pendingReward){
 
     setTimeout(()=>{
 
-      document.getElementById("rewardPopup")
+      document
+        .getElementById("rewardPopup")
         .classList.add("show");
 
     },2500);
@@ -2168,20 +2077,75 @@ function continueWhatsApp(){
 
 }
 
-/* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
-   ========================================================= */
 
-document.getElementById("productModal")
-.addEventListener("click",function(e){
+function closeReward(){
 
-  if(e.target===this){
-    closeProduct();
-  }
+  document
+    .getElementById("rewardPopup")
+    .classList.remove("show");
 
-});
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function scrollToSection(id){
+
+  document
+    .getElementById(id)
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   CLOSE MODALS ON BACKGROUND
+========================= */
+
+document
+  .getElementById("productModal")
+  .addEventListener("click",function(e){
+
+    if(e.target===this){
+      closeProduct();
+    }
+
+  });
+
+
+document
+  .getElementById("thankyouPopup")
+  .addEventListener("click",function(e){
+
+    if(e.target===this){
+      this.classList.remove("show");
+    }
+
+  });
+
+
+document
+  .getElementById("rewardPopup")
+  .addEventListener("click",function(e){
+
+    if(e.target===this){
+      closeReward();
+    }
+
+  });
+
+
+/* =========================
+   START LOCKED
+========================= */
+
+document.body.style.overflow="hidden";
 
 </script>
 
 </body>
-</html>
+</html> 
