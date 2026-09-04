@@ -3,1446 +3,1460 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090018">
+<meta name="theme-color" content="#070012">
 <title>DARK | Gaming Store</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#05000d;
-    color:#fff;
-    overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#05000d url("images/site-background.jpg") center center/cover fixed no-repeat;
+  color:#fff;
+  overflow-x:hidden;
 }
-
-/* =========================================================
-   NEW PURPLE / BLUE BACKGROUND
-========================================================= */
 
 body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-5;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(12,0,20,.58),
-            rgba(2,3,20,.72)
-        ),
-        url("images/site-background.jpg") center/cover no-repeat;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-4;
-    pointer-events:none;
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,0,190,.20),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(0,110,255,.20),
-            transparent 30%
-        ),
-        linear-gradient(
-            rgba(5,0,15,.28),
-            rgba(5,0,15,.58)
-        );
-}
-
-/* =========================================================
-   ENTRANCE SCREEN
-========================================================= */
-
-#entrance{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-        linear-gradient(
-            rgba(5,0,18,.38),
-            rgba(3,0,15,.62)
-        ),
-        url("images/site-background.jpg") center/cover no-repeat;
-    transition:
-        opacity .8s ease,
-        visibility .8s ease;
-}
-
-#entrance.hidden{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-}
-
-.entrance-content{
-    width:min(90%,700px);
-    padding:45px 25px;
-    animation:entrancePop 1s ease;
-}
-
-@keyframes entrancePop{
-    0%{
-        opacity:0;
-        transform:scale(.75) translateY(30px);
-    }
-    70%{
-        transform:scale(1.04);
-    }
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.entrance-logo{
-    font-size:clamp(60px,12vw,130px);
-    font-weight:1000;
-    letter-spacing:12px;
-    color:#fff;
-    text-shadow:
-        0 0 10px #ff149f,
-        0 0 30px #ff149f,
-        0 0 60px #6f00ff;
-}
-
-.entrance-sub{
-    margin:10px 0 35px;
-    color:#ff43b8;
-    letter-spacing:7px;
-    font-weight:900;
-    font-size:14px;
-}
-
-.explore-btn{
-    border:2px solid #ff2aad;
-    background:linear-gradient(
-        135deg,
-        rgba(255,20,170,.85),
-        rgba(100,0,255,.85)
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8,0,20,.82),
+      rgba(5,0,18,.58),
+      rgba(0,5,25,.78)
     );
-    color:#fff;
-    padding:18px 42px;
-    border-radius:50px;
-    font-size:17px;
-    font-weight:900;
-    letter-spacing:2px;
-    cursor:pointer;
-    box-shadow:
-        0 0 15px #ff149f,
-        0 0 40px rgba(117,0,255,.6);
-    transition:.3s;
 }
 
-.explore-btn:hover{
-    transform:scale(1.08);
-    box-shadow:
-        0 0 25px #ff149f,
-        0 0 70px rgba(117,0,255,.9);
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+button,
+input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* ================= HEADER ================= */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:5000;
-    background:rgba(5,0,18,.78);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(255,35,181,.35);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  width:100%;
+  background:rgba(5,0,15,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,0,170,.35);
+  box-shadow:0 0 30px rgba(255,0,170,.12);
 }
 
 .nav{
-    width:min(1400px,94%);
-    margin:auto;
-    min-height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
+  width:min(1250px,94%);
+  margin:auto;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .logo{
-    color:#fff;
-    font-size:25px;
-    font-weight:1000;
-    letter-spacing:4px;
-    text-shadow:
-        0 0 10px #ff1ca8,
-        0 0 25px #7c00ff;
-    white-space:nowrap;
+  font-size:25px;
+  font-weight:1000;
+  letter-spacing:3px;
+  color:#fff;
+  text-shadow:
+    0 0 8px #ff00a8,
+    0 0 22px #ff00a8;
+}
+
+.logo span{
+  color:#ff25bb;
 }
 
 .nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:28px;
 }
 
 .nav-links a{
-    color:#fff;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:1px;
-    transition:.25s;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:1px;
+  transition:.25s;
 }
 
 .nav-links a:hover{
-    color:#ff2db3;
-    text-shadow:0 0 15px #ff2db3;
+  color:#ff2abd;
+  text-shadow:0 0 12px #ff00b7;
 }
 
 .nav-icons{
-    display:flex;
-    gap:10px;
+  display:flex;
+  gap:10px;
 }
 
-.nav-icon{
-    position:relative;
-    width:43px;
-    height:43px;
-    border-radius:12px;
-    border:1px solid rgba(255,40,190,.55);
-    background:rgba(255,255,255,.04);
-    color:#fff;
-    display:grid;
-    place-items:center;
-    cursor:pointer;
-    font-size:20px;
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid #ff28b9;
+  border-radius:10px;
+  background:rgba(255,0,150,.08);
+  color:#fff;
+  font-size:18px;
+  position:relative;
+  box-shadow:0 0 12px rgba(255,0,170,.2);
 }
 
-#cartCount{
-    position:absolute;
-    right:-6px;
-    top:-7px;
-    min-width:19px;
-    height:19px;
-    padding:0 5px;
-    display:grid;
-    place-items:center;
-    border-radius:20px;
-    background:#ff159d;
-    color:#fff;
-    font-size:10px;
-    font-weight:900;
-    box-shadow:0 0 12px #ff159d;
+.cart-badge{
+  position:absolute;
+  top:-7px;
+  right:-7px;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  border-radius:20px;
+  background:#ff149f;
+  color:white;
+  font-size:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
 }
 
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HERO ================= */
 
 .hero{
-    width:min(1400px,94%);
-    margin:0 auto;
-    min-height:650px;
-    display:grid;
-    grid-template-columns:1fr 1.05fr;
-    align-items:center;
-    gap:50px;
-    padding:70px 0;
+  width:min(1250px,94%);
+  margin:55px auto 30px;
+  min-height:560px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:45px;
 }
 
 .hero-tag{
-    color:#ff31b3;
-    letter-spacing:8px;
-    font-weight:900;
-    font-size:14px;
-    margin-bottom:20px;
+  color:#ff29bc;
+  font-weight:1000;
+  letter-spacing:7px;
+  font-size:15px;
+  margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:clamp(45px,6vw,90px);
-    line-height:.94;
-    font-weight:1000;
-    text-transform:uppercase;
-    text-shadow:
-        0 0 20px rgba(255,255,255,.18);
+  font-size:clamp(45px,6vw,82px);
+  line-height:.92;
+  font-weight:1000;
+  letter-spacing:-4px;
+  text-shadow:0 0 25px rgba(255,0,170,.35);
 }
 
 .hero h1 span{
-    color:#ff179e;
-    text-shadow:
-        0 0 15px #ff179e,
-        0 0 40px #7d00ff;
+  color:#ff21b8;
+  text-shadow:
+    0 0 10px #ff00ae,
+    0 0 30px #ff00ae;
 }
 
-.hero-text{
-    max-width:600px;
-    color:#d8d0e4;
-    line-height:1.8;
-    margin:25px 0 30px;
-    font-size:16px;
+.hero p{
+  max-width:570px;
+  margin:25px 0;
+  color:#ddd4e8;
+  line-height:1.7;
+  font-size:16px;
 }
 
 .hero-buttons{
-    display:flex;
-    gap:15px;
-    flex-wrap:wrap;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
 
-.hero-btn{
-    border:1px solid #ff22aa;
-    background:rgba(255,25,170,.10);
-    color:#fff;
-    padding:15px 24px;
-    border-radius:12px;
-    font-weight:900;
-    cursor:pointer;
-    text-decoration:none;
-    transition:.3s;
+.btn{
+  border:1px solid #ff20b6;
+  background:linear-gradient(135deg,#ff159f,#a900ff);
+  color:#fff;
+  padding:15px 22px;
+  border-radius:10px;
+  font-weight:1000;
+  letter-spacing:1px;
+  box-shadow:0 0 22px rgba(255,0,180,.3);
+  transition:.25s;
 }
 
-.hero-btn.primary{
-    background:linear-gradient(135deg,#ff149f,#6800ff);
-    box-shadow:0 0 25px rgba(255,20,159,.35);
+.btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 0 35px rgba(255,0,200,.55);
 }
 
-.hero-btn:hover{
-    transform:translateY(-4px);
+.btn.alt{
+  background:rgba(255,255,255,.04);
 }
 
-/* =========================================================
-   MOVING IMAGE SHOWCASE
-========================================================= */
+/* ================= HERO SHOWCASE ================= */
 
 .showcase{
-    height:570px;
-    border:1px solid rgba(255,31,183,.55);
-    border-radius:32px;
-    background:rgba(4,0,20,.48);
-    backdrop-filter:blur(8px);
-    box-shadow:
-        0 0 30px rgba(255,0,170,.15),
-        inset 0 0 50px rgba(90,0,255,.08);
-    overflow:hidden;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  height:540px;
+  border:1px solid rgba(255,0,180,.6);
+  border-radius:25px;
+  background:rgba(10,4,25,.48);
+  backdrop-filter:blur(8px);
+  box-shadow:
+    0 0 40px rgba(255,0,170,.13),
+    inset 0 0 35px rgba(0,100,255,.06);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.showcase-track{
-    width:90%;
-    height:82%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    position:relative;
+.showcase::before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  background:#ff00ae;
+  filter:blur(120px);
+  opacity:.13;
+  left:-100px;
+  top:20px;
 }
 
-.show-card{
-    width:115px;
-    height:420px;
-    flex-shrink:0;
-    border-radius:28px;
-    overflow:hidden;
-    border:2px solid rgba(0,135,255,.7);
-    background:#0b0920;
-    box-shadow:
-        0 0 15px rgba(0,130,255,.25);
-    opacity:.55;
-    transform:scale(.82);
-    transition:
-        opacity .6s ease,
-        transform .6s ease,
-        width .6s ease;
+.showcase::after{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  background:#006eff;
+  filter:blur(120px);
+  opacity:.15;
+  right:-100px;
+  bottom:0;
 }
 
-.show-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+.hero-product{
+  position:absolute;
+  width:150px;
+  height:410px;
+  border:2px solid rgba(40,160,255,.65);
+  border-radius:24px;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(80px) scale(.78);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+  background:#10091a;
+  box-shadow:
+    0 0 18px rgba(0,120,255,.2),
+    0 0 30px rgba(255,0,170,.08);
 }
 
-.show-card.active{
-    width:155px;
+.hero-product.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  animation:heroPop 4.5s ease-in-out forwards;
+}
+
+@keyframes heroPop{
+  0%{
+    opacity:0;
+    transform:translateY(90px) scale(.72);
+  }
+  12%{
     opacity:1;
-    transform:scale(1);
-    border-color:#ff2aad;
-    box-shadow:
-        0 0 15px #ff2aad,
-        0 0 40px rgba(255,42,173,.4);
-    animation:cardPop 1.2s ease;
+    transform:translateY(0) scale(1.03);
+  }
+  20%{
+    transform:translateY(0) scale(1);
+  }
+  78%{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+  100%{
+    opacity:0;
+    transform:translateY(-90px) scale(.78);
+  }
 }
 
-@keyframes cardPop{
-    0%{
-        opacity:0;
-        transform:scale(.55) translateY(80px);
-    }
-    55%{
-        opacity:1;
-        transform:scale(1.08) translateY(-10px);
-    }
-    100%{
-        transform:scale(1);
-    }
+.hero-product img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-.show-dots{
-    position:absolute;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:12px;
+.hero-product .hero-name{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:18px 10px;
+  text-align:center;
+  font-weight:1000;
+  font-size:13px;
+  background:linear-gradient(transparent,rgba(0,0,0,.9));
 }
 
-.show-dot{
-    width:11px;
-    height:11px;
-    border-radius:50%;
-    background:#eee;
-    opacity:.8;
+.dots{
+  position:absolute;
+  bottom:25px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:center;
+  gap:9px;
+  z-index:5;
 }
 
-.show-dot.active{
-    background:#ff179f;
-    box-shadow:
-        0 0 10px #ff179f,
-        0 0 20px #ff179f;
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#ddd;
+  opacity:.8;
+  transition:.3s;
 }
 
-/* =========================================================
-   SECTION
-========================================================= */
+.dot.active{
+  background:#ff1db2;
+  box-shadow:0 0 15px #ff00b7;
+  transform:scale(1.35);
+}
+
+/* ================= SECTION ================= */
 
 .section{
-    width:min(1400px,94%);
-    margin:auto;
-    padding:80px 0;
+  width:min(1250px,94%);
+  margin:80px auto;
 }
 
 .section-title{
-    margin-bottom:35px;
+  margin-bottom:28px;
 }
 
-.section-kicker{
-    color:#ff2ab0;
-    letter-spacing:6px;
-    font-size:13px;
-    font-weight:900;
-    margin-bottom:8px;
+.section-title small{
+  display:block;
+  color:#ff20b6;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:5px;
+  margin-bottom:9px;
 }
 
 .section-title h2{
-    font-size:clamp(30px,4vw,50px);
-    font-weight:1000;
+  font-size:38px;
+  font-weight:1000;
 }
 
 .section-title p{
-    color:#aaa1b7;
-    margin-top:8px;
+  color:#bcb2c9;
+  margin-top:8px;
 }
 
-/* =========================================================
-   PRODUCT GRID
-========================================================= */
+/* ================= PRODUCTS ================= */
 
 .product-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
 }
 
 .product-card{
-    border:1px solid rgba(255,28,174,.38);
-    background:rgba(7,3,24,.66);
-    border-radius:22px;
-    overflow:hidden;
-    cursor:pointer;
-    transition:.35s;
-    position:relative;
+  min-height:260px;
+  position:relative;
+  border:1px solid rgba(255,20,175,.5);
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(10,5,22,.68);
+  transition:.3s;
+  cursor:pointer;
+  box-shadow:0 0 18px rgba(255,0,180,.06);
 }
 
 .product-card:hover{
-    transform:translateY(-8px);
-    border-color:#ff28ad;
-    box-shadow:
-        0 0 20px rgba(255,28,174,.22),
-        0 0 45px rgba(75,0,255,.15);
+  transform:translateY(-7px);
+  border-color:#ff22b8;
+  box-shadow:
+    0 0 25px rgba(255,0,190,.25),
+    0 0 45px rgba(0,100,255,.08);
 }
 
-.product-image{
-    width:100%;
-    height:220px;
-    overflow:hidden;
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,0,190,.2),
-            rgba(15,5,30,.95)
-        );
-}
-
-.product-image img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-    transition:.45s;
-}
-
-.product-card:hover .product-image img{
-    transform:scale(1.08);
-}
-
-.product-no-image{
-    width:100%;
-    height:100%;
-    display:grid;
-    place-items:center;
-    font-size:50px;
-    color:#ff2ab0;
-    text-shadow:0 0 25px #ff2ab0;
+.product-card img{
+  width:100%;
+  height:205px;
+  object-fit:cover;
+  display:block;
 }
 
 .product-info{
-    padding:18px;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:28px 15px 15px;
+  background:linear-gradient(
+    transparent,
+    rgba(5,1,14,.96) 42%
+  );
 }
 
 .product-info h3{
-    font-size:17px;
-    margin-bottom:7px;
+  font-size:16px;
+  font-weight:1000;
 }
 
-.product-type{
-    color:#ff32b4;
-    font-size:11px;
-    font-weight:900;
-    letter-spacing:1px;
+.product-info span{
+  color:#ff27b9;
+  font-size:11px;
+  font-weight:bold;
 }
 
-.tap-label{
-    margin-top:13px;
-    color:#aaa;
-    font-size:11px;
-    font-weight:700;
+/* ================= DEALS ================= */
+
+.deals-box{
+  border:1px solid #ff1caf;
+  border-radius:20px;
+  padding:30px;
+  background:rgba(8,2,20,.7);
+  box-shadow:0 0 30px rgba(255,0,170,.1);
 }
 
-/* =========================================================
-   DEALS
-========================================================= */
-
-.deal-box{
-    border:1px solid #ff2bad;
-    border-radius:25px;
-    padding:30px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,0,170,.13),
-            rgba(77,0,255,.12)
-        );
-    box-shadow:
-        0 0 30px rgba(255,0,170,.12);
+.deal-main{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
 
-.deal-box h2{
-    font-size:34px;
-    margin-bottom:10px;
+.deal-main h2{
+  font-size:35px;
+  font-weight:1000;
 }
 
-.deal-box h2 span{
-    color:#ff20aa;
+.deal-main h2 span{
+  color:#ff22b8;
 }
 
-.deal-box p{
-    color:#c5bdce;
-    line-height:1.7;
+.deal-main p{
+  color:#bbb;
+  margin-top:8px;
 }
 
-/* =========================================================
-   PAYMENT
-========================================================= */
+.deal-badge{
+  min-width:125px;
+  height:125px;
+  border-radius:50%;
+  border:2px solid #ff20b6;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-weight:1000;
+  color:#ff30bd;
+  box-shadow:0 0 30px rgba(255,0,190,.25);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.06);
+    box-shadow:0 0 45px rgba(255,0,190,.45);
+  }
+}
+
+/* ================= FEATURES ================= */
+
+.feature-grid{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.feature{
+  border:1px solid rgba(255,0,170,.35);
+  background:rgba(8,3,20,.68);
+  padding:22px;
+  border-radius:15px;
+}
+
+.feature strong{
+  display:block;
+  margin-bottom:8px;
+  color:#fff;
+}
+
+.feature p{
+  color:#aaa;
+  font-size:13px;
+  line-height:1.6;
+}
+
+/* ================= PAYMENT ================= */
 
 .payment-box{
-    border:1px solid rgba(255,32,177,.5);
-    border-radius:25px;
-    padding:35px;
-    background:rgba(8,2,25,.7);
+  border:1px solid rgba(255,0,180,.6);
+  border-radius:20px;
+  padding:30px;
+  background:rgba(8,2,20,.72);
 }
 
-.payment-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    margin-top:25px;
+.payment-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
 }
 
 .payment-item{
-    padding:22px;
-    border-radius:17px;
-    border:1px solid rgba(255,32,177,.3);
-    background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,0,180,.35);
+  padding:20px;
+  border-radius:13px;
 }
 
 .payment-item small{
-    display:block;
-    color:#aaa;
-    margin-bottom:8px;
+  color:#a99;
+  display:block;
+  margin-bottom:7px;
 }
 
 .payment-item strong{
-    color:#ff30b0;
-    font-size:20px;
+  color:#ff25b9;
+  font-size:19px;
 }
 
-/* =========================================================
-   CONTACT
-========================================================= */
+/* ================= CONTACT ================= */
 
 .contact-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
 }
 
 .contact-box{
-    border:1px solid rgba(255,32,177,.4);
-    border-radius:24px;
-    padding:30px;
-    background:rgba(8,2,25,.7);
+  border:1px solid rgba(255,0,180,.45);
+  border-radius:18px;
+  padding:30px;
+  background:rgba(8,2,20,.7);
 }
 
 .contact-box h3{
-    margin-bottom:12px;
+  font-size:25px;
+  margin-bottom:10px;
 }
 
 .contact-box p{
-    color:#aaa;
-    line-height:1.7;
+  color:#aaa;
+  line-height:1.7;
+  margin-bottom:20px;
 }
 
-.contact-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:13px 20px;
-    border-radius:10px;
-    background:linear-gradient(135deg,#ff159e,#7000ff);
-    color:#fff;
-    text-decoration:none;
-    font-weight:900;
-}
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
-    border-top:1px solid rgba(255,30,180,.25);
-    padding:35px 5%;
-    text-align:center;
-    color:#888;
-    background:rgba(3,0,12,.7);
+  margin-top:80px;
+  padding:30px 5%;
+  text-align:center;
+  border-top:1px solid rgba(255,0,180,.3);
+  color:#9b91a5;
+  background:rgba(3,0,10,.75);
 }
 
-/* =========================================================
-   PRODUCT MODAL
-========================================================= */
+footer strong{
+  color:#ff21b7;
+}
+
+/* ================= PRODUCT MODAL ================= */
 
 .modal{
-    position:fixed;
-    inset:0;
-    z-index:8000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.76);
-    backdrop-filter:blur(12px);
+  position:fixed;
+  inset:0;
+  z-index:3000;
+  background:rgba(0,0,0,.78);
+  backdrop-filter:blur(12px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
 }
 
 .modal.show{
-    display:flex;
+  display:flex;
 }
 
 .modal-box{
-    width:min(900px,100%);
-    max-height:92vh;
-    overflow-y:auto;
-    border:1px solid #ff2bad;
-    border-radius:25px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(17,5,31,.98),
-            rgba(5,4,27,.98)
-        );
-    box-shadow:
-        0 0 35px rgba(255,20,170,.3),
-        0 0 80px rgba(80,0,255,.18);
-    padding:28px;
-    position:relative;
+  width:min(850px,96%);
+  max-height:92vh;
+  overflow-y:auto;
+  border:1px solid #ff20b8;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28,5,35,.97),
+      rgba(5,5,25,.98)
+    );
+  box-shadow:
+    0 0 50px rgba(255,0,180,.25),
+    0 0 90px rgba(0,80,255,.1);
+  padding:25px;
+  position:relative;
 }
 
 .close{
-    position:absolute;
-    right:18px;
-    top:15px;
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    border:1px solid #ff2aad;
-    background:transparent;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
+  position:absolute;
+  top:15px;
+  right:17px;
+  width:38px;
+  height:38px;
+  border:1px solid #ff25b9;
+  border-radius:10px;
+  background:transparent;
+  color:white;
+  font-size:20px;
 }
 
-.modal-product{
-    display:grid;
-    grid-template-columns:220px 1fr;
-    gap:25px;
+.modal-top{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  margin-bottom:25px;
+  padding-right:50px;
 }
 
 .modal-image{
-    height:220px;
-    border-radius:18px;
-    overflow:hidden;
-    border:1px solid rgba(255,35,180,.5);
+  width:120px;
+  height:120px;
+  border-radius:16px;
+  object-fit:cover;
+  border:1px solid #ff23b8;
 }
 
-.modal-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.modal-top h2{
+  font-size:28px;
+  font-weight:1000;
 }
 
-.modal-title{
-    padding-top:10px;
+.modal-top p{
+  color:#ff28ba;
+  margin-top:6px;
+  font-weight:bold;
 }
 
-.modal-title h2{
-    font-size:32px;
-}
-
-.modal-title p{
-    color:#ff2db0;
-    margin-top:8px;
-    font-weight:900;
-}
+/* ================= PACKAGES ================= */
 
 .package-title{
-    margin-top:30px;
-    margin-bottom:15px;
-    font-size:14px;
-    font-weight:900;
+  margin-bottom:14px;
+  font-size:15px;
+  letter-spacing:1px;
 }
 
 .packages{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:22px;
 }
 
 .package{
-    border:1px solid rgba(255,38,180,.38);
-    border-radius:14px;
-    padding:17px;
-    background:rgba(255,255,255,.025);
-    cursor:pointer;
-    transition:.25s;
+  border:1px solid rgba(255,30,180,.38);
+  border-radius:13px;
+  padding:17px;
+  background:rgba(255,255,255,.035);
+  color:white;
+  text-align:left;
+  transition:.2s;
 }
 
-.package:hover,
+.package:hover{
+  border-color:#ff20b7;
+}
+
 .package.selected{
-    border-color:#ff2aad;
-    background:rgba(255,20,170,.08);
-    box-shadow:0 0 15px rgba(255,20,170,.15);
+  border-color:#ff20b7;
+  background:rgba(255,0,170,.12);
+  box-shadow:0 0 18px rgba(255,0,180,.18);
 }
 
-.package-name{
-    display:block;
-    font-size:16px;
-    font-weight:900;
+.package strong{
+  display:block;
+  font-size:16px;
 }
 
-.package-price{
-    display:block;
-    margin-top:7px;
-    color:#ff2ab0;
-    font-weight:900;
+.package span{
+  display:block;
+  color:#ff27b9;
+  margin-top:7px;
+  font-weight:1000;
 }
+
+/* ================= INPUTS ================= */
 
 .form-label{
-    display:block;
-    margin:22px 0 8px;
-    font-size:13px;
-    font-weight:900;
+  display:block;
+  margin:16px 0 7px;
+  font-size:13px;
+  font-weight:1000;
 }
 
-.input{
-    width:100%;
-    border:1px solid rgba(255,35,180,.4);
-    background:rgba(255,255,255,.035);
-    color:#fff;
-    border-radius:12px;
-    padding:15px;
-    outline:none;
+input{
+  width:100%;
+  height:50px;
+  border:1px solid rgba(255,30,180,.4);
+  border-radius:10px;
+  background:rgba(255,255,255,.045);
+  color:white;
+  padding:0 15px;
+  outline:none;
 }
 
-.input:focus{
-    border-color:#ff2aad;
-    box-shadow:0 0 12px rgba(255,42,173,.15);
+input:focus{
+  border-color:#ff22b9;
+  box-shadow:0 0 15px rgba(255,0,180,.15);
 }
 
-.qty-row{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-top:20px;
+.quantity{
+  margin-top:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:15px;
+  border:1px solid rgba(255,30,180,.3);
+  border-radius:12px;
 }
 
-.qty-btn{
-    width:42px;
-    height:42px;
-    border-radius:10px;
-    border:1px solid #ff2aad;
-    background:transparent;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
+.quantity-controls{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.quantity-controls button{
+  width:38px;
+  height:38px;
+  border:1px solid #ff20b7;
+  border-radius:10px;
+  background:transparent;
+  color:white;
+  font-size:20px;
 }
 
 .qty-number{
-    min-width:30px;
-    text-align:center;
-    font-weight:900;
+  min-width:25px;
+  text-align:center;
+  font-weight:1000;
 }
 
 .total{
-    margin-top:20px;
-    padding:20px;
-    border-radius:14px;
-    background:rgba(255,20,170,.07);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  margin-top:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-radius:12px;
+  background:rgba(255,0,170,.08);
+  border:1px solid rgba(255,0,170,.3);
 }
 
 .total strong{
-    color:#ff2ab0;
-    font-size:22px;
+  color:#ff25b9;
+  font-size:22px;
 }
 
 .send-btn{
-    width:100%;
-    margin-top:20px;
-    border:0;
-    border-radius:13px;
-    padding:17px;
-    background:linear-gradient(135deg,#ff149f,#7000ff);
-    color:#fff;
-    font-size:15px;
-    font-weight:1000;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(255,20,159,.25);
+  width:100%;
+  margin-top:18px;
+  height:55px;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(90deg,#ff0d9d,#9b00ff);
+  color:white;
+  font-weight:1000;
+  font-size:15px;
+  letter-spacing:1px;
+  box-shadow:0 0 25px rgba(255,0,180,.25);
 }
 
-/* =========================================================
-   THANK YOU POPUP
-========================================================= */
+/* ================= POPUPS ================= */
 
 .popup{
-    position:fixed;
-    inset:0;
-    z-index:10000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.75);
-    backdrop-filter:blur(10px);
+  position:fixed;
+  inset:0;
+  z-index:5000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+  padding:20px;
 }
 
 .popup.show{
-    display:flex;
+  display:flex;
 }
 
 .popup-box{
-    width:min(500px,100%);
-    text-align:center;
-    border:1px solid #ff29ad;
-    border-radius:25px;
-    padding:40px 25px;
-    background:#09031a;
-    box-shadow:
-        0 0 30px rgba(255,20,170,.35);
-    animation:popupIn .4s ease;
+  width:min(450px,94%);
+  text-align:center;
+  border:1px solid #ff20b8;
+  border-radius:22px;
+  padding:35px 25px;
+  background:linear-gradient(145deg,#19051e,#050516);
+  box-shadow:0 0 50px rgba(255,0,190,.25);
+  animation:popupIn .45s ease;
 }
 
 @keyframes popupIn{
-    from{
-        opacity:0;
-        transform:scale(.7);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.popup-icon{
-    font-size:55px;
-    margin-bottom:15px;
+  from{
+    opacity:0;
+    transform:scale(.7) translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
 }
 
 .popup-box h2{
-    margin-bottom:12px;
+  color:#ff24b9;
+  margin-bottom:12px;
 }
 
 .popup-box p{
-    color:#bbb;
-    line-height:1.6;
+  color:#bbb;
+  line-height:1.6;
+  margin-bottom:22px;
 }
 
-.popup-btn{
-    margin-top:25px;
-    padding:14px 25px;
-    border:0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#ff159e,#7100ff);
-    color:#fff;
-    font-weight:900;
-    cursor:pointer;
+/* ================= WELCOME ================= */
+
+#welcomePopup{
+  display:flex;
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+#welcomePopup.hide{
+  display:none;
+}
 
-@media(max-width:1100px){
+.welcome-logo{
+  font-size:48px;
+  font-weight:1000;
+  letter-spacing:7px;
+  margin-bottom:10px;
+  text-shadow:
+    0 0 15px #ff00ae,
+    0 0 35px #ff00ae;
+}
 
-    .hero{
-        grid-template-columns:1fr;
-        padding-top:45px;
-    }
+.welcome-logo span{
+  color:#ff20b8;
+}
 
-    .hero-copy{
-        text-align:center;
-    }
+/* ================= RESPONSIVE ================= */
 
-    .hero-text{
-        margin-left:auto;
-        margin-right:auto;
-    }
+@media(max-width:1000px){
 
-    .hero-buttons{
-        justify-content:center;
-    }
+  .nav{
+    min-height:65px;
+  }
 
-    .showcase{
-        height:480px;
-    }
+  .nav-links{
+    gap:13px;
+  }
 
-    .show-card{
-        width:90px;
-        height:350px;
-    }
+  .nav-links a{
+    font-size:11px;
+  }
 
-    .show-card.active{
-        width:125px;
-    }
+  .hero{
+    grid-template-columns:1fr;
+    margin-top:35px;
+  }
 
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
+  .showcase{
+    height:480px;
+  }
 
-    .nav-links{
-        gap:15px;
-    }
+  .product-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
 }
 
 @media(max-width:700px){
 
-    .nav{
-        min-height:68px;
-    }
+  body{
+    background-attachment:scroll;
+  }
 
-    .logo{
-        font-size:18px;
-        letter-spacing:2px;
-    }
+  .nav{
+    flex-wrap:wrap;
+    padding:10px 0;
+  }
 
-    .nav-links{
-        display:none;
-    }
+  .logo{
+    font-size:19px;
+  }
 
-    .hero{
-        width:92%;
-        min-height:auto;
-        padding:45px 0;
-    }
+  .nav-links{
+    width:100%;
+    order:3;
+    overflow-x:auto;
+    justify-content:flex-start;
+    padding-bottom:4px;
+  }
 
-    .hero h1{
-        font-size:48px;
-    }
+  .nav-links a{
+    white-space:nowrap;
+  }
 
-    .showcase{
-        height:380px;
-        border-radius:22px;
-    }
+  .hero{
+    width:92%;
+    min-height:auto;
+    gap:25px;
+  }
 
-    .showcase-track{
-        gap:7px;
-    }
+  .hero h1{
+    font-size:50px;
+  }
 
-    .show-card{
-        width:55px;
-        height:270px;
-        border-radius:16px;
-    }
+  .showcase{
+    height:390px;
+  }
 
-    .show-card.active{
-        width:95px;
-    }
+  .hero-product{
+    width:105px;
+    height:295px;
+  }
 
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:12px;
-    }
+  .product-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    .product-image{
-        height:155px;
-    }
+  .product-card{
+    min-height:220px;
+  }
 
-    .product-info{
-        padding:13px;
-    }
+  .product-card img{
+    height:170px;
+  }
 
-    .product-info h3{
-        font-size:14px;
-    }
+  .feature-grid,
+  .payment-row,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
 
-    .modal-product{
-        grid-template-columns:1fr;
-    }
+  .deal-main{
+    flex-direction:column;
+    align-items:flex-start;
+  }
 
-    .modal-image{
-        height:190px;
-    }
+  .packages{
+    grid-template-columns:1fr;
+  }
 
-    .packages{
-        grid-template-columns:1fr;
-    }
+  .modal-box{
+    padding:18px;
+  }
 
-    .payment-grid,
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
+  .modal-top{
+    align-items:flex-start;
+  }
 
-    .section{
-        padding:55px 0;
-    }
+  .modal-image{
+    width:90px;
+    height:90px;
+  }
+
+  .modal-top h2{
+    font-size:21px;
+  }
 }
 
-@media(max-width:420px){
+@media(max-width:430px){
 
-    .product-grid{
-        grid-template-columns:1fr 1fr;
-    }
+  .product-grid{
+    gap:10px;
+  }
 
-    .product-image{
-        height:135px;
-    }
+  .product-card{
+    min-height:190px;
+  }
 
-    .show-card{
-        width:45px;
-    }
+  .product-card img{
+    height:140px;
+  }
 
-    .show-card.active{
-        width:78px;
-    }
+  .product-info{
+    padding:22px 9px 10px;
+  }
+
+  .product-info h3{
+    font-size:13px;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ======================================================
-     ENTER SCREEN
-====================================================== -->
-
-<div id="entrance">
-    <div class="entrance-content">
-        <div class="entrance-logo">DARK</div>
-        <div class="entrance-sub">DIGITAL GAMING STORE</div>
-
-        <button class="explore-btn" onclick="enterStore()">
-            EXPLORE TO ENTER →
-        </button>
-    </div>
-</div>
-
-<!-- ======================================================
-     HEADER
-====================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header>
-    <div class="nav">
+  <div class="nav">
 
-        <div class="logo">DARK</div>
+    <a href="#home" class="logo">
+      DARK<span>.</span>
+    </a>
 
-        <nav class="nav-links">
-            <a href="#home">HOME</a>
-            <a href="#products">GAMING</a>
-            <a href="#deals">DEALS</a>
-            <a href="#payment">PAYMENT</a>
-            <a href="#contact">CONTACT</a>
-        </nav>
+    <nav class="nav-links">
+      <a href="#home">HOME</a>
+      <a href="#products">GAMING</a>
+      <a href="#deals">DEALS</a>
+      <a href="#payment">PAYMENT</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
 
-        <div class="nav-icons">
+    <div class="nav-icons">
+      <button class="icon-btn" onclick="goContact()">🛒
+        <span class="cart-badge" id="cartCount">0</span>
+      </button>
 
-            <button class="nav-icon" onclick="scrollToSection('products')">
-                🛒
-                <span id="cartCount">0</span>
-            </button>
-
-            <button class="nav-icon" onclick="scrollToSection('contact')">
-                👤
-            </button>
-
-        </div>
-
+      <button class="icon-btn" onclick="goContact()">👤</button>
     </div>
+
+  </div>
 </header>
 
-<!-- ======================================================
-     HERO
-====================================================== -->
+
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="home">
 
-    <div class="hero-copy">
+  <div>
 
-        <div class="hero-tag">DARK GAMING</div>
+    <div class="hero-tag">DARK GAMING</div>
 
-        <h1>
-            LEVEL<br>
-            <span>UP.</span>
-        </h1>
+    <h1>
+      LEVEL<br>
+      <span>UP.</span>
+    </h1>
 
-        <p class="hero-text">
-            Welcome to DARK DIGITAL GAMING — your destination
-            for gaming top-ups, gift cards and digital products.
-            Choose your product, select your package and order
-            directly.
-        </p>
+    <p>
+      Welcome to DARK DIGITAL GAMING — your destination
+      for gaming top-ups, gift cards, digital products and
+      exclusive deals. Choose your product, select your
+      package and order directly.
+    </p>
 
-        <div class="hero-buttons">
-
-            <a href="#products" class="hero-btn primary">
-                EXPLORE GAMING →
-            </a>
-
-            <a href="#contact" class="hero-btn">
-                CONTACT DARK
-            </a>
-
-        </div>
-
+    <div class="hero-buttons">
+      <a href="#products" class="btn">EXPLORE GAMING →</a>
+      <a href="#contact" class="btn alt">CONTACT DARK</a>
     </div>
 
-    <!-- MOVING PRODUCT IMAGE SHOWCASE -->
+  </div>
 
-    <div class="showcase">
 
-        <div class="showcase-track" id="showcaseTrack"></div>
+  <!-- MOVING PRODUCTS -->
 
-        <div class="show-dots" id="showDots"></div>
+  <div class="showcase" id="showcase">
 
+    <div class="hero-product active">
+      <img src="images/IMG_0235.jpeg" alt="Roblox">
+      <div class="hero-name">ROBLOX</div>
     </div>
+
+    <div class="hero-product">
+      <img src="images/IMG_0234.jpeg" alt="Amazon">
+      <div class="hero-name">AMAZON</div>
+    </div>
+
+    <div class="hero-product">
+      <img src="images/IMG_0233.jpeg" alt="Binance">
+      <div class="hero-name">BINANCE</div>
+    </div>
+
+    <div class="hero-product">
+      <img src="images/IMG_0237.jpeg" alt="Razer Gold">
+      <div class="hero-name">RAZER GOLD</div>
+    </div>
+
+    <div class="hero-product">
+      <img src="images/IMG_0240.jpeg" alt="Blood Strike">
+      <div class="hero-name">BLOOD STRIKE</div>
+    </div>
+
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- ======================================================
-     PRODUCTS
-====================================================== -->
+
+<!-- ================= PRODUCTS ================= -->
 
 <section class="section" id="products">
 
-    <div class="section-title">
-        <div class="section-kicker">DARK STORE</div>
-        <h2>CHOOSE YOUR PRODUCT</h2>
-        <p>Tap a product to see available packages.</p>
-    </div>
+  <div class="section-title">
+    <small>DARK STORE</small>
+    <h2>GAMING & DIGITAL</h2>
+    <p>Select a product to view packages and prices.</p>
+  </div>
 
-    <div class="product-grid" id="productGrid"></div>
+  <div class="product-grid" id="productGrid"></div>
 
 </section>
 
-<!-- ======================================================
-     DEALS
-====================================================== -->
+
+<!-- ================= DEALS ================= -->
 
 <section class="section" id="deals">
 
-    <div class="deal-box">
+  <div class="section-title">
+    <small>EXCLUSIVE</small>
+    <h2>DARK DEALS</h2>
+  </div>
 
-        <h2>
-            5 PURCHASES =
-            <span>FREE!</span>
-        </h2>
+  <div class="deals-box">
 
+    <div class="deal-main">
+
+      <div>
+        <h2>5 PURCHASES = <span>FREE!</span></h2>
         <p>
-            Buy from DARK five times using the same Gamer ID,
-            account or profile and unlock a free gaming
-            top-up reward.
+          Keep buying from DARK using the same Gamer ID
+          and unlock your free gaming top-up reward.
         </p>
+      </div>
+
+      <div class="deal-badge">
+        5<br>PURCHASES
+      </div>
 
     </div>
 
+    <div class="feature-grid">
+
+      <div class="feature">
+        <strong>⚡ FAST DELIVERY</strong>
+        <p>
+          Orders are processed quickly after payment
+          confirmation.
+        </p>
+      </div>
+
+      <div class="feature">
+        <strong>🎮 GAMER FOCUSED</strong>
+        <p>
+          Gaming top-ups and digital products built for
+          gamers.
+        </p>
+      </div>
+
+      <div class="feature">
+        <strong>💎 DARK REWARDS</strong>
+        <p>
+          Make five purchases using the same account
+          details and unlock a reward.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<!-- ======================================================
-     PAYMENT
-====================================================== -->
+
+<!-- ================= PAYMENT ================= -->
 
 <section class="section" id="payment">
 
-    <div class="section-title">
-        <div class="section-kicker">PAYMENT</div>
-        <h2>MMG PAYMENT</h2>
-        <p>Complete your payment before sending your order.</p>
+  <div class="section-title">
+    <small>PAYMENT</small>
+    <h2>HOW TO PAY</h2>
+  </div>
+
+  <div class="payment-box">
+
+    <p>
+      Select your package, complete your payment and
+      enter your transaction ID when placing your order.
+    </p>
+
+    <div class="payment-row">
+
+      <div class="payment-item">
+        <small>METHOD</small>
+        <strong>MMG</strong>
+      </div>
+
+      <div class="payment-item">
+        <small>NUMBER</small>
+        <strong>762-6433</strong>
+      </div>
+
+      <div class="payment-item">
+        <small>MERCHANT</small>
+        <strong>CASSIA</strong>
+      </div>
+
     </div>
 
-    <div class="payment-box">
-
-        <div class="payment-grid">
-
-            <div class="payment-item">
-                <small>METHOD</small>
-                <strong>MMG</strong>
-            </div>
-
-            <div class="payment-item">
-                <small>NUMBER</small>
-                <strong>762-6433</strong>
-            </div>
-
-            <div class="payment-item">
-                <small>MERCHANT</small>
-                <strong>CASSIA</strong>
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
-<!-- ======================================================
-     CONTACT
-====================================================== -->
+
+<!-- ================= CONTACT ================= -->
 
 <section class="section" id="contact">
 
-    <div class="section-title">
-        <div class="section-kicker">CONTACT DARK</div>
-        <h2>READY TO ORDER?</h2>
-        <p>Send your order directly to DARK.</p>
+  <div class="section-title">
+    <small>CONTACT</small>
+    <h2>CONTACT DARK</h2>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-box">
+      <h3>WhatsApp</h3>
+      <p>
+        Have a question about an order or product?
+        Contact DARK directly.
+      </p>
+
+      <a
+        class="btn"
+        href="https://wa.me/13436555995"
+        target="_blank"
+      >
+        WHATSAPP DARK →
+      </a>
     </div>
 
-    <div class="contact-grid">
+    <div class="contact-box">
+      <h3>Need Help?</h3>
+      <p>
+        Send your order information and transaction
+        details so we can help process your purchase.
+      </p>
 
-        <div class="contact-box">
-            <h3>WHATSAPP</h3>
-            <p>
-                Contact DARK through WhatsApp for your order
-                and payment confirmation.
-            </p>
-
-            <a
-                class="contact-btn"
-                href="https://wa.me/13436555995"
-                target="_blank"
-            >
-                OPEN WHATSAPP →
-            </a>
-        </div>
-
-        <div class="contact-box">
-            <h3>DARK SUPPORT</h3>
-            <p>
-                Need help selecting a package?
-                Contact DARK and we'll help you with your order.
-            </p>
-
-            <a
-                class="contact-btn"
-                href="https://wa.me/5927002769"
-                target="_blank"
-            >
-                CONTACT DARK →
-            </a>
-        </div>
-
+      <a
+        class="btn alt"
+        href="https://wa.me/5927002769"
+        target="_blank"
+      >
+        CHAT NOW →
+      </a>
     </div>
+
+  </div>
 
 </section>
 
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
-    ©️ 2026 DARK • Digital Gaming Store • Guyana
+  ©️ 2026 <strong>DARK</strong> • Digital Gaming Store • Guyana
 </footer>
 
-<!-- ======================================================
-     PRODUCT MODAL
-====================================================== -->
+
+<!-- ================= PRODUCT MODAL ================= -->
 
 <div class="modal" id="productModal">
 
-    <div class="modal-box">
+  <div class="modal-box">
 
-        <button class="close" onclick="closeProduct()">×</button>
+    <button class="close" onclick="closeProduct()">×</button>
 
-        <div class="modal-product">
+    <div class="modal-top">
 
-            <div class="modal-image">
-                <img id="modalImage" src="" alt="">
-            </div>
+      <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt=""
+      >
 
-            <div class="modal-title">
-                <h2 id="modalName"></h2>
-                <p id="modalType"></p>
-            </div>
-
-        </div>
-
-        <div class="package-title">
-            SELECT YOUR PACKAGE
-        </div>
-
-        <div class="packages" id="packages"></div>
-
-        <label class="form-label" id="playerLabel">
-            GAMER ID / USERNAME
-        </label>
-
-        <input
-            class="input"
-            id="playerInput"
-            type="text"
-            placeholder="Enter Gamer ID or Username"
-        >
-
-        <label class="form-label">
-            MMG TRANSACTION ID
-        </label>
-
-        <input
-            class="input"
-            id="mmgInput"
-            type="text"
-            placeholder="Enter MMG Transaction ID"
-        >
-
-        <div class="qty-row">
-
-            <strong>QUANTITY</strong>
-
-            <button class="qty-btn" onclick="changeQty(-1)">
-                −
-            </button>
-
-            <div class="qty-number" id="qtyNumber">
-                1
-            </div>
-
-            <button class="qty-btn" onclick="changeQty(1)">
-                +
-            </button>
-
-        </div>
-
-        <div class="total">
-            <strong>TOTAL</strong>
-            <strong id="totalPrice">GYD $0</strong>
-        </div>
-
-        <button class="send-btn" onclick="sendOrder()">
-            SEND ORDER →
-        </button>
+      <div>
+        <h2 id="modalName"></h2>
+        <p id="modalType"></p>
+      </div>
 
     </div>
 
-</div>
+    <div class="package-title">
+      SELECT YOUR PACKAGE
+    </div>
 
-<!-- ======================================================
-     THANK YOU POPUP
-====================================================== -->
+    <div class="packages" id="packageList"></div>
 
-<div class="popup" id="thankPopup">
+    <label class="form-label" id="playerLabel">
+      GAMER ID / USERNAME
+    </label>
 
-    <div class="popup-box">
+    <input
+      id="playerInput"
+      type="text"
+      placeholder="Enter Gamer ID or Username"
+    >
 
-        <div class="popup-icon">✅</div>
+    <label class="form-label">
+      MMG TRANSACTION ID
+    </label>
 
-        <h2>ORDER READY!</h2>
+    <input
+      id="transactionInput"
+      type="text"
+      placeholder="Enter MMG Transaction ID"
+    >
 
-        <p>
-            Your order has been prepared.
-            Continue to WhatsApp to send it to DARK.
-        </p>
+    <div class="quantity">
 
-        <button class="popup-btn" onclick="continueWhatsApp()">
-            CONTINUE TO WHATSAPP →
-        </button>
+      <strong>QUANTITY</strong>
+
+      <div class="quantity-controls">
+
+        <button onclick="changeQty(-1)">−</button>
+
+        <span class="qty-number" id="quantity">1</span>
+
+        <button onclick="changeQty(1)">+</button>
+
+      </div>
 
     </div>
 
+    <div class="total">
+
+      <strong>TOTAL</strong>
+
+      <strong id="totalPrice">GYD $0</strong>
+
+    </div>
+
+    <button class="send-btn" onclick="sendOrder()">
+      SEND ORDER →
+    </button>
+
+  </div>
+
 </div>
 
-<!-- ======================================================
-     REWARD POPUP
-====================================================== -->
+
+<!-- ================= THANK YOU ================= -->
+
+<div class="popup" id="thankyouPopup">
+
+  <div class="popup-box">
+
+    <div style="font-size:50px;">✓</div>
+
+    <h2>ORDER READY!</h2>
+
+    <p>
+      Your order has been prepared.
+      You will now continue to WhatsApp DARK.
+    </p>
+
+    <button class="btn" onclick="continueWhatsApp()">
+      CONTINUE TO WHATSAPP →
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= REWARD ================= -->
 
 <div class="popup" id="rewardPopup">
 
-    <div class="popup-box">
+  <div class="popup-box">
 
-        <div class="popup-icon">🎁</div>
+    <div style="font-size:50px;">🎁</div>
 
-        <h2>YOU UNLOCKED A REWARD!</h2>
+    <h2>DARK REWARD UNLOCKED!</h2>
 
-        <p>
-            You reached another 5 purchases with the same
-            account/profile. Your DARK reward is unlocked.
-        </p>
+    <p>
+      Congratulations! You've reached another
+      5-purchase milestone.
+    </p>
 
-        <button class="popup-btn" onclick="closeReward()">
-            AWESOME →
-        </button>
+    <button
+      class="btn"
+      onclick="closeReward()"
+    >
+      AWESOME!
+    </button>
 
-    </div>
+  </div>
 
 </div>
+
+
+<!-- ================= WELCOME ================= -->
+
+<div class="popup" id="welcomePopup">
+
+  <div class="popup-box">
+
+    <div class="welcome-logo">
+      DARK<span>.</span>
+    </div>
+
+    <h2>WELCOME TO DARK STORE</h2>
+
+    <p>
+      Gaming top-ups. Gift cards. Digital products.
+      Everything you need, all in one place.
+    </p>
+
+    <button
+      class="btn"
+      onclick="enterStore()"
+    >
+      EXPLORE DARK STORE →
+    </button>
+
+  </div>
+
+</div>
+
 
 <script>
 
@@ -1452,398 +1466,296 @@ footer{
 
 const products = [
 
-    {
-        name:"Facebook Stars",
-        type:"Stars",
-        img:"images/IMG_0229.jpeg",
-        packages:[
-            ["50 Stars","300"],
-            ["100 Stars","600"],
-            ["500 Stars","2,500"],
-            ["1,000 Stars","4,500"]
-        ]
-    },
+  {
+    name:"Facebook Stars",
+    type:"Stars",
+    img:"images/IMG_0229.jpeg",
+    packages:[
+      ["100 Stars","300"],
+      ["500 Stars","1,200"],
+      ["1,000 Stars","2,300"],
+      ["5,000 Stars","10,000"]
+    ]
+  },
 
-    {
-        name:"TikTok",
-        type:"Coins",
-        img:"images/IMG_0236.jpeg",
-        packages:[
-            ["30 Coins","300"],
-            ["350 Coins","1,200"],
-            ["700 Coins","2,000"],
-            ["1,400 Coins","4,500"],
-            ["3,500 Coins","10,000"],
-            ["7,000 Coins","20,000"],
-            ["17,500 Coins","42,000"]
-        ]
-    },
+  {
+    name:"TikTok",
+    type:"Coins",
+    img:"images/IMG_0236.jpeg",
+    packages:[
+      ["30 Coins","300"],
+      ["350 Coins","1,200"],
+      ["700 Coins","2,000"],
+      ["1,400 Coins","4,500"],
+      ["3,500 Coins","10,000"],
+      ["7,000 Coins","20,000"],
+      ["17,500 Coins","42,000"]
+    ]
+  },
 
-    {
-        name:"Google Play Gift Card",
-        type:"Gift Card",
-        img:"images/IMG_0229.jpeg",
-        packages:[
-            ["$10 USD","2,800"],
-            ["$25 USD","6,000"],
-            ["$50 USD","12,000"],
-            ["$100 USD","23,700"]
-        ]
-    },
+  {
+    name:"Google Play Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0236.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$25 USD","6,000"],
+      ["$50 USD","12,000"],
+      ["$100 USD","23,700"]
+    ]
+  },
 
-    {
-        name:"Amazon Gift Card",
-        type:"Gift Card",
-        img:"images/amazon.jpg",
-        packages:[
-            ["$10 USD","2,500"],
-            ["$20 USD","4,800"],
-            ["$25 USD","6,000"],
-            ["$50 USD","12,000"],
-            ["$100 USD","23,800"]
-        ]
-    },
+  {
+    name:"Amazon Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0234.jpeg",
+    packages:[
+      ["$10 USD","2,500"],
+      ["$20 USD","4,800"],
+      ["$25 USD","6,000"],
+      ["$50 USD","12,000"],
+      ["$100 USD","23,800"]
+    ]
+  },
 
-    {
-        name:"Binance Gift Card",
-        type:"Gift Card",
-        img:"images/binance.jpg",
-        packages:[
-            ["$10 USD","2,800"],
-            ["$25 USD","6,500"],
-            ["$50 USD","12,500"],
-            ["$100 USD","24,000"]
-        ]
-    },
+  {
+    name:"Binance Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0233.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$25 USD","6,000"],
+      ["$50 USD","12,000"],
+      ["$100 USD","23,700"]
+    ]
+  },
 
-    {
-        name:"Razer Gold",
-        type:"Gift Card",
-        img:"images/razer.jpg",
-        packages:[
-            ["$10 USD","2,800"],
-            ["$20 USD","5,200"],
-            ["$50 USD","12,200"],
-            ["$100 USD","24,000"],
-            ["$200 USD","49,000"]
-        ]
-    },
+  {
+    name:"Razer Gold",
+    type:"Gift Card",
+    img:"images/IMG_0237.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$20 USD","5,200"],
+      ["$50 USD","12,200"],
+      ["$100 USD","24,000"],
+      ["$200 USD","49,000"]
+    ]
+  },
 
-    {
-        name:"Roblox Gift Card",
-        type:"Gift Card",
-        img:"images/roblox-gift-card.jpg",
-        packages:[
-            ["$10 USD","2,800"],
-            ["$25 USD","6,500"],
-            ["$50 USD","12,000"],
-            ["$100 USD","24,000"],
-            ["$200 USD","48,500"]
-        ]
-    },
+  {
+    name:"Roblox Gift Card",
+    type:"Gift Card",
+    img:"images/IMG_0235.jpeg",
+    packages:[
+      ["$10 USD","2,800"],
+      ["$25 USD","6,500"],
+      ["$50 USD","12,000"],
+      ["$100 USD","24,000"],
+      ["$200 USD","48,500"]
+    ]
+  },
 
-    {
-        name:"Roblox Robux",
-        type:"Robux",
-        img:"images/f93f089a3d8211ede4c832c3a24efe1e.jpg",
-        packages:[
-            ["400 Robux","1,400"],
-            ["800 Robux","2,800"],
-            ["1,700 Robux","4,900"],
-            ["4,500 Robux","11,800"],
-            ["10,000 Robux","23,500"]
-        ]
-    },
+  {
+    name:"Roblox Robux",
+    type:"Robux",
+    img:"images/IMG_0235.jpeg",
+    packages:[
+      ["400 Robux","1,400"],
+      ["800 Robux","2,800"],
+      ["1,700 Robux","4,900"],
+      ["4,500 Robux","11,800"],
+      ["10,000 Robux","23,500"]
+    ]
+  },
 
-    {
-        name:"Free Fire",
-        type:"Diamonds",
-        img:"images/30de15ba0e69c62e5e5987ceaae08401.jpg",
-        packages:[
-            ["100 Diamonds","300"],
-            ["210 Diamonds","600"],
-            ["530 Diamonds","1,300"],
-            ["1,080 Diamonds","2,500"],
-            ["2,200 Diamonds","5,200"]
-        ]
-    },
+  {
+    name:"Free Fire",
+    type:"Diamonds",
+    img:"images/IMG_0232.jpeg",
+    packages:[
+      ["100 Diamonds","300"],
+      ["210 Diamonds","600"],
+      ["530 Diamonds","1,300"],
+      ["1,080 Diamonds","2,500"],
+      ["2,200 Diamonds","5,200"]
+    ]
+  },
 
-    {
-        name:"Call of Duty Mobile",
-        type:"CP",
-        img:"images/f9f56c26780ac312b21e2d3a7da703f5.jpg",
-        packages:[
-            ["80 CP","400"],
-            ["420 CP","1,300"],
-            ["880 CP","2,300"],
-            ["2,400 CP","5,500"],
-            ["5,000 CP","11,000"],
-            ["10,800 CP","21,500"]
-        ]
-    },
+  {
+    name:"PUBG Mobile",
+    type:"UC",
+    img:"images/IMG_0231.jpeg",
+    packages:[
+      ["60 UC","300"],
+      ["325 UC","1,300"],
+      ["660 UC","2,300"],
+      ["1,800 UC","5,500"],
+      ["3,850 UC","11,400"],
+      ["8,100 UC","21,500"]
+    ]
+  },
 
-    {
-        name:"PUBG Mobile",
-        type:"UC",
-        img:"images/f31054399c0c2604548ba7dfdced2a62.jpg",
-        packages:[
-            ["60 UC","300"],
-            ["325 UC","1,300"],
-            ["660 UC","2,300"],
-            ["1,800 UC","5,500"],
-            ["3,850 UC","11,400"],
-            ["8,100 UC","21,500"]
-        ]
-    },
+  {
+    name:"Call of Duty Mobile",
+    type:"CP",
+    img:"images/IMG_0243.jpeg",
+    packages:[
+      ["80 CP","400"],
+      ["420 CP","1,300"],
+      ["880 CP","2,300"],
+      ["2,400 CP","5,500"],
+      ["5,000 CP","11,000"],
+      ["10,800 CP","21,500"]
+    ]
+  },
 
-    {
-        name:"Apex Legends",
-        type:"Coming Soon",
-        img:"images/apex.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Arena Breakout",
+    type:"Bonds",
+    img:"images/IMG_0242.jpeg",
+    packages:[
+      ["Small Pack","300"],
+      ["Medium Pack","1,300"],
+      ["Large Pack","2,300"],
+      ["Mega Pack","5,500"]
+    ]
+  },
 
-    {
-        name:"Arena Breakout",
-        type:"Coming Soon",
-        img:"images/arena-breakout.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Apex Legends",
+    type:"Coins",
+    img:"images/IMG_0241.jpeg",
+    packages:[
+      ["500 Coins","2,500"],
+      ["1,000 Coins","4,800"],
+      ["2,150 Coins","9,500"],
+      ["4,350 Coins","18,500"]
+    ]
+  },
 
-    {
-        name:"Blood Strike",
-        type:"Coming Soon",
-        img:"images/blood-strike.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Blood Strike",
+    type:"Gold",
+    img:"images/IMG_0240.jpeg",
+    packages:[
+      ["Small Pack","300"],
+      ["Medium Pack","1,200"],
+      ["Large Pack","2,500"],
+      ["Mega Pack","5,500"]
+    ]
+  },
 
-    {
-        name:"Fortnite",
-        type:"Coming Soon",
-        img:"images/fortnite.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Fortnite",
+    type:"V-Bucks",
+    img:"",
+    packages:[
+      ["1,000 V-Bucks","2,800"],
+      ["2,800 V-Bucks","6,500"],
+      ["5,000 V-Bucks","11,500"],
+      ["13,500 V-Bucks","29,000"]
+    ]
+  },
 
-    {
-        name:"Netflix",
-        type:"Coming Soon",
-        img:"images/netflix.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Netflix",
+    type:"Subscription",
+    img:"images/IMG_0238.jpeg",
+    packages:[
+      ["1 Month","2,500"],
+      ["3 Months","6,500"],
+      ["6 Months","12,000"]
+    ]
+  },
 
-    {
-        name:"Prime Video",
-        type:"Coming Soon",
-        img:"images/prime-video.jpg",
-        packages:[
-            ["Coming Soon","0"]
-        ]
-    },
+  {
+    name:"Prime Video",
+    type:"Subscription",
+    img:"images/IMG_0239.jpeg",
+    packages:[
+      ["1 Month","2,000"],
+      ["3 Months","5,500"],
+      ["6 Months","10,000"]
+    ]
+  },
 
-    {
-        name:"Website Creator",
-        type:"Digital Service",
-        img:"images/website.jpg",
-        packages:[
-            ["Basic Website","0"],
-            ["Gaming Website","0"],
-            ["Custom Website","0"]
-        ]
-    }
+  {
+    name:"Website Creator",
+    type:"Digital Service",
+    img:"",
+    packages:[
+      ["Basic Website","15,000"],
+      ["Gaming Website","25,000"],
+      ["Premium Website","40,000"]
+    ]
+  }
 
 ];
 
-/* =========================================================
-   SAFE PRICE CONVERTER
-   FIXES GYD $NaN
-========================================================= */
-
-function priceNumber(value){
-
-    if(typeof value === "number"){
-        return value;
-    }
-
-    if(!value){
-        return 0;
-    }
-
-    const cleaned = String(value)
-        .replace(/GYD/gi,"")
-        .replace(/\$/g,"")
-        .replace(/,/g,"")
-        .trim();
-
-    const number = Number(cleaned);
-
-    return Number.isFinite(number) ? number : 0;
-}
-
-function formatGYD(value){
-
-    const number = priceNumber(value);
-
-    return "GYD $" + number.toLocaleString("en-US");
-}
 
 /* =========================================================
-   PRODUCT CARDS
+   RENDER PRODUCTS
 ========================================================= */
 
 const productGrid =
-    document.getElementById("productGrid");
+  document.getElementById("productGrid");
 
-function renderProducts(){
+products.forEach((product,index)=>{
 
-    productGrid.innerHTML = "";
+  const card = document.createElement("div");
 
-    products.forEach((product,index)=>{
+  card.className = "product-card";
 
-        const card =
-            document.createElement("div");
+  card.onclick = () => openProduct(index);
 
-        card.className = "product-card";
+  let imageHTML = "";
 
-        const hasImage =
-            product.img &&
-            product.img.trim() !== "";
+  if(product.img){
 
-        card.innerHTML = `
+    imageHTML = `
+      <img
+        src="${product.img}"
+        alt="${product.name}"
+        onerror="this.style.display='none'"
+      >
+    `;
 
-            <div class="product-image">
+  }else{
 
-                ${
-                    hasImage
-                    ?
-                    `
-                    <img
-                        src="${product.img}"
-                        alt="${product.name}"
-                        onerror="this.parentElement.innerHTML='<div class=&quot;product-no-image&quot;>🎮</div>'"
-                    >
-                    `
-                    :
-                    `
-                    <div class="product-no-image">
-                        🎮
-                    </div>
-                    `
-                }
+    imageHTML = `
+      <div style="
+        height:205px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:40px;
+        background:linear-gradient(135deg,#13051b,#071126);
+      ">
+        🎮
+      </div>
+    `;
 
-            </div>
+  }
 
-            <div class="product-info">
+  card.innerHTML = `
 
-                <h3>${product.name}</h3>
+    ${imageHTML}
 
-                <div class="product-type">
-                    ${product.type}
-                </div>
+    <div class="product-info">
 
-                <div class="tap-label">
-                    TAP TO VIEW PACKAGES →
-                </div>
+      <h3>${product.name}</h3>
 
-            </div>
-        `;
+      <span>${product.type}</span>
 
-        card.onclick = () => openProduct(index);
+    </div>
 
-        productGrid.appendChild(card);
+  `;
 
-    });
+  productGrid.appendChild(card);
 
-}
+});
 
-renderProducts();
-
-/* =========================================================
-   MOVING HERO SHOWCASE
-========================================================= */
-
-const showcaseTrack =
-    document.getElementById("showcaseTrack");
-
-const showDots =
-    document.getElementById("showDots");
-
-/*
-   These are selected automatically from products that
-   have images, so the showcase keeps using your product
-   artwork instead of product names.
-*/
-
-let showcaseProducts =
-    products.filter(
-        p => p.img && p.img.trim() !== ""
-    ).slice(0,8);
-
-let activeShowcase = 0;
-
-function renderShowcase(){
-
-    showcaseTrack.innerHTML = "";
-    showDots.innerHTML = "";
-
-    showcaseProducts.forEach((product,index)=>{
-
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "show-card " +
-            (index === activeShowcase ? "active" : "");
-
-        card.innerHTML = `
-            <img
-                src="${product.img}"
-                alt="${product.name}"
-                onerror="this.style.display='none'"
-            >
-        `;
-
-        showcaseTrack.appendChild(card);
-
-        const dot =
-            document.createElement("div");
-
-        dot.className =
-            "show-dot " +
-            (index === activeShowcase ? "active" : "");
-
-        showDots.appendChild(dot);
-
-    });
-
-}
-
-renderShowcase();
-
-/*
-   POP → HOLD → MOVE TO NEXT
-*/
-
-setInterval(()=>{
-
-    activeShowcase++;
-
-    if(activeShowcase >= showcaseProducts.length){
-        activeShowcase = 0;
-    }
-
-    renderShowcase();
-
-},3500);
 
 /* =========================================================
    PRODUCT MODAL
@@ -1852,495 +1764,482 @@ setInterval(()=>{
 let selectedProduct = null;
 let selectedPackage = null;
 let quantity = 1;
-let pendingWhatsApp = "";
-
-const productModal =
-    document.getElementById("productModal");
-
-const modalImage =
-    document.getElementById("modalImage");
-
-const modalName =
-    document.getElementById("modalName");
-
-const modalType =
-    document.getElementById("modalType");
-
-const packagesBox =
-    document.getElementById("packages");
-
-const playerLabel =
-    document.getElementById("playerLabel");
-
-const playerInput =
-    document.getElementById("playerInput");
-
-const mmgInput =
-    document.getElementById("mmgInput");
-
-const qtyNumber =
-    document.getElementById("qtyNumber");
-
-const totalPrice =
-    document.getElementById("totalPrice");
+let pendingWhatsAppMessage = "";
+let pendingReward = false;
 
 function openProduct(index){
 
-    selectedProduct = products[index];
+  selectedProduct = products[index];
 
-    selectedPackage = null;
+  selectedPackage = null;
 
-    quantity = 1;
+  quantity = 1;
 
-    modalImage.src =
-        selectedProduct.img || "";
+  document.getElementById("modalName").textContent =
+    selectedProduct.name;
 
-    modalName.textContent =
-        selectedProduct.name;
+  document.getElementById("modalType").textContent =
+    selectedProduct.type;
 
-    modalType.textContent =
-        selectedProduct.type;
+  document.getElementById("modalImage").src =
+    selectedProduct.img || "";
 
-    playerInput.value = "";
-    mmgInput.value = "";
+  const packageList =
+    document.getElementById("packageList");
 
-    /* Product-specific label */
+  packageList.innerHTML = "";
 
-    if(selectedProduct.name === "TikTok"){
+  selectedProduct.packages.forEach((pack,index)=>{
 
-        playerLabel.textContent =
-            "TIKTOK USERNAME / PROFILE";
+    const button =
+      document.createElement("button");
 
-        playerInput.placeholder =
-            "Enter TikTok username or profile";
+    button.className = "package";
 
-    }
+    button.innerHTML = `
+      <strong>${pack[0]}</strong>
+      <span>GYD $${Number(pack[1].replace(/,/g,"")).toLocaleString()}</span>
+    `;
 
-    else if(
-        selectedProduct.name === "Netflix" ||
-        selectedProduct.name === "Prime Video"
-    ){
+    button.onclick = () =>
+      selectPackage(index);
 
-        playerLabel.textContent =
-            "ACCOUNT CONTACT";
+    packageList.appendChild(button);
 
-        playerInput.placeholder =
-            "Enter account email/contact";
+  });
 
-    }
+  document.getElementById("quantity").textContent = "1";
 
-    else if(
-        selectedProduct.name === "Roblox Gift Card"
-    ){
+  document.getElementById("totalPrice").textContent =
+    "GYD $0";
 
-        playerLabel.textContent =
-            "ROBLOX ACCOUNT / EMAIL";
+  updatePlayerField();
 
-        playerInput.placeholder =
-            "Enter Roblox account or email";
-
-    }
-
-    else if(
-        selectedProduct.name === "Website Creator"
-    ){
-
-        playerLabel.textContent =
-            "WEBSITE DETAILS";
-
-        playerInput.placeholder =
-            "Tell us what website you want";
-
-    }
-
-    else{
-
-        playerLabel.textContent =
-            "GAMER ID / USERNAME";
-
-        playerInput.placeholder =
-            "Enter Gamer ID or Username";
-
-    }
-
-    packagesBox.innerHTML = "";
-
-    selectedProduct.packages.forEach(
-        (pkg,index)=>{
-
-            const packageButton =
-                document.createElement("div");
-
-            packageButton.className = "package";
-
-            packageButton.innerHTML = `
-
-                <span class="package-name">
-                    ${pkg[0]}
-                </span>
-
-                <span class="package-price">
-                    ${
-                        priceNumber(pkg[1]) > 0
-                        ? formatGYD(pkg[1])
-                        : "COMING SOON"
-                    }
-                </span>
-            `;
-
-            packageButton.onclick = ()=>{
-
-                if(priceNumber(pkg[1]) <= 0){
-                    return;
-                }
-
-                document
-                    .querySelectorAll(".package")
-                    .forEach(
-                        x => x.classList.remove("selected")
-                    );
-
-                packageButton.classList.add("selected");
-
-                selectedPackage = pkg;
-
-                updateTotal();
-
-            };
-
-            packagesBox.appendChild(packageButton);
-
-        }
-    );
-
-    qtyNumber.textContent = quantity;
-
-    totalPrice.textContent =
-        "GYD $0";
-
-    productModal.classList.add("show");
+  document.getElementById("productModal")
+    .classList.add("show");
 
 }
 
-/* =========================================================
-   QUANTITY
-========================================================= */
+
+function selectPackage(index){
+
+  selectedPackage = index;
+
+  const buttons =
+    document.querySelectorAll(".package");
+
+  buttons.forEach((button,i)=>{
+    button.classList.toggle(
+      "selected",
+      i === index
+    );
+  });
+
+  updateTotal();
+
+}
+
 
 function changeQty(amount){
 
-    if(!selectedProduct){
-        return;
-    }
+  quantity += amount;
 
-    quantity += amount;
+  if(quantity < 1){
+    quantity = 1;
+  }
 
-    if(quantity < 1){
-        quantity = 1;
-    }
+  if(quantity > 99){
+    quantity = 99;
+  }
 
-    if(quantity > 99){
-        quantity = 99;
-    }
+  document.getElementById("quantity")
+    .textContent = quantity;
 
-    qtyNumber.textContent = quantity;
-
-    updateTotal();
+  updateTotal();
 
 }
+
 
 function updateTotal(){
 
-    if(!selectedPackage){
+  if(
+    selectedProduct === null ||
+    selectedPackage === null
+  ){
+    document.getElementById("totalPrice")
+      .textContent = "GYD $0";
 
-        totalPrice.textContent =
-            "GYD $0";
+    return;
+  }
 
-        return;
-    }
+  const price =
+    Number(
+      selectedProduct.packages[selectedPackage][1]
+        .replace(/,/g,"")
+    );
 
-    const unitPrice =
-        priceNumber(selectedPackage[1]);
+  const total = price * quantity;
 
-    const total =
-        unitPrice * quantity;
-
-    totalPrice.textContent =
-        formatGYD(total);
+  document.getElementById("totalPrice")
+    .textContent =
+    "GYD $" + total.toLocaleString();
 
 }
 
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
+
+function updatePlayerField(){
+
+  const label =
+    document.getElementById("playerLabel");
+
+  const input =
+    document.getElementById("playerInput");
+
+  if(selectedProduct.name === "TikTok"){
+
+    label.textContent =
+      "TIKTOK USERNAME / PROFILE";
+
+    input.placeholder =
+      "Enter TikTok username or profile";
+
+  }
+
+  else if(
+    selectedProduct.name === "Netflix" ||
+    selectedProduct.name === "Prime Video"
+  ){
+
+    label.textContent =
+      "ACCOUNT EMAIL / CONTACT";
+
+    input.placeholder =
+      "Enter account email or contact";
+
+  }
+
+  else if(
+    selectedProduct.name === "Roblox Gift Card"
+  ){
+
+    label.textContent =
+      "ROBLOX ACCOUNT / EMAIL";
+
+    input.placeholder =
+      "Enter Roblox account or email";
+
+  }
+
+  else if(
+    selectedProduct.name === "Website Creator"
+  ){
+
+    label.textContent =
+      "WEBSITE DETAILS";
+
+    input.placeholder =
+      "Tell us what website you want";
+
+  }
+
+  else{
+
+    label.textContent =
+      "GAMER ID / USERNAME";
+
+    input.placeholder =
+      "Enter Gamer ID or Username";
+
+  }
+
+}
+
 
 function closeProduct(){
 
-    productModal.classList.remove("show");
+  document.getElementById("productModal")
+    .classList.remove("show");
 
 }
 
-productModal.addEventListener(
-    "click",
-    function(event){
-
-        if(event.target === productModal){
-            closeProduct();
-        }
-
-    }
-);
 
 /* =========================================================
-   PURCHASE TRACKING
-========================================================= */
-
-function getPurchaseCount(key){
-
-    const safeKey =
-        "dark_purchase_" +
-        btoa(
-            unescape(
-                encodeURIComponent(key)
-            )
-        );
-
-    return {
-        key:safeKey,
-        count:
-            Number(
-                localStorage.getItem(safeKey)
-            ) || 0
-    };
-
-}
-
-/* =========================================================
-   SEND ORDER
+   ORDER SYSTEM
 ========================================================= */
 
 function sendOrder(){
 
-    if(!selectedProduct){
-        return;
-    }
+  if(selectedProduct === null){
+    return;
+  }
 
-    if(
-        !selectedPackage ||
-        priceNumber(selectedPackage[1]) <= 0
-    ){
+  if(selectedPackage === null){
 
-        alert("Please select a package.");
+    alert("Please select a package first.");
 
-        return;
-    }
+    return;
+  }
 
-    const player =
-        playerInput.value.trim();
+  const player =
+    document.getElementById("playerInput")
+      .value.trim();
 
-    const mmg =
-        mmgInput.value.trim();
+  const transaction =
+    document.getElementById("transactionInput")
+      .value.trim();
 
-    if(!player){
+  if(!player){
 
-        alert(
-            "Please enter your Gamer ID, username or account information."
-        );
+    alert("Please enter your Gamer ID / account details.");
 
-        playerInput.focus();
+    return;
+  }
 
-        return;
-    }
+  if(!transaction){
 
-    if(!mmg){
+    alert("Please enter your MMG Transaction ID.");
 
-        alert(
-            "Please enter your MMG Transaction ID."
-        );
+    return;
+  }
 
-        mmgInput.focus();
+  const pack =
+    selectedProduct.packages[selectedPackage];
 
-        return;
-    }
+  const price =
+    Number(pack[1].replace(/,/g,""));
 
-    const unitPrice =
-        priceNumber(selectedPackage[1]);
+  const total =
+    price * quantity;
 
-    const total =
-        unitPrice * quantity;
+  /* PURCHASE TRACKING */
 
-    /*
-       Purchase tracking uses the same player/profile
-       information entered by the customer.
-    */
+  const storageKey =
+    "dark_purchase_" +
+    player.toLowerCase();
 
-    const tracking =
-        getPurchaseCount(player);
+  let purchases =
+    Number(localStorage.getItem(storageKey) || 0);
 
-    const newCount =
-        tracking.count + quantity;
+  purchases += quantity;
 
-    localStorage.setItem(
-        tracking.key,
-        newCount
-    );
+  localStorage.setItem(
+    storageKey,
+    purchases
+  );
 
-    const rewardUnlocked =
-        newCount > 0 &&
-        newCount % 5 === 0;
+  pendingReward =
+    purchases >= 5 &&
+    purchases % 5 === 0;
 
-    pendingWhatsApp =
-`🔥 DARK GAMING STORE — NEW ORDER
 
-🎮 PRODUCT: ${selectedProduct.name}
-📦 PACKAGE: ${selectedPackage[0]}
-🔢 QUANTITY: ${quantity}
+  /* WHATSAPP MESSAGE */
 
-💰 UNIT PRICE: ${formatGYD(unitPrice)}
-💵 TOTAL: ${formatGYD(total)}
+  pendingWhatsAppMessage =
+`🔥 DARK STORE ORDER 🔥
 
-👤 ACCOUNT / ID:
+Product: ${selectedProduct.name}
+Package: ${pack[0]}
+Quantity: ${quantity}
+Price Each: GYD $${price.toLocaleString()}
+TOTAL: GYD $${total.toLocaleString()}
+
+Account / Gamer ID:
 ${player}
 
-🧾 MMG TRANSACTION ID:
-${mmg}
+MMG Transaction ID:
+${transaction}
 
-🏆 PURCHASE COUNT:
-${newCount}
-
-${rewardUnlocked ? "🎁 REWARD UNLOCKED: 5 PURCHASE MILESTONE!" : ""}
+Purchase Count:
+${purchases}
 
 Please confirm my order.`;
 
-    /* cart badge */
+  /* CART */
 
-    const cart =
-        document.getElementById("cartCount");
+  const cart =
+    document.getElementById("cartCount");
 
-    const currentCart =
-        Number(cart.textContent) || 0;
+  const currentCart =
+    Number(cart.textContent || 0);
 
-    cart.textContent =
-        currentCart + quantity;
+  cart.textContent =
+    currentCart + quantity;
 
-    closeProduct();
+  /* CLOSE PRODUCT */
 
-    document
-        .getElementById("thankPopup")
-        .classList.add("show");
+  closeProduct();
 
-    /*
-       Reward popup waits until after the customer
-       continues to WhatsApp.
-    */
+  /* SHOW THANK YOU BEFORE WHATSAPP */
 
-    window.darkRewardUnlocked =
-        rewardUnlocked;
+  document.getElementById("thankyouPopup")
+    .classList.add("show");
 
 }
 
-/* =========================================================
-   CONTINUE TO WHATSAPP
-========================================================= */
 
 function continueWhatsApp(){
 
-    const phone =
-        "5927002769";
+  document.getElementById("thankyouPopup")
+    .classList.remove("show");
 
-    const url =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(
-            pendingWhatsApp
-        );
-
-    document
-        .getElementById("thankPopup")
-        .classList.remove("show");
-
-    window.open(
-        url,
-        "_blank"
+  const whatsapp =
+    "https://wa.me/13436555995?text=" +
+    encodeURIComponent(
+      pendingWhatsAppMessage
     );
 
-    if(window.darkRewardUnlocked){
+  window.open(
+    whatsapp,
+    "_blank"
+  );
 
-        setTimeout(()=>{
+  if(pendingReward){
 
-            document
-                .getElementById("rewardPopup")
-                .classList.add("show");
+    setTimeout(()=>{
 
-        },1200);
+      document.getElementById("rewardPopup")
+        .classList.add("show");
 
-    }
+    },2500);
+
+  }
 
 }
 
-/* =========================================================
-   REWARD
-========================================================= */
 
 function closeReward(){
 
-    document
-        .getElementById("rewardPopup")
-        .classList.remove("show");
+  document.getElementById("rewardPopup")
+    .classList.remove("show");
 
 }
 
+
 /* =========================================================
-   ENTER STORE
+   CONTACT
+========================================================= */
+
+function goContact(){
+
+  document.getElementById("contact")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   WELCOME POPUP
 ========================================================= */
 
 function enterStore(){
 
-    document
-        .getElementById("entrance")
-        .classList.add("hidden");
+  document.getElementById("welcomePopup")
+    .classList.add("hide");
 
-    document.body.style.overflowX =
-        "hidden";
-
-}
-
-/* =========================================================
-   SCROLL
-========================================================= */
-
-function scrollToSection(id){
-
-    const section =
-        document.getElementById(id);
-
-    if(section){
-
-        section.scrollIntoView({
-            behavior:"smooth"
-        });
-
-    }
+  localStorage.setItem(
+    "dark_entered",
+    "yes"
+  );
 
 }
 
+if(
+  localStorage.getItem("dark_entered") === "yes"
+){
+
+  document.getElementById("welcomePopup")
+    .classList.add("hide");
+
+}
+
+
 /* =========================================================
-   ESC KEY
+   MOVING HERO PRODUCTS
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    function(event){
+const heroProducts =
+  document.querySelectorAll(".hero-product");
 
-        if(event.key === "Escape"){
+const dots =
+  document.querySelectorAll(".dot");
 
-            closeProduct();
-            closeReward();
+let heroIndex = 0;
 
-        }
+function showHero(index){
 
+  heroProducts.forEach((item,i)=>{
+
+    item.classList.remove("active");
+
+    if(i === index){
+      item.classList.add("active");
     }
+
+  });
+
+  dots.forEach((dot,i)=>{
+
+    dot.classList.toggle(
+      "active",
+      i === index
+    );
+
+  });
+
+}
+
+function nextHero(){
+
+  heroIndex++;
+
+  if(heroIndex >= heroProducts.length){
+    heroIndex = 0;
+  }
+
+  showHero(heroIndex);
+
+}
+
+/* Change image after it pops in and leaves */
+
+setInterval(
+  nextHero,
+  4500
 );
+
+
+/* =========================================================
+   CLOSE POPUPS WHEN BACKGROUND IS CLICKED
+========================================================= */
+
+document.getElementById("productModal")
+  .addEventListener("click",function(e){
+
+    if(e.target === this){
+      closeProduct();
+    }
+
+  });
+
+document.getElementById("thankyouPopup")
+  .addEventListener("click",function(e){
+
+    if(e.target === this){
+      this.classList.remove("show");
+    }
+
+  });
+
+document.getElementById("rewardPopup")
+  .addEventListener("click",function(e){
+
+    if(e.target === this){
+      closeReward();
+    }
+
+  });
 
 </script>
 
