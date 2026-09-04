@@ -1497,11 +1497,26 @@ const products = [
  ]
 },
 
-/* ---------------- ROBLOX ---------------- */
+/* ---------------- ROBLOX GIFT CARD ---------------- */
+
+{
+ name:"Roblox Gift Card",
+ type:"Gift Card",
+ img:"images/IMG_0235.jpeg",
+ packages:[
+  ["$10 USD","2,800"],
+  ["$25 USD","6,500"],
+  ["$50 USD","12,000"],
+  ["$100 USD","24,000"],
+  ["$200 USD","48,500"]
+ ]
+},
+
+/* ---------------- ROBLOX IN-GAME PURCHASE ---------------- */
 
 {
  name:"Roblox",
- type:"Robux",
+ type:"In-Game Purchase (Robux)",
  img:"images/IMG_0235.jpeg",
  packages:[
   ["20 Robux","150"],
@@ -1906,6 +1921,15 @@ function openProduct(index){
 
     player.placeholder=
       "Tell us what type of website you want";
+
+  }else if(
+    selectedProduct.name==="Roblox Gift Card"
+  ){
+
+    label.textContent="ROBLOX ACCOUNT / EMAIL";
+
+    player.placeholder=
+      "Enter Roblox Username or Account Email";
 
   }else{
 
