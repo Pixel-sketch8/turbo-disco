@@ -468,6 +468,76 @@ section{
     font-weight:900;
 }
 
+/* ================= NETFLIX PLANS SECTION ================= */
+
+#netflix-section{
+    padding:65px 0 20px;
+}
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.plan{
+    background:rgba(12,5,19,.82);
+    border:1px solid rgba(190,80,255,.23);
+    border-radius:16px;
+    padding:28px 22px;
+    text-align:left;
+    transition:0.3s ease;
+}
+
+.plan:hover{
+    transform:translateY(-5px);
+    border-color:#e50914;
+    box-shadow:0 0 25px rgba(229,9,20,.35);
+}
+
+.plan-name{
+    color:#fff;
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:22px;
+    text-align:center;
+}
+
+.details{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:13px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.details:last-of-type{
+    border-bottom:none;
+}
+
+.label{
+    color:#999;
+    font-size:15px;
+}
+
+.value{
+    color:#fff;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.price{
+    margin-top:22px;
+    padding:15px;
+    border-radius:10px;
+    background:#e50914;
+    color:#fff;
+    text-align:center;
+    font-size:23px;
+    font-weight:800;
+    cursor:pointer;
+}
+
 /* ================= DEALS ================= */
 
 #deals{
@@ -922,7 +992,7 @@ footer p{
 
 .coming-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
@@ -993,6 +1063,10 @@ footer p{
 
     .product-grid{
         grid-template-columns:repeat(3,1fr);
+    }
+
+    .plans{
+        grid-template-columns:1fr;
     }
 
     .coming-grid{
@@ -1131,6 +1205,7 @@ footer p{
     <nav>
         <a href="#home">HOME</a>
         <a href="#gaming">GAMING</a>
+        <a href="#netflix-section">NETFLIX</a>
         <a href="#deals">DEALS</a>
         <a href="#payment">PAYMENT</a>
         <a href="#contact">CONTACT</a>
@@ -1427,15 +1502,15 @@ footer p{
             </div>
         </div>
 
-        <!-- Netflix -->
+        <!-- Netflix (ACTIVE) -->
         <div class="product-card" onclick="openProduct('netflix')">
             <div class="product-image">
                 <img src="images/IMG_0238.jpeg" alt="Netflix">
             </div>
             <div class="product-info">
                 <h3>Netflix</h3>
-                <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+                <p>Subscriptions</p>
+                <button class="buy-btn">VIEW PACKAGES</button>
             </div>
         </div>
 
@@ -1464,6 +1539,69 @@ footer p{
         </div>
 
     </div>
+</section>
+
+<!-- ================= NETFLIX PLANS ================= -->
+
+<section id="netflix-section">
+
+    <div class="section-title">
+        <h2 style="color:#e50914;">NETFLIX <span>PLANS</span></h2>
+        <p>Choose your plan and order directly through WhatsApp.</p>
+    </div>
+
+    <div class="plans">
+
+        <!-- BASIC -->
+        <div class="plan">
+            <div class="plan-name">BASIC</div>
+            <div class="details">
+                <span class="label">Quality</span>
+                <span class="value">HD</span>
+            </div>
+            <div class="details">
+                <span class="label">Devices</span>
+                <span class="value">1</span>
+            </div>
+            <div class="price" onclick="openProduct('netflix')">
+                GYD $1,500
+            </div>
+        </div>
+
+        <!-- STANDARD -->
+        <div class="plan">
+            <div class="plan-name">STANDARD</div>
+            <div class="details">
+                <span class="label">Quality</span>
+                <span class="value">Full HD</span>
+            </div>
+            <div class="details">
+                <span class="label">Devices</span>
+                <span class="value">2</span>
+            </div>
+            <div class="price" onclick="openProduct('netflix')">
+                GYD $2,500
+            </div>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="plan">
+            <div class="plan-name">PREMIUM</div>
+            <div class="details">
+                <span class="label">Quality</span>
+                <span class="value">4K + HDR</span>
+            </div>
+            <div class="details">
+                <span class="label">Devices</span>
+                <span class="value">4</span>
+            </div>
+            <div class="price" onclick="openProduct('netflix')">
+                GYD $3,000
+            </div>
+        </div>
+
+    </div>
+
 </section>
 
 <!-- ================= COMING SOON ================= -->
@@ -1497,14 +1635,6 @@ footer p{
             <img src="images/IMG_0240.jpeg" alt="Blood Strike">
             <div class="coming-info">
                 <h3>Blood Strike</h3>
-                <span>COMING SOON</span>
-            </div>
-        </div>
-
-        <div class="coming-card">
-            <img src="images/IMG_0238.jpeg" alt="Netflix">
-            <div class="coming-info">
-                <h3>Netflix</h3>
                 <span>COMING SOON</span>
             </div>
         </div>
@@ -1861,14 +1991,7 @@ const products = {
         name:"Binance Gift Card",
         type:"USDT Gift Card",
         image:"images/IMG_0233.jpeg",
-
-        /*
-          Binance does NOT require a Gamer ID / Username.
-          Transaction ID remains visible and optional.
-        */
-
         noAccount:true,
-
         packages:[
             ["$5 USDT",1700],
             ["$10 USDT",3000],
@@ -1908,6 +2031,19 @@ const products = {
         ]
     },
 
+    netflix:{
+        name:"Netflix Plan",
+        type:"Netflix Subscription",
+        image:"images/IMG_0238.jpeg",
+        accountLabel:"Email / Account Phone Number",
+        accountPlaceholder:"Enter Netflix email or account details",
+        packages:[
+            ["BASIC (HD, 1 Device)",1500],
+            ["STANDARD (Full HD, 2 Devices)",2500],
+            ["PREMIUM (4K + HDR, 4 Devices)",3000]
+        ]
+    },
+
     apex:{
         name:"Apex Legends",
         type:"Coming Soon",
@@ -1933,13 +2069,6 @@ const products = {
         name:"Fortnite V-Bucks",
         type:"Coming Soon",
         image:"images/IMG_0235.jpeg",
-        coming:true
-    },
-
-    netflix:{
-        name:"Netflix",
-        type:"Coming Soon",
-        image:"images/IMG_0238.jpeg",
         coming:true
     },
 
@@ -2062,12 +2191,6 @@ function openProduct(id){
         document.getElementById("accountLabel");
 
     if(product.noAccount){
-
-        /*
-          Binance:
-          Hide Gamer ID / Username.
-          MMG transaction ID stays visible.
-        */
 
         accountWrap.style.display="none";
         accountInput.value="";
@@ -2193,15 +2316,10 @@ function sendOrder(){
         accountInput.value.trim();
 
 
-    /*
-      Binance has no account field.
-      Every other product still requires its account.
-    */
-
     if(!product.noAccount && !account){
 
         alert(
-            "Please enter your Gamer ID / Username."
+            "Please enter your Gamer ID / Username or Email."
         );
 
         accountInput.focus();
@@ -2259,7 +2377,7 @@ Total: GYD $${total.toLocaleString()}
 
         message+=
 `
-Gamer ID / Username: ${account}`;
+Gamer ID / Username / Email: ${account}`;
     }
 
     message+=
@@ -2515,3 +2633,4 @@ updateCartBadge();
 
 </body>
 </html>
+
