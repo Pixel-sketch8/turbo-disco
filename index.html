@@ -468,76 +468,6 @@ section{
     font-weight:900;
 }
 
-/* ================= NETFLIX PLANS SECTION ================= */
-
-#netflix-section{
-    padding:65px 0 20px;
-}
-
-.plans{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.plan{
-    background:rgba(12,5,19,.82);
-    border:1px solid rgba(190,80,255,.23);
-    border-radius:16px;
-    padding:28px 22px;
-    text-align:left;
-    transition:0.3s ease;
-}
-
-.plan:hover{
-    transform:translateY(-5px);
-    border-color:#e50914;
-    box-shadow:0 0 25px rgba(229,9,20,.35);
-}
-
-.plan-name{
-    color:#fff;
-    font-size:26px;
-    font-weight:800;
-    margin-bottom:22px;
-    text-align:center;
-}
-
-.details{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:13px 0;
-    border-bottom:1px solid rgba(255,255,255,.1);
-}
-
-.details:last-of-type{
-    border-bottom:none;
-}
-
-.label{
-    color:#999;
-    font-size:15px;
-}
-
-.value{
-    color:#fff;
-    font-weight:bold;
-    font-size:15px;
-}
-
-.price{
-    margin-top:22px;
-    padding:15px;
-    border-radius:10px;
-    background:#e50914;
-    color:#fff;
-    text-align:center;
-    font-size:23px;
-    font-weight:800;
-    cursor:pointer;
-}
-
 /* ================= DEALS ================= */
 
 #deals{
@@ -595,6 +525,62 @@ section{
     font-size:12px;
     line-height:1.6;
     margin-top:7px;
+}
+
+/* ================= POLICY ================= */
+
+#policy{
+    padding:65px 0;
+}
+
+.policy-box{
+    max-width:700px;
+    margin:auto;
+    padding:35px;
+    border-radius:25px;
+    border:1px solid rgba(190,80,255,.3);
+    background:rgba(9,3,15,.86);
+}
+
+.policy-box h3{
+    color:#c85cff;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.policy-box ul{
+    list-style:none;
+}
+
+.policy-box li{
+    color:#bbb;
+    font-size:13px;
+    line-height:1.7;
+    padding:12px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.policy-box li:last-child{
+    border-bottom:none;
+}
+
+.policy-box li strong{
+    color:#fff;
+}
+
+.modal-note{
+    display:none;
+    margin-top:14px;
+    padding:12px;
+    border-radius:11px;
+    border:1px solid rgba(190,80,255,.3);
+    background:rgba(150,40,220,.08);
+    color:#ccc;
+    font-size:12px;
+    line-height:1.6;
 }
 
 /* ================= PAYMENT ================= */
@@ -1065,10 +1051,6 @@ footer p{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .plans{
-        grid-template-columns:1fr;
-    }
-
     .coming-grid{
         grid-template-columns:repeat(2,1fr);
     }
@@ -1205,8 +1187,8 @@ footer p{
     <nav>
         <a href="#home">HOME</a>
         <a href="#gaming">GAMING</a>
-        <a href="#netflix-section">NETFLIX</a>
         <a href="#deals">DEALS</a>
+        <a href="#policy">POLICY</a>
         <a href="#payment">PAYMENT</a>
         <a href="#contact">CONTACT</a>
     </nav>
@@ -1521,8 +1503,8 @@ footer p{
             </div>
             <div class="product-info">
                 <h3>Prime Video</h3>
-                <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+                <p>Subscriptions</p>
+                <button class="buy-btn">VIEW PACKAGES</button>
             </div>
         </div>
 
@@ -1539,69 +1521,6 @@ footer p{
         </div>
 
     </div>
-</section>
-
-<!-- ================= NETFLIX PLANS ================= -->
-
-<section id="netflix-section">
-
-    <div class="section-title">
-        <h2 style="color:#e50914;">NETFLIX <span>PLANS</span></h2>
-        <p>Choose your plan and order directly through WhatsApp.</p>
-    </div>
-
-    <div class="plans">
-
-        <!-- BASIC -->
-        <div class="plan">
-            <div class="plan-name">BASIC</div>
-            <div class="details">
-                <span class="label">Quality</span>
-                <span class="value">HD</span>
-            </div>
-            <div class="details">
-                <span class="label">Devices</span>
-                <span class="value">1</span>
-            </div>
-            <div class="price" onclick="openProduct('netflix')">
-                GYD $1,500
-            </div>
-        </div>
-
-        <!-- STANDARD -->
-        <div class="plan">
-            <div class="plan-name">STANDARD</div>
-            <div class="details">
-                <span class="label">Quality</span>
-                <span class="value">Full HD</span>
-            </div>
-            <div class="details">
-                <span class="label">Devices</span>
-                <span class="value">2</span>
-            </div>
-            <div class="price" onclick="openProduct('netflix')">
-                GYD $2,500
-            </div>
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="plan">
-            <div class="plan-name">PREMIUM</div>
-            <div class="details">
-                <span class="label">Quality</span>
-                <span class="value">4K + HDR</span>
-            </div>
-            <div class="details">
-                <span class="label">Devices</span>
-                <span class="value">4</span>
-            </div>
-            <div class="price" onclick="openProduct('netflix')">
-                GYD $3,000
-            </div>
-        </div>
-
-    </div>
-
 </section>
 
 <!-- ================= COMING SOON ================= -->
@@ -1688,6 +1607,42 @@ footer p{
                 and send your order.
             </p>
         </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DARK POLICY ================= -->
+
+<section id="policy">
+
+    <div class="section-title">
+        <h2>DARK <span>POLICY</span></h2>
+        <p>Please read before you order.</p>
+    </div>
+
+    <div class="policy-box">
+
+        <h3>ACCOUNT POLICY</h3>
+
+        <ul>
+            <li>
+                <strong>Accounts are not personal.</strong>
+                All accounts sold by DARK are shared accounts unless
+                stated otherwise.
+            </li>
+            <li>
+                <strong>Personal accounts.</strong>
+                A personal account is only available if you request one.
+                A personal account is a newly created account made just
+                for you, and it is <strong>not shared</strong>.
+            </li>
+            <li>
+                <strong>Prime Video.</strong>
+                Accounts are shared. Get a personal slot, create your
+                own password, and cancel your membership anytime.
+            </li>
+        </ul>
 
     </div>
 
@@ -1826,6 +1781,8 @@ footer p{
             <span>TOTAL</span>
             <strong id="totalValue">GYD $0</strong>
         </div>
+
+        <div class="modal-note" id="modalNote"></div>
 
         <button class="send-order" onclick="sendOrder()">
             SEND ORDER →
@@ -2035,8 +1992,8 @@ const products = {
         name:"Netflix Plan",
         type:"Netflix Subscription",
         image:"images/IMG_0238.jpeg",
-        accountLabel:"Email / Account Phone Number",
-        accountPlaceholder:"Enter Netflix email or account details",
+        noAccount:true,
+        note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
         packages:[
             ["BASIC (HD, 1 Device)",1500],
             ["STANDARD (Full HD, 2 Devices)",2500],
@@ -2074,9 +2031,15 @@ const products = {
 
     prime:{
         name:"Prime Video",
-        type:"Coming Soon",
+        type:"Prime Video Subscription",
         image:"images/IMG_0239.jpeg",
-        coming:true
+        noAccount:true,
+        note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
+        packages:[
+            ["1 Week",400],
+            ["1 Month",1200],
+            ["Personal Account (1 Month)",4000]
+        ]
     },
 
     website:{
@@ -2148,6 +2111,16 @@ function openProduct(id){
     document.getElementById("modalType").textContent=product.type;
 
     document.getElementById("qtyValue").textContent=quantity;
+
+    const noteBox=document.getElementById("modalNote");
+
+    if(product.note){
+        noteBox.textContent=product.note;
+        noteBox.style.display="block";
+    }else{
+        noteBox.textContent="";
+        noteBox.style.display="none";
+    }
 
     const list=document.getElementById("packageList");
 
