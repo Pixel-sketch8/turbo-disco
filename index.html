@@ -748,6 +748,30 @@ section{
     transition:.2s;
 }
 
+.package-label{
+    grid-column:1/-1;
+    margin-top:10px;
+    padding-bottom:6px;
+    color:#c85cff;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    border-bottom:1px solid rgba(190,80,255,.25);
+}
+
+.package-note{
+    grid-column:1/-1;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(190,80,255,.3);
+    background:rgba(150,40,220,.08);
+    color:#ddd;
+    font-size:12px;
+    font-weight:700;
+    line-height:1.5;
+}
+
 .package:hover,
 .package.selected{
     border-color:#bd51ff;
@@ -1920,12 +1944,19 @@ const products = {
         accountLabel:"PUBG Mobile Player ID",
         accountPlaceholder:"Enter PUBG Mobile Player ID",
         packages:[
-            ["60 UC",300],
+            ["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],
             ["325 UC",1300],
             ["660 UC",2300],
             ["1,800 UC",5500],
             ["3,850 UC",11400],
-            ["8,100 UC",21500]
+            ["8,100 UC",21500],
+            ["Prime - 1 Month",460,"Subscription","QR code required to purchase subscriptions."],
+            ["Prime - 2 Months",800],
+            ["Prime - 3 Months",1200],
+            ["Prime Plus - 1 Month",2600,"Prime Plus"],
+            ["Prime Plus - 2 Months",5000],
+            ["Prime Plus - 3 Months",7600],
+            ["Prime Plus - 4 Months",10000]
         ]
     },
 
@@ -2127,6 +2158,28 @@ function openProduct(id){
     list.innerHTML="";
 
     product.packages.forEach((pack,index)=>{
+
+        if(pack[2]){
+
+            const label=document.createElement("div");
+
+            label.className="package-label";
+
+            label.textContent=pack[2];
+
+            list.appendChild(label);
+
+            if(pack[3]){
+
+                const note=document.createElement("div");
+
+                note.className="package-note";
+
+                note.textContent=pack[3];
+
+                list.appendChild(note);
+            }
+        }
 
         const button=document.createElement("button");
 
