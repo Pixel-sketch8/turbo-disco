@@ -583,6 +583,21 @@ section{
     line-height:1.6;
 }
 
+/* REVISED RENEWAL POLICY BANNER AT BOTTOM OF MODAL */
+.renewal-policy-banner {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 14px;
+    border-radius: 11px;
+    background: rgba(186, 40, 255, 0.12);
+    border: 1px solid rgba(190, 80, 255, 0.4);
+    color: #e2b3ff;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 /* ================= PAYMENT ================= */
 
 #payment{
@@ -1340,6 +1355,18 @@ footer p{
 
     <div class="product-grid">
 
+        <!-- POS Virtual Numbers -->
+        <div class="product-card" onclick="openProduct('virtualNumbers')">
+            <div class="product-image">
+                <img src="images/IMG_0238.jpeg" alt="POS Virtual Numbers">
+            </div>
+            <div class="product-info">
+                <h3>📱 POS Virtual Numbers</h3>
+                <p>SMS & WhatsApp Verification</p>
+                <button class="buy-btn">VIEW PACKAGES</button>
+            </div>
+        </div>
+
         <!-- TikTok -->
         <div class="product-card" onclick="openProduct('tiktok')">
             <div class="product-image">
@@ -1666,6 +1693,10 @@ footer p{
                 Accounts are shared. Get a personal slot, create your
                 own password, and cancel your membership anytime.
             </li>
+            <li>
+                <strong>Virtual Numbers.</strong>
+                All numbers are renewed monthly at a rate of 1,000 GYD.
+            </li>
         </ul>
 
     </div>
@@ -1812,6 +1843,11 @@ footer p{
             SEND ORDER →
         </button>
 
+        <!-- POLICY AT THE BOTTOM AFTER BUY BUTTON -->
+        <div class="renewal-policy-banner" id="renewalPolicyBanner">
+            ⚠️ Policy Notice: Virtual numbers are renewed monthly for 1,000 GYD.
+        </div>
+
     </div>
 
 </div>
@@ -1858,6 +1894,21 @@ footer p{
 ========================================================= */
 
 const products = {
+
+    virtualNumbers:{
+        name:"POS Virtual Numbers",
+        type:"Virtual Numbers",
+        image:"images/IMG_0238.jpeg",
+        accountLabel:"Contact Number / WhatsApp",
+        accountPlaceholder:"Enter your active phone number",
+        isVirtualNumber: true,
+        packages:[
+            ["🇺🇸 USA",1500],
+            ["🇬🇧 UK",1500],
+            ["🇨🇦 Canada",1500],
+            ["🇦🇺 Australia",1500]
+        ]
+    },
 
     tiktok:{
         name:"TikTok Coins",
@@ -2151,6 +2202,14 @@ function openProduct(id){
     }else{
         noteBox.textContent="";
         noteBox.style.display="none";
+    }
+
+    /* Policy text visibility at bottom */
+    const policyBanner = document.getElementById("renewalPolicyBanner");
+    if (product.isVirtualNumber) {
+        policyBanner.style.display = "block";
+    } else {
+        policyBanner.style.display = "none";
     }
 
     const list=document.getElementById("packageList");
