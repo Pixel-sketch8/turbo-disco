@@ -752,6 +752,12 @@ section{
     gap:9px;
 }
 
+.packages.vertical-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .package{
     padding:13px 10px;
     border-radius:11px;
@@ -761,6 +767,112 @@ section{
     cursor:pointer;
     text-align:left;
     transition:.2s;
+}
+
+/* CUSTOM STANDALONE VIRTUAL CARDS STYLING */
+.virtual-card {
+    position: relative;
+    height: 230px;
+    border-radius: 22px;
+    border: 1px solid rgba(190, 80, 255, 0.45);
+    background: #0d0519;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(160, 50, 255, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.virtual-card:hover, .virtual-card.selected {
+    border-color: #d05aff;
+    box-shadow: 0 0 30px rgba(192, 71, 255, 0.5), inset 0 0 25px rgba(180, 50, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.card-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flag-emblem {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 16px rgba(186, 68, 255, 0.6);
+    object-fit: cover;
+    margin-bottom: 6px;
+}
+
+.country-name {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.service-subtitle {
+    font-size: 11px;
+    color: #b898db;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 1px;
+}
+
+.number-badge {
+    position: relative;
+    z-index: 2;
+    width: 80%;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid rgba(190, 80, 255, 0.35);
+    color: #e0d0ff;
+    font-size: 13px;
+    font-family: monospace;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.price-button {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7c20d8, #c94dff);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 900;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(180, 60, 255, 0.35);
 }
 
 .package-label{
@@ -1358,7 +1470,7 @@ footer p{
         <!-- POS Virtual Numbers -->
         <div class="product-card" onclick="openProduct('virtualNumbers')">
             <div class="product-image">
-                <img src="images/IMG_0238.jpeg" alt="POS Virtual Numbers">
+                <img src="1790042958045.png" alt="POS Virtual Numbers">
             </div>
             <div class="product-info">
                 <h3>📱 POS Virtual Numbers</h3>
@@ -1898,15 +2010,39 @@ const products = {
     virtualNumbers:{
         name:"POS Virtual Numbers",
         type:"Virtual Numbers",
-        image:"images/IMG_0238.jpeg",
+        image:"1790042958045.png",
         accountLabel:"Contact Number / WhatsApp",
         accountPlaceholder:"Enter your active phone number",
         isVirtualNumber: true,
         packages:[
-            ["🇺🇸 USA",1500],
-            ["🇬🇧 UK",1500],
-            ["🇨🇦 Canada",1500],
-            ["🇦🇺 Australia",1500]
+            {
+                name: "USA",
+                price: 1500,
+                bgImg: "https://flagcdn.com/w640/us.png",
+                badgeImg: "https://flagcdn.com/w160/us.png",
+                number: "+1 (202) 555-0147"
+            },
+            {
+                name: "UK",
+                price: 1500,
+                bgImg: "https://flagcdn.com/w640/gb.png",
+                badgeImg: "https://flagcdn.com/w160/gb.png",
+                number: "+44 20 7946 0183"
+            },
+            {
+                name: "Canada",
+                price: 1500,
+                bgImg: "https://flagcdn.com/w640/ca.png",
+                badgeImg: "https://flagcdn.com/w160/ca.png",
+                number: "+1 (416) 555-0128"
+            },
+            {
+                name: "Australia",
+                price: 1500,
+                bgImg: "https://flagcdn.com/w640/au.png",
+                badgeImg: "https://flagcdn.com/w160/au.png",
+                number: "+61 2 5550 0184"
+            }
         ]
     },
 
@@ -2216,54 +2352,88 @@ function openProduct(id){
 
     list.innerHTML="";
 
-    product.packages.forEach((pack,index)=>{
+    if(product.isVirtualNumber){
+        list.classList.add("vertical-layout");
 
-        if(pack[2]){
+        product.packages.forEach((pack) => {
+            const button = document.createElement("div");
+            button.className = "virtual-card";
+            button.innerHTML = `
+                <img class="card-bg-image" src="${pack.bgImg}" alt="${pack.name} Flag Background">
+                <div class="card-content">
+                    <img class="flag-emblem" src="${pack.badgeImg}" alt="${pack.name} Emblem">
+                    <div class="country-name">${pack.name}</div>
+                    <div class="service-subtitle">POS Virtual Number</div>
+                </div>
+                <div class="number-badge">
+                    <span>${pack.number}</span>
+                </div>
+                <div class="price-button">${Number(pack.price).toLocaleString()} GYD</div>
+            `;
 
-            const label=document.createElement("div");
+            button.onclick = () => {
+                document.querySelectorAll(".virtual-card")
+                    .forEach(x => x.classList.remove("selected"));
 
-            label.className="package-label";
+                button.classList.add("selected");
+                selectedPackage = [pack.name + " (" + pack.number + ")", pack.price];
+                updateTotal();
+            };
 
-            label.textContent=pack[2];
+            list.appendChild(button);
+        });
+    } else {
+        list.classList.remove("vertical-layout");
 
-            list.appendChild(label);
+        product.packages.forEach((pack,index)=>{
 
-            if(pack[3]){
+            if(pack[2]){
 
-                const note=document.createElement("div");
+                const label=document.createElement("div");
 
-                note.className="package-note";
+                label.className="package-label";
 
-                note.textContent=pack[3];
+                label.textContent=pack[2];
 
-                list.appendChild(note);
+                list.appendChild(label);
+
+                if(pack[3]){
+
+                    const note=document.createElement("div");
+
+                    note.className="package-note";
+
+                    note.textContent=pack[3];
+
+                    list.appendChild(note);
+                }
             }
-        }
 
-        const button=document.createElement("button");
+            const button=document.createElement("button");
 
-        button.className="package";
+            button.className="package";
 
-        button.innerHTML=`
-            <strong>${pack[0]}</strong>
-            <span>GYD $${Number(pack[1]).toLocaleString()}</span>
-        `;
+            button.innerHTML=`
+                <strong>${pack[0]}</strong>
+                <span>GYD $${Number(pack[1]).toLocaleString()}</span>
+            `;
 
-        button.onclick=()=>{
+            button.onclick=()=>{
 
-            document.querySelectorAll(".package")
-                .forEach(x=>x.classList.remove("selected"));
+                document.querySelectorAll(".package")
+                    .forEach(x=>x.classList.remove("selected"));
 
-            button.classList.add("selected");
+                button.classList.add("selected");
 
-            selectedPackage=pack;
+                selectedPackage=pack;
 
-            updateTotal();
-        };
+                updateTotal();
+            };
 
-        list.appendChild(button);
+            list.appendChild(button);
 
-    });
+        });
+    }
 
 
     const accountWrap=
