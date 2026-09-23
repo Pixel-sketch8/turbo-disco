@@ -608,8 +608,8 @@ section{
     max-width:700px;
     margin:auto;
     padding:35px;
-    border-radius:25px;
     text-align:center;
+    border-radius:25px;
     border:1px solid rgba(190,80,255,.3);
     background:rgba(9,3,15,.86);
 }
@@ -1182,6 +1182,212 @@ footer p{
     font-weight:900;
 }
 
+/* ================= SPIN WHEEL ================= */
+
+.spin-fab{
+    position:fixed;
+    right:20px;
+    bottom:22px;
+    z-index:2400;
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    border:1px solid rgba(200,100,255,.45);
+    background:radial-gradient(circle at 35% 30%,#c94dff,#6f18c9 70%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    color:#fff;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 8px 25px rgba(150,40,220,.5),0 0 0 6px rgba(180,70,255,.08);
+    animation:fabPulse 2.4s infinite;
+}
+
+.spin-fab.tiktok-fab{
+    bottom:98px;
+    background:radial-gradient(circle at 35% 30%,#25f4ee,#111 70%);
+    border-color:rgba(37,244,238,.5);
+    box-shadow:0 8px 25px rgba(37,244,238,.35),0 0 0 6px rgba(37,244,238,.08);
+}
+
+.spin-fab span{
+    font-size:8px;
+    font-weight:900;
+    letter-spacing:.5px;
+    margin-top:1px;
+}
+
+@keyframes fabPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+}
+
+.wheel-modal .modal-box{
+    text-align:center;
+    padding:30px 22px 25px;
+}
+
+.wheel-modal h2{
+    font-size:22px;
+    font-weight:1000;
+    margin-bottom:4px;
+}
+
+.wheel-modal h2 span{
+    color:#c653ff;
+}
+
+.wheel-modal .wheel-sub{
+    color:#999;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.wheel-wrap{
+    position:relative;
+    width:min(300px,80vw);
+    height:min(300px,80vw);
+    margin:0 auto 22px;
+}
+
+.wheel-pointer{
+    position:absolute;
+    top:-6px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+    width:0;
+    height:0;
+    border-left:14px solid transparent;
+    border-right:14px solid transparent;
+    border-top:24px solid #ffd93d;
+    filter:drop-shadow(0 0 8px rgba(255,217,61,.7));
+}
+
+#wheelCanvas_main,
+#wheelCanvas_tiktok{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    border:5px solid #1a0d2a;
+    box-shadow:
+        0 0 0 3px rgba(190,80,255,.5),
+        0 0 40px rgba(160,50,255,.4),
+        inset 0 0 20px rgba(0,0,0,.4);
+    transition:transform 4.5s cubic-bezier(.15,.8,.15,1);
+}
+
+@keyframes spinForever{
+    from{ transform:rotate(0deg); }
+    to{ transform:rotate(360deg); }
+}
+
+#wheelCanvas_tiktok.spinning{
+    animation:spinForever 4s linear infinite;
+    transition:none;
+}
+
+.wheel-hub{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff,#e0c3ff 60%,#a855f7);
+    border:3px solid #1a0d2a;
+    z-index:4;
+    box-shadow:0 0 15px rgba(190,80,255,.6);
+}
+
+.spin-btn{
+    width:100%;
+    padding:15px;
+    border:0;
+    border-radius:12px;
+    background:linear-gradient(135deg,#7c1ed6,#c044ff);
+    color:#fff;
+    font-weight:1000;
+    letter-spacing:.5px;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(180,60,255,.3);
+}
+
+.spin-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.wheel-result{
+    display:none;
+    margin-top:16px;
+    padding:14px;
+    border-radius:12px;
+    border:1px solid rgba(190,80,255,.35);
+    background:rgba(150,40,220,.1);
+    font-size:13px;
+    line-height:1.6;
+    color:#e2c7ff;
+}
+
+.wheel-result strong{
+    color:#fff;
+    font-size:16px;
+    display:block;
+    margin-bottom:4px;
+}
+
+.wheel-fine{
+    margin-top:14px;
+    color:#777;
+    font-size:10px;
+    line-height:1.5;
+}
+
+.wheel-username-wrap{
+    margin-bottom:16px;
+    text-align:left;
+}
+
+.wheel-follow-link{
+    display:inline-block;
+    margin-bottom:14px;
+    color:#25f4ee;
+    font-size:12px;
+    font-weight:900;
+    text-decoration:none;
+    border:1px solid rgba(37,244,238,.4);
+    padding:8px 14px;
+    border-radius:20px;
+}
+
+.wheel-follow-check{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:18px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1px solid rgba(190,80,255,.25);
+    background:rgba(255,255,255,.03);
+    color:#ccc;
+    font-size:12px;
+    font-weight:700;
+    text-align:left;
+    cursor:pointer;
+}
+
+.wheel-follow-check input{
+    width:17px;
+    height:17px;
+    flex-shrink:0;
+    accent-color:#c94dff;
+    cursor:pointer;
+}
+
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
@@ -1277,6 +1483,18 @@ footer p{
     .modal-box{
         padding:20px;
     }
+
+    .spin-fab{
+        right:14px;
+        bottom:16px;
+        width:56px;
+        height:56px;
+        font-size:19px;
+    }
+
+    .spin-fab.tiktok-fab{
+        bottom:82px;
+    }
 }
 
 @media(max-width:430px){
@@ -1363,6 +1581,18 @@ footer p{
     <button class="clear-cart" onclick="clearCart()">
         CLEAR
     </button>
+</div>
+
+<!-- ================= SPIN WHEEL FAB ================= -->
+
+<div class="spin-fab" id="spinFab" onclick="openWheel('main')">
+    🎡
+    <span>SPIN</span>
+</div>
+
+<div class="spin-fab tiktok-fab" id="tiktokSpinFab" onclick="openWheel('tiktok')">
+    🎵
+    <span>TIKTOK</span>
 </div>
 
 <!-- ================= HERO ================= -->
@@ -1959,6 +2189,108 @@ footer p{
         <div class="renewal-policy-banner" id="renewalPolicyBanner">
             ⚠️ Policy Notice: Virtual numbers are renewed monthly for 1,000 GYD.
         </div>
+
+    </div>
+
+</div>
+
+<!-- ================= SPIN WHEEL MODAL (MAIN) ================= -->
+
+<div class="modal wheel-modal" id="wheelModal_main">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeWheel('main')">×</button>
+
+        <h2>DARK <span>GIVEAWAY</span></h2>
+        <p class="wheel-sub">Spin once a day for a chance to win!</p>
+
+        <div class="wheel-wrap">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheelCanvas_main" width="600" height="600"></canvas>
+            <div class="wheel-hub"></div>
+        </div>
+
+        <button class="spin-btn" id="spinBtn_main" onclick="spinWheel('main')">
+            SPIN THE WHEEL
+        </button>
+
+        <div class="wheel-result" id="wheelResult_main">
+            <strong id="wheelResultTitle_main"></strong>
+            <span id="wheelResultText_main"></span>
+        </div>
+
+        <p class="wheel-fine">
+            One free spin per day per device. Winning prizes are
+            claimed by sending your result screenshot to DARK on
+            WhatsApp within 24 hours.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- ================= SPIN WHEEL MODAL (TIKTOK FOLLOW) ================= -->
+
+<div class="modal wheel-modal" id="wheelModal_tiktok">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeWheel('tiktok')">×</button>
+
+        <h2>TIKTOK <span>GIVEAWAY</span></h2>
+        <p class="wheel-sub">
+            Enter your TikTok username and spin to join.
+        </p>
+
+        <a class="wheel-follow-link"
+           href="https://www.tiktok.com/@mr.dark.official"
+           target="_blank">
+            🎵 FOLLOW @MR.DARK.OFFICIAL →
+        </a>
+
+        <div class="wheel-username-wrap">
+            <label class="field-label">
+                Your TikTok Username
+            </label>
+            <input
+                class="input"
+                id="tiktokUsernameInput"
+                type="text"
+                placeholder="@yourusername"
+                oninput="onTiktokUsernameInput()"
+            >
+        </div>
+
+        <label class="wheel-follow-check">
+            <input
+                type="checkbox"
+                id="tiktokFollowCheck"
+                onchange="onTiktokUsernameInput()"
+            >
+            I'm following @mr.dark.official on TikTok
+        </label>
+
+        <div class="wheel-wrap">
+            <div class="wheel-pointer"></div>
+            <canvas id="wheelCanvas_tiktok" width="600" height="600"></canvas>
+            <div class="wheel-hub"></div>
+        </div>
+
+        <button class="spin-btn" id="spinBtn_tiktok" onclick="enterTiktokGiveaway()" disabled>
+            ENTER YOUR TIKTOK USERNAME
+        </button>
+
+        <div class="wheel-result" id="wheelResult_tiktok">
+            <strong id="wheelResultTitle_tiktok"></strong>
+            <span id="wheelResultText_tiktok"></span>
+        </div>
+
+        <p class="wheel-fine">
+            You must be following @mr.dark.official on TikTok to enter.
+            Once we hit 1,000 followers, 3 winners will be picked at
+            random from everyone entered.
+        </p>
 
     </div>
 
@@ -2877,6 +3209,402 @@ document
 
     });
 
+document
+    .getElementById("wheelModal_main")
+    .addEventListener("click",function(e){
+
+        if(e.target===this){
+            closeWheel("main");
+        }
+
+    });
+
+document
+    .getElementById("wheelModal_tiktok")
+    .addEventListener("click",function(e){
+
+        if(e.target===this){
+            closeWheel("tiktok");
+        }
+
+    });
+
+
+/* =========================================================
+   SPIN WHEEL GIVEAWAY(S)
+   wheelInstances holds one config per wheel id ("main","tiktok")
+========================================================= */
+
+const wheelInstances={
+
+    main:{
+        requiresUsername:false,
+        storagePrefix:"darkWheel",
+        prizes:[
+            { label:"50 GYD OFF",      color:"#7c20d8", text:"You won 50 GYD off your next order!" },
+            { label:"TRY AGAIN",       color:"#2a1240", text:"No luck this time — come back tomorrow!" },
+            { label:"100 GYD OFF",     color:"#9b32ff", text:"You won 100 GYD off your next order!" },
+            { label:"FREE 60 UC",      color:"#2a1240", text:"You won a free 60 UC PUBG top-up!" },
+            { label:"8400 UC",         color:"#ffb020", text:"You won 8400 UC!", unwinnable:true },
+            { label:"TRY AGAIN",       color:"#7c20d8", text:"So close! Try again tomorrow." },
+            { label:"200 GYD OFF",     color:"#9b32ff", text:"Big win! 200 GYD off your next order!" },
+            { label:"FREE 100 DIAMONDS", color:"#2a1240", text:"You won 100 free Free Fire diamonds!" },
+            { label:"5% OFF NEXT BUY", color:"#7c20d8", text:"You won 5% off your next purchase!" }
+        ]
+    }
+
+};
+
+/* Build runtime state (canvas, rotation, etc) for each wheel */
+Object.keys(wheelInstances).forEach(id=>{
+
+    const w=wheelInstances[id];
+
+    w.winnableIndexes = w.prizes
+        .map((p,i)=>i)
+        .filter(i=>!w.prizes[i].unwinnable);
+
+    w.canvas   = document.getElementById("wheelCanvas_"+id);
+    w.ctx      = w.canvas.getContext("2d");
+    w.segAngle = (2*Math.PI)/w.prizes.length;
+    w.rotation = 0;
+    w.spinning = false;
+
+    drawWheel(id);
+});
+
+function drawWheel(id){
+
+    const w=wheelInstances[id];
+    const r=w.canvas.width/2;
+
+    w.ctx.clearRect(0,0,w.canvas.width,w.canvas.height);
+
+    w.prizes.forEach((prize,i)=>{
+
+        const start=i*w.segAngle;
+        const end=start+w.segAngle;
+
+        w.ctx.beginPath();
+        w.ctx.moveTo(r,r);
+        w.ctx.arc(r,r,r,start,end);
+        w.ctx.closePath();
+        w.ctx.fillStyle=prize.color;
+        w.ctx.fill();
+        w.ctx.strokeStyle="rgba(255,255,255,0.12)";
+        w.ctx.lineWidth=2;
+        w.ctx.stroke();
+
+        w.ctx.save();
+        w.ctx.translate(r,r);
+        w.ctx.rotate(start+w.segAngle/2);
+        w.ctx.textAlign="right";
+        w.ctx.fillStyle="#fff";
+        w.ctx.font="bold 20px Arial";
+        w.ctx.fillText(prize.label, r-18, 6);
+        w.ctx.restore();
+
+    });
+}
+
+function getSpinAvailability(id){
+
+    const w=wheelInstances[id];
+    const last=localStorage.getItem(w.storagePrefix+"LastSpin");
+
+    if(!last){
+        return true;
+    }
+
+    const lastDate=new Date(Number(last));
+    const now=new Date();
+
+    return (
+        lastDate.getFullYear()!==now.getFullYear() ||
+        lastDate.getMonth()!==now.getMonth() ||
+        lastDate.getDate()!==now.getDate()
+    );
+}
+
+function refreshSpinButton(id){
+
+    const w=wheelInstances[id];
+    const btn=document.getElementById("spinBtn_"+id);
+    const resultBox=document.getElementById("wheelResult_"+id);
+
+    if(getSpinAvailability(id)){
+
+        btn.disabled=false;
+        btn.textContent="SPIN THE WHEEL";
+        resultBox.style.display="none";
+
+    }else{
+
+        btn.disabled=true;
+        btn.textContent="COME BACK TOMORROW";
+
+        const savedPrize=localStorage.getItem(w.storagePrefix+"LastPrize");
+
+        if(savedPrize){
+
+            document.getElementById("wheelResultTitle_"+id).textContent=savedPrize;
+            document.getElementById("wheelResultText_"+id).textContent=
+                "You already spun today. Come back tomorrow for another try!";
+            resultBox.style.display="block";
+        }
+    }
+}
+
+function openWheel(id){
+
+    if(id==="tiktok"){
+        openTiktokWheel();
+        return;
+    }
+
+    document.getElementById("wheelModal_"+id).classList.add("show");
+    refreshSpinButton(id);
+}
+
+function closeWheel(id){
+
+    document.getElementById("wheelModal_"+id).classList.remove("show");
+}
+
+function spinWheel(id){
+
+    const w=wheelInstances[id];
+
+    if(w.spinning || !getSpinAvailability(id)){
+        return;
+    }
+
+    w.spinning=true;
+
+    const btn=document.getElementById("spinBtn_"+id);
+    btn.disabled=true;
+
+    const winnerIndex=
+        w.winnableIndexes[Math.floor(Math.random()*w.winnableIndexes.length)];
+
+    /* Land pointer (top, 12 o'clock) on the middle of the winning segment */
+    const targetAngle=
+        (2*Math.PI) -
+        (winnerIndex*w.segAngle + w.segAngle/2) -
+        (Math.PI/2);
+
+    const extraSpins=6*2*Math.PI;
+    const finalRotation=
+        w.rotation + extraSpins + targetAngle - (w.rotation % (2*Math.PI));
+
+    w.rotation=finalRotation;
+
+    w.canvas.style.transform=`rotate(${w.rotation}rad)`;
+
+    setTimeout(()=>{
+
+        const prize=w.prizes[winnerIndex];
+
+        document.getElementById("wheelResultTitle_"+id).textContent=prize.label;
+        document.getElementById("wheelResultText_"+id).textContent=prize.text;
+        document.getElementById("wheelResult_"+id).style.display="block";
+
+        localStorage.setItem(w.storagePrefix+"LastSpin", Date.now().toString());
+        localStorage.setItem(w.storagePrefix+"LastPrize", prize.label);
+
+        w.spinning=false;
+        refreshSpinButton(id);
+
+    },4600);
+}
+
+
+/* =========================================================
+   TIKTOK GIVEAWAY WHEEL
+   A dedicated wheel that shows the visitor's own TikTok
+   username on it, spins continuously once they enter, and
+   forwards their username to DARK on WhatsApp as an entry.
+========================================================= */
+
+const tiktokCanvas=document.getElementById("wheelCanvas_tiktok");
+const tiktokCtx=tiktokCanvas.getContext("2d");
+const TIKTOK_STORAGE_PREFIX="darkTiktokWheel";
+
+function drawTiktokWheel(text){
+
+    const label = text && text.length>0 ? "@"+text.toUpperCase() : "YOUR TIKTOK NAME";
+    const segments=6;
+    const segAngle=(2*Math.PI)/segments;
+    const colors=["#25f4ee","#111827","#fe2c55","#25f4ee","#111827","#fe2c55"];
+    const r=tiktokCanvas.width/2;
+
+    tiktokCtx.clearRect(0,0,tiktokCanvas.width,tiktokCanvas.height);
+
+    for(let i=0;i<segments;i++){
+
+        const start=i*segAngle;
+        const end=start+segAngle;
+
+        tiktokCtx.beginPath();
+        tiktokCtx.moveTo(r,r);
+        tiktokCtx.arc(r,r,r,start,end);
+        tiktokCtx.closePath();
+        tiktokCtx.fillStyle=colors[i];
+        tiktokCtx.fill();
+        tiktokCtx.strokeStyle="rgba(255,255,255,0.12)";
+        tiktokCtx.lineWidth=2;
+        tiktokCtx.stroke();
+
+        tiktokCtx.save();
+        tiktokCtx.translate(r,r);
+        tiktokCtx.rotate(start+segAngle/2);
+        tiktokCtx.textAlign="right";
+        tiktokCtx.fillStyle="#fff";
+        tiktokCtx.font="bold 20px Arial";
+        tiktokCtx.fillText(label, r-18, 6);
+        tiktokCtx.restore();
+
+    }
+}
+
+drawTiktokWheel("");
+
+function getTiktokUsername(){
+
+    return document
+        .getElementById("tiktokUsernameInput")
+        .value
+        .trim()
+        .replace(/^@/,"");
+}
+
+function tiktokAlreadyEnteredToday(){
+
+    const last=localStorage.getItem(TIKTOK_STORAGE_PREFIX+"LastSpin");
+
+    if(!last){
+        return false;
+    }
+
+    const lastDate=new Date(Number(last));
+    const now=new Date();
+
+    return (
+        lastDate.getFullYear()===now.getFullYear() &&
+        lastDate.getMonth()===now.getMonth() &&
+        lastDate.getDate()===now.getDate()
+    );
+}
+
+function onTiktokUsernameInput(){
+
+    const val=getTiktokUsername();
+    const isFollowing=document.getElementById("tiktokFollowCheck").checked;
+
+    drawTiktokWheel(val);
+
+    document.getElementById("spinBtn_tiktok").disabled = (val.length===0 || !isFollowing);
+}
+
+function openTiktokWheel(){
+
+    const modal=document.getElementById("wheelModal_tiktok");
+    const input=document.getElementById("tiktokUsernameInput");
+    const canvas=tiktokCanvas;
+    const btn=document.getElementById("spinBtn_tiktok");
+    const resultBox=document.getElementById("wheelResult_tiktok");
+    const followCheck=document.getElementById("tiktokFollowCheck");
+
+    modal.classList.add("show");
+
+    if(tiktokAlreadyEnteredToday()){
+
+        const savedUsername=localStorage.getItem(TIKTOK_STORAGE_PREFIX+"LastUsername") || "";
+
+        input.value=savedUsername;
+        input.disabled=true;
+
+        followCheck.checked=true;
+        followCheck.disabled=true;
+
+        drawTiktokWheel(savedUsername);
+        canvas.classList.add("spinning");
+
+        btn.disabled=true;
+        btn.textContent="✓ ENTERED";
+
+        document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
+        document.getElementById("wheelResultText_tiktok").textContent=
+            "@"+savedUsername+" is in the giveaway. Winners are picked once we hit 1,000 followers.";
+        resultBox.style.display="block";
+
+    }else{
+
+        input.value="";
+        input.disabled=false;
+
+        followCheck.checked=false;
+        followCheck.disabled=false;
+
+        drawTiktokWheel("");
+        canvas.classList.remove("spinning");
+
+        btn.disabled=true;
+        btn.textContent="ENTER YOUR TIKTOK USERNAME";
+
+        resultBox.style.display="none";
+    }
+}
+
+function enterTiktokGiveaway(){
+
+    const username=getTiktokUsername();
+
+    if(!username){
+        alert("Please enter your TikTok username first.");
+        return;
+    }
+
+    if(!document.getElementById("tiktokFollowCheck").checked){
+        alert("Please confirm you're following @mr.dark.official on TikTok first.");
+        return;
+    }
+
+    const input=document.getElementById("tiktokUsernameInput");
+    const btn=document.getElementById("spinBtn_tiktok");
+
+    input.disabled=true;
+    document.getElementById("tiktokFollowCheck").disabled=true;
+    btn.disabled=true;
+    btn.textContent="✓ ENTERED";
+
+    drawTiktokWheel(username);
+    tiktokCanvas.classList.add("spinning");
+
+    document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
+    document.getElementById("wheelResultText_tiktok").textContent=
+        "@"+username+" is in the giveaway. Winners are picked once we hit 1,000 followers.";
+    document.getElementById("wheelResult_tiktok").style.display="block";
+
+    localStorage.setItem(TIKTOK_STORAGE_PREFIX+"LastSpin", Date.now().toString());
+    localStorage.setItem(TIKTOK_STORAGE_PREFIX+"LastUsername", username);
+
+    const entryMessage=
+`🎵 TIKTOK GIVEAWAY ENTRY
+
+TikTok Username: @${username}
+
+Entered via the DARK STORE spin wheel.`;
+
+    const whatsappURL=
+        "https://wa.me/13436555995?text=" +
+        encodeURIComponent(entryMessage);
+
+    setTimeout(()=>{
+        window.location.href=whatsappURL;
+    },1800);
+}
+
 
 /* =========================================================
    LOAD CART
@@ -2888,4 +3616,4 @@ updateCartBadge();
 
 </body>
 </html>
-
+</file_text>
