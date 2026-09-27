@@ -468,6 +468,20 @@ section{
     font-weight:900;
 }
 
+/* PRICE COMING SOON */
+
+.price-coming-soon{
+    margin-top:13px;
+    padding:11px;
+    border-radius:10px;
+    background:rgba(150,40,220,.12);
+    border:1px solid rgba(190,80,255,.3);
+    color:#c85cff;
+    font-size:11px;
+    font-weight:900;
+    text-align:center;
+}
+
 /* ================= DEALS ================= */
 
 #deals{
@@ -583,19 +597,18 @@ section{
     line-height:1.6;
 }
 
-/* REVISED RENEWAL POLICY BANNER AT BOTTOM OF MODAL */
-.renewal-policy-banner {
-    display: none;
-    margin-top: 15px;
-    padding: 12px 14px;
-    border-radius: 11px;
-    background: rgba(186, 40, 255, 0.12);
-    border: 1px solid rgba(190, 80, 255, 0.4);
-    color: #e2b3ff;
-    font-size: 12px;
-    text-align: center;
-    font-weight: 700;
-    line-height: 1.4;
+.renewal-policy-banner{
+    display:none;
+    margin-top:15px;
+    padding:12px 14px;
+    border-radius:11px;
+    background:rgba(186,40,255,.12);
+    border:1px solid rgba(190,80,255,.4);
+    color:#e2b3ff;
+    font-size:12px;
+    text-align:center;
+    font-weight:700;
+    line-height:1.4;
 }
 
 /* ================= PAYMENT ================= */
@@ -752,10 +765,10 @@ section{
     gap:9px;
 }
 
-.packages.vertical-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.packages.vertical-layout{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
 }
 
 .package{
@@ -769,110 +782,23 @@ section{
     transition:.2s;
 }
 
-/* CUSTOM STANDALONE VIRTUAL CARDS STYLING */
-.virtual-card {
-    position: relative;
-    height: 230px;
-    border-radius: 22px;
-    border: 1px solid rgba(190, 80, 255, 0.45);
-    background: #0d0519;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 15px;
-    box-sizing: border-box;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(160, 50, 255, 0.15);
-    cursor: pointer;
-    transition: all 0.3s ease;
+.package:hover,
+.package.selected{
+    border-color:#bd51ff;
+    background:rgba(165,55,230,.16);
+    box-shadow:0 0 14px rgba(190,70,255,.12);
 }
 
-.virtual-card:hover, .virtual-card.selected {
-    border-color: #d05aff;
-    box-shadow: 0 0 30px rgba(192, 71, 255, 0.5), inset 0 0 25px rgba(180, 50, 255, 0.25);
-    transform: translateY(-3px);
+.package strong{
+    display:block;
+    font-size:12px;
 }
 
-.card-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.3;
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 90%);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.card-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.flag-emblem {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 16px rgba(186, 68, 255, 0.6);
-    object-fit: cover;
-    margin-bottom: 6px;
-}
-
-.country-name {
-    font-size: 22px;
-    font-weight: 900;
-    color: #ffffff;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.service-subtitle {
-    font-size: 11px;
-    color: #b898db;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-top: 1px;
-}
-
-.number-badge {
-    position: relative;
-    z-index: 2;
-    width: 80%;
-    padding: 8px 12px;
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid rgba(190, 80, 255, 0.35);
-    color: #e0d0ff;
-    font-size: 13px;
-    font-family: monospace;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-}
-
-.price-button {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 10px 0;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #7c20d8, #c94dff);
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 900;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(180, 60, 255, 0.35);
+.package span{
+    display:block;
+    color:#c45aff;
+    font-size:11px;
+    margin-top:4px;
 }
 
 .package-label{
@@ -899,23 +825,112 @@ section{
     line-height:1.5;
 }
 
-.package:hover,
-.package.selected{
-    border-color:#bd51ff;
-    background:rgba(165,55,230,.16);
-    box-shadow:0 0 14px rgba(190,70,255,.12);
+/* CUSTOM STANDALONE VIRTUAL CARDS */
+
+.virtual-card{
+    position:relative;
+    height:230px;
+    border-radius:22px;
+    border:1px solid rgba(190,80,255,.45);
+    background:#0d0519;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    padding:20px 15px;
+    box-sizing:border-box;
+    box-shadow:0 8px 25px rgba(0,0,0,.7),inset 0 0 20px rgba(160,50,255,.15);
+    cursor:pointer;
+    transition:all .3s ease;
 }
 
-.package strong{
-    display:block;
-    font-size:12px;
+.virtual-card:hover,
+.virtual-card.selected{
+    border-color:#d05aff;
+    box-shadow:0 0 30px rgba(192,71,255,.5),inset 0 0 25px rgba(180,50,255,.25);
+    transform:translateY(-3px);
 }
 
-.package span{
-    display:block;
-    color:#c45aff;
+.card-bg-image{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.3;
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);
+    pointer-events:none;
+    z-index:1;
+}
+
+.card-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.flag-emblem{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 0 16px rgba(186,68,255,.6);
+    object-fit:cover;
+    margin-bottom:6px;
+}
+
+.country-name{
+    font-size:22px;
+    font-weight:900;
+    color:#fff;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.service-subtitle{
     font-size:11px;
-    margin-top:4px;
+    color:#b898db;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    margin-top:1px;
+}
+
+.number-badge{
+    position:relative;
+    z-index:2;
+    width:80%;
+    padding:8px 12px;
+    border-radius:20px;
+    background:rgba(0,0,0,.65);
+    border:1px solid rgba(190,80,255,.35);
+    color:#e0d0ff;
+    font-size:13px;
+    font-family:monospace;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+.price-button{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:10px 0;
+    border-radius:12px;
+    background:linear-gradient(135deg,#7c20d8,#c94dff);
+    color:#fff;
+    font-size:15px;
+    font-weight:900;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(180,60,255,.35);
 }
 
 .quantity-row{
@@ -1280,8 +1295,8 @@ footer p{
 }
 
 @keyframes spinForever{
-    from{ transform:rotate(0deg); }
-    to{ transform:rotate(360deg); }
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
 
 #wheelCanvas_tiktok.spinning{
@@ -1391,6 +1406,7 @@ footer p{
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
+
     nav{
         display:none;
     }
@@ -1414,6 +1430,7 @@ footer p{
 }
 
 @media(max-width:700px){
+
     header{
         height:62px;
         padding:0 15px;
@@ -1498,6 +1515,7 @@ footer p{
 }
 
 @media(max-width:430px){
+
     .product-grid{
         grid-template-columns:1fr 1fr;
     }
@@ -1526,7 +1544,9 @@ footer p{
 <!-- ================= WELCOME SCREEN ================= -->
 
 <div id="welcomeScreen">
+
     <div class="welcome-box">
+
         <img class="welcome-logo"
              src="1787436309105.png"
              alt="DARK Logo">
@@ -1541,7 +1561,9 @@ footer p{
         <button class="enter-btn" onclick="enterStore()">
             EXPLORE TO ENTER →
         </button>
+
     </div>
+
 </div>
 
 <!-- ================= HEADER ================= -->
@@ -1563,10 +1585,12 @@ footer p{
     </nav>
 
     <div class="header-right">
+
         <div class="cart" onclick="toggleCart()">
             🛒
             <span class="cart-badge" id="cartBadge">0</span>
         </div>
+
     </div>
 
 </header>
@@ -1574,25 +1598,37 @@ footer p{
 <!-- ================= CART ================= -->
 
 <div class="cart-panel" id="cartPanel">
+
     <h3>Your Orders</h3>
+
     <div id="cartItems" class="cart-empty">
         No items selected yet.
     </div>
+
     <button class="clear-cart" onclick="clearCart()">
         CLEAR
     </button>
+
 </div>
 
 <!-- ================= SPIN WHEEL FAB ================= -->
 
-<div class="spin-fab" id="spinFab" onclick="openWheel('main')">
+<div class="spin-fab"
+     id="spinFab"
+     onclick="openWheel('main')">
+
     🎡
     <span>SPIN</span>
+
 </div>
 
-<div class="spin-fab tiktok-fab" id="tiktokSpinFab" onclick="openWheel('tiktok')">
+<div class="spin-fab tiktok-fab"
+     id="tiktokSpinFab"
+     onclick="openWheel('tiktok')">
+
     🎵
     <span>TIKTOK</span>
+
 </div>
 
 <!-- ================= HERO ================= -->
@@ -1617,6 +1653,7 @@ footer p{
         </p>
 
         <div class="hero-buttons">
+
             <a href="#gaming" class="primary-btn">
                 SHOP NOW →
             </a>
@@ -1624,6 +1661,7 @@ footer p{
             <a href="#deals" class="secondary-btn">
                 VIEW DEALS
             </a>
+
         </div>
 
     </div>
@@ -1633,54 +1671,79 @@ footer p{
     <div class="hero-showcase" id="heroShowcase">
 
         <div class="hero-slide active">
-            <img src="images/IMG_0235.jpeg" alt="Roblox">
+
+            <img src="images/IMG_0235.jpeg"
+                 alt="Roblox">
+
             <div class="hero-caption">
                 <h3>ROBLOX</h3>
                 <p>ROBux & Gift Cards</p>
             </div>
+
         </div>
 
         <div class="hero-slide">
-            <img src="images/IMG_0232.jpeg" alt="Free Fire">
+
+            <img src="images/IMG_0232.jpeg"
+                 alt="Free Fire">
+
             <div class="hero-caption">
                 <h3>FREE FIRE</h3>
                 <p>Diamonds top-up</p>
             </div>
+
         </div>
 
         <div class="hero-slide">
-            <img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile">
+
+            <img src="images/IMG_0243.jpeg"
+                 alt="Call of Duty Mobile">
+
             <div class="hero-caption">
                 <h3>CALL OF DUTY MOBILE</h3>
                 <p>CP top-up</p>
             </div>
+
         </div>
 
         <div class="hero-slide">
-            <img src="images/IMG_0231.jpeg" alt="PUBG Mobile">
+
+            <img src="images/IMG_0231.jpeg"
+                 alt="PUBG Mobile">
+
             <div class="hero-caption">
                 <h3>PUBG MOBILE</h3>
                 <p>UC top-up</p>
             </div>
+
         </div>
 
         <div class="hero-slide">
-            <img src="images/IMG_0233.jpeg" alt="Binance">
+
+            <img src="images/IMG_0233.jpeg"
+                 alt="Binance">
+
             <div class="hero-caption">
                 <h3>BINANCE</h3>
                 <p>USDT Gift Cards</p>
             </div>
+
         </div>
 
         <div class="hero-slide">
-            <img src="images/IMG_0230.jpeg" alt="Google Play">
+
+            <img src="images/IMG_0230.jpeg"
+                 alt="Google Play">
+
             <div class="hero-caption">
                 <h3>GOOGLE PLAY</h3>
                 <p>Gift Cards</p>
             </div>
+
         </div>
 
-        <div class="slider-dots" id="sliderDots"></div>
+        <div class="slider-dots"
+             id="sliderDots"></div>
 
     </div>
 
@@ -1691,229 +1754,562 @@ footer p{
 <section id="gaming">
 
     <div class="section-title">
-        <h2>SHOP <span>DARK</span></h2>
-        <p>Choose a product and unlock the packages inside.</p>
+
+        <h2>
+            SHOP <span>DARK</span>
+        </h2>
+
+        <p>
+            Choose a product and unlock the packages inside.
+        </p>
+
     </div>
 
     <div class="product-grid">
 
         <!-- POS Virtual Numbers -->
-        <div class="product-card" onclick="openProduct('virtualNumbers')">
+
+        <div class="product-card"
+             onclick="openProduct('virtualNumbers')">
+
             <div class="product-image">
-                <img src="1790042958045.png" alt="POS Virtual Numbers">
+
+                <img src="1790042958045.png"
+                     alt="POS Virtual Numbers">
+
             </div>
+
             <div class="product-info">
+
                 <h3>📱 POS Virtual Numbers</h3>
-                <p>SMS & WhatsApp Verification</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <p>
+                    SMS & WhatsApp Verification
+                </p>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- TikTok -->
-        <div class="product-card" onclick="openProduct('tiktok')">
+
+        <div class="product-card"
+             onclick="openProduct('tiktok')">
+
             <div class="product-image">
-                <img src="images/IMG_0236.jpeg" alt="TikTok Coins">
+
+                <img src="images/IMG_0236.jpeg"
+                     alt="TikTok Coins">
+
             </div>
+
             <div class="product-info">
+
                 <h3>TikTok Coins</h3>
+
                 <p>Coins top-up</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Roblox Gift Card -->
-        <div class="product-card" onclick="openProduct('robloxGift')">
+
+        <div class="product-card"
+             onclick="openProduct('robloxGift')">
+
             <div class="product-image">
-                <img src="images/IMG_0235.jpeg" alt="Roblox Gift Card">
+
+                <img src="images/IMG_0235.jpeg"
+                     alt="Roblox Gift Card">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Roblox Gift Card</h3>
+
                 <p>USD Gift Cards</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Roblox -->
-        <div class="product-card" onclick="openProduct('roblox')">
+
+        <div class="product-card"
+             onclick="openProduct('roblox')">
+
             <div class="product-image">
-                <img src="images/IMG_0235.jpeg" alt="Roblox Robux">
+
+                <img src="images/IMG_0235.jpeg"
+                     alt="Roblox Robux">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Roblox Robux</h3>
+
                 <p>Robux top-up</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Free Fire -->
-        <div class="product-card" onclick="openProduct('freefire')">
+
+        <div class="product-card"
+             onclick="openProduct('freefire')">
+
             <div class="product-image">
-                <img src="images/IMG_0232.jpeg" alt="Free Fire">
+
+                <img src="images/IMG_0232.jpeg"
+                     alt="Free Fire">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Free Fire</h3>
+
                 <p>Diamonds</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- COD -->
-        <div class="product-card" onclick="openProduct('cod')">
+
+        <div class="product-card"
+             onclick="openProduct('cod')">
+
             <div class="product-image">
-                <img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile">
+
+                <img src="images/IMG_0243.jpeg"
+                     alt="Call of Duty Mobile">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Call of Duty Mobile</h3>
+
                 <p>CP top-up</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- PUBG -->
-        <div class="product-card" onclick="openProduct('pubg')">
+
+        <div class="product-card"
+             onclick="openProduct('pubg')">
+
             <div class="product-image">
-                <img src="images/IMG_0231.jpeg" alt="PUBG Mobile">
+
+                <img src="images/IMG_0231.jpeg"
+                     alt="PUBG Mobile">
+
             </div>
+
             <div class="product-info">
+
                 <h3>PUBG Mobile</h3>
+
                 <p>UC top-up</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Apex -->
-        <div class="product-card" onclick="openProduct('apex')">
+
+        <div class="product-card"
+             onclick="openProduct('apex')">
+
             <div class="product-image">
-                <img src="images/IMG_0241.jpeg" alt="Apex Legends">
+
+                <img src="images/IMG_0241.jpeg"
+                     alt="Apex Legends">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Apex Legends</h3>
+
                 <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+
+                <button class="buy-btn">
+                    COMING SOON
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Arena -->
-        <div class="product-card" onclick="openProduct('arena')">
+
+        <div class="product-card"
+             onclick="openProduct('arena')">
+
             <div class="product-image">
-                <img src="images/IMG_0242.jpeg" alt="Arena Breakout">
+
+                <img src="images/IMG_0242.jpeg"
+                     alt="Arena Breakout">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Arena Breakout</h3>
+
                 <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+
+                <button class="buy-btn">
+                    COMING SOON
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Blood Strike -->
-        <div class="product-card" onclick="openProduct('blood')">
+
+        <div class="product-card"
+             onclick="openProduct('blood')">
+
             <div class="product-image">
-                <img src="images/IMG_0240.jpeg" alt="Blood Strike">
+
+                <img src="images/IMG_0240.jpeg"
+                     alt="Blood Strike">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Blood Strike</h3>
+
                 <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+
+                <button class="buy-btn">
+                    COMING SOON
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Amazon -->
-        <div class="product-card" onclick="openProduct('amazon')">
+
+        <div class="product-card"
+             onclick="openProduct('amazon')">
+
             <div class="product-image">
-                <img src="images/IMG_0234.jpeg" alt="Amazon">
+
+                <img src="images/IMG_0234.jpeg"
+                     alt="Amazon">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Amazon Gift Card</h3>
+
                 <p>USD Gift Cards</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Binance -->
-        <div class="product-card" onclick="openProduct('binance')">
+
+        <div class="product-card"
+             onclick="openProduct('binance')">
+
             <div class="product-image">
-                <img src="images/IMG_0233.jpeg" alt="Binance">
+
+                <img src="images/IMG_0233.jpeg"
+                     alt="Binance">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Binance Gift Card</h3>
+
                 <p>USDT</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Fortnite -->
-        <div class="product-card" onclick="openProduct('fortnite')">
+
+        <div class="product-card"
+             onclick="openProduct('fortnite')">
+
             <div class="product-image">
-                <img src="images/IMG_0235.jpeg" alt="Fortnite">
+
+                <img src="images/IMG_0235.jpeg"
+                     alt="Fortnite">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Fortnite V-Bucks</h3>
+
                 <p>Coming Soon</p>
-                <button class="buy-btn">COMING SOON</button>
+
+                <button class="buy-btn">
+                    COMING SOON
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Razer -->
-        <div class="product-card" onclick="openProduct('razer')">
+
+        <div class="product-card"
+             onclick="openProduct('razer')">
+
             <div class="product-image">
-                <img src="images/IMG_0237.jpeg" alt="Razer Gold">
+
+                <img src="images/IMG_0237.jpeg"
+                     alt="Razer Gold">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Razer Gold</h3>
+
                 <p>USD Gift Cards</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Google Play -->
-        <div class="product-card" onclick="openProduct('google')">
+
+        <div class="product-card"
+             onclick="openProduct('google')">
+
             <div class="product-image">
-                <img src="images/IMG_0230.jpeg" alt="Google Play">
+
+                <img src="images/IMG_0230.jpeg"
+                     alt="Google Play">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Google Play</h3>
+
                 <p>Gift Cards</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
 
-        <!-- Netflix (ACTIVE) -->
-        <div class="product-card" onclick="openProduct('netflix')">
+
+        <!-- Netflix -->
+
+        <div class="product-card"
+             onclick="openProduct('netflix')">
+
             <div class="product-image">
-                <img src="images/IMG_0238.jpeg" alt="Netflix">
+
+                <img src="images/IMG_0238.jpeg"
+                     alt="Netflix">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Netflix</h3>
+
                 <p>Subscriptions</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
+
 
         <!-- Prime -->
-        <div class="product-card" onclick="openProduct('prime')">
+
+        <div class="product-card"
+             onclick="openProduct('prime')">
+
             <div class="product-image">
-                <img src="images/IMG_0239.jpeg" alt="Prime Video">
+
+                <img src="images/IMG_0239.jpeg"
+                     alt="Prime Video">
+
             </div>
+
             <div class="product-info">
+
                 <h3>Prime Video</h3>
+
                 <p>Subscriptions</p>
-                <button class="buy-btn">VIEW PACKAGES</button>
+
+                <button class="buy-btn">
+                    VIEW PACKAGES
+                </button>
+
             </div>
+
         </div>
 
-        <!-- Website -->
-        <div class="product-card" onclick="openProduct('website')">
+
+        <!-- ================= NEW APPLE GIFT CARD ================= -->
+
+        <div class="product-card"
+             onclick="openProduct('appleGift')">
+
             <div class="product-image">
-                <img src="1787436314905.png" alt="Website Creator">
+
+                <img src="Apple gift card Apple's new gift cards can be used in the App_.jpeg"
+                     alt="Apple Gift Card">
+
             </div>
+
             <div class="product-info">
-                <h3>Website Creator</h3>
-                <p>Digital service</p>
-                <button class="buy-btn">LEARN MORE</button>
+
+                <h3>Apple Gift Card</h3>
+
+                <p>Apple Gift Cards</p>
+
+                <div class="price-coming-soon">
+                    PRICE COMING SOON
+                </div>
+
             </div>
+
+        </div>
+
+
+        <!-- ================= NEW VIRTUAL VISA ================= -->
+
+        <div class="product-card"
+             onclick="openProduct('virtualVisa')">
+
+            <div class="product-image">
+
+                <img src="61c0edfa-7c8c-401a-81f1-51d3105f44f1.jpeg"
+                     alt="Virtual Visa Card">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Virtual Visa Card</h3>
+
+                <p>Virtual Payment Card</p>
+
+                <div class="price-coming-soon">
+                    PRICE COMING SOON
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Website -->
+
+        <div class="product-card"
+             onclick="openProduct('website')">
+
+            <div class="product-image">
+
+                <img src="1787436314905.png"
+                     alt="Website Creator">
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>Website Creator</h3>
+
+                <p>Digital service</p>
+
+                <button class="buy-btn">
+                    LEARN MORE
+                </button>
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
 <!-- ================= COMING SOON ================= -->
@@ -1921,34 +2317,64 @@ footer p{
 <section class="coming">
 
     <div class="section-title">
-        <h2>COMING <span>SOON</span></h2>
-        <p>More digital products are coming to DARK STORE.</p>
+
+        <h2>
+            COMING <span>SOON</span>
+        </h2>
+
+        <p>
+            More digital products are coming to DARK STORE.
+        </p>
+
     </div>
 
     <div class="coming-grid">
 
         <div class="coming-card">
-            <img src="images/IMG_0241.jpeg" alt="Apex">
+
+            <img src="images/IMG_0241.jpeg"
+                 alt="Apex">
+
             <div class="coming-info">
+
                 <h3>Apex Legends</h3>
+
                 <span>COMING SOON</span>
+
             </div>
+
         </div>
 
+
         <div class="coming-card">
-            <img src="images/IMG_0242.jpeg" alt="Arena Breakout">
+
+            <img src="images/IMG_0242.jpeg"
+                 alt="Arena Breakout">
+
             <div class="coming-info">
+
                 <h3>Arena Breakout</h3>
+
                 <span>COMING SOON</span>
+
             </div>
+
         </div>
 
+
         <div class="coming-card">
-            <img src="images/IMG_0240.jpeg" alt="Blood Strike">
+
+            <img src="images/IMG_0240.jpeg"
+                 alt="Blood Strike">
+
             <div class="coming-info">
+
                 <h3>Blood Strike</h3>
+
                 <span>COMING SOON</span>
+
             </div>
+
         </div>
 
     </div>
@@ -1960,45 +2386,71 @@ footer p{
 <section id="deals">
 
     <div class="section-title">
-        <h2>DARK <span>DEALS</span></h2>
-        <p>Shop more. Unlock more.</p>
+
+        <h2>
+            DARK <span>DEALS</span>
+        </h2>
+
+        <p>
+            Shop more. Unlock more.
+        </p>
+
     </div>
 
     <div class="reward-box">
-        <h2>5 PURCHASES = <span>FREE!</span></h2>
+
+        <h2>
+            5 PURCHASES = <span>FREE!</span>
+        </h2>
+
         <p>
             Buy from DARK five times using the same Gamer ID
             and unlock a free gaming top-up reward.
         </p>
+
     </div>
 
     <div class="features">
 
         <div class="feature">
+
             <div class="feature-icon">⚡</div>
+
             <h3>FAST DELIVERY</h3>
+
             <p>
                 Orders are sent directly through WhatsApp
                 for quick processing.
             </p>
+
         </div>
 
+
         <div class="feature">
+
             <div class="feature-icon">🎮</div>
+
             <h3>BUILT FOR GAMERS</h3>
+
             <p>
                 Gaming top-ups, gift cards and digital products
                 in one place.
             </p>
+
         </div>
 
+
         <div class="feature">
+
             <div class="feature-icon">🔒</div>
+
             <h3>SIMPLE ORDERING</h3>
+
             <p>
                 Select your package, enter your information
                 and send your order.
             </p>
+
         </div>
 
     </div>
@@ -2010,8 +2462,15 @@ footer p{
 <section id="policy">
 
     <div class="section-title">
-        <h2>DARK <span>POLICY</span></h2>
-        <p>Please read before you order.</p>
+
+        <h2>
+            DARK <span>POLICY</span>
+        </h2>
+
+        <p>
+            Please read before you order.
+        </p>
+
     </div>
 
     <div class="policy-box">
@@ -2019,26 +2478,31 @@ footer p{
         <h3>ACCOUNT POLICY</h3>
 
         <ul>
+
             <li>
                 <strong>Accounts are not personal.</strong>
                 All accounts sold by DARK are shared accounts unless
                 stated otherwise.
             </li>
+
             <li>
                 <strong>Personal accounts.</strong>
                 A personal account is only available if you request one.
                 A personal account is a newly created account made just
                 for you, and it is <strong>not shared</strong>.
             </li>
+
             <li>
                 <strong>Prime Video.</strong>
                 Accounts are shared. Get a personal slot, create your
                 own password, and cancel your membership anytime.
             </li>
+
             <li>
                 <strong>Virtual Numbers.</strong>
                 All numbers are renewed monthly at a rate of 1,000 GYD.
             </li>
+
         </ul>
 
     </div>
@@ -2050,8 +2514,15 @@ footer p{
 <section id="payment">
 
     <div class="section-title">
-        <h2>PAYMENT <span>METHOD</span></h2>
-        <p>Pay through MMG and send your order to DARK.</p>
+
+        <h2>
+            PAYMENT <span>METHOD</span>
+        </h2>
+
+        <p>
+            Pay through MMG and send your order to DARK.
+        </p>
+
     </div>
 
     <div class="payment-box">
@@ -2066,7 +2537,9 @@ footer p{
 
         <p>
             Merchant Name: <strong>CASSIA</strong>
+
             <br><br>
+
             After making your payment, enter your transaction
             ID in the order box. If you do not have the transaction
             ID yet, you can leave it blank and still send the order.
@@ -2081,13 +2554,22 @@ footer p{
 <section id="contact">
 
     <div class="section-title">
-        <h2>CONTACT <span>DARK</span></h2>
-        <p>Need help with your order?</p>
+
+        <h2>
+            CONTACT <span>DARK</span>
+        </h2>
+
+        <p>
+            Need help with your order?
+        </p>
+
     </div>
 
     <div class="contact-box">
 
-        <h3>READY TO LEVEL UP?</h3>
+        <h3>
+            READY TO LEVEL UP?
+        </h3>
 
         <p>
             Select a product and send your order through WhatsApp.
@@ -2096,7 +2578,9 @@ footer p{
         <a class="primary-btn"
            href="https://wa.me/13436555995"
            target="_blank">
+
             CHAT WITH DARK →
+
         </a>
 
     </div>
@@ -2111,15 +2595,27 @@ footer p{
 
     <div class="modal-box">
 
-        <button class="close" onclick="closeProduct()">×</button>
+        <button class="close"
+                onclick="closeProduct()">
+            ×
+        </button>
 
         <div class="modal-product">
 
-            <img id="modalImage" src="" alt="">
+            <img id="modalImage"
+                 src=""
+                 alt="">
 
             <div>
-                <h2 id="modalTitle">Product</h2>
-                <p id="modalType">Choose your package</p>
+
+                <h2 id="modalTitle">
+                    Product
+                </h2>
+
+                <p id="modalType">
+                    Choose your package
+                </p>
+
             </div>
 
         </div>
@@ -2128,13 +2624,18 @@ footer p{
             Select Package
         </label>
 
-        <div class="packages" id="packageList"></div>
+        <div class="packages"
+             id="packageList"></div>
 
         <!-- ACCOUNT FIELD -->
+
         <div id="accountFieldWrap">
 
-            <label class="field-label" id="accountLabel">
+            <label class="field-label"
+                   id="accountLabel">
+
                 Gamer ID / Username
+
             </label>
 
             <input
@@ -2146,11 +2647,15 @@ footer p{
 
         </div>
 
-        <!-- TRANSACTION ID ALWAYS VISIBLE -->
+        <!-- TRANSACTION ID -->
 
         <label class="field-label">
+
             MMG Transaction ID
-            <span style="color:#c85cff">(Optional)</span>
+            <span style="color:#c85cff">
+                (Optional)
+            </span>
+
         </label>
 
         <input
@@ -2167,78 +2672,136 @@ footer p{
         <div class="quantity-row">
 
             <div class="qty">
-                <button onclick="changeQty(-1)">−</button>
-                <strong id="qtyValue">1</strong>
-                <button onclick="changeQty(1)">+</button>
+
+                <button onclick="changeQty(-1)">
+                    −
+                </button>
+
+                <strong id="qtyValue">
+                    1
+                </strong>
+
+                <button onclick="changeQty(1)">
+                    +
+                </button>
+
             </div>
 
         </div>
 
         <div class="total-box">
-            <span>TOTAL</span>
-            <strong id="totalValue">GYD $0</strong>
+
+            <span>
+                TOTAL
+            </span>
+
+            <strong id="totalValue">
+                GYD $0
+            </strong>
+
         </div>
 
-        <div class="modal-note" id="modalNote"></div>
+        <div class="modal-note"
+             id="modalNote"></div>
 
-        <button class="send-order" onclick="sendOrder()">
+        <button class="send-order"
+                onclick="sendOrder()">
+
             SEND ORDER →
+
         </button>
 
-        <!-- POLICY AT THE BOTTOM AFTER BUY BUTTON -->
-        <div class="renewal-policy-banner" id="renewalPolicyBanner">
-            ⚠️ Policy Notice: Virtual numbers are renewed monthly for 1,000 GYD.
+        <div class="renewal-policy-banner"
+             id="renewalPolicyBanner">
+
+            ⚠️ Policy Notice:
+            Virtual numbers are renewed monthly for 1,000 GYD.
+
         </div>
 
     </div>
 
 </div>
 
-<!-- ================= SPIN WHEEL MODAL (MAIN) ================= -->
+<!-- ================= SPIN WHEEL MODAL MAIN ================= -->
 
-<div class="modal wheel-modal" id="wheelModal_main">
+<div class="modal wheel-modal"
+     id="wheelModal_main">
 
     <div class="modal-box">
 
-        <button class="close" onclick="closeWheel('main')">×</button>
-
-        <h2>DARK <span>GIVEAWAY</span></h2>
-        <p class="wheel-sub">Spin once a day for a chance to win!</p>
-
-        <div class="wheel-wrap">
-            <div class="wheel-pointer"></div>
-            <canvas id="wheelCanvas_main" width="600" height="600"></canvas>
-            <div class="wheel-hub"></div>
-        </div>
-
-        <button class="spin-btn" id="spinBtn_main" onclick="spinWheel('main')">
-            SPIN THE WHEEL
+        <button class="close"
+                onclick="closeWheel('main')">
+            ×
         </button>
 
-        <div class="wheel-result" id="wheelResult_main">
+        <h2>
+            DARK <span>GIVEAWAY</span>
+        </h2>
+
+        <p class="wheel-sub">
+            Spin once a day for a chance to win!
+        </p>
+
+        <div class="wheel-wrap">
+
+            <div class="wheel-pointer"></div>
+
+            <canvas
+                id="wheelCanvas_main"
+                width="600"
+                height="600">
+            </canvas>
+
+            <div class="wheel-hub"></div>
+
+        </div>
+
+        <button class="spin-btn"
+                id="spinBtn_main"
+                onclick="spinWheel('main')">
+
+            SPIN THE WHEEL
+
+        </button>
+
+        <div class="wheel-result"
+             id="wheelResult_main">
+
             <strong id="wheelResultTitle_main"></strong>
+
             <span id="wheelResultText_main"></span>
+
         </div>
 
         <p class="wheel-fine">
+
             One free spin per day per device. Winning prizes are
             claimed by sending your result screenshot to DARK on
             WhatsApp within 24 hours.
+
         </p>
 
     </div>
 
 </div>
 
-<!-- ================= SPIN WHEEL MODAL (TIKTOK FOLLOW) ================= -->
+<!-- ================= TIKTOK WHEEL ================= -->
 
-<div class="modal wheel-modal" id="wheelModal_tiktok">
+<div class="modal wheel-modal"
+     id="wheelModal_tiktok">
 
     <div class="modal-box">
 
-        <button class="close" onclick="closeWheel('tiktok')">×</button>
+        <button class="close"
+                onclick="closeWheel('tiktok')">
+            ×
+        </button>
 
-        <h2>TIKTOK <span>GIVEAWAY</span></h2>
+        <h2>
+            TIKTOK <span>GIVEAWAY</span>
+        </h2>
+
         <p class="wheel-sub">
             Enter your TikTok username and spin to join.
         </p>
@@ -2246,13 +2809,17 @@ footer p{
         <a class="wheel-follow-link"
            href="https://www.tiktok.com/@mr.dark.official"
            target="_blank">
+
             🎵 FOLLOW @MR.DARK.OFFICIAL →
+
         </a>
 
         <div class="wheel-username-wrap">
+
             <label class="field-label">
                 Your TikTok Username
             </label>
+
             <input
                 class="input"
                 id="tiktokUsernameInput"
@@ -2260,62 +2827,94 @@ footer p{
                 placeholder="@yourusername"
                 oninput="onTiktokUsernameInput()"
             >
+
         </div>
 
         <label class="wheel-follow-check">
+
             <input
                 type="checkbox"
                 id="tiktokFollowCheck"
                 onchange="onTiktokUsernameInput()"
             >
+
             I'm following @mr.dark.official on TikTok
+
         </label>
 
         <div class="wheel-wrap">
+
             <div class="wheel-pointer"></div>
-            <canvas id="wheelCanvas_tiktok" width="600" height="600"></canvas>
+
+            <canvas
+                id="wheelCanvas_tiktok"
+                width="600"
+                height="600">
+            </canvas>
+
             <div class="wheel-hub"></div>
+
         </div>
 
-        <button class="spin-btn" id="spinBtn_tiktok" onclick="enterTiktokGiveaway()" disabled>
+        <button class="spin-btn"
+                id="spinBtn_tiktok"
+                onclick="enterTiktokGiveaway()"
+                disabled>
+
             ENTER YOUR TIKTOK USERNAME
+
         </button>
 
-        <div class="wheel-result" id="wheelResult_tiktok">
+        <div class="wheel-result"
+             id="wheelResult_tiktok">
+
             <strong id="wheelResultTitle_tiktok"></strong>
+
             <span id="wheelResultText_tiktok"></span>
+
         </div>
 
         <p class="wheel-fine">
+
             You must be following @mr.dark.official on TikTok to enter.
             Once we hit 1,000 followers, 3 winners will be picked at
             random from everyone entered.
+
         </p>
 
     </div>
 
 </div>
 
-<!-- ================= THANK YOU POPUP ================= -->
+<!-- ================= THANK YOU ================= -->
 
 <div id="thankYouPopup">
 
     <div class="thankyou-box">
 
-        <div class="check">✓</div>
+        <div class="check">
+            ✓
+        </div>
 
         <h2>
+
             THANK YOU FOR<br>
-            SHOPPING WITH <span>DARK STORE</span>
+            SHOPPING WITH
+            <span>DARK STORE</span>
+
         </h2>
 
         <p>
+
             Your order is being prepared.
             WhatsApp will open automatically.
+
         </p>
 
         <p class="redirect-text">
+
             SENDING ORDER TO WHATSAPP...
+
         </p>
 
     </div>
@@ -2325,10 +2924,13 @@ footer p{
 <!-- ================= FOOTER ================= -->
 
 <footer>
+
     <strong>DARK</strong>
+
     <p>
         ©️ 2026 DARK • Digital Gaming Store • Guyana
     </p>
+
 </footer>
 
 <script>
@@ -2345,35 +2947,36 @@ const products = {
         image:"1790042958045.png",
         accountLabel:"Contact Number / WhatsApp",
         accountPlaceholder:"Enter your active phone number",
-        isVirtualNumber: true,
+        isVirtualNumber:true,
+
         packages:[
             {
-                name: "USA",
-                price: 1500,
-                bgImg: "https://flagcdn.com/w640/us.png",
-                badgeImg: "https://flagcdn.com/w160/us.png",
-                number: "+1 (202) 555-0147"
+                name:"USA",
+                price:1500,
+                bgImg:"https://flagcdn.com/w640/us.png",
+                badgeImg:"https://flagcdn.com/w160/us.png",
+                number:"+1 (202) 555-0147"
             },
             {
-                name: "UK",
-                price: 1500,
-                bgImg: "https://flagcdn.com/w640/gb.png",
-                badgeImg: "https://flagcdn.com/w160/gb.png",
-                number: "+44 20 7946 0183"
+                name:"UK",
+                price:1500,
+                bgImg:"https://flagcdn.com/w640/gb.png",
+                badgeImg:"https://flagcdn.com/w160/gb.png",
+                number:"+44 20 7946 0183"
             },
             {
-                name: "Canada",
-                price: 1500,
-                bgImg: "https://flagcdn.com/w640/ca.png",
-                badgeImg: "https://flagcdn.com/w160/ca.png",
-                number: "+1 (416) 555-0128"
+                name:"Canada",
+                price:1500,
+                bgImg:"https://flagcdn.com/w640/ca.png",
+                badgeImg:"https://flagcdn.com/w160/ca.png",
+                number:"+1 (416) 555-0128"
             },
             {
-                name: "Australia",
-                price: 1500,
-                bgImg: "https://flagcdn.com/w640/au.png",
-                badgeImg: "https://flagcdn.com/w160/au.png",
-                number: "+61 2 5550 0184"
+                name:"Australia",
+                price:1500,
+                bgImg:"https://flagcdn.com/w640/au.png",
+                badgeImg:"https://flagcdn.com/w160/au.png",
+                number:"+61 2 5550 0184"
             }
         ]
     },
@@ -2384,6 +2987,7 @@ const products = {
         image:"images/IMG_0236.jpeg",
         accountLabel:"TikTok Username / Profile",
         accountPlaceholder:"Enter TikTok username or profile",
+
         packages:[
             ["30 Coins",300],
             ["350 Coins",1200],
@@ -2401,6 +3005,7 @@ const products = {
         image:"images/IMG_0235.jpeg",
         accountLabel:"Roblox Username",
         accountPlaceholder:"Enter Roblox username",
+
         packages:[
             ["$10 USD",2800],
             ["$25 USD",6500],
@@ -2416,6 +3021,7 @@ const products = {
         image:"images/IMG_0235.jpeg",
         accountLabel:"Roblox Gamer ID / Username",
         accountPlaceholder:"Enter Roblox username",
+
         packages:[
             ["400 Robux",1400],
             ["800 Robux",2800],
@@ -2431,6 +3037,7 @@ const products = {
         image:"images/IMG_0232.jpeg",
         accountLabel:"Free Fire Player ID",
         accountPlaceholder:"Enter Free Fire Player ID",
+
         packages:[
             ["100 Diamonds",300],
             ["210 Diamonds",600],
@@ -2446,6 +3053,7 @@ const products = {
         image:"images/IMG_0243.jpeg",
         accountLabel:"COD Mobile Player ID",
         accountPlaceholder:"Enter COD Mobile Player ID",
+
         packages:[
             ["80 CP",400],
             ["420 CP",1300],
@@ -2462,6 +3070,7 @@ const products = {
         image:"images/IMG_0231.jpeg",
         accountLabel:"PUBG Mobile Player ID",
         accountPlaceholder:"Enter PUBG Mobile Player ID",
+
         packages:[
             ["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],
             ["325 UC",1300],
@@ -2485,6 +3094,7 @@ const products = {
         image:"images/IMG_0234.jpeg",
         accountLabel:"Email / Username",
         accountPlaceholder:"Enter email or username",
+
         packages:[
             ["$10 USD",2500],
             ["$20 USD",4800],
@@ -2499,6 +3109,7 @@ const products = {
         type:"USDT Gift Card",
         image:"images/IMG_0233.jpeg",
         noAccount:true,
+
         packages:[
             ["$5 USDT",1700],
             ["$10 USDT",3000],
@@ -2515,6 +3126,7 @@ const products = {
         image:"images/IMG_0237.jpeg",
         accountLabel:"Email / Username",
         accountPlaceholder:"Enter email or username",
+
         packages:[
             ["$10 USD",2800],
             ["$20 USD",5200],
@@ -2530,6 +3142,7 @@ const products = {
         image:"images/IMG_0230.jpeg",
         accountLabel:"Email / Username",
         accountPlaceholder:"Enter email or username",
+
         packages:[
             ["$10 USD",2800],
             ["$25 USD",6000],
@@ -2543,12 +3156,57 @@ const products = {
         type:"Netflix Subscription",
         image:"images/IMG_0238.jpeg",
         noAccount:true,
-        note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
+
+        note:
+        "Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
+
         packages:[
             ["BASIC (HD, 1 Device)",1500],
             ["STANDARD (Full HD, 2 Devices)",2500],
             ["PREMIUM (4K + HDR, 4 Devices)",3000]
         ]
+    },
+
+    prime:{
+        name:"Prime Video",
+        type:"Prime Video Subscription",
+        image:"images/IMG_0239.jpeg",
+        noAccount:true,
+
+        note:
+        "Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
+
+        packages:[
+            ["1 Week",400],
+            ["1 Month",1200],
+            ["Personal Account (1 Month)",4000]
+        ]
+    },
+
+    /* =====================================================
+       NEW APPLE GIFT CARD
+    ===================================================== */
+
+    appleGift:{
+        name:"Apple Gift Card",
+        type:"Apple Gift Card",
+        image:"Apple gift card Apple's new gift cards can be used in the App_.jpeg",
+        noAccount:true,
+        priceComingSoon:true,
+        packages:[]
+    },
+
+    /* =====================================================
+       NEW VIRTUAL VISA CARD
+    ===================================================== */
+
+    virtualVisa:{
+        name:"Virtual Visa Card",
+        type:"Virtual Payment Card",
+        image:"61c0edfa-7c8c-401a-81f1-51d3105f44f1.jpeg",
+        noAccount:true,
+        priceComingSoon:true,
+        packages:[]
     },
 
     apex:{
@@ -2579,19 +3237,6 @@ const products = {
         coming:true
     },
 
-    prime:{
-        name:"Prime Video",
-        type:"Prime Video Subscription",
-        image:"images/IMG_0239.jpeg",
-        noAccount:true,
-        note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
-        packages:[
-            ["1 Week",400],
-            ["1 Month",1200],
-            ["Personal Account (1 Month)",4000]
-        ]
-    },
-
     website:{
         name:"Website Creator",
         type:"Digital Service",
@@ -2619,7 +3264,8 @@ let cart=[];
 
 function enterStore(){
 
-    const screen=document.getElementById("welcomeScreen");
+    const screen=
+        document.getElementById("welcomeScreen");
 
     screen.style.opacity="0";
     screen.style.transition=".45s";
@@ -2652,112 +3298,213 @@ function openProduct(id){
         return;
     }
 
+    /* NEW PRODUCTS WITHOUT PRICES */
+
+    if(product.priceComingSoon){
+
+        alert(
+            product.name +
+            " prices are coming soon."
+        );
+
+        return;
+    }
+
     currentProduct=id;
     selectedPackage=null;
     quantity=1;
 
-    document.getElementById("modalImage").src=product.image;
-    document.getElementById("modalTitle").textContent=product.name;
-    document.getElementById("modalType").textContent=product.type;
+    document.getElementById("modalImage").src=
+        product.image;
 
-    document.getElementById("qtyValue").textContent=quantity;
+    document.getElementById("modalTitle").textContent=
+        product.name;
 
-    const noteBox=document.getElementById("modalNote");
+    document.getElementById("modalType").textContent=
+        product.type;
+
+    document.getElementById("qtyValue").textContent=
+        quantity;
+
+    const noteBox=
+        document.getElementById("modalNote");
 
     if(product.note){
-        noteBox.textContent=product.note;
-        noteBox.style.display="block";
+
+        noteBox.textContent=
+            product.note;
+
+        noteBox.style.display=
+            "block";
+
     }else{
+
         noteBox.textContent="";
-        noteBox.style.display="none";
+        noteBox.style.display=
+            "none";
     }
 
-    /* Policy text visibility at bottom */
-    const policyBanner = document.getElementById("renewalPolicyBanner");
-    if (product.isVirtualNumber) {
-        policyBanner.style.display = "block";
-    } else {
-        policyBanner.style.display = "none";
+    const policyBanner=
+        document.getElementById(
+            "renewalPolicyBanner"
+        );
+
+    if(product.isVirtualNumber){
+
+        policyBanner.style.display=
+            "block";
+
+    }else{
+
+        policyBanner.style.display=
+            "none";
     }
 
-    const list=document.getElementById("packageList");
+    const list=
+        document.getElementById("packageList");
 
     list.innerHTML="";
 
     if(product.isVirtualNumber){
+
         list.classList.add("vertical-layout");
 
-        product.packages.forEach((pack) => {
-            const button = document.createElement("div");
-            button.className = "virtual-card";
-            button.innerHTML = `
-                <img class="card-bg-image" src="${pack.bgImg}" alt="${pack.name} Flag Background">
+        product.packages.forEach((pack)=>{
+
+            const button=
+                document.createElement("div");
+
+            button.className=
+                "virtual-card";
+
+            button.innerHTML=`
+
+                <img
+                    class="card-bg-image"
+                    src="${pack.bgImg}"
+                    alt="${pack.name} Flag Background"
+                >
+
                 <div class="card-content">
-                    <img class="flag-emblem" src="${pack.badgeImg}" alt="${pack.name} Emblem">
-                    <div class="country-name">${pack.name}</div>
-                    <div class="service-subtitle">POS Virtual Number</div>
+
+                    <img
+                        class="flag-emblem"
+                        src="${pack.badgeImg}"
+                        alt="${pack.name} Emblem"
+                    >
+
+                    <div class="country-name">
+                        ${pack.name}
+                    </div>
+
+                    <div class="service-subtitle">
+                        POS Virtual Number
+                    </div>
+
                 </div>
+
                 <div class="number-badge">
-                    <span>${pack.number}</span>
+                    <span>
+                        ${pack.number}
+                    </span>
                 </div>
-                <div class="price-button">${Number(pack.price).toLocaleString()} GYD</div>
+
+                <div class="price-button">
+                    ${Number(pack.price).toLocaleString()}
+                    GYD
+                </div>
+
             `;
 
-            button.onclick = () => {
-                document.querySelectorAll(".virtual-card")
-                    .forEach(x => x.classList.remove("selected"));
+            button.onclick=()=>{
+
+                document
+                    .querySelectorAll(".virtual-card")
+                    .forEach(x=>
+                        x.classList.remove("selected")
+                    );
 
                 button.classList.add("selected");
-                selectedPackage = [pack.name + " (" + pack.number + ")", pack.price];
+
+                selectedPackage=[
+                    pack.name +
+                    " (" +
+                    pack.number +
+                    ")",
+                    pack.price
+                ];
+
                 updateTotal();
             };
 
             list.appendChild(button);
+
         });
-    } else {
+
+    }else{
+
         list.classList.remove("vertical-layout");
 
         product.packages.forEach((pack,index)=>{
 
             if(pack[2]){
 
-                const label=document.createElement("div");
+                const label=
+                    document.createElement("div");
 
-                label.className="package-label";
+                label.className=
+                    "package-label";
 
-                label.textContent=pack[2];
+                label.textContent=
+                    pack[2];
 
                 list.appendChild(label);
 
                 if(pack[3]){
 
-                    const note=document.createElement("div");
+                    const note=
+                        document.createElement("div");
 
-                    note.className="package-note";
+                    note.className=
+                        "package-note";
 
-                    note.textContent=pack[3];
+                    note.textContent=
+                        pack[3];
 
                     list.appendChild(note);
                 }
             }
 
-            const button=document.createElement("button");
+            const button=
+                document.createElement("button");
 
-            button.className="package";
+            button.className=
+                "package";
 
             button.innerHTML=`
-                <strong>${pack[0]}</strong>
-                <span>GYD $${Number(pack[1]).toLocaleString()}</span>
+
+                <strong>
+                    ${pack[0]}
+                </strong>
+
+                <span>
+                    GYD $${Number(pack[1]).toLocaleString()}
+                </span>
+
             `;
 
             button.onclick=()=>{
 
-                document.querySelectorAll(".package")
-                    .forEach(x=>x.classList.remove("selected"));
+                document
+                    .querySelectorAll(".package")
+                    .forEach(x=>
+                        x.classList.remove("selected")
+                    );
 
                 button.classList.add("selected");
 
-                selectedPackage=pack;
+                selectedPackage=
+                    pack;
 
                 updateTotal();
             };
@@ -2767,24 +3514,32 @@ function openProduct(id){
         });
     }
 
-
     const accountWrap=
-        document.getElementById("accountFieldWrap");
+        document.getElementById(
+            "accountFieldWrap"
+        );
 
     const accountInput=
-        document.getElementById("accountInput");
+        document.getElementById(
+            "accountInput"
+        );
 
     const accountLabel=
-        document.getElementById("accountLabel");
+        document.getElementById(
+            "accountLabel"
+        );
 
     if(product.noAccount){
 
-        accountWrap.style.display="none";
+        accountWrap.style.display=
+            "none";
+
         accountInput.value="";
 
     }else{
 
-        accountWrap.style.display="block";
+        accountWrap.style.display=
+            "block";
 
         accountLabel.textContent=
             product.accountLabel ||
@@ -2796,13 +3551,17 @@ function openProduct(id){
 
     }
 
+    document
+        .getElementById("transactionInput")
+        .value="";
 
-    document.getElementById("transactionInput").value="";
+    document
+        .getElementById("totalValue")
+        .textContent="GYD $0";
 
-    document.getElementById("totalValue").textContent=
-        "GYD $0";
-
-    document.getElementById("productModal").classList.add("show");
+    document
+        .getElementById("productModal")
+        .classList.add("show");
 }
 
 
@@ -2834,7 +3593,8 @@ function changeQty(amount){
         quantity=99;
     }
 
-    document.getElementById("qtyValue")
+    document
+        .getElementById("qtyValue")
         .textContent=quantity;
 
     updateTotal();
@@ -2849,18 +3609,22 @@ function updateTotal(){
 
     if(!selectedPackage){
 
-        document.getElementById("totalValue")
+        document
+            .getElementById("totalValue")
             .textContent="GYD $0";
 
         return;
     }
 
     const total=
-        Number(selectedPackage[1])*quantity;
+        Number(selectedPackage[1]) *
+        quantity;
 
-    document.getElementById("totalValue")
+    document
+        .getElementById("totalValue")
         .textContent=
-        "GYD $" + total.toLocaleString();
+        "GYD $" +
+        total.toLocaleString();
 }
 
 
@@ -2874,34 +3638,44 @@ function sendOrder(){
         return;
     }
 
-    const product=products[currentProduct];
+    const product=
+        products[currentProduct];
 
     if(product.coming){
 
-        alert("This product is coming soon.");
+        alert(
+            "This product is coming soon."
+        );
 
         return;
     }
 
+    if(product.priceComingSoon){
 
-    /* PACKAGE REQUIRED */
+        alert(
+            product.name +
+            " prices have not been added yet."
+        );
+
+        return;
+    }
 
     if(!selectedPackage){
 
-        alert("Please select a package first.");
+        alert(
+            "Please select a package first."
+        );
 
         return;
     }
 
-
-    /* ACCOUNT */
-
     const accountInput=
-        document.getElementById("accountInput");
+        document.getElementById(
+            "accountInput"
+        );
 
     const account=
         accountInput.value.trim();
-
 
     if(!product.noAccount && !account){
 
@@ -2914,23 +3688,17 @@ function sendOrder(){
         return;
     }
 
-
-    /* TRANSACTION ID IS OPTIONAL */
-
     const transaction=
         document
-        .getElementById("transactionInput")
+        .getElementById(
+            "transactionInput"
+        )
         .value
         .trim();
 
-
     const total=
-        Number(selectedPackage[1])*quantity;
-
-
-    /* =====================================================
-       SAVE PURCHASE TRACKING
-    ===================================================== */
+        Number(selectedPackage[1]) *
+        quantity;
 
     if(!product.noAccount && account){
 
@@ -2939,17 +3707,17 @@ function sendOrder(){
             account.toLowerCase();
 
         let purchases=
-            Number(localStorage.getItem(key) || 0);
+            Number(
+                localStorage.getItem(key) || 0
+            );
 
         purchases++;
 
-        localStorage.setItem(key,purchases);
+        localStorage.setItem(
+            key,
+            purchases
+        );
     }
-
-
-    /* =====================================================
-       ORDER MESSAGE
-    ===================================================== */
 
     let message=
 `🎮 DARK STORE ORDER
@@ -2970,18 +3738,13 @@ Gamer ID / Username / Email: ${account}`;
     message+=
 `
 MMG Transaction ID: ${
-    transaction || "Not provided"
+    transaction ||
+    "Not provided"
 }
 
 Payment Merchant: CASSIA
 
 Please process my order.`;
-
-
-
-    /* =====================================================
-       WHATSAPP LINK
-    ===================================================== */
 
     const whatsappNumber=
         "13436555995";
@@ -2992,32 +3755,19 @@ Please process my order.`;
         "?text=" +
         encodeURIComponent(message);
 
-
-    /* =====================================================
-       CLOSE PRODUCT MODAL
-    ===================================================== */
-
     closeProduct();
 
-
-    /* =====================================================
-       THANK YOU POPUP FIRST
-    ===================================================== */
-
     const thankYou=
-        document.getElementById("thankYouPopup");
+        document.getElementById(
+            "thankYouPopup"
+        );
 
     thankYou.classList.add("show");
 
-
-    /*
-       Show THANK YOU first.
-       Then automatically open WhatsApp.
-    */
-
     setTimeout(()=>{
 
-        window.location.href=whatsappURL;
+        window.location.href=
+            whatsappURL;
 
     },1800);
 
@@ -3045,10 +3795,19 @@ function addToCart(){
     }
 
     cart.push({
-        product:products[currentProduct].name,
-        package:selectedPackage[0],
-        price:selectedPackage[1],
-        quantity:quantity
+
+        product:
+            products[currentProduct].name,
+
+        package:
+            selectedPackage[0],
+
+        price:
+            selectedPackage[1],
+
+        quantity:
+            quantity
+
     });
 
     updateCartBadge();
@@ -3071,23 +3830,29 @@ function updateCartBadge(){
 
     const totalItems=
         cart.reduce(
-            (sum,item)=>sum+item.quantity,
+            (sum,item)=>
+                sum + item.quantity,
             0
         );
 
-    document.getElementById("cartBadge")
-        .textContent=totalItems;
+    document
+        .getElementById("cartBadge")
+        .textContent=
+        totalItems;
 }
 
 
 function renderCart(){
 
     const container=
-        document.getElementById("cartItems");
+        document.getElementById(
+            "cartItems"
+        );
 
     if(cart.length===0){
 
-        container.className="cart-empty";
+        container.className=
+            "cart-empty";
 
         container.innerHTML=
             "No items selected yet.";
@@ -3103,12 +3868,18 @@ function renderCart(){
             <div class="cart-item">
 
                 <div>
-                    <strong>${item.product}</strong>
+
+                    <strong>
+                        ${item.product}
+                    </strong>
+
                     <br>
+
                     <small>
                         ${item.package}
                         × ${item.quantity}
                     </small>
+
                 </div>
 
                 <strong>
@@ -3129,24 +3900,29 @@ function renderCart(){
 ========================================================= */
 
 const slides=
-    document.querySelectorAll(".hero-slide");
+    document.querySelectorAll(
+        ".hero-slide"
+    );
 
 const dotsContainer=
-    document.getElementById("sliderDots");
+    document.getElementById(
+        "sliderDots"
+    );
 
 let currentSlide=0;
-
-
-/* Create dots */
 
 slides.forEach((slide,index)=>{
 
     const dot=
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     dot.className=
         "dot" +
-        (index===0 ? " active" : "");
+        (index===0
+            ? " active"
+            : "");
 
     dot.onclick=()=>{
         showSlide(index);
@@ -3160,34 +3936,48 @@ slides.forEach((slide,index)=>{
 function showSlide(index){
 
     slides.forEach(slide=>{
-        slide.classList.remove("active");
+
+        slide.classList.remove(
+            "active"
+        );
+
     });
 
     const dots=
-        document.querySelectorAll(".dot");
+        document.querySelectorAll(
+            ".dot"
+        );
 
     dots.forEach(dot=>{
-        dot.classList.remove("active");
+
+        dot.classList.remove(
+            "active"
+        );
+
     });
 
     currentSlide=index;
 
     slides[currentSlide]
-        .classList.add("active");
+        .classList.add(
+            "active"
+        );
 
     dots[currentSlide]
-        .classList.add("active");
+        .classList.add(
+            "active"
+        );
 }
 
-
-/* Automatic moving / popping slideshow */
 
 setInterval(()=>{
 
     currentSlide++;
 
     if(currentSlide>=slides.length){
+
         currentSlide=0;
+
     }
 
     showSlide(currentSlide);
@@ -3196,398 +3986,873 @@ setInterval(()=>{
 
 
 /* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   CLOSE MODAL OUTSIDE
 ========================================================= */
 
 document
     .getElementById("productModal")
-    .addEventListener("click",function(e){
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target===this){
-            closeProduct();
+            if(e.target===this){
+
+                closeProduct();
+
+            }
+
         }
+    );
 
-    });
 
 document
     .getElementById("wheelModal_main")
-    .addEventListener("click",function(e){
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target===this){
-            closeWheel("main");
+            if(e.target===this){
+
+                closeWheel("main");
+
+            }
+
         }
+    );
 
-    });
 
 document
     .getElementById("wheelModal_tiktok")
-    .addEventListener("click",function(e){
+    .addEventListener(
+        "click",
+        function(e){
 
-        if(e.target===this){
-            closeWheel("tiktok");
+            if(e.target===this){
+
+                closeWheel("tiktok");
+
+            }
+
         }
-
-    });
+    );
 
 
 /* =========================================================
-   SPIN WHEEL GIVEAWAY(S)
-   wheelInstances holds one config per wheel id ("main","tiktok")
+   SPIN WHEEL
 ========================================================= */
 
 const wheelInstances={
 
     main:{
+
         requiresUsername:false,
-        storagePrefix:"darkWheel",
+
+        storagePrefix:
+            "darkWheel",
+
         prizes:[
-            { label:"50 GYD OFF",      color:"#7c20d8", text:"You won 50 GYD off your next order!" },
-            { label:"TRY AGAIN",       color:"#2a1240", text:"No luck this time — come back tomorrow!" },
-            { label:"100 GYD OFF",     color:"#9b32ff", text:"You won 100 GYD off your next order!" },
-            { label:"FREE 60 UC",      color:"#2a1240", text:"You won a free 60 UC PUBG top-up!" },
-            { label:"8400 UC",         color:"#ffb020", text:"You won 8400 UC!", unwinnable:true },
-            { label:"TRY AGAIN",       color:"#7c20d8", text:"So close! Try again tomorrow." },
-            { label:"200 GYD OFF",     color:"#9b32ff", text:"Big win! 200 GYD off your next order!" },
-            { label:"FREE 100 DIAMONDS", color:"#2a1240", text:"You won 100 free Free Fire diamonds!" },
-            { label:"5% OFF NEXT BUY", color:"#7c20d8", text:"You won 5% off your next purchase!" }
+
+            {
+                label:"50 GYD OFF",
+                color:"#7c20d8",
+                text:
+                "You won 50 GYD off your next order!"
+            },
+
+            {
+                label:"TRY AGAIN",
+                color:"#2a1240",
+                text:
+                "No luck this time — come back tomorrow!"
+            },
+
+            {
+                label:"100 GYD OFF",
+                color:"#9b32ff",
+                text:
+                "You won 100 GYD off your next order!"
+            },
+
+            {
+                label:"FREE 60 UC",
+                color:"#2a1240",
+                text:
+                "You won a free 60 UC PUBG top-up!"
+            },
+
+            {
+                label:"8400 UC",
+                color:"#ffb020",
+                text:
+                "You won 8400 UC!",
+                unwinnable:true
+            },
+
+            {
+                label:"TRY AGAIN",
+                color:"#7c20d8",
+                text:
+                "So close! Try again tomorrow."
+            },
+
+            {
+                label:"200 GYD OFF",
+                color:"#9b32ff",
+                text:
+                "Big win! 200 GYD off your next order!"
+            },
+
+            {
+                label:"FREE 100 DIAMONDS",
+                color:"#2a1240",
+                text:
+                "You won 100 free Free Fire diamonds!"
+            },
+
+            {
+                label:"5% OFF NEXT BUY",
+                color:"#7c20d8",
+                text:
+                "You won 5% off your next purchase!"
+            }
+
         ]
+
     }
 
 };
 
-/* Build runtime state (canvas, rotation, etc) for each wheel */
-Object.keys(wheelInstances).forEach(id=>{
 
-    const w=wheelInstances[id];
+Object.keys(wheelInstances)
+.forEach(id=>{
 
-    w.winnableIndexes = w.prizes
+    const w=
+        wheelInstances[id];
+
+    w.winnableIndexes=
+        w.prizes
         .map((p,i)=>i)
-        .filter(i=>!w.prizes[i].unwinnable);
+        .filter(
+            i=>
+                !w.prizes[i].unwinnable
+        );
 
-    w.canvas   = document.getElementById("wheelCanvas_"+id);
-    w.ctx      = w.canvas.getContext("2d");
-    w.segAngle = (2*Math.PI)/w.prizes.length;
-    w.rotation = 0;
-    w.spinning = false;
+    w.canvas=
+        document.getElementById(
+            "wheelCanvas_"+id
+        );
+
+    w.ctx=
+        w.canvas.getContext("2d");
+
+    w.segAngle=
+        (2*Math.PI) /
+        w.prizes.length;
+
+    w.rotation=0;
+
+    w.spinning=false;
 
     drawWheel(id);
+
 });
+
 
 function drawWheel(id){
 
-    const w=wheelInstances[id];
-    const r=w.canvas.width/2;
+    const w=
+        wheelInstances[id];
 
-    w.ctx.clearRect(0,0,w.canvas.width,w.canvas.height);
+    const r=
+        w.canvas.width/2;
 
-    w.prizes.forEach((prize,i)=>{
+    w.ctx.clearRect(
+        0,
+        0,
+        w.canvas.width,
+        w.canvas.height
+    );
 
-        const start=i*w.segAngle;
-        const end=start+w.segAngle;
+    w.prizes.forEach(
+        (prize,i)=>{
 
-        w.ctx.beginPath();
-        w.ctx.moveTo(r,r);
-        w.ctx.arc(r,r,r,start,end);
-        w.ctx.closePath();
-        w.ctx.fillStyle=prize.color;
-        w.ctx.fill();
-        w.ctx.strokeStyle="rgba(255,255,255,0.12)";
-        w.ctx.lineWidth=2;
-        w.ctx.stroke();
+            const start=
+                i*w.segAngle;
 
-        w.ctx.save();
-        w.ctx.translate(r,r);
-        w.ctx.rotate(start+w.segAngle/2);
-        w.ctx.textAlign="right";
-        w.ctx.fillStyle="#fff";
-        w.ctx.font="bold 20px Arial";
-        w.ctx.fillText(prize.label, r-18, 6);
-        w.ctx.restore();
+            const end=
+                start+w.segAngle;
 
-    });
+            w.ctx.beginPath();
+
+            w.ctx.moveTo(
+                r,
+                r
+            );
+
+            w.ctx.arc(
+                r,
+                r,
+                r,
+                start,
+                end
+            );
+
+            w.ctx.closePath();
+
+            w.ctx.fillStyle=
+                prize.color;
+
+            w.ctx.fill();
+
+            w.ctx.strokeStyle=
+                "rgba(255,255,255,0.12)";
+
+            w.ctx.lineWidth=2;
+
+            w.ctx.stroke();
+
+            w.ctx.save();
+
+            w.ctx.translate(
+                r,
+                r
+            );
+
+            w.ctx.rotate(
+                start+
+                w.segAngle/2
+            );
+
+            w.ctx.textAlign=
+                "right";
+
+            w.ctx.fillStyle=
+                "#fff";
+
+            w.ctx.font=
+                "bold 20px Arial";
+
+            w.ctx.fillText(
+                prize.label,
+                r-18,
+                6
+            );
+
+            w.ctx.restore();
+
+        }
+    );
 }
+
 
 function getSpinAvailability(id){
 
-    const w=wheelInstances[id];
-    const last=localStorage.getItem(w.storagePrefix+"LastSpin");
+    const w=
+        wheelInstances[id];
+
+    const last=
+        localStorage.getItem(
+            w.storagePrefix+
+            "LastSpin"
+        );
 
     if(!last){
         return true;
     }
 
-    const lastDate=new Date(Number(last));
-    const now=new Date();
+    const lastDate=
+        new Date(
+            Number(last)
+        );
+
+    const now=
+        new Date();
 
     return (
-        lastDate.getFullYear()!==now.getFullYear() ||
-        lastDate.getMonth()!==now.getMonth() ||
-        lastDate.getDate()!==now.getDate()
+
+        lastDate.getFullYear() !==
+        now.getFullYear() ||
+
+        lastDate.getMonth() !==
+        now.getMonth() ||
+
+        lastDate.getDate() !==
+        now.getDate()
+
     );
 }
 
+
 function refreshSpinButton(id){
 
-    const w=wheelInstances[id];
-    const btn=document.getElementById("spinBtn_"+id);
-    const resultBox=document.getElementById("wheelResult_"+id);
+    const w=
+        wheelInstances[id];
 
-    if(getSpinAvailability(id)){
+    const btn=
+        document.getElementById(
+            "spinBtn_"+id
+        );
+
+    const resultBox=
+        document.getElementById(
+            "wheelResult_"+id
+        );
+
+    if(
+        getSpinAvailability(id)
+    ){
 
         btn.disabled=false;
-        btn.textContent="SPIN THE WHEEL";
-        resultBox.style.display="none";
+
+        btn.textContent=
+            "SPIN THE WHEEL";
+
+        resultBox.style.display=
+            "none";
 
     }else{
 
         btn.disabled=true;
-        btn.textContent="COME BACK TOMORROW";
 
-        const savedPrize=localStorage.getItem(w.storagePrefix+"LastPrize");
+        btn.textContent=
+            "COME BACK TOMORROW";
+
+        const savedPrize=
+            localStorage.getItem(
+                w.storagePrefix+
+                "LastPrize"
+            );
 
         if(savedPrize){
 
-            document.getElementById("wheelResultTitle_"+id).textContent=savedPrize;
-            document.getElementById("wheelResultText_"+id).textContent=
+            document.getElementById(
+                "wheelResultTitle_"+id
+            ).textContent=
+                savedPrize;
+
+            document.getElementById(
+                "wheelResultText_"+id
+            ).textContent=
                 "You already spun today. Come back tomorrow for another try!";
-            resultBox.style.display="block";
+
+            resultBox.style.display=
+                "block";
         }
+
     }
+
 }
+
 
 function openWheel(id){
 
     if(id==="tiktok"){
+
         openTiktokWheel();
+
         return;
     }
 
-    document.getElementById("wheelModal_"+id).classList.add("show");
+    document
+        .getElementById(
+            "wheelModal_"+id
+        )
+        .classList.add("show");
+
     refreshSpinButton(id);
 }
 
+
 function closeWheel(id){
 
-    document.getElementById("wheelModal_"+id).classList.remove("show");
+    document
+        .getElementById(
+            "wheelModal_"+id
+        )
+        .classList.remove("show");
 }
+
 
 function spinWheel(id){
 
-    const w=wheelInstances[id];
+    const w=
+        wheelInstances[id];
 
-    if(w.spinning || !getSpinAvailability(id)){
+    if(
+        w.spinning ||
+        !getSpinAvailability(id)
+    ){
+
         return;
+
     }
 
     w.spinning=true;
 
-    const btn=document.getElementById("spinBtn_"+id);
+    const btn=
+        document.getElementById(
+            "spinBtn_"+id
+        );
+
     btn.disabled=true;
 
     const winnerIndex=
-        w.winnableIndexes[Math.floor(Math.random()*w.winnableIndexes.length)];
+        w.winnableIndexes[
+            Math.floor(
+                Math.random() *
+                w.winnableIndexes.length
+            )
+        ];
 
-    /* Land pointer (top, 12 o'clock) on the middle of the winning segment */
     const targetAngle=
         (2*Math.PI) -
-        (winnerIndex*w.segAngle + w.segAngle/2) -
+        (
+            winnerIndex *
+            w.segAngle +
+            w.segAngle/2
+        ) -
         (Math.PI/2);
 
-    const extraSpins=6*2*Math.PI;
+    const extraSpins=
+        6*2*Math.PI;
+
     const finalRotation=
-        w.rotation + extraSpins + targetAngle - (w.rotation % (2*Math.PI));
+        w.rotation +
+        extraSpins +
+        targetAngle -
+        (
+            w.rotation %
+            (2*Math.PI)
+        );
 
-    w.rotation=finalRotation;
+    w.rotation=
+        finalRotation;
 
-    w.canvas.style.transform=`rotate(${w.rotation}rad)`;
+    w.canvas.style.transform=
+        `rotate(${w.rotation}rad)`;
 
     setTimeout(()=>{
 
-        const prize=w.prizes[winnerIndex];
+        const prize=
+            w.prizes[winnerIndex];
 
-        document.getElementById("wheelResultTitle_"+id).textContent=prize.label;
-        document.getElementById("wheelResultText_"+id).textContent=prize.text;
-        document.getElementById("wheelResult_"+id).style.display="block";
+        document.getElementById(
+            "wheelResultTitle_"+id
+        ).textContent=
+            prize.label;
 
-        localStorage.setItem(w.storagePrefix+"LastSpin", Date.now().toString());
-        localStorage.setItem(w.storagePrefix+"LastPrize", prize.label);
+        document.getElementById(
+            "wheelResultText_"+id
+        ).textContent=
+            prize.text;
+
+        document.getElementById(
+            "wheelResult_"+id
+        ).style.display=
+            "block";
+
+        localStorage.setItem(
+            w.storagePrefix+
+            "LastSpin",
+            Date.now().toString()
+        );
+
+        localStorage.setItem(
+            w.storagePrefix+
+            "LastPrize",
+            prize.label
+        );
 
         w.spinning=false;
+
         refreshSpinButton(id);
 
     },4600);
+
 }
 
 
 /* =========================================================
-   TIKTOK GIVEAWAY WHEEL
-   A dedicated wheel that shows the visitor's own TikTok
-   username on it, spins continuously once they enter, and
-   forwards their username to DARK on WhatsApp as an entry.
+   TIKTOK GIVEAWAY
 ========================================================= */
 
-const tiktokCanvas=document.getElementById("wheelCanvas_tiktok");
-const tiktokCtx=tiktokCanvas.getContext("2d");
-const TIKTOK_STORAGE_PREFIX="darkTiktokWheel";
+const tiktokCanvas=
+    document.getElementById(
+        "wheelCanvas_tiktok"
+    );
+
+const tiktokCtx=
+    tiktokCanvas.getContext(
+        "2d"
+    );
+
+const TIKTOK_STORAGE_PREFIX=
+    "darkTiktokWheel";
+
 
 function drawTiktokWheel(text){
 
-    const label = text && text.length>0 ? "@"+text.toUpperCase() : "YOUR TIKTOK NAME";
-    const segments=6;
-    const segAngle=(2*Math.PI)/segments;
-    const colors=["#25f4ee","#111827","#fe2c55","#25f4ee","#111827","#fe2c55"];
-    const r=tiktokCanvas.width/2;
+    const label=
+        text &&
+        text.length>0
+        ? "@"+text.toUpperCase()
+        : "YOUR TIKTOK NAME";
 
-    tiktokCtx.clearRect(0,0,tiktokCanvas.width,tiktokCanvas.height);
+    const segments=6;
+
+    const segAngle=
+        (2*Math.PI)/segments;
+
+    const colors=[
+        "#25f4ee",
+        "#111827",
+        "#fe2c55",
+        "#25f4ee",
+        "#111827",
+        "#fe2c55"
+    ];
+
+    const r=
+        tiktokCanvas.width/2;
+
+    tiktokCtx.clearRect(
+        0,
+        0,
+        tiktokCanvas.width,
+        tiktokCanvas.height
+    );
 
     for(let i=0;i<segments;i++){
 
-        const start=i*segAngle;
-        const end=start+segAngle;
+        const start=
+            i*segAngle;
+
+        const end=
+            start+segAngle;
 
         tiktokCtx.beginPath();
-        tiktokCtx.moveTo(r,r);
-        tiktokCtx.arc(r,r,r,start,end);
+
+        tiktokCtx.moveTo(
+            r,
+            r
+        );
+
+        tiktokCtx.arc(
+            r,
+            r,
+            r,
+            start,
+            end
+        );
+
         tiktokCtx.closePath();
-        tiktokCtx.fillStyle=colors[i];
+
+        tiktokCtx.fillStyle=
+            colors[i];
+
         tiktokCtx.fill();
-        tiktokCtx.strokeStyle="rgba(255,255,255,0.12)";
+
+        tiktokCtx.strokeStyle=
+            "rgba(255,255,255,0.12)";
+
         tiktokCtx.lineWidth=2;
+
         tiktokCtx.stroke();
 
         tiktokCtx.save();
-        tiktokCtx.translate(r,r);
-        tiktokCtx.rotate(start+segAngle/2);
-        tiktokCtx.textAlign="right";
-        tiktokCtx.fillStyle="#fff";
-        tiktokCtx.font="bold 20px Arial";
-        tiktokCtx.fillText(label, r-18, 6);
+
+        tiktokCtx.translate(
+            r,
+            r
+        );
+
+        tiktokCtx.rotate(
+            start+
+            segAngle/2
+        );
+
+        tiktokCtx.textAlign=
+            "right";
+
+        tiktokCtx.fillStyle=
+            "#fff";
+
+        tiktokCtx.font=
+            "bold 20px Arial";
+
+        tiktokCtx.fillText(
+            label,
+            r-18,
+            6
+        );
+
         tiktokCtx.restore();
 
     }
 }
 
+
 drawTiktokWheel("");
+
 
 function getTiktokUsername(){
 
     return document
-        .getElementById("tiktokUsernameInput")
+        .getElementById(
+            "tiktokUsernameInput"
+        )
         .value
         .trim()
         .replace(/^@/,"");
+
 }
+
 
 function tiktokAlreadyEnteredToday(){
 
-    const last=localStorage.getItem(TIKTOK_STORAGE_PREFIX+"LastSpin");
+    const last=
+        localStorage.getItem(
+            TIKTOK_STORAGE_PREFIX+
+            "LastSpin"
+        );
 
     if(!last){
         return false;
     }
 
-    const lastDate=new Date(Number(last));
-    const now=new Date();
+    const lastDate=
+        new Date(
+            Number(last)
+        );
+
+    const now=
+        new Date();
 
     return (
-        lastDate.getFullYear()===now.getFullYear() &&
-        lastDate.getMonth()===now.getMonth() &&
-        lastDate.getDate()===now.getDate()
+
+        lastDate.getFullYear()===
+        now.getFullYear() &&
+
+        lastDate.getMonth()===
+        now.getMonth() &&
+
+        lastDate.getDate()===
+        now.getDate()
+
     );
 }
 
+
 function onTiktokUsernameInput(){
 
-    const val=getTiktokUsername();
-    const isFollowing=document.getElementById("tiktokFollowCheck").checked;
+    const val=
+        getTiktokUsername();
+
+    const isFollowing=
+        document.getElementById(
+            "tiktokFollowCheck"
+        ).checked;
 
     drawTiktokWheel(val);
 
-    document.getElementById("spinBtn_tiktok").disabled = (val.length===0 || !isFollowing);
+    document.getElementById(
+        "spinBtn_tiktok"
+    ).disabled=
+        (
+            val.length===0 ||
+            !isFollowing
+        );
 }
+
 
 function openTiktokWheel(){
 
-    const modal=document.getElementById("wheelModal_tiktok");
-    const input=document.getElementById("tiktokUsernameInput");
-    const canvas=tiktokCanvas;
-    const btn=document.getElementById("spinBtn_tiktok");
-    const resultBox=document.getElementById("wheelResult_tiktok");
-    const followCheck=document.getElementById("tiktokFollowCheck");
+    const modal=
+        document.getElementById(
+            "wheelModal_tiktok"
+        );
+
+    const input=
+        document.getElementById(
+            "tiktokUsernameInput"
+        );
+
+    const canvas=
+        tiktokCanvas;
+
+    const btn=
+        document.getElementById(
+            "spinBtn_tiktok"
+        );
+
+    const resultBox=
+        document.getElementById(
+            "wheelResult_tiktok"
+        );
+
+    const followCheck=
+        document.getElementById(
+            "tiktokFollowCheck"
+        );
 
     modal.classList.add("show");
 
     if(tiktokAlreadyEnteredToday()){
 
-        const savedUsername=localStorage.getItem(TIKTOK_STORAGE_PREFIX+"LastUsername") || "";
+        const savedUsername=
+            localStorage.getItem(
+                TIKTOK_STORAGE_PREFIX+
+                "LastUsername"
+            ) || "";
 
-        input.value=savedUsername;
+        input.value=
+            savedUsername;
+
         input.disabled=true;
 
         followCheck.checked=true;
+
         followCheck.disabled=true;
 
-        drawTiktokWheel(savedUsername);
-        canvas.classList.add("spinning");
+        drawTiktokWheel(
+            savedUsername
+        );
+
+        canvas.classList.add(
+            "spinning"
+        );
 
         btn.disabled=true;
-        btn.textContent="✓ ENTERED";
 
-        document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
-        document.getElementById("wheelResultText_tiktok").textContent=
-            "@"+savedUsername+" is in the giveaway. Winners are picked once we hit 1,000 followers.";
-        resultBox.style.display="block";
+        btn.textContent=
+            "✓ ENTERED";
+
+        document.getElementById(
+            "wheelResultTitle_tiktok"
+        ).textContent=
+            "YOU'RE ENTERED!";
+
+        document.getElementById(
+            "wheelResultText_tiktok"
+        ).textContent=
+            "@"+
+            savedUsername+
+            " is in the giveaway. Winners are picked once we hit 1,000 followers.";
+
+        resultBox.style.display=
+            "block";
 
     }else{
 
         input.value="";
+
         input.disabled=false;
 
         followCheck.checked=false;
+
         followCheck.disabled=false;
 
         drawTiktokWheel("");
-        canvas.classList.remove("spinning");
+
+        canvas.classList.remove(
+            "spinning"
+        );
 
         btn.disabled=true;
-        btn.textContent="ENTER YOUR TIKTOK USERNAME";
 
-        resultBox.style.display="none";
+        btn.textContent=
+            "ENTER YOUR TIKTOK USERNAME";
+
+        resultBox.style.display=
+            "none";
     }
 }
 
+
 function enterTiktokGiveaway(){
 
-    const username=getTiktokUsername();
+    const username=
+        getTiktokUsername();
 
     if(!username){
-        alert("Please enter your TikTok username first.");
+
+        alert(
+            "Please enter your TikTok username first."
+        );
+
         return;
     }
 
-    if(!document.getElementById("tiktokFollowCheck").checked){
-        alert("Please confirm you're following @mr.dark.official on TikTok first.");
+    if(
+        !document.getElementById(
+            "tiktokFollowCheck"
+        ).checked
+    ){
+
+        alert(
+            "Please confirm you're following @mr.dark.official on TikTok first."
+        );
+
         return;
     }
 
-    const input=document.getElementById("tiktokUsernameInput");
-    const btn=document.getElementById("spinBtn_tiktok");
+    const input=
+        document.getElementById(
+            "tiktokUsernameInput"
+        );
+
+    const btn=
+        document.getElementById(
+            "spinBtn_tiktok"
+        );
 
     input.disabled=true;
-    document.getElementById("tiktokFollowCheck").disabled=true;
+
+    document.getElementById(
+        "tiktokFollowCheck"
+    ).disabled=true;
+
     btn.disabled=true;
-    btn.textContent="✓ ENTERED";
 
-    drawTiktokWheel(username);
-    tiktokCanvas.classList.add("spinning");
+    btn.textContent=
+        "✓ ENTERED";
 
-    document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
-    document.getElementById("wheelResultText_tiktok").textContent=
-        "@"+username+" is in the giveaway. Winners are picked once we hit 1,000 followers.";
-    document.getElementById("wheelResult_tiktok").style.display="block";
+    drawTiktokWheel(
+        username
+    );
 
-    localStorage.setItem(TIKTOK_STORAGE_PREFIX+"LastSpin", Date.now().toString());
-    localStorage.setItem(TIKTOK_STORAGE_PREFIX+"LastUsername", username);
+    tiktokCanvas.classList.add(
+        "spinning"
+    );
+
+    document.getElementById(
+        "wheelResultTitle_tiktok"
+    ).textContent=
+        "YOU'RE ENTERED!";
+
+    document.getElementById(
+        "wheelResultText_tiktok"
+    ).textContent=
+        "@"+
+        username+
+        " is in the giveaway. Winners are picked once we hit 1,000 followers.";
+
+    document.getElementById(
+        "wheelResult_tiktok"
+    ).style.display=
+        "block";
+
+    localStorage.setItem(
+        TIKTOK_STORAGE_PREFIX+
+        "LastSpin",
+        Date.now().toString()
+    );
+
+    localStorage.setItem(
+        TIKTOK_STORAGE_PREFIX+
+        "LastUsername",
+        username
+    );
 
     const entryMessage=
 `🎵 TIKTOK GIVEAWAY ENTRY
@@ -3598,11 +4863,17 @@ Entered via the DARK STORE spin wheel.`;
 
     const whatsappURL=
         "https://wa.me/13436555995?text=" +
-        encodeURIComponent(entryMessage);
+        encodeURIComponent(
+            entryMessage
+        );
 
     setTimeout(()=>{
-        window.location.href=whatsappURL;
+
+        window.location.href=
+            whatsappURL;
+
     },1800);
+
 }
 
 
@@ -3615,5 +4886,4 @@ updateCartBadge();
 </script>
 
 </body>
-</html>
-</file_text>
+    </html>
