@@ -5,1562 +5,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#05000a">
 <title>DARK | Digital Gaming Store</title>
-
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#05000a;
-    color:#fff;
-    overflow-x:hidden;
-    min-width:320px;
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),
-        url("images/site-background.jpg") center/cover no-repeat;
-    z-index:-3;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at 50% 0%,rgba(138,43,226,.18),transparent 35%),
-        radial-gradient(circle at 0% 100%,rgba(0,100,255,.12),transparent 30%);
-    z-index:-2;
-    pointer-events:none;
-}
-
-/* ================= HEADER ================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    height:72px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 4%;
-    background:rgba(5,0,10,.86);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(180,70,255,.25);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    text-decoration:none;
-    color:#fff;
-    font-weight:900;
-    font-size:23px;
-    letter-spacing:2px;
-}
-
-.logo img{
-    width:42px;
-    height:42px;
-    object-fit:contain;
-    filter:drop-shadow(0 0 10px rgba(170,70,255,.7));
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:22px;
-}
-
-nav a{
-    color:#ddd;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s;
-}
-
-nav a:hover{
-    color:#c76cff;
-    text-shadow:0 0 10px rgba(199,108,255,.7);
-}
-
-.header-right{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.cart{
-    position:relative;
-    width:40px;
-    height:40px;
-    border:1px solid rgba(200,100,255,.3);
-    border-radius:12px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:rgba(255,255,255,.04);
-    cursor:pointer;
-}
-
-.cart-badge{
-    position:absolute;
-    right:-5px;
-    top:-5px;
-    min-width:18px;
-    height:18px;
-    padding:0 4px;
-    border-radius:20px;
-    background:#9b32ff;
-    color:#fff;
-    font-size:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-/* ================= GENERAL ================= */
-
-section{
-    width:min(1200px,92%);
-    margin:auto;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.section-title h2{
-    font-size:34px;
-    font-weight:900;
-    letter-spacing:1px;
-}
-
-.section-title span{
-    color:#bb55ff;
-}
-
-.section-title p{
-    color:#aaa;
-    margin-top:8px;
-    font-size:14px;
-}
-
-/* ================= WELCOME ================= */
-
-#welcomeScreen{
-    position:fixed;
-    inset:0;
-    z-index:5000;
-    background:
-        radial-gradient(circle at center,rgba(132,45,255,.25),transparent 35%),
-        #050008;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.welcome-box{
-    width:min(620px,94%);
-    text-align:center;
-    padding:50px 30px;
-    border:1px solid rgba(190,80,255,.45);
-    border-radius:25px;
-    background:rgba(15,4,25,.92);
-    box-shadow:
-        0 0 40px rgba(160,50,255,.22),
-        inset 0 0 35px rgba(130,40,220,.06);
-}
-
-.welcome-logo{
-    width:95px;
-    height:95px;
-    object-fit:contain;
-    margin-bottom:15px;
-    filter:drop-shadow(0 0 20px rgba(190,70,255,.8));
-}
-
-.welcome-box h1{
-    font-size:clamp(34px,7vw,65px);
-    font-weight:1000;
-    letter-spacing:5px;
-}
-
-.welcome-box h1 span{
-    color:#bb55ff;
-}
-
-.welcome-box p{
-    color:#aaa;
-    margin:15px 0 28px;
-}
-
-.enter-btn{
-    border:0;
-    border-radius:13px;
-    padding:16px 30px;
-    background:linear-gradient(135deg,#7c20d9,#c047ff);
-    color:white;
-    font-weight:900;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(181,65,255,.35);
-    transition:.25s;
-}
-
-.enter-btn:hover{
-    transform:translateY(-3px) scale(1.03);
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:650px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:45px;
-    align-items:center;
-    padding:65px 0;
-}
-
-.hero-text small{
-    color:#bd63ff;
-    font-weight:900;
-    letter-spacing:3px;
-}
-
-.hero-text h1{
-    font-size:clamp(45px,6vw,78px);
-    line-height:.95;
-    margin:15px 0;
-    font-weight:1000;
-}
-
-.hero-text h1 span{
-    color:#b744ff;
-    text-shadow:0 0 25px rgba(183,68,255,.5);
-}
-
-.hero-text p{
-    max-width:560px;
-    color:#aaa;
-    line-height:1.7;
-    font-size:15px;
-}
-
-.hero-buttons{
-    display:flex;
-    gap:12px;
-    margin-top:25px;
-    flex-wrap:wrap;
-}
-
-.primary-btn,
-.secondary-btn{
-    border-radius:12px;
-    padding:14px 22px;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:900;
-    cursor:pointer;
-    border:0;
-}
-
-.primary-btn{
-    background:linear-gradient(135deg,#7920d5,#c84fff);
-    color:white;
-    box-shadow:0 0 25px rgba(175,60,255,.3);
-}
-
-.secondary-btn{
-    color:#fff;
-    border:1px solid rgba(200,100,255,.35);
-    background:rgba(255,255,255,.04);
-}
-
-/* HERO SHOWCASE */
-
-.hero-showcase{
-    height:500px;
-    position:relative;
-    overflow:hidden;
-    border-radius:30px;
-    border:1px solid rgba(180,80,255,.4);
-    background:rgba(5,0,12,.72);
-    box-shadow:
-        0 0 45px rgba(140,50,255,.16),
-        inset 0 0 45px rgba(100,30,180,.08);
-}
-
-.hero-slide{
-    position:absolute;
-    inset:0;
-    opacity:0;
-    transform:scale(.88);
-    transition:
-        opacity .55s ease,
-        transform .65s cubic-bezier(.2,.8,.2,1);
-    pointer-events:none;
-}
-
-.hero-slide.active{
-    opacity:1;
-    transform:scale(1);
-}
-
-.hero-slide img{
-    width:100%;
-    height:100%;
-    display:block;
-    object-fit:cover;
-}
-
-.hero-slide::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-        linear-gradient(to top,rgba(4,0,8,.75),transparent 45%),
-        linear-gradient(to right,rgba(4,0,8,.15),transparent);
-}
-
-.hero-caption{
-    position:absolute;
-    left:25px;
-    right:25px;
-    bottom:22px;
-    z-index:3;
-}
-
-.hero-caption h3{
-    font-size:25px;
-    font-weight:1000;
-}
-
-.hero-caption p{
-    color:#ccc;
-    margin-top:5px;
-    font-size:12px;
-}
-
-.slider-dots{
-    position:absolute;
-    z-index:5;
-    left:50%;
-    bottom:10px;
-    transform:translateX(-50%);
-    display:flex;
-    gap:6px;
-}
-
-.dot{
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:#777;
-}
-
-.dot.active{
-    background:#c34fff;
-    box-shadow:0 0 10px #c34fff;
-}
-
-/* ================= PRODUCTS ================= */
-
-#gaming{
-    padding:65px 0;
-}
-
-.product-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-
-.product-card{
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(190,80,255,.23);
-    border-radius:19px;
-    background:rgba(12,5,19,.82);
-    cursor:pointer;
-    transition:.3s;
-}
-
-.product-card:hover{
-    transform:translateY(-7px);
-    border-color:rgba(205,100,255,.7);
-    box-shadow:0 15px 35px rgba(115,40,180,.2);
-}
-
-.product-image{
-    width:100%;
-    height:180px;
-    overflow:hidden;
-    background:#09050d;
-}
-
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:.4s;
-}
-
-.product-card:hover .product-image img{
-    transform:scale(1.08);
-}
-
-.product-info{
-    padding:15px;
-}
-
-.product-info h3{
-    font-size:16px;
-    font-weight:900;
-}
-
-.product-info p{
-    color:#999;
-    font-size:11px;
-    margin-top:5px;
-}
-
-.buy-btn{
-    width:100%;
-    margin-top:13px;
-    padding:11px;
-    border:0;
-    border-radius:10px;
-    color:#fff;
-    font-size:12px;
-    font-weight:900;
-    background:linear-gradient(135deg,#701bd0,#b938ff);
-    cursor:pointer;
-}
-
-.badge{
-    position:absolute;
-    top:10px;
-    left:10px;
-    z-index:3;
-    padding:5px 8px;
-    border-radius:20px;
-    background:rgba(130,35,220,.9);
-    font-size:9px;
-    font-weight:900;
-}
-
-/* ================= DEALS ================= */
-
-#deals{
-    padding:65px 0;
-}
-
-.reward-box{
-    padding:35px;
-    border-radius:25px;
-    background:
-        linear-gradient(135deg,rgba(106,20,160,.3),rgba(10,3,20,.85));
-    border:1px solid rgba(195,75,255,.35);
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.reward-box h2{
-    font-size:32px;
-    font-weight:1000;
-}
-
-.reward-box h2 span{
-    color:#d05aff;
-}
-
-.reward-box p{
-    color:#aaa;
-    margin-top:10px;
-}
-
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.feature{
-    padding:25px;
-    border-radius:18px;
-    border:1px solid rgba(190,80,255,.2);
-    background:rgba(10,3,17,.7);
-}
-
-.feature-icon{
-    font-size:30px;
-    margin-bottom:12px;
-}
-
-.feature h3{
-    font-size:16px;
-}
-
-.feature p{
-    color:#999;
-    font-size:12px;
-    line-height:1.6;
-    margin-top:7px;
-}
-
-/* ================= POLICY ================= */
-
-#policy{
-    padding:65px 0;
-}
-
-.policy-box{
-    max-width:700px;
-    margin:auto;
-    padding:35px;
-    border-radius:25px;
-    border:1px solid rgba(190,80,255,.3);
-    background:rgba(9,3,15,.86);
-}
-
-.policy-box h3{
-    color:#c85cff;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:2px;
-    text-align:center;
-    margin-bottom:18px;
-}
-
-.policy-box ul{
-    list-style:none;
-}
-
-.policy-box li{
-    color:#bbb;
-    font-size:13px;
-    line-height:1.7;
-    padding:12px 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.policy-box li:last-child{
-    border-bottom:none;
-}
-
-.policy-box li strong{
-    color:#fff;
-}
-
-.modal-note{
-    display:none;
-    margin-top:14px;
-    padding:12px;
-    border-radius:11px;
-    border:1px solid rgba(190,80,255,.3);
-    background:rgba(150,40,220,.08);
-    color:#ccc;
-    font-size:12px;
-    line-height:1.6;
-}
-
-.renewal-policy-banner{
-    display:none;
-    margin-top:15px;
-    padding:12px 14px;
-    border-radius:11px;
-    background:rgba(186,40,255,.12);
-    border:1px solid rgba(190,80,255,.4);
-    color:#e2b3ff;
-    font-size:12px;
-    text-align:center;
-    font-weight:700;
-    line-height:1.4;
-}
-
-/* ================= PAYMENT ================= */
-
-#payment{
-    padding:65px 0;
-}
-
-.payment-box{
-    max-width:700px;
-    margin:auto;
-    padding:35px;
-    text-align:center;
-    border-radius:25px;
-    border:1px solid rgba(190,80,255,.3);
-    background:rgba(9,3,15,.86);
-}
-
-.mmg-name{
-    color:#c85cff;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:2px;
-}
-
-.mmg-number{
-    font-size:38px;
-    font-weight:1000;
-    margin:10px 0;
-    letter-spacing:3px;
-}
-
-.payment-box p{
-    color:#aaa;
-    font-size:13px;
-    line-height:1.7;
-}
-
-/* ================= CONTACT ================= */
-
-#contact{
-    padding:65px 0 90px;
-}
-
-.contact-box{
-    text-align:center;
-    padding:35px;
-    border-radius:24px;
-    border:1px solid rgba(190,80,255,.25);
-    background:rgba(10,3,17,.8);
-}
-
-.contact-box p{
-    color:#aaa;
-    margin:8px 0 20px;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:3000;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(8px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:min(560px,100%);
-    max-height:92vh;
-    overflow:auto;
-    border-radius:24px;
-    background:#0d0713;
-    border:1px solid rgba(200,90,255,.45);
-    box-shadow:0 0 50px rgba(130,40,220,.25);
-    padding:25px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    top:13px;
-    right:15px;
-    width:35px;
-    height:35px;
-    border:0;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    color:#fff;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.modal-product{
-    display:flex;
-    gap:15px;
-    align-items:center;
-    margin-bottom:22px;
-}
-
-.modal-product img{
-    width:100px;
-    height:80px;
-    border-radius:13px;
-    object-fit:cover;
-}
-
-.modal-product h2{
-    font-size:22px;
-}
-
-.modal-product p{
-    color:#999;
-    font-size:12px;
-    margin-top:4px;
-}
-
-.field-label{
-    display:block;
-    color:#bbb;
-    font-size:11px;
-    font-weight:800;
-    margin:14px 0 7px;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-}
-
-.input{
-    width:100%;
-    padding:13px;
-    border-radius:11px;
-    border:1px solid rgba(190,80,255,.2);
-    background:#07040b;
-    color:#fff;
-    outline:none;
-}
-
-.input:focus{
-    border-color:#b84cff;
-    box-shadow:0 0 12px rgba(184,76,255,.15);
-}
-
-.packages{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:9px;
-}
-
-.packages.vertical-layout{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-}
-
-.package{
-    padding:13px 10px;
-    border-radius:11px;
-    border:1px solid rgba(190,80,255,.2);
-    background:rgba(255,255,255,.035);
-    color:#fff;
-    cursor:pointer;
-    text-align:left;
-    transition:.2s;
-}
-
-.package:hover,
-.package.selected{
-    border-color:#bd51ff;
-    background:rgba(165,55,230,.16);
-    box-shadow:0 0 14px rgba(190,70,255,.12);
-}
-
-.package strong{
-    display:block;
-    font-size:12px;
-}
-
-.package span{
-    display:block;
-    color:#c45aff;
-    font-size:11px;
-    margin-top:4px;
-}
-
-.package-label{
-    grid-column:1/-1;
-    margin-top:10px;
-    padding-bottom:6px;
-    color:#c85cff;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    border-bottom:1px solid rgba(190,80,255,.25);
-}
-
-.package-note{
-    grid-column:1/-1;
-    padding:10px 12px;
-    border-radius:10px;
-    border:1px solid rgba(190,80,255,.3);
-    background:rgba(150,40,220,.08);
-    color:#ddd;
-    font-size:12px;
-    font-weight:700;
-    line-height:1.5;
-}
-
-/* CUSTOM STANDALONE VIRTUAL CARDS */
-
-.virtual-card{
-    position:relative;
-    height:230px;
-    border-radius:22px;
-    border:1px solid rgba(190,80,255,.45);
-    background:#0d0519;
-    overflow:hidden;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:space-between;
-    padding:20px 15px;
-    box-sizing:border-box;
-    box-shadow:0 8px 25px rgba(0,0,0,.7),inset 0 0 20px rgba(160,50,255,.15);
-    cursor:pointer;
-    transition:all .3s ease;
-}
-
-.virtual-card:hover,
-.virtual-card.selected{
-    border-color:#d05aff;
-    box-shadow:0 0 30px rgba(192,71,255,.5),inset 0 0 25px rgba(180,50,255,.25);
-    transform:translateY(-3px);
-}
-
-.card-bg-image{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:.3;
-    mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);
-    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);
-    pointer-events:none;
-    z-index:1;
-}
-
-.card-content{
-    position:relative;
-    z-index:2;
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-}
-
-.flag-emblem{
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    border:2px solid rgba(255,255,255,.9);
-    box-shadow:0 0 16px rgba(186,68,255,.6);
-    object-fit:cover;
-    margin-bottom:6px;
-}
-
-.country-name{
-    font-size:22px;
-    font-weight:900;
-    color:#fff;
-    letter-spacing:1px;
-    text-transform:uppercase;
-}
-
-.service-subtitle{
-    font-size:11px;
-    color:#b898db;
-    text-transform:uppercase;
-    letter-spacing:.8px;
-    margin-top:1px;
-}
-
-.number-badge{
-    position:relative;
-    z-index:2;
-    width:80%;
-    padding:8px 12px;
-    border-radius:20px;
-    background:rgba(0,0,0,.65);
-    border:1px solid rgba(190,80,255,.35);
-    color:#e0d0ff;
-    font-size:13px;
-    font-family:monospace;
-    font-weight:bold;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    box-shadow:0 4px 10px rgba(0,0,0,.4);
-}
-
-.price-button{
-    position:relative;
-    z-index:2;
-    width:100%;
-    padding:10px 0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#7c20d8,#c94dff);
-    color:#fff;
-    font-size:15px;
-    font-weight:900;
-    text-align:center;
-    box-shadow:0 4px 15px rgba(180,60,255,.35);
-}
-
-.quantity-row{
-    display:flex;
-    gap:10px;
-    align-items:center;
-}
-
-.qty{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.qty button{
-    width:35px;
-    height:35px;
-    border-radius:9px;
-    border:1px solid rgba(190,80,255,.25);
-    background:#160b20;
-    color:#fff;
-    cursor:pointer;
-    font-size:18px;
-}
-
-.total-box{
-    margin-top:18px;
-    padding:16px;
-    border-radius:12px;
-    background:rgba(150,40,220,.08);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.total-box span{
-    color:#aaa;
-    font-size:12px;
-}
-
-.total-box strong{
-    color:#d15cff;
-    font-size:21px;
-}
-
-.send-order{
-    width:100%;
-    margin-top:15px;
-    padding:15px;
-    border:0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#7c1ed6,#c044ff);
-    color:#fff;
-    font-weight:1000;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(180,60,255,.25);
-}
-
-/* ================= THANK YOU ================= */
-
-#thankYouPopup{
-    position:fixed;
-    inset:0;
-    z-index:6000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.78);
-    backdrop-filter:blur(8px);
-}
-
-#thankYouPopup.show{
-    display:flex;
-}
-
-.thankyou-box{
-    width:min(500px,94%);
-    text-align:center;
-    padding:45px 25px;
-    border-radius:25px;
-    border:1px solid rgba(205,80,255,.5);
-    background:#0d0614;
-    box-shadow:0 0 55px rgba(160,50,240,.3);
-    animation:thankPop .4s ease;
-}
-
-@keyframes thankPop{
-    from{
-        opacity:0;
-        transform:scale(.75);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.check{
-    width:70px;
-    height:70px;
-    margin:0 auto 18px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#7c20d8,#c94dff);
-    font-size:35px;
-    box-shadow:0 0 30px rgba(190,70,255,.45);
-}
-
-.thankyou-box h2{
-    font-size:27px;
-    font-weight:1000;
-}
-
-.thankyou-box h2 span{
-    color:#c653ff;
-}
-
-.thankyou-box p{
-    color:#aaa;
-    margin-top:10px;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.redirect-text{
-    color:#c85cff !important;
-    font-weight:900;
-    margin-top:20px !important;
-}
-
-/* ================= CART ================= */
-
-.cart-panel{
-    position:fixed;
-    right:20px;
-    top:85px;
-    z-index:2500;
-    width:330px;
-    max-width:calc(100% - 40px);
-    display:none;
-    padding:20px;
-    border-radius:18px;
-    border:1px solid rgba(190,80,255,.3);
-    background:#0c0611;
-    box-shadow:0 20px 50px rgba(0,0,0,.45);
-}
-
-.cart-panel.show{
-    display:block;
-}
-
-.cart-panel h3{
-    margin-bottom:15px;
-}
-
-.cart-empty{
-    color:#888;
-    font-size:12px;
-}
-
-.cart-item{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:10px 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.cart-item small{
-    color:#999;
-}
-
-.clear-cart{
-    margin-top:14px;
-    width:100%;
-    padding:10px;
-    border:1px solid rgba(200,80,255,.25);
-    border-radius:10px;
-    background:transparent;
-    color:#fff;
-    cursor:pointer;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-    border-top:1px solid rgba(190,80,255,.15);
-    padding:28px 20px;
-    text-align:center;
-    background:rgba(5,0,10,.8);
-}
-
-footer strong{
-    color:#c453ff;
-}
-
-footer p{
-    color:#777;
-    font-size:11px;
-    margin-top:5px;
-}
-
-/* ================= COMING SOON ================= */
-
-.coming{
-    padding:30px 0 65px;
-}
-
-.coming-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.coming-card{
-    position:relative;
-    overflow:hidden;
-    height:160px;
-    border-radius:18px;
-    border:1px solid rgba(180,80,255,.25);
-    background:#0b0610;
-    animation:comingShake 3.2s infinite;
-}
-
-@keyframes comingShake{
-    0%,88%,100%{transform:translateX(0)}
-    90%{transform:translateX(-2px) rotate(-.4deg)}
-    92%{transform:translateX(2px) rotate(.4deg)}
-    94%{transform:translateX(-2px)}
-    96%{transform:translateX(2px)}
-}
-
-.coming-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:.65;
-}
-
-.coming-card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(5,0,10,.95),rgba(5,0,10,.05));
-}
-
-.coming-info{
-    position:absolute;
-    z-index:2;
-    bottom:12px;
-    left:14px;
-}
-
-.coming-info h3{
-    font-size:15px;
-}
-
-.coming-info span{
-    color:#c354ff;
-    font-size:9px;
-    font-weight:900;
-}
-
-/* ================= SPIN WHEEL ================= */
-
-.spin-fab{
-    position:fixed;
-    right:20px;
-    bottom:22px;
-    z-index:2400;
-    width:64px;
-    height:64px;
-    border-radius:50%;
-    border:1px solid rgba(200,100,255,.45);
-    background:radial-gradient(circle at 35% 30%,#c94dff,#6f18c9 70%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    box-shadow:0 8px 25px rgba(150,40,220,.5),0 0 0 6px rgba(180,70,255,.08);
-    animation:fabPulse 2.4s infinite;
-}
-
-.spin-fab.tiktok-fab{
-    bottom:98px;
-    background:radial-gradient(circle at 35% 30%,#25f4ee,#111 70%);
-    border-color:rgba(37,244,238,.5);
-    box-shadow:0 8px 25px rgba(37,244,238,.35),0 0 0 6px rgba(37,244,238,.08);
-}
-
-.spin-fab span{
-    font-size:8px;
-    font-weight:900;
-    letter-spacing:.5px;
-    margin-top:1px;
-}
-
-@keyframes fabPulse{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.08);}
-}
-
-.wheel-modal .modal-box{
-    text-align:center;
-    padding:30px 22px 25px;
-}
-
-.wheel-modal h2{
-    font-size:22px;
-    font-weight:1000;
-    margin-bottom:4px;
-}
-
-.wheel-modal h2 span{
-    color:#c653ff;
-}
-
-.wheel-modal .wheel-sub{
-    color:#999;
-    font-size:12px;
-    margin-bottom:20px;
-}
-
-.wheel-wrap{
-    position:relative;
-    width:min(300px,80vw);
-    height:min(300px,80vw);
-    margin:0 auto 22px;
-}
-
-.wheel-pointer{
-    position:absolute;
-    top:-6px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:5;
-    width:0;
-    height:0;
-    border-left:14px solid transparent;
-    border-right:14px solid transparent;
-    border-top:24px solid #ffd93d;
-    filter:drop-shadow(0 0 8px rgba(255,217,61,.7));
-}
-
-#wheelCanvas_main,
-#wheelCanvas_tiktok{
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    border:5px solid #1a0d2a;
-    box-shadow:
-        0 0 0 3px rgba(190,80,255,.5),
-        0 0 40px rgba(160,50,255,.4),
-        inset 0 0 20px rgba(0,0,0,.4);
-    transition:transform 4.5s cubic-bezier(.15,.8,.15,1);
-}
-
-@keyframes spinForever{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-}
-
-#wheelCanvas_tiktok.spinning{
-    animation:spinForever 4s linear infinite;
-    transition:none;
-}
-
-.wheel-hub{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    width:46px;
-    height:46px;
-    border-radius:50%;
-    background:radial-gradient(circle at 35% 30%,#fff,#e0c3ff 60%,#a855f7);
-    border:3px solid #1a0d2a;
-    z-index:4;
-    box-shadow:0 0 15px rgba(190,80,255,.6);
-}
-
-.spin-btn{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:12px;
-    background:linear-gradient(135deg,#7c1ed6,#c044ff);
-    color:#fff;
-    font-weight:1000;
-    letter-spacing:.5px;
-    cursor:pointer;
-    box-shadow:0 0 25px rgba(180,60,255,.3);
-}
-
-.spin-btn:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-}
-
-.wheel-result{
-    display:none;
-    margin-top:16px;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid rgba(190,80,255,.35);
-    background:rgba(150,40,220,.1);
-    font-size:13px;
-    line-height:1.6;
-    color:#e2c7ff;
-}
-
-.wheel-result strong{
-    color:#fff;
-    font-size:16px;
-    display:block;
-    margin-bottom:4px;
-}
-
-.wheel-fine{
-    margin-top:14px;
-    color:#777;
-    font-size:10px;
-    line-height:1.5;
-}
-
-.wheel-username-wrap{
-    margin-bottom:16px;
-    text-align:left;
-}
-
-.wheel-follow-link{
-    display:inline-block;
-    margin-bottom:14px;
-    color:#25f4ee;
-    font-size:12px;
-    font-weight:900;
-    text-decoration:none;
-    border:1px solid rgba(37,244,238,.4);
-    padding:8px 14px;
-    border-radius:20px;
-}
-
-.wheel-follow-check{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    margin-bottom:18px;
-    padding:10px 12px;
-    border-radius:10px;
-    border:1px solid rgba(190,80,255,.25);
-    background:rgba(255,255,255,.03);
-    color:#ccc;
-    font-size:12px;
-    font-weight:700;
-    text-align:left;
-    cursor:pointer;
-}
-
-.wheel-follow-check input{
-    width:17px;
-    height:17px;
-    flex-shrink:0;
-    accent-color:#c94dff;
-    cursor:pointer;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1000px){
-
-    nav{
-        display:none;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-        padding-top:40px;
-    }
-
-    .hero-showcase{
-        height:450px;
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .coming-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:700px){
-
-    header{
-        height:62px;
-        padding:0 15px;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    .logo img{
-        width:34px;
-        height:34px;
-    }
-
-    section{
-        width:94%;
-    }
-
-    .hero{
-        min-height:auto;
-        padding:45px 0;
-        gap:25px;
-    }
-
-    .hero-text h1{
-        font-size:46px;
-    }
-
-    .hero-showcase{
-        height:360px;
-        border-radius:20px;
-    }
-
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:11px;
-    }
-
-    .product-image{
-        height:145px;
-    }
-
-    .product-info{
-        padding:11px;
-    }
-
-    .product-info h3{
-        font-size:13px;
-    }
-
-    .features{
-        grid-template-columns:1fr;
-    }
-
-    .coming-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .coming-card{
-        height:135px;
-    }
-
-    .mmg-number{
-        font-size:29px;
-    }
-
-    .modal-box{
-        padding:20px;
-    }
-
-    .spin-fab{
-        right:14px;
-        bottom:16px;
-        width:56px;
-        height:56px;
-        font-size:19px;
-    }
-
-    .spin-fab.tiktok-fab{
-        bottom:82px;
-    }
-}
-
-@media(max-width:430px){
-
-    .product-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .product-image{
-        height:125px;
-    }
-
-    .packages{
-        grid-template-columns:1fr;
-    }
-
-    .hero-showcase{
-        height:310px;
-    }
-
-    .welcome-box{
-        padding:35px 20px;
-    }
-}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+html{scroll-behavior:smooth;}
+body{font-family:Arial,Helvetica,sans-serif;background:#05000a;color:#fff;overflow-x:hidden;min-width:320px;transform:translateZ(0);}
+body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),url("images/site-background.jpg") center/cover no-repeat;z-index:-3;will-change:transform;}
+body::after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 0%,rgba(138,43,226,.18),transparent 35%),radial-gradient(circle at 0% 100%,rgba(0,100,255,.12),transparent 30%);z-index:-2;pointer-events:none;}
+header{position:sticky;top:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:rgba(5,0,10,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(180,70,255,.25);transform:translateZ(0);}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:900;font-size:23px;letter-spacing:2px;}
+.logo img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(170,70,255,.7));}
+nav{display:flex;align-items:center;gap:22px;}
+nav a{color:#ddd;text-decoration:none;font-size:13px;font-weight:700;transition:color .2s ease;}
+nav a:hover{color:#c76cff;text-shadow:0 0 10px rgba(199,108,255,.7);}
+.header-right{display:flex;align-items:center;gap:12px;}
+.cart{position:relative;width:40px;height:40px;border:1px solid rgba(200,100,255,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);cursor:pointer;}
+.cart-badge{position:absolute;right:-5px;top:-5px;min-width:18px;height:18px;padding:0 4px;border-radius:20px;background:#9b32ff;color:#fff;font-size:10px;display:flex;align-items:center;justify-content:center;}
+section{width:min(1200px,92%);margin:auto;}
+.section-title{text-align:center;margin-bottom:30px;}
+.section-title h2{font-size:34px;font-weight:900;letter-spacing:1px;}
+.section-title span{color:#bb55ff;}
+.section-title p{color:#aaa;margin-top:8px;font-size:14px;}
+#welcomeScreen{position:fixed;inset:0;z-index:5000;background:radial-gradient(circle at center,rgba(132,45,255,.25),transparent 35%),#050008;display:flex;align-items:center;justify-content:center;padding:20px;}
+.welcome-box{width:min(620px,94%);text-align:center;padding:50px 30px;border:1px solid rgba(190,80,255,.45);border-radius:25px;background:rgba(15,4,25,.92);box-shadow:0 0 40px rgba(160,50,255,.22),inset 0 0 35px rgba(130,40,220,.06);}
+.welcome-logo{width:95px;height:95px;object-fit:contain;margin-bottom:15px;filter:drop-shadow(0 0 20px rgba(190,70,255,.8));}
+.welcome-box h1{font-size:clamp(34px,7vw,65px);font-weight:1000;letter-spacing:5px;}
+.welcome-box h1 span{color:#bb55ff;}
+.welcome-box p{color:#aaa;margin:15px 0 28px;}
+.enter-btn{border:0;border-radius:13px;padding:16px 30px;background:linear-gradient(135deg,#7c20d9,#c047ff);color:white;font-weight:900;cursor:pointer;box-shadow:0 0 25px rgba(181,65,255,.35);transition:transform .2s ease;}
+.enter-btn:hover{transform:translateY(-3px) scale(1.03);}
+.hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;padding:65px 0;}
+.hero-text small{color:#bd63ff;font-weight:900;letter-spacing:3px;}
+.hero-text h1{font-size:clamp(45px,6vw,78px);line-height:.95;margin:15px 0;font-weight:1000;}
+.hero-text h1 span{color:#b744ff;text-shadow:0 0 25px rgba(183,68,255,.5);}
+.hero-text p{max-width:560px;color:#aaa;line-height:1.7;font-size:15px;}
+.hero-buttons{display:flex;gap:12px;margin-top:25px;flex-wrap:wrap;}
+.primary-btn,.secondary-btn{border-radius:12px;padding:14px 22px;text-decoration:none;font-size:13px;font-weight:900;cursor:pointer;border:0;}
+.primary-btn{background:linear-gradient(135deg,#7920d5,#c84fff);color:white;box-shadow:0 0 25px rgba(175,60,255,.3);}
+.secondary-btn{color:#fff;border:1px solid rgba(200,100,255,.35);background:rgba(255,255,255,.04);}
+.hero-showcase{height:500px;position:relative;overflow:hidden;border-radius:30px;border:1px solid rgba(180,80,255,.4);background:rgba(5,0,12,.72);box-shadow:0 0 45px rgba(140,50,255,.16),inset 0 0 45px rgba(100,30,180,.08);will-change:transform;}
+.hero-slide{position:absolute;inset:0;opacity:0;transform:scale(.88) translateZ(0);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1);pointer-events:none;will-change:opacity,transform;}
+.hero-slide.active{opacity:1;transform:scale(1) translateZ(0);pointer-events:auto;}
+.hero-slide img{width:100%;height:100%;display:block;object-fit:cover;image-rendering:-webkit-optimize-contrast;}
+.hero-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,0,8,.75),transparent 45%),linear-gradient(to right,rgba(4,0,8,.15),transparent);}
+.hero-caption{position:absolute;left:25px;right:25px;bottom:22px;z-index:3;}
+.hero-caption h3{font-size:25px;font-weight:1000;}
+.hero-caption p{color:#ccc;margin-top:5px;font-size:12px;}
+.slider-dots{position:absolute;z-index:5;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px;}
+.dot{width:7px;height:7px;border-radius:50%;background:#777;cursor:pointer;}
+.dot.active{background:#c34fff;box-shadow:0 0 10px #c34fff;}
+#gaming{padding:65px 0;}
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.product-card{position:relative;overflow:hidden;border:1px solid rgba(190,80,255,.23);border-radius:19px;background:rgba(12,5,19,.82);cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;will-change:transform;transform:translateZ(0);}
+.product-card:hover{transform:translateY(-5px) translateZ(0);border-color:rgba(205,100,255,.7);box-shadow:0 10px 25px rgba(115,40,180,.2);}
+.product-image{width:100%;height:180px;overflow:hidden;background:#09050d;}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease;will-change:transform;image-rendering:-webkit-optimize-contrast;}
+.product-card:hover .product-image img{transform:scale(1.05);}
+.product-info{padding:15px;}
+.product-info h3{font-size:16px;font-weight:900;}
+.product-info p{color:#999;font-size:11px;margin-top:5px;}
+.buy-btn{width:100%;margin-top:13px;padding:11px;border:0;border-radius:10px;color:#fff;font-size:12px;font-weight:900;background:linear-gradient(135deg,#701bd0,#b938ff);cursor:pointer;}
+#deals{padding:65px 0;}
+.reward-box{padding:35px;border-radius:25px;background:linear-gradient(135deg,rgba(106,20,160,.3),rgba(10,3,20,.85));border:1px solid rgba(195,75,255,.35);text-align:center;margin-bottom:28px;}
+.reward-box h2{font-size:32px;font-weight:1000;}
+.reward-box h2 span{color:#d05aff;}
+.reward-box p{color:#aaa;margin-top:10px;}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.feature{padding:25px;border-radius:18px;border:1px solid rgba(190,80,255,.2);background:rgba(10,3,17,.7);}
+.feature-icon{font-size:30px;margin-bottom:12px;}
+.feature h3{font-size:16px;}
+.feature p{color:#999;font-size:12px;line-height:1.6;margin-top:7px;}
+#policy{padding:65px 0;}
+.policy-box{max-width:700px;margin:auto;padding:35px;border-radius:25px;border:1px solid rgba(190,80,255,.3);background:rgba(9,3,15,.86);}
+.policy-box h3{color:#c85cff;font-size:13px;font-weight:900;letter-spacing:2px;text-align:center;margin-bottom:18px;}
+.policy-box ul{list-style:none;}
+.policy-box li{color:#bbb;font-size:13px;line-height:1.7;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.policy-box li:last-child{border-bottom:none;}
+.policy-box li strong{color:#fff;}
+.modal-note{display:none;margin-top:14px;padding:12px;border-radius:11px;border:1px solid rgba(190,80,255,.3);background:rgba(150,40,220,.08);color:#ccc;font-size:12px;line-height:1.6;}
+.renewal-policy-banner{display:none;margin-top:15px;padding:12px 14px;border-radius:11px;background:rgba(186,40,255,.12);border:1px solid rgba(190,80,255,.4);color:#e2b3ff;font-size:12px;text-align:center;font-weight:700;line-height:1.4;}
+#payment{padding:65px 0;}
+.payment-box{max-width:700px;margin:auto;padding:35px;text-align:center;border-radius:25px;border:1px solid rgba(190,80,255,.3);background:rgba(9,3,15,.86);}
+.mmg-name{color:#c85cff;font-size:13px;font-weight:900;letter-spacing:2px;}
+.mmg-number{font-size:38px;font-weight:1000;margin:10px 0;letter-spacing:3px;}
+.payment-box p{color:#aaa;font-size:13px;line-height:1.7;}
+#contact{padding:65px 0 90px;}
+.contact-box{text-align:center;padding:35px;border-radius:24px;border:1px solid rgba(190,80,255,.25);background:rgba(10,3,17,.8);}
+.contact-box p{color:#aaa;margin:8px 0 20px;}
+.modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:15px;transform:translateZ(0);}
+.modal.show{display:flex;}
+.modal-box{width:min(560px,100%);max-height:92vh;overflow:auto;border-radius:24px;background:#0d0713;border:1px solid rgba(200,90,255,.45);box-shadow:0 0 50px rgba(130,40,220,.25);padding:25px;position:relative;}
+.close{position:absolute;top:13px;right:15px;width:35px;height:35px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer;}
+.modal-product{display:flex;gap:15px;align-items:center;margin-bottom:22px;}
+.modal-product img{width:100px;height:80px;border-radius:13px;object-fit:cover;image-rendering:-webkit-optimize-contrast;}
+.modal-product h2{font-size:22px;}
+.modal-product p{color:#999;font-size:12px;margin-top:4px;}
+.field-label{display:block;color:#bbb;font-size:11px;font-weight:800;margin:14px 0 7px;text-transform:uppercase;letter-spacing:.5px;}
+.input{width:100%;padding:13px;border-radius:11px;border:1px solid rgba(190,80,255,.2);background:#07040b;color:#fff;outline:none;}
+.input:focus{border-color:#b84cff;box-shadow:0 0 12px rgba(184,76,255,.15);}
+.packages{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;}
+.packages.vertical-layout{display:flex;flex-direction:column;gap:16px;}
+.package{padding:13px 10px;border-radius:11px;border:1px solid rgba(190,80,255,.2);background:rgba(255,255,255,.035);color:#fff;cursor:pointer;text-align:left;transition:all .15s ease;}
+.package:hover,.package.selected{border-color:#bd51ff;background:rgba(165,55,230,.16);box-shadow:0 0 14px rgba(190,70,255,.12);}
+.package strong{display:block;font-size:12px;}
+.package span{display:block;color:#c45aff;font-size:11px;margin-top:4px;}
+.package-label{grid-column:1/-1;margin-top:10px;padding-bottom:6px;color:#c85cff;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid rgba(190,80,255,.25);}
+.package-note{grid-column:1/-1;padding:10px 12px;border-radius:10px;border:1px solid rgba(190,80,255,.3);background:rgba(150,40,220,.08);color:#ddd;font-size:12px;font-weight:700;line-height:1.5;}
+.virtual-card{position:relative;height:230px;border-radius:22px;border:1px solid rgba(190,80,255,.45);background:#0d0519;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:20px 15px;box-sizing:border-box;box-shadow:0 8px 25px rgba(0,0,0,.7),inset 0 0 20px rgba(160,50,255,.15);cursor:pointer;transition:all .2s ease;}
+.virtual-card:hover,.virtual-card.selected{border-color:#d05aff;box-shadow:0 0 30px rgba(192,71,255,.5),inset 0 0 25px rgba(180,50,255,.25);transform:translateY(-3px);}
+.card-bg-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.3;mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);pointer-events:none;z-index:1;}
+.card-content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;}
+.flag-emblem{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.9);box-shadow:0 0 16px rgba(186,68,255,.6);object-fit:cover;margin-bottom:6px;}
+.country-name{font-size:22px;font-weight:900;color:#fff;letter-spacing:1px;text-transform:uppercase;}
+.service-subtitle{font-size:11px;color:#b898db;text-transform:uppercase;letter-spacing:.8px;margin-top:1px;}
+.number-badge{position:relative;z-index:2;width:80%;padding:8px 12px;border-radius:20px;background:rgba(0,0,0,.65);border:1px solid rgba(190,80,255,.35);color:#e0d0ff;font-size:13px;font-family:monospace;font-weight:bold;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.4);}
+.price-button{position:relative;z-index:2;width:100%;padding:10px 0;border-radius:12px;background:linear-gradient(135deg,#7c20d8,#c94dff);color:#fff;font-size:15px;font-weight:900;text-align:center;box-shadow:0 4px 15px rgba(180,60,255,.35);}
+.quantity-row{display:flex;gap:10px;align-items:center;}
+.qty{display:flex;align-items:center;gap:12px;}
+.qty button{width:35px;height:35px;border-radius:9px;border:1px solid rgba(190,80,255,.25);background:#160b20;color:#fff;cursor:pointer;font-size:18px;}
+.total-box{margin-top:18px;padding:16px;border-radius:12px;background:rgba(150,40,220,.08);display:flex;justify-content:space-between;align-items:center;}
+.total-box span{color:#aaa;font-size:12px;}
+.total-box strong{color:#d15cff;font-size:21px;}
+.send-order{width:100%;margin-top:15px;padding:15px;border:0;border-radius:12px;background:linear-gradient(135deg,#7c1ed6,#c044ff);color:#fff;font-weight:1000;cursor:pointer;box-shadow:0 0 25px rgba(180,60,255,.25);}
+#thankYouPopup{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+#thankYouPopup.show{display:flex;}
+.thankyou-box{width:min(500px,94%);text-align:center;padding:45px 25px;border-radius:25px;border:1px solid rgba(205,80,255,.5);background:#0d0614;box-shadow:0 0 55px rgba(160,50,240,.3);animation:thankPop .3s ease;}
+@keyframes thankPop{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:scale(1);}}
+.check{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c20d8,#c94dff);font-size:35px;box-shadow:0 0 30px rgba(190,70,255,.45);}
+.thankyou-box h2{font-size:27px;font-weight:1000;}
+.thankyou-box h2 span{color:#c653ff;}
+.thankyou-box p{color:#aaa;margin-top:10px;font-size:13px;line-height:1.6;}
+.redirect-text{color:#c85cff !important;font-weight:900;margin-top:20px !important;}
+.cart-panel{position:fixed;right:20px;top:85px;z-index:2500;width:330px;max-width:calc(100% - 40px);display:none;padding:20px;border-radius:18px;border:1px solid rgba(190,80,255,.3);background:#0c0611;box-shadow:0 20px 50px rgba(0,0,0,.45);transform:translateZ(0);}
+.cart-panel.show{display:block;}
+.cart-panel h3{margin-bottom:15px;}
+.cart-empty{color:#888;font-size:12px;}
+.cart-item{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.cart-item small{color:#999;}
+.clear-cart{margin-top:14px;width:100%;padding:10px;border:1px solid rgba(200,80,255,.25);border-radius:10px;background:transparent;color:#fff;cursor:pointer;}
+footer{border-top:1px solid rgba(190,80,255,.15);padding:28px 20px;text-align:center;background:rgba(5,0,10,.8);}
+footer strong{color:#c453ff;}
+footer p{color:#777;font-size:11px;margin-top:5px;}
+.coming{padding:30px 0 65px;}
+.coming-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
+.coming-card{position:relative;overflow:hidden;height:160px;border-radius:18px;border:1px solid rgba(180,80,255,.25);background:#0b0610;animation:comingShake 3.2s infinite;}
+@keyframes comingShake{0%,88%,100%{transform:translateX(0)}90%{transform:translateX(-2px) rotate(-.4deg)}92%{transform:translateX(2px) rotate(.4deg)}94%{transform:translateX(-2px)}96%{transform:translateX(2px)}}
+.coming-card img{width:100%;height:100%;object-fit:cover;opacity:.65;}
+.coming-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(5,0,10,.95),rgba(5,0,10,.05));}
+.coming-info{position:absolute;z-index:2;bottom:12px;left:14px;}
+.coming-info h3{font-size:15px;}
+.coming-info span{color:#c354ff;font-size:9px;font-weight:900;}
+.spin-fab{position:fixed;right:20px;bottom:22px;z-index:2400;width:64px;height:64px;border-radius:50%;border:1px solid rgba(200,100,255,.45);background:radial-gradient(circle at 35% 30%,#c94dff,#6f18c9 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 8px 25px rgba(150,40,220,.5),0 0 0 6px rgba(180,70,255,.08);will-change:transform;}
+.spin-fab.tiktok-fab{bottom:98px;background:radial-gradient(circle at 35% 30%,#25f4ee,#111 70%);border-color:rgba(37,244,238,.5);box-shadow:0 8px 25px rgba(37,244,238,.35),0 0 0 6px rgba(37,244,238,.08);}
+.spin-fab span{font-size:8px;font-weight:900;letter-spacing:.5px;margin-top:1px;}
+.wheel-modal .modal-box{text-align:center;padding:30px 22px 25px;}
+.wheel-modal h2{font-size:22px;font-weight:1000;margin-bottom:4px;}
+.wheel-modal h2 span{color:#c653ff;}
+.wheel-modal .wheel-sub{color:#999;font-size:12px;margin-bottom:20px;}
+.wheel-wrap{position:relative;width:min(300px,80vw);height:min(300px,80vw);margin:0 auto 22px;}
+.wheel-pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);z-index:5;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:24px solid #ffd93d;filter:drop-shadow(0 0 8px rgba(255,217,61,.7));}
+#wheelCanvas_main,#wheelCanvas_tiktok{width:100%;height:100%;border-radius:50%;border:5px solid #1a0d2a;box-shadow:0 0 0 3px rgba(190,80,255,.5),0 0 40px rgba(160,50,255,.4),inset 0 0 20px rgba(0,0,0,.4);transition:transform 4s cubic-bezier(.15,.8,.15,1);will-change:transform;}
+@keyframes spinForever{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+#wheelCanvas_tiktok.spinning{animation:spinForever 3.5s linear infinite;transition:none;}
+.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e0c3ff 60%,#a855f7);border:3px solid #1a0d2a;z-index:4;box-shadow:0 0 15px rgba(190,80,255,.6);}
+.spin-btn{width:100%;padding:15px;border:0;border-radius:12px;background:linear-gradient(135deg,#7c1ed6,#c044ff);color:#fff;font-weight:1000;letter-spacing:.5px;cursor:pointer;box-shadow:0 0 25px rgba(180,60,255,.3);}
+.spin-btn:disabled{opacity:.45;cursor:not-allowed;}
+.wheel-result{display:none;margin-top:16px;padding:14px;border-radius:12px;border:1px solid rgba(190,80,255,.35);background:rgba(150,40,220,.1);font-size:13px;line-height:1.6;color:#e2c7ff;}
+.wheel-result strong{color:#fff;font-size:16px;display:block;margin-bottom:4px;}
+.wheel-fine{margin-top:14px;color:#777;font-size:10px;line-height:1.5;}
+.wheel-username-wrap{margin-bottom:16px;text-align:left;}
+.wheel-follow-link{display:inline-block;margin-bottom:14px;color:#25f4ee;font-size:12px;font-weight:900;text-decoration:none;border:1px solid rgba(37,244,238,.4);padding:8px 14px;border-radius:20px;}
+.wheel-follow-check{display:flex;align-items:center;gap:8px;margin-bottom:18px;padding:10px 12px;border-radius:10px;border:1px solid rgba(190,80,255,.25);background:rgba(255,255,255,.03);color:#ccc;font-size:12px;font-weight:700;text-align:left;cursor:pointer;}
+.wheel-follow-check input{width:17px;height:17px;flex-shrink:0;accent-color:#c94dff;cursor:pointer;}
+@media(max-width:1000px){nav{display:none;}.hero{grid-template-columns:1fr;padding-top:40px;}.hero-showcase{height:450px;}.product-grid{grid-template-columns:repeat(3,1fr);}.coming-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:700px){header{height:62px;padding:0 15px;}.logo{font-size:18px;}.logo img{width:34px;height:34px;}section{width:94%;}.hero{min-height:auto;padding:45px 0;gap:25px;}.hero-text h1{font-size:46px;}.hero-showcase{height:360px;border-radius:20px;}.product-grid{grid-template-columns:repeat(2,1fr);gap:11px;}.product-image{height:145px;}.product-info{padding:11px;}.product-info h3{font-size:13px;}.features{grid-template-columns:1fr;}.coming-grid{grid-template-columns:repeat(2,1fr);}.coming-card{height:135px;}.mmg-number{font-size:29px;}.modal-box{padding:20px;}.spin-fab{right:14px;bottom:16px;width:56px;height:56px;font-size:19px;}.spin-fab.tiktok-fab{bottom:82px;}}
+@media(max-width:430px){.product-grid{grid-template-columns:1fr 1fr;}.product-image{height:125px;}.packages{grid-template-columns:1fr;}.hero-showcase{height:310px;}.welcome-box{padding:35px 20px;}}
 </style>
 </head>
-
 <body>
-
-<!-- ================= WELCOME SCREEN ================= -->
-
 <div id="welcomeScreen">
-
     <div class="welcome-box">
-
-        <img class="welcome-logo"
-             src="1787436309105.png"
-             alt="DARK Logo">
-
+        <img class="welcome-logo" src="1787436309105.png" alt="DARK Logo">
         <h1>DARK <span>STORE</span></h1>
-
-        <p>
-            Gaming top-ups, gift cards and digital products.
-            Built for gamers in Guyana.
-        </p>
-
-        <button class="enter-btn" onclick="enterStore()">
-            EXPLORE TO ENTER →
-        </button>
-
+        <p>Gaming top-ups, gift cards and digital products. Built for gamers in Guyana.</p>
+        <button class="enter-btn" onclick="enterStore()">EXPLORE TO ENTER →</button>
     </div>
-
 </div>
-
-<!-- ================= HEADER ================= -->
-
 <header>
-
     <a href="#home" class="logo">
         <img src="1787436309105.png" alt="DARK">
         DARK
     </a>
-
     <nav>
         <a href="#home">HOME</a>
         <a href="#gaming">GAMING</a>
@@ -1569,3315 +203,445 @@ footer p{
         <a href="#payment">PAYMENT</a>
         <a href="#contact">CONTACT</a>
     </nav>
-
     <div class="header-right">
-
-        <div class="cart" onclick="toggleCart()">
-            🛒
-            <span class="cart-badge" id="cartBadge">0</span>
-        </div>
-
+        <div class="cart" onclick="toggleCart()">🛒<span class="cart-badge" id="cartBadge">0</span></div>
     </div>
-
 </header>
-
-<!-- ================= CART ================= -->
-
 <div class="cart-panel" id="cartPanel">
-
     <h3>Your Orders</h3>
-
-    <div id="cartItems" class="cart-empty">
-        No items selected yet.
-    </div>
-
-    <button class="clear-cart" onclick="clearCart()">
-        CLEAR
-    </button>
-
+    <div id="cartItems" class="cart-empty">No items selected yet.</div>
+    <button class="clear-cart" onclick="clearCart()">CLEAR</button>
 </div>
-
-<!-- ================= SPIN WHEEL FAB ================= -->
-
-<div class="spin-fab"
-     id="spinFab"
-     onclick="openWheel('main')">
-
-    🎡
-    <span>SPIN</span>
-
-</div>
-
-<div class="spin-fab tiktok-fab"
-     id="tiktokSpinFab"
-     onclick="openWheel('tiktok')">
-
-    🎵
-    <span>TIKTOK</span>
-
-</div>
-
-<!-- ================= HERO ================= -->
-
+<div class="spin-fab" id="spinFab" onclick="openWheel('main')">🎡<span>SPIN</span></div>
+<div class="spin-fab tiktok-fab" id="tiktokSpinFab" onclick="openWheel('tiktok')">🎵<span>TIKTOK</span></div>
 <main id="home">
-
 <section class="hero">
-
     <div class="hero-text">
-
         <small>DARK DIGITAL GAMING</small>
-
-        <h1>
-            LEVEL UP<br>
-            <span>YOUR GAME.</span>
-        </h1>
-
-        <p>
-            Get your favorite gaming top-ups, gift cards,
-            subscriptions and digital products from DARK STORE.
-            Fast, simple and made for gamers.
-        </p>
-
+        <h1>LEVEL UP<br><span>YOUR GAME.</span></h1>
+        <p>Get your favorite gaming top-ups, gift cards, subscriptions and digital products from DARK STORE. Fast, simple and made for gamers.</p>
         <div class="hero-buttons">
-
-            <a href="#gaming" class="primary-btn">
-                SHOP NOW →
-            </a>
-
-            <a href="#deals" class="secondary-btn">
-                VIEW DEALS
-            </a>
-
+            <a href="#gaming" class="primary-btn">SHOP NOW →</a>
+            <a href="#deals" class="secondary-btn">VIEW DEALS</a>
         </div>
-
     </div>
-
-    <!-- LARGE MOVING HERO SHOWCASE -->
-
     <div class="hero-showcase" id="heroShowcase">
-
-        <div class="hero-slide active">
-
-            <img src="images/IMG_0235.jpeg"
-                 alt="Roblox">
-
-            <div class="hero-caption">
-                <h3>ROBLOX</h3>
-                <p>Robux & Gift Cards</p>
-            </div>
-
-        </div>
-
-        <div class="hero-slide">
-
-            <img src="images/IMG_0232.jpeg"
-                 alt="Free Fire">
-
-            <div class="hero-caption">
-                <h3>FREE FIRE</h3>
-                <p>Diamonds top-up</p>
-            </div>
-
-        </div>
-
-        <div class="hero-slide">
-
-            <img src="images/IMG_0243.jpeg"
-                 alt="Call of Duty Mobile">
-
-            <div class="hero-caption">
-                <h3>CALL OF DUTY MOBILE</h3>
-                <p>CP top-up</p>
-            </div>
-
-        </div>
-
-        <div class="hero-slide">
-
-            <img src="images/IMG_0231.jpeg"
-                 alt="PUBG Mobile">
-
-            <div class="hero-caption">
-                <h3>PUBG MOBILE</h3>
-                <p>UC top-up</p>
-            </div>
-
-        </div>
-
-        <div class="hero-slide">
-
-            <img src="images/IMG_0233.jpeg"
-                 alt="Binance">
-
-            <div class="hero-caption">
-                <h3>BINANCE</h3>
-                <p>USDT Gift Cards</p>
-            </div>
-
-        </div>
-
-        <div class="hero-slide">
-
-            <img src="images/IMG_0230.jpeg"
-                 alt="Google Play">
-
-            <div class="hero-caption">
-                <h3>GOOGLE PLAY</h3>
-                <p>Gift Cards</p>
-            </div>
-
-        </div>
-
-        <div class="slider-dots"
-             id="sliderDots"></div>
-
+        <div class="hero-slide active"><img src="images/IMG_0235.jpeg" alt="Roblox"><div class="hero-caption"><h3>ROBLOX</h3><p>Robux & Gift Cards</p></div></div>
+        <div class="hero-slide"><img src="images/IMG_0232.jpeg" alt="Free Fire"><div class="hero-caption"><h3>FREE FIRE</h3><p>Diamonds top-up</p></div></div>
+        <div class="hero-slide"><img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile"><div class="hero-caption"><h3>CALL OF DUTY MOBILE</h3><p>CP top-up</p></div></div>
+        <div class="hero-slide"><img src="images/IMG_0231.jpeg" alt="PUBG Mobile"><div class="hero-caption"><h3>PUBG MOBILE</h3><p>UC top-up</p></div></div>
+        <div class="hero-slide"><img src="images/IMG_0233.jpeg" alt="Binance"><div class="hero-caption"><h3>BINANCE</h3><p>USDT Gift Cards</p></div></div>
+        <div class="hero-slide"><img src="images/IMG_0230.jpeg" alt="Google Play"><div class="hero-caption"><h3>GOOGLE PLAY</h3><p>Gift Cards</p></div></div>
+        <div class="slider-dots" id="sliderDots"></div>
     </div>
-
 </section>
-
-<!-- ================= GAMING / PRODUCTS ================= -->
-
 <section id="gaming">
-
     <div class="section-title">
-
-        <h2>
-            SHOP <span>DARK</span>
-        </h2>
-
-        <p>
-            Choose a product and unlock the packages inside.
-        </p>
-
+        <h2>SHOP <span>DARK</span></h2>
+        <p>Choose a product and unlock the packages inside.</p>
     </div>
-
     <div class="product-grid">
-
-        <!-- POS Virtual Numbers -->
-
-        <div class="product-card"
-             onclick="openProduct('virtualNumbers')">
-
-            <div class="product-image">
-
-                <img src="1794105216909.jpg"
-                     alt="POS Virtual Numbers">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>📱 POS Virtual Numbers</h3>
-
-                <p>
-                    SMS & WhatsApp Verification
-                </p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- TikTok -->
-
-        <div class="product-card"
-             onclick="openProduct('tiktok')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0236.jpeg"
-                     alt="TikTok Coins">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>TikTok Coins</h3>
-
-                <p>Coins top-up</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Roblox Gift Card -->
-
-        <div class="product-card"
-             onclick="openProduct('robloxGift')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0235.jpeg"
-                     alt="Roblox Gift Card">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Roblox Gift Card</h3>
-
-                <p>USD Gift Cards</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Roblox -->
-
-        <div class="product-card"
-             onclick="openProduct('roblox')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0235.jpeg"
-                     alt="Roblox Robux">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Roblox Robux</h3>
-
-                <p>Robux top-up</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Free Fire -->
-
-        <div class="product-card"
-             onclick="openProduct('freefire')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0232.jpeg"
-                     alt="Free Fire">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Free Fire</h3>
-
-                <p>Diamonds</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- COD -->
-
-        <div class="product-card"
-             onclick="openProduct('cod')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0243.jpeg"
-                     alt="Call of Duty Mobile">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Call of Duty Mobile</h3>
-
-                <p>CP top-up</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- PUBG -->
-
-        <div class="product-card"
-             onclick="openProduct('pubg')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0231.jpeg"
-                     alt="PUBG Mobile">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>PUBG Mobile</h3>
-
-                <p>UC top-up</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Apex Legends (NOW AVAILABLE) -->
-
-        <div class="product-card"
-             onclick="openProduct('apex')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0241.jpeg"
-                     alt="Apex Legends">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Apex Legends</h3>
-
-                <p>Apex Coins</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Blood Strike (NOW AVAILABLE) -->
-
-        <div class="product-card"
-             onclick="openProduct('blood')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0240.jpeg"
-                     alt="Blood Strike">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Blood Strike</h3>
-
-                <p>Gold & Passes</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Amazon -->
-
-        <div class="product-card"
-             onclick="openProduct('amazon')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0234.jpeg"
-                     alt="Amazon">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Amazon Gift Card</h3>
-
-                <p>USD Gift Cards</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Binance -->
-
-        <div class="product-card"
-             onclick="openProduct('binance')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0233.jpeg"
-                     alt="Binance">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Binance Gift Card</h3>
-
-                <p>USDT</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Razer -->
-
-        <div class="product-card"
-             onclick="openProduct('razer')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0237.jpeg"
-                     alt="Razer Gold">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Razer Gold</h3>
-
-                <p>USD Gift Cards</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Google Play -->
-
-        <div class="product-card"
-             onclick="openProduct('google')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0230.jpeg"
-                     alt="Google Play">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Google Play</h3>
-
-                <p>Gift Cards</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Netflix -->
-
-        <div class="product-card"
-             onclick="openProduct('netflix')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0238.jpeg"
-                     alt="Netflix">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Netflix</h3>
-
-                <p>Subscriptions</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Prime -->
-
-        <div class="product-card"
-             onclick="openProduct('prime')">
-
-            <div class="product-image">
-
-                <img src="images/IMG_0239.jpeg"
-                     alt="Prime Video">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Prime Video</h3>
-
-                <p>Subscriptions</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- APPLE GIFT CARD (NOW AVAILABLE) -->
-
-        <div class="product-card"
-             onclick="openProduct('appleGift')">
-
-            <div class="product-image">
-
-                <img src="IMG_101a264f-0fe7-40f0-a188-1ee070839bb5.jpg"
-                     alt="Apple Gift Card">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Apple Gift Card</h3>
-
-                <p>USD Gift Cards</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- VIRTUAL VISA CARD (NOW AVAILABLE) -->
-
-        <div class="product-card"
-             onclick="openProduct('virtualVisa')">
-
-            <div class="product-image">
-
-                <img src="vki66g---c1x1x50px50p--61598c3a760eb003f9e81e3851e8f710.png"
-                     alt="Virtual Visa Card">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Virtual Visa Card</h3>
-
-                <p>Virtual Payment Card</p>
-
-                <button class="buy-btn">
-                    VIEW PACKAGES
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Website -->
-
-        <div class="product-card"
-             onclick="openProduct('website')">
-
-            <div class="product-image">
-
-                <img src="1787436314905.png"
-                     alt="Website Creator">
-
-            </div>
-
-            <div class="product-info">
-
-                <h3>Website Creator</h3>
-
-                <p>Digital service</p>
-
-                <button class="buy-btn">
-                    LEARN MORE
-                </button>
-
-            </div>
-
-        </div>
-
+        <div class="product-card" onclick="openProduct('virtualNumbers')"><div class="product-image"><img src="1794105216909.jpg" alt="POS"></div><div class="product-info"><h3>📱 POS Virtual Numbers</h3><p>SMS & WhatsApp Verification</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('tiktok')"><div class="product-image"><img src="images/IMG_0236.jpeg" alt="TikTok"></div><div class="product-info"><h3>TikTok Coins</h3><p>Coins top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('robloxGift')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox"></div><div class="product-info"><h3>Roblox Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('roblox')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox"></div><div class="product-info"><h3>Roblox Robux</h3><p>Robux top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('freefire')"><div class="product-image"><img src="images/IMG_0232.jpeg" alt="Free Fire"></div><div class="product-info"><h3>Free Fire</h3><p>Diamonds</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('cod')"><div class="product-image"><img src="images/IMG_0243.jpeg" alt="COD"></div><div class="product-info"><h3>Call of Duty Mobile</h3><p>CP top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('pubg')"><div class="product-image"><img src="images/IMG_0231.jpeg" alt="PUBG"></div><div class="product-info"><h3>PUBG Mobile</h3><p>UC top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('apex')"><div class="product-image"><img src="images/IMG_0241.jpeg" alt="Apex"></div><div class="product-info"><h3>Apex Legends</h3><p>Apex Coins</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('blood')"><div class="product-image"><img src="images/IMG_0240.jpeg" alt="Blood Strike"></div><div class="product-info"><h3>Blood Strike</h3><p>Gold & Passes</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('amazon')"><div class="product-image"><img src="images/IMG_0234.jpeg" alt="Amazon"></div><div class="product-info"><h3>Amazon Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('binance')"><div class="product-image"><img src="images/IMG_0233.jpeg" alt="Binance"></div><div class="product-info"><h3>Binance Gift Card</h3><p>USDT</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('razer')"><div class="product-image"><img src="images/IMG_0237.jpeg" alt="Razer"></div><div class="product-info"><h3>Razer Gold</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('google')"><div class="product-image"><img src="images/IMG_0230.jpeg" alt="Google Play"></div><div class="product-info"><h3>Google Play</h3><p>Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('netflix')"><div class="product-image"><img src="images/IMG_0238.jpeg" alt="Netflix"></div><div class="product-info"><h3>Netflix</h3><p>Subscriptions</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('prime')"><div class="product-image"><img src="images/IMG_0239.jpeg" alt="Prime"></div><div class="product-info"><h3>Prime Video</h3><p>Subscriptions</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('appleGift')"><div class="product-image"><img src="22256742924f916e0be103a5e2590e88.jpg" alt="Apple"></div><div class="product-info"><h3>Apple Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('virtualVisa')"><div class="product-image"><img src="022c18b3f9a237823b60eb4091b9e933.jpg" alt="Visa"></div><div class="product-info"><h3>Virtual Visa Card</h3><p>Virtual Payment Card</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('gta6')"><div class="product-image"><img src="GTA 6 4K print Poster.jpeg" alt="GTA 6"></div><div class="product-info"><h3>GTA 6</h3><p>Digital Code & Pre-order</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('paramount')"><div class="product-image"><img src="97e1bc04af1d96d369b36b501910eda2.jpg" alt="Paramount"></div><div class="product-info"><h3>Paramount+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('hulu')"><div class="product-image"><img src="c5e9da8d020779eeb43d7725ebf240c4.jpg" alt="Hulu"></div><div class="product-info"><h3>Hulu</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('disney')"><div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney"></div><div class="product-info"><h3>Disney+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('appleTv')"><div class="product-image"><img src="b0bb1901e76864883c6042b25cfb353d.jpg" alt="Apple TV"></div><div class="product-info"><h3>Apple TV</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('max')"><div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/HBO_Max_Logo.svg" alt="Max"></div><div class="product-info"><h3>Max</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('website')"><div class="product-image"><img src="1787436314905.png" alt="Website"></div><div class="product-info"><h3>Website Creator</h3><p>Digital service</p><button class="buy-btn">LEARN MORE</button></div></div>
     </div>
-
 </section>
-
-<!-- ================= COMING SOON ================= -->
-
 <section class="coming">
-
     <div class="section-title">
-
-        <h2>
-            COMING <span>SOON</span>
-        </h2>
-
-        <p>
-            More digital products are coming to DARK STORE.
-        </p>
-
+        <h2>COMING <span>SOON</span></h2>
+        <p>More digital products are coming to DARK STORE.</p>
     </div>
-
     <div class="coming-grid">
-
-        <div class="coming-card">
-
-            <img src="images/IMG_0242.jpeg"
-                 alt="Arena Breakout">
-
-            <div class="coming-info">
-
-                <h3>Arena Breakout</h3>
-
-                <span>COMING SOON</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="coming-card">
-
-            <img src="images/IMG_0235.jpeg"
-                 alt="Fortnite">
-
-            <div class="coming-info">
-
-                <h3>Fortnite V-Bucks</h3>
-
-                <span>COMING SOON</span>
-
-            </div>
-
-        </div>
-
+        <div class="coming-card"><img src="images/IMG_0242.jpeg" alt="Arena Breakout"><div class="coming-info"><h3>Arena Breakout</h3><span>COMING SOON</span></div></div>
+        <div class="coming-card"><img src="images/IMG_0235.jpeg" alt="Fortnite"><div class="coming-info"><h3>Fortnite V-Bucks</h3><span>COMING SOON</span></div></div>
     </div>
-
 </section>
-
-<!-- ================= DEALS ================= -->
-
 <section id="deals">
-
     <div class="section-title">
-
-        <h2>
-            DARK <span>DEALS</span>
-        </h2>
-
-        <p>
-            Shop more. Unlock more.
-        </p>
-
+        <h2>DARK <span>DEALS</span></h2>
+        <p>Shop more. Unlock more.</p>
     </div>
-
     <div class="reward-box">
-
-        <h2>
-            5 PURCHASES = <span>FREE!</span>
-        </h2>
-
-        <p>
-            Buy from DARK five times using the same Gamer ID
-            and unlock a free gaming top-up reward.
-        </p>
-
+        <h2>5 PURCHASES = <span>FREE!</span></h2>
+        <p>Buy from DARK five times using the same Gamer ID and unlock a free gaming top-up reward.</p>
     </div>
-
     <div class="features">
-
-        <div class="feature">
-
-            <div class="feature-icon">⚡</div>
-
-            <h3>FAST DELIVERY</h3>
-
-            <p>
-                Orders are sent directly through WhatsApp
-                for quick processing.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🎮</div>
-
-            <h3>BUILT FOR GAMERS</h3>
-
-            <p>
-                Gaming top-ups, gift cards and digital products
-                in one place.
-            </p>
-
-        </div>
-
-
-        <div class="feature">
-
-            <div class="feature-icon">🔒</div>
-
-            <h3>SIMPLE ORDERING</h3>
-
-            <p>
-                Select your package, enter your information
-                and send your order.
-            </p>
-
-        </div>
-
+        <div class="feature"><div class="feature-icon">⚡</div><h3>FAST DELIVERY</h3><p>Orders are sent directly through WhatsApp for quick processing.</p></div>
+        <div class="feature"><div class="feature-icon">🎮</div><h3>BUILT FOR GAMERS</h3><p>Gaming top-ups, gift cards and digital products in one place.</p></div>
+        <div class="feature"><div class="feature-icon">🔒</div><h3>SIMPLE ORDERING</h3><p>Select your package, enter your information and send your order.</p></div>
     </div>
-
 </section>
-
-<!-- ================= DARK POLICY ================= -->
-
 <section id="policy">
-
     <div class="section-title">
-
-        <h2>
-            DARK <span>POLICY</span>
-        </h2>
-
-        <p>
-            Please read before you order.
-        </p>
-
+        <h2>DARK <span>POLICY</span></h2>
+        <p>Please read before you order.</p>
     </div>
-
     <div class="policy-box">
-
         <h3>ACCOUNT POLICY</h3>
-
         <ul>
-
-            <li>
-                <strong>Accounts are not personal.</strong>
-                All accounts sold by DARK are shared accounts unless
-                stated otherwise.
-            </li>
-
-            <li>
-                <strong>Personal accounts.</strong>
-                A personal account is only available if you request one.
-                A personal account is a newly created account made just
-                for you, and it is <strong>not shared</strong>.
-            </li>
-
-            <li>
-                <strong>Prime Video.</strong>
-                Accounts are shared. Get a personal slot, create your
-                own password, and cancel your membership anytime.
-            </li>
-
-            <li>
-                <strong>Virtual Numbers.</strong>
-                All numbers are renewed monthly at a rate of 1,000 GYD.
-            </li>
-
+            <li><strong>Accounts are not personal.</strong> All accounts sold by DARK are shared accounts unless stated otherwise.</li>
+            <li><strong>Personal accounts.</strong> A personal account is only available if you request one. A personal account is a newly created account made just for you, and it is <strong>not shared</strong>.</li>
+            <li><strong>Prime Video.</strong> Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime.</li>
+            <li><strong>Virtual Numbers.</strong> All numbers are renewed monthly at a rate of 1,000 GYD.</li>
         </ul>
-
     </div>
-
 </section>
-
-<!-- ================= PAYMENT ================= -->
-
 <section id="payment">
-
     <div class="section-title">
-
-        <h2>
-            PAYMENT <span>METHOD</span>
-        </h2>
-
-        <p>
-            Pay through MMG and send your order to DARK.
-        </p>
-
+        <h2>PAYMENT <span>METHOD</span></h2>
+        <p>Pay through MMG and send your order to DARK.</p>
     </div>
-
     <div class="payment-box">
-
-        <div class="mmg-name">
-            MMG MERCHANT
-        </div>
-
-        <div class="mmg-number">
-            762-6433
-        </div>
-
-        <p>
-            Merchant Name: <strong>CASSIA</strong>
-
-            <br><br>
-
-            After making your payment, enter your transaction
-            ID in the order box. If you do not have the transaction
-            ID yet, you can leave it blank and still send the order.
-        </p>
-
+        <div class="mmg-name">MMG MERCHANT</div>
+        <div class="mmg-number">762-6433</div>
+        <p>Merchant Name: <strong>CASSIA</strong><br><br>After making your payment, enter your transaction ID in the order box. If you do not have the transaction ID yet, you can leave it blank and still send the order.</p>
     </div>
-
 </section>
-
-<!-- ================= CONTACT ================= -->
-
 <section id="contact">
-
     <div class="section-title">
-
-        <h2>
-            CONTACT <span>DARK</span>
-        </h2>
-
-        <p>
-            Need help with your order?
-        </p>
-
+        <h2>CONTACT <span>DARK</span></h2>
+        <p>Need help with your order?</p>
     </div>
-
     <div class="contact-box">
-
-        <h3>
-            READY TO LEVEL UP?
-        </h3>
-
-        <p>
-            Select a product and send your order through WhatsApp.
-        </p>
-
-        <a class="primary-btn"
-           href="https://wa.me/13436555995"
-           target="_blank">
-
-            CHAT WITH DARK →
-
-        </a>
-
+        <h3>READY TO LEVEL UP?</h3>
+        <p>Select a product and send your order through WhatsApp.</p>
+        <a class="primary-btn" href="https://wa.me/13436555995" target="_blank">CHAT WITH DARK →</a>
     </div>
-
 </section>
-
 </main>
-
-<!-- ================= PRODUCT MODAL ================= -->
-
 <div class="modal" id="productModal">
-
     <div class="modal-box">
-
-        <button class="close"
-                onclick="closeProduct()">
-            ×
-        </button>
-
+        <button class="close" onclick="closeProduct()">×</button>
         <div class="modal-product">
-
-            <img id="modalImage"
-                 src=""
-                 alt="">
-
+            <img id="modalImage" src="" alt="">
             <div>
-
-                <h2 id="modalTitle">
-                    Product
-                </h2>
-
-                <p id="modalType">
-                    Choose your package
-                </p>
-
+                <h2 id="modalTitle">Product</h2>
+                <p id="modalType">Choose your package</p>
             </div>
-
         </div>
-
-        <label class="field-label">
-            Select Package
-        </label>
-
-        <div class="packages"
-             id="packageList"></div>
-
-        <!-- ACCOUNT / GAMER ID FIELD -->
-
+        <label class="field-label">Select Package</label>
+        <div class="packages" id="packageList"></div>
         <div id="accountFieldWrap">
-
-            <label class="field-label"
-                   id="accountLabel">
-                Gamer ID / Username
-            </label>
-
-            <input
-                class="input"
-                id="accountInput"
-                type="text"
-                placeholder="Enter Gamer ID / Username"
-            >
-
+            <label class="field-label" id="accountLabel">Gamer ID / Username</label>
+            <input class="input" id="accountInput" type="text" placeholder="Enter Gamer ID / Username">
         </div>
-
-        <!-- OPTIONAL EMAIL / WHATSAPP DELIVERY FIELD -->
-
         <div id="deliveryFieldWrap">
-
-            <label class="field-label">
-                Email / WhatsApp Number
-                <span style="color:#c85cff">
-                    (Optional)
-                </span>
-            </label>
-
-            <input
-                class="input"
-                id="deliveryInput"
-                type="text"
-                placeholder="Enter email or WhatsApp for digital code delivery"
-            >
-
+            <label class="field-label">Email / WhatsApp Number <span style="color:#c85cff">(Optional)</span></label>
+            <input class="input" id="deliveryInput" type="text" placeholder="Enter email or WhatsApp for digital code delivery">
         </div>
-
-        <!-- TRANSACTION ID -->
-
-        <label class="field-label">
-
-            MMG Transaction ID
-            <span style="color:#c85cff">
-                (Optional)
-            </span>
-
-        </label>
-
-        <input
-            class="input"
-            id="transactionInput"
-            type="text"
-            placeholder="Enter transaction ID or leave blank"
-        >
-
-        <label class="field-label">
-            Quantity
-        </label>
-
+        <label class="field-label">MMG Transaction ID <span style="color:#c85cff">(Optional)</span></label>
+        <input class="input" id="transactionInput" type="text" placeholder="Enter transaction ID or leave blank">
+        <label class="field-label">Quantity</label>
         <div class="quantity-row">
-
             <div class="qty">
-
-                <button onclick="changeQty(-1)">
-                    −
-                </button>
-
-                <strong id="qtyValue">
-                    1
-                </strong>
-
-                <button onclick="changeQty(1)">
-                    +
-                </button>
-
+                <button onclick="changeQty(-1)">−</button>
+                <strong id="qtyValue">1</strong>
+                <button onclick="changeQty(1)">+</button>
             </div>
-
         </div>
-
         <div class="total-box">
-
-            <span>
-                TOTAL
-            </span>
-
-            <strong id="totalValue">
-                GYD $0
-            </strong>
-
+            <span>TOTAL</span>
+            <strong id="totalValue">GYD $0</strong>
         </div>
-
-        <div class="modal-note"
-             id="modalNote"></div>
-
-        <button class="send-order"
-                onclick="sendOrder()">
-
-            SEND ORDER →
-
-        </button>
-
-        <div class="renewal-policy-banner"
-             id="renewalPolicyBanner">
-
-            ⚠️ Policy Notice:
-            Virtual numbers are renewed monthly for 1,000 GYD.
-
-        </div>
-
+        <div class="modal-note" id="modalNote"></div>
+        <button class="send-order" onclick="sendOrder()">SEND ORDER →</button>
+        <div class="renewal-policy-banner" id="renewalPolicyBanner">⚠️ Policy Notice: Virtual numbers are renewed monthly for 1,000 GYD.</div>
     </div>
-
 </div>
-
-<!-- ================= SPIN WHEEL MODAL MAIN ================= -->
-
-<div class="modal wheel-modal"
-     id="wheelModal_main">
-
+<div class="modal wheel-modal" id="wheelModal_main">
     <div class="modal-box">
-
-        <button class="close"
-                onclick="closeWheel('main')">
-            ×
-        </button>
-
-        <h2>
-            DARK <span>GIVEAWAY</span>
-        </h2>
-
-        <p class="wheel-sub">
-            Spin once a day for a chance to win!
-        </p>
-
+        <button class="close" onclick="closeWheel('main')">×</button>
+        <h2>DARK <span>GIVEAWAY</span></h2>
+        <p class="wheel-sub">Spin once a day for a chance to win!</p>
         <div class="wheel-wrap">
-
             <div class="wheel-pointer"></div>
-
-            <canvas
-                id="wheelCanvas_main"
-                width="600"
-                height="600">
-            </canvas>
-
+            <canvas id="wheelCanvas_main" width="600" height="600"></canvas>
             <div class="wheel-hub"></div>
-
         </div>
-
-        <button class="spin-btn"
-                id="spinBtn_main"
-                onclick="spinWheel('main')">
-
-            SPIN THE WHEEL
-
-        </button>
-
-        <div class="wheel-result"
-             id="wheelResult_main">
-
+        <button class="spin-btn" id="spinBtn_main" onclick="spinWheel('main')">SPIN THE WHEEL</button>
+        <div class="wheel-result" id="wheelResult_main">
             <strong id="wheelResultTitle_main"></strong>
-
             <span id="wheelResultText_main"></span>
-
         </div>
-
-        <p class="wheel-fine">
-
-            One free spin per day per device. Winning prizes are
-            claimed by sending your result screenshot to DARK on
-            WhatsApp within 24 hours.
-
-        </p>
-
+        <p class="wheel-fine">One free spin per day per device. Winning prizes are claimed by sending your result screenshot to DARK on WhatsApp within 24 hours.</p>
     </div>
-
 </div>
-
-<!-- ================= TIKTOK WHEEL ================= -->
-
-<div class="modal wheel-modal"
-     id="wheelModal_tiktok">
-
+<div class="modal wheel-modal" id="wheelModal_tiktok">
     <div class="modal-box">
-
-        <button class="close"
-                onclick="closeWheel('tiktok')">
-            ×
-        </button>
-
-        <h2>
-            TIKTOK <span>GIVEAWAY</span>
-        </h2>
-
-        <p class="wheel-sub">
-            Enter your TikTok username and spin to join.
-        </p>
-
-        <a class="wheel-follow-link"
-           href="https://www.tiktok.com/@mr.dark.official"
-           target="_blank">
-
-            🎵 FOLLOW @MR.DARK.OFFICIAL →
-
-        </a>
-
+        <button class="close" onclick="closeWheel('tiktok')">×</button>
+        <h2>TIKTOK <span>GIVEAWAY</span></h2>
+        <p class="wheel-sub">Enter your TikTok username and spin to join.</p>
+        <a class="wheel-follow-link" href="https://www.tiktok.com/@mr.dark.official" target="_blank">🎵 FOLLOW @MR.DARK.OFFICIAL →</a>
         <div class="wheel-username-wrap">
-
-            <label class="field-label">
-                Your TikTok Username
-            </label>
-
-            <input
-                class="input"
-                id="tiktokUsernameInput"
-                type="text"
-                placeholder="@yourusername"
-                oninput="onTiktokUsernameInput()"
-            >
-
+            <label class="field-label">Your TikTok Username</label>
+            <input class="input" id="tiktokUsernameInput" type="text" placeholder="@yourusername" oninput="onTiktokUsernameInput()">
         </div>
-
         <label class="wheel-follow-check">
-
-            <input
-                type="checkbox"
-                id="tiktokFollowCheck"
-                onchange="onTiktokUsernameInput()"
-            >
-
+            <input type="checkbox" id="tiktokFollowCheck" onchange="onTiktokUsernameInput()">
             I'm following @mr.dark.official on TikTok
-
         </label>
-
         <div class="wheel-wrap">
-
             <div class="wheel-pointer"></div>
-
-            <canvas
-                id="wheelCanvas_tiktok"
-                width="600"
-                height="600">
-            </canvas>
-
+            <canvas id="wheelCanvas_tiktok" width="600" height="600"></canvas>
             <div class="wheel-hub"></div>
-
         </div>
-
-        <button class="spin-btn"
-                id="spinBtn_tiktok"
-                onclick="enterTiktokGiveaway()"
-                disabled>
-
-            ENTER YOUR TIKTOK USERNAME
-
-        </button>
-
-        <div class="wheel-result"
-             id="wheelResult_tiktok">
-
+        <button class="spin-btn" id="spinBtn_tiktok" onclick="enterTiktokGiveaway()" disabled>ENTER YOUR TIKTOK USERNAME</button>
+        <div class="wheel-result" id="wheelResult_tiktok">
             <strong id="wheelResultTitle_tiktok"></strong>
-
             <span id="wheelResultText_tiktok"></span>
-
         </div>
-
-        <p class="wheel-fine">
-
-            You must be following @mr.dark.official on TikTok to enter.
-            Once we hit 1,000 followers, 3 winners will be picked at
-            random from everyone entered.
-
-        </p>
-
+        <p class="wheel-fine">You must be following @mr.dark.official on TikTok to enter. Once we hit 1,000 followers, 3 winners will be picked at random from everyone entered.</p>
     </div>
-
 </div>
-
-<!-- ================= THANK YOU ================= -->
-
 <div id="thankYouPopup">
-
     <div class="thankyou-box">
-
-        <div class="check">
-            ✓
-        </div>
-
-        <h2>
-
-            THANK YOU FOR<br>
-            SHOPPING WITH
-            <span>DARK STORE</span>
-
-        </h2>
-
-        <p>
-
-            Your order is being prepared.
-            WhatsApp will open automatically.
-
-        </p>
-
-        <p class="redirect-text">
-
-            SENDING ORDER TO WHATSAPP...
-
-        </p>
-
+        <div class="check">✓</div>
+        <h2>THANK YOU FOR<br>SHOPPING WITH <span>DARK STORE</span></h2>
+        <p>Your order is being prepared. WhatsApp will open automatically.</p>
+        <p class="redirect-text">SENDING ORDER TO WHATSAPP...</p>
     </div>
-
 </div>
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
-
     <strong>DARK</strong>
-
-    <p>
-        ©️ 2026 DARK • Digital Gaming Store • Guyana
-    </p>
-
+    <p>©️ 2026 DARK • Digital Gaming Store • Guyana</p>
 </footer>
-
 <script>
-
-/* =========================================================
-   PRODUCT DATA
-========================================================= */
-
-const products = {
-
-    virtualNumbers:{
-        name:"POS Virtual Numbers",
-        type:"Virtual Numbers",
-        image:"1794105216909.jpg",
-        accountLabel:"Contact Number / WhatsApp",
-        accountPlaceholder:"Enter your active phone number",
-        isVirtualNumber:true,
-
-        packages:[
-            {
-                name:"USA",
-                price:1500,
-                bgImg:"https://flagcdn.com/w640/us.png",
-                badgeImg:"https://flagcdn.com/w160/us.png",
-                number:"+1 (202) 555-0147"
-            },
-            {
-                name:"UK",
-                price:1500,
-                bgImg:"https://flagcdn.com/w640/gb.png",
-                badgeImg:"https://flagcdn.com/w160/gb.png",
-                number:"+44 20 7946 0183"
-            },
-            {
-                name:"Canada",
-                price:1500,
-                bgImg:"https://flagcdn.com/w640/ca.png",
-                badgeImg:"https://flagcdn.com/w160/ca.png",
-                number:"+1 (416) 555-0128"
-            },
-            {
-                name:"Australia",
-                price:1500,
-                bgImg:"https://flagcdn.com/w640/au.png",
-                badgeImg:"https://flagcdn.com/w160/au.png",
-                number:"+61 2 5550 0184"
-            }
-        ]
-    },
-
-    tiktok:{
-        name:"TikTok Coins",
-        type:"TikTok Coins",
-        image:"images/IMG_0236.jpeg",
-        accountLabel:"TikTok Username / Profile",
-        accountPlaceholder:"Enter TikTok username or profile",
-
-        packages:[
-            ["30 Coins",300],
-            ["350 Coins",1200],
-            ["700 Coins",2000],
-            ["1,400 Coins",4500],
-            ["3,500 Coins",10000],
-            ["7,000 Coins",20000],
-            ["17,500 Coins",42000]
-        ]
-    },
-
-    robloxGift:{
-        name:"Roblox Gift Card",
-        type:"Roblox Gift Card",
-        image:"images/IMG_0235.jpeg",
-        accountLabel:"Roblox Username",
-        accountPlaceholder:"Enter Roblox username",
-        showDeliveryField:true,
-
-        packages:[
-            ["$10 USD",2800],
-            ["$25 USD",6500],
-            ["$50 USD",12000],
-            ["$100 USD",24000],
-            ["$200 USD",48500]
-        ]
-    },
-
-    roblox:{
-        name:"Roblox Robux",
-        type:"Robux",
-        image:"images/IMG_0235.jpeg",
-        accountLabel:"Roblox Gamer ID / Username",
-        accountPlaceholder:"Enter Roblox username",
-
-        packages:[
-            ["400 Robux",1400],
-            ["800 Robux",2800],
-            ["1,700 Robux",4900],
-            ["4,500 Robux",11800],
-            ["10,000 Robux",23500]
-        ]
-    },
-
-    freefire:{
-        name:"Free Fire",
-        type:"Diamonds",
-        image:"images/IMG_0232.jpeg",
-        accountLabel:"Free Fire Player ID",
-        accountPlaceholder:"Enter Free Fire Player ID",
-
-        packages:[
-            ["100 Diamonds",300],
-            ["210 Diamonds",600],
-            ["530 Diamonds",1300],
-            ["1,080 Diamonds",2500],
-            ["2,200 Diamonds",5200]
-        ]
-    },
-
-    cod:{
-        name:"Call of Duty Mobile",
-        type:"CP",
-        image:"images/IMG_0243.jpeg",
-        accountLabel:"COD Mobile Player ID",
-        accountPlaceholder:"Enter COD Mobile Player ID",
-
-        packages:[
-            ["80 CP",400],
-            ["420 CP",1300],
-            ["880 CP",2300],
-            ["2,400 CP",5500],
-            ["5,000 CP",11000],
-            ["10,800 CP",21500]
-        ]
-    },
-
-    pubg:{
-        name:"PUBG Mobile",
-        type:"UC",
-        image:"images/IMG_0231.jpeg",
-        accountLabel:"PUBG Mobile Player ID",
-        accountPlaceholder:"Enter PUBG Mobile Player ID",
-
-        packages:[
-            ["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],
-            ["325 UC",1300],
-            ["660 UC",2300],
-            ["1,800 UC",5500],
-            ["3,850 UC",11400],
-            ["8,100 UC",21500],
-            ["Prime - 1 Month",460,"Subscription","QR code required to purchase subscriptions."],
-            ["Prime - 2 Months",800],
-            ["Prime - 3 Months",1200],
-            ["Prime Plus - 1 Month",2600,"Prime Plus"],
-            ["Prime Plus - 2 Months",5000],
-            ["Prime Plus - 3 Months",7600],
-            ["Prime Plus - 4 Months",10000]
-        ]
-    },
-
-    apex:{
-        name:"Apex Legends",
-        type:"Apex Coins",
-        image:"images/IMG_0241.jpeg",
-        accountLabel:"EA Account Email / Gamer ID",
-        accountPlaceholder:"Enter EA Account Email or User ID",
-        note:"LootBar Top-Up: Fulfillments require valid EA account credentials / connected profile ID.",
-
-        packages:[
-            ["500 Apex Coins",1500],
-            ["1,000 Apex Coins",2500],
-            ["2,000 + 150 Extra Coins",4500],
-            ["4,000 + 350 Extra Coins",8500],
-            ["6,000 + 700 Extra Coins",12500],
-            ["10,000 + 1,500 Extra Coins",20500]
-        ]
-    },
-
-    blood:{
-        name:"Blood Strike",
-        type:"Gold & Passes",
-        image:"images/IMG_0240.jpeg",
-        accountLabel:"Blood Strike User ID",
-        accountPlaceholder:"Enter Blood Strike User ID",
-
-        packages:[
-            ["100 + 5 Gold",600],
-            ["300 + 20 Gold",1000],
-            ["500 + 40 Gold",1500],
-            ["1,000 + 100 Gold",2500],
-            ["2,000 + 260 Gold",4500],
-            ["5,000 + 800 Gold",10000],
-            ["Strike Pass Elite",1300],
-            ["Strike Pass Premium",2500]
-        ]
-    },
-
-    amazon:{
-        name:"Amazon Gift Card",
-        type:"Amazon Gift Card",
-        image:"images/IMG_0234.jpeg",
-        accountLabel:"Email / Username",
-        accountPlaceholder:"Enter email or username",
-        showDeliveryField:true,
-
-        packages:[
-            ["$10 USD",2500],
-            ["$20 USD",4800],
-            ["$25 USD",6000],
-            ["$50 USD",12000],
-            ["$100 USD",23800]
-        ]
-    },
-
-    binance:{
-        name:"Binance Gift Card",
-        type:"USDT Gift Card",
-        image:"images/IMG_0233.jpeg",
-        noAccount:true,
-        showDeliveryField:true,
-
-        packages:[
-            ["$5 USDT",1700],
-            ["$10 USDT",3000],
-            ["$20 USDT",6500],
-            ["$50 USDT",12000],
-            ["$100 USDT",24000],
-            ["$150 USDT",36000]
-        ]
-    },
-
-    razer:{
-        name:"Razer Gold",
-        type:"Razer Gold Gift Card",
-        image:"images/IMG_0237.jpeg",
-        accountLabel:"Email / Username",
-        accountPlaceholder:"Enter email or username",
-        showDeliveryField:true,
-
-        packages:[
-            ["$10 USD",2800],
-            ["$20 USD",5200],
-            ["$50 USD",12200],
-            ["$100 USD",24000],
-            ["$200 USD",49000]
-        ]
-    },
-
-    google:{
-        name:"Google Play Gift Card",
-        type:"Google Play Gift Card",
-        image:"images/IMG_0230.jpeg",
-        accountLabel:"Email / Username",
-        accountPlaceholder:"Enter email or username",
-        showDeliveryField:true,
-
-        packages:[
-            ["$10 USD",2800],
-            ["$25 USD",6000],
-            ["$50 USD",12000],
-            ["$100 USD",23700]
-        ]
-    },
-
-    netflix:{
-        name:"Netflix Plan",
-        type:"Netflix Subscription",
-        image:"images/IMG_0238.jpeg",
-        noAccount:true,
-        showDeliveryField:true,
-
-        note:
-        "Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
-
-        packages:[
-            ["BASIC (HD, 1 Device)",1500],
-            ["STANDARD (Full HD, 2 Devices)",2500],
-            ["PREMIUM (4K + HDR, 4 Devices)",3000]
-        ]
-    },
-
-    prime:{
-        name:"Prime Video",
-        type:"Prime Video Subscription",
-        image:"images/IMG_0239.jpeg",
-        noAccount:true,
-        showDeliveryField:true,
-
-        note:
-        "Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime. A personal account is a newly created account just for you, not shared.",
-
-        packages:[
-            ["1 Week",400],
-            ["1 Month",1200],
-            ["Personal Account (1 Month)",4000]
-        ]
-    },
-
-    appleGift:{
-        name:"Apple Gift Card",
-        type:"Apple Gift Card",
-        image:"IMG_101a264f-0fe7-40f0-a188-1ee070839bb5.jpg",
-        noAccount:true,
-        showDeliveryField:true,
-
-        packages:[
-            ["$10 USD",2600],
-            ["$15 USD",3600],
-            ["$25 USD",5700],
-            ["$50 USD",11200],
-            ["$100 USD",22000]
-        ]
-    },
-
-    virtualVisa:{
-        name:"Virtual Visa Card",
-        type:"Virtual Payment Card",
-        image:"vki66g---c1x1x50px50p--61598c3a760eb003f9e81e3851e8f710.png",
-        noAccount:true,
-        showDeliveryField:true,
-
-        packages:[
-            ["$25 USD",7500],
-            ["$50 USD",13000],
-            ["$100 USD",24000],
-            ["$200 USD",48000]
-        ]
-    },
-
-    arena:{
-        name:"Arena Breakout",
-        type:"Coming Soon",
-        image:"images/IMG_0242.jpeg",
-        coming:true
-    },
-
-    fortnite:{
-        name:"Fortnite V-Bucks",
-        type:"Coming Soon",
-        image:"images/IMG_0235.jpeg",
-        coming:true
-    },
-
-    website:{
-        name:"Website Creator",
-        type:"Digital Service",
-        image:"1787436314905.png",
-        coming:true
-    }
-
+const products={
+    virtualNumbers:{name:"POS Virtual Numbers",type:"Virtual Numbers",image:"1794105216909.jpg",accountLabel:"Contact Number / WhatsApp",accountPlaceholder:"Enter your active phone number",isVirtualNumber:true,packages:[{name:"USA",price:1500,bgImg:"https://flagcdn.com/w640/us.png",badgeImg:"https://flagcdn.com/w160/us.png",number:"+1 (202) 555-0147"},{name:"UK",price:1500,bgImg:"https://flagcdn.com/w640/gb.png",badgeImg:"https://flagcdn.com/w160/gb.png",number:"+44 20 7946 0183"},{name:"Canada",price:1500,bgImg:"https://flagcdn.com/w640/ca.png",badgeImg:"https://flagcdn.com/w160/ca.png",number:"+1 (416) 555-0128"},{name:"Australia",price:1500,bgImg:"https://flagcdn.com/w640/au.png",badgeImg:"https://flagcdn.com/w160/au.png",number:"+61 2 5550 0184"}]},
+    tiktok:{name:"TikTok Coins",type:"TikTok Coins",image:"images/IMG_0236.jpeg",accountLabel:"TikTok Username / Profile",accountPlaceholder:"Enter TikTok username or profile",packages:[["30 Coins",300],["350 Coins",1200],["700 Coins",2000],["1,400 Coins",4500],["3,500 Coins",10000],["7,000 Coins",20000],["17,500 Coins",42000]]},
+    robloxGift:{name:"Roblox Gift Card",type:"Roblox Gift Card",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Username",accountPlaceholder:"Enter Roblox username",showDeliveryField:true,packages:[["$10 USD",2800],["$25 USD",6500],["$50 USD",12000],["$100 USD",24000],["$200 USD",48500]]},
+    roblox:{name:"Roblox Robux",type:"Robux",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Gamer ID / Username",accountPlaceholder:"Enter Roblox username",packages:[["400 Robux",1400],["800 Robux",2800],["1,700 Robux",4900],["4,500 Robux",11800],["10,000 Robux",23500]]},
+    freefire:{name:"Free Fire",type:"Diamonds",image:"images/IMG_0232.jpeg",accountLabel:"Free Fire Player ID",accountPlaceholder:"Enter Free Fire Player ID",packages:[["100 Diamonds",300],["210 Diamonds",600],["530 Diamonds",1300],["1,080 Diamonds",2500],["2,200 Diamonds",5200]]},
+    cod:{name:"Call of Duty Mobile",type:"CP",image:"images/IMG_0243.jpeg",accountLabel:"COD Mobile Player ID",accountPlaceholder:"Enter COD Mobile Player ID",packages:[["80 CP",400],["420 CP",1300],["880 CP",2300],["2,400 CP",5500],["5,000 CP",11000],["10,800 CP",21500]]},
+    pubg:{name:"PUBG Mobile",type:"UC",image:"images/IMG_0231.jpeg",accountLabel:"PUBG Mobile Player ID",accountPlaceholder:"Enter PUBG Mobile Player ID",packages:[["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],["325 UC",1300],["660 UC",2300],["1,800 UC",5500],["3,850 UC",11400],["8,100 UC",21500],["Prime - 1 Month",460,"Subscription","QR code required to purchase subscriptions."],["Prime - 2 Months",800],["Prime - 3 Months",1200],["Prime Plus - 1 Month",2600,"Prime Plus"],["Prime Plus - 2 Months",5000],["Prime Plus - 3 Months",7600],["Prime Plus - 4 Months",10000]]},
+    apex:{name:"Apex Legends",type:"Apex Coins",image:"images/IMG_0241.jpeg",accountLabel:"EA Account Email / Gamer ID",accountPlaceholder:"Enter EA Account Email or User ID",note:"LootBar Top-Up: Fulfillments require valid EA account credentials / connected profile ID.",packages:[["500 Apex Coins",1500],["1,000 Apex Coins",2500],["2,000 + 150 Extra Coins",4500],["4,000 + 350 Extra Coins",8500],["6,000 + 700 Extra Coins",12500],["10,000 + 1,500 Extra Coins",20500]]},
+    blood:{name:"Blood Strike",type:"Gold & Passes",image:"images/IMG_0240.jpeg",accountLabel:"Blood Strike User ID",accountPlaceholder:"Enter Blood Strike User ID",packages:[["100 + 5 Gold",600],["300 + 20 Gold",1000],["500 + 40 Gold",1500],["1,000 + 100 Gold",2500],["2,000 + 260 Gold",4500],["5,000 + 800 Gold",10000],["Strike Pass Elite",1300],["Strike Pass Premium",2500]]},
+    amazon:{name:"Amazon Gift Card",type:"Amazon Gift Card",image:"images/IMG_0234.jpeg",accountLabel:"Email / Username",accountPlaceholder:"Enter email or username",showDeliveryField:true,packages:[["$10 USD",2500],["$20 USD",4800],["$25 USD",6000],["$50 USD",12000],["$100 USD",23800]]},
+    binance:{name:"Binance Gift Card",type:"USDT Gift Card",image:"images/IMG_0233.jpeg",noAccount:true,showDeliveryField:true,packages:[["$5 USDT",1700],["$10 USDT",3000],["$20 USDT",6500],["$50 USDT",12000],["$100 USDT",24000],["$150 USDT",36000]]},
+    razer:{name:"Razer Gold",type:"Razer Gold Gift Card",image:"images/IMG_0237.jpeg",accountLabel:"Email / Username",accountPlaceholder:"Enter email or username",showDeliveryField:true,packages:[["$10 USD",2800],["$20 USD",5200],["$50 USD",12200],["$100 USD",24000],["$200 USD",49000]]},
+    google:{name:"Google Play Gift Card",type:"Google Play Gift Card",image:"images/IMG_0230.jpeg",accountLabel:"Email / Username",accountPlaceholder:"Enter email or username",showDeliveryField:true,packages:[["$10 USD",2800],["$25 USD",6000],["$50 USD",12000],["$100 USD",23700]]},
+    netflix:{name:"Netflix Plan",type:"Netflix Subscription",image:"images/IMG_0238.jpeg",noAccount:true,showDeliveryField:true,note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime.",packages:[["BASIC (HD, 1 Device)",1500],["STANDARD (Full HD, 2 Devices)",2500],["PREMIUM (4K + HDR, 4 Devices)",3000]]},
+    prime:{name:"Prime Video",type:"Prime Video Subscription",image:"images/IMG_0239.jpeg",noAccount:true,showDeliveryField:true,note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime.",packages:[["1 Week",400],["1 Month",1200],["Personal Account (1 Month)",4000]]},
+    appleGift:{name:"Apple Gift Card",type:"Apple Gift Card",image:"22256742924f916e0be103a5e2590e88.jpg",noAccount:true,showDeliveryField:true,packages:[["$10 USD",2600],["$15 USD",3600],["$25 USD",5700],["$50 USD",11200],["$100 USD",22000]]},
+    virtualVisa:{name:"Virtual Visa Card",type:"Virtual Payment Card",image:"022c18b3f9a237823b60eb4091b9e933.jpg",noAccount:true,showDeliveryField:true,packages:[["$25 USD",7500],["$50 USD",13000],["$100 USD",24000],["$200 USD",48000]]},
+    gta6:{name:"GTA 6",type:"Digital Code",image:"GTA 6 4K print Poster.jpeg",accountLabel:"Platform / Gamer ID / Email",accountPlaceholder:"Enter your platform account ID or email",showDeliveryField:true,packages:[["Standard Edition",21000],["Ultimate Edition",25000]]},
+    paramount:{name:"Paramount+",type:"Streaming Subscriptions",image:"97e1bc04af1d96d369b36b501910eda2.jpg",noAccount:true,showDeliveryField:true,note:"Shared profiles are shared with users. Personal accounts are private.",packages:[["Shared Profile (Essential)",2000,"Shared Profiles"],["Shared Profile (Premium - Ad Free)",2500],["Personal Account (Essential)",3400,"Personal Accounts"],["Personal Account (Premium - Ad Free)",4500]]},
+    hulu:{name:"Hulu",type:"Streaming Subscriptions",image:"c5e9da8d020779eeb43d7725ebf240c4.jpg",noAccount:true,showDeliveryField:true,note:"Shared profiles max 2 screens. Personal accounts are full private accounts.",packages:[["Shared Profile (With Ads)",2500,"Shared Profiles"],["Shared Profile (Premium - No Ads)",3500],["Personal Account (With Ads)",4000,"Personal Accounts"],["Personal Account (Premium - No Ads)",6000]]},
+    disney:{name:"Disney+",type:"Streaming Subscriptions",image:"https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",noAccount:true,showDeliveryField:true,note:"Shared profiles are shared with users. Personal accounts are private.",packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Premium - No Ads)",3000],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Premium - No Ads)",4800]]},
+    appleTv:{name:"Apple TV",type:"Streaming Subscriptions",image:"b0bb1901e76864883c6042b25cfb353d.jpg",noAccount:true,showDeliveryField:true,packages:[["Shared Profile",2500,"Shared Profiles"],["Personal Account",4500,"Personal Accounts"]]},
+    max:{name:"Max",type:"Streaming Subscriptions",image:"https://upload.wikimedia.org/wikipedia/commons/c/ce/HBO_Max_Logo.svg",noAccount:true,showDeliveryField:true,packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Standard - Ad Free)",3000],["Shared Profile (Ultimate - 4K Ad Free)",3500],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Standard - Ad Free)",4800],["Personal Account (Ultimate - 4K Ad Free)",5500]]},
+    arena:{name:"Arena Breakout",type:"Coming Soon",image:"images/IMG_0242.jpeg",coming:true},
+    fortnite:{name:"Fortnite V-Bucks",type:"Coming Soon",image:"images/IMG_0235.jpeg",coming:true},
+    website:{name:"Website Creator",type:"Digital Service",image:"1787436314905.png",coming:true}
 };
-
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-let currentProduct=null;
-let selectedPackage=null;
-let quantity=1;
-
-let cart=[];
-
-
-/* =========================================================
-   ENTER STORE
-========================================================= */
-
-function enterStore(){
-
-    const screen=
-        document.getElementById("welcomeScreen");
-
-    screen.style.opacity="0";
-    screen.style.transition=".45s";
-
-    setTimeout(()=>{
-        screen.style.display="none";
-    },450);
-}
-
-
-/* =========================================================
-   OPEN PRODUCT
-========================================================= */
-
+let currentProduct=null,selectedPackage=null,quantity=1,cart=[];
+function enterStore(){document.getElementById("welcomeScreen").style.opacity="0";setTimeout(()=>document.getElementById("welcomeScreen").style.display="none",450);}
 function openProduct(id){
-
-    const product=products[id];
-
-    if(!product){
-        return;
-    }
-
-    if(product.coming){
-
-        alert(
-            product.name +
-            " is coming soon to DARK STORE."
-        );
-
-        return;
-    }
-
-    if(product.priceComingSoon){
-
-        alert(
-            product.name +
-            " prices are coming soon."
-        );
-
-        return;
-    }
-
-    currentProduct=id;
-    selectedPackage=null;
-    quantity=1;
-
-    document.getElementById("modalImage").src=
-        product.image;
-
-    document.getElementById("modalTitle").textContent=
-        product.name;
-
-    document.getElementById("modalType").textContent=
-        product.type;
-
-    document.getElementById("qtyValue").textContent=
-        quantity;
-
-    const noteBox=
-        document.getElementById("modalNote");
-
-    if(product.note){
-
-        noteBox.textContent=
-            product.note;
-
-        noteBox.style.display=
-            "block";
-
-    }else{
-
-        noteBox.textContent="";
-        noteBox.style.display=
-            "none";
-    }
-
-    const policyBanner=
-        document.getElementById(
-            "renewalPolicyBanner"
-        );
-
-    if(product.isVirtualNumber){
-
-        policyBanner.style.display=
-            "block";
-
-    }else{
-
-        policyBanner.style.display=
-            "none";
-    }
-
-    const list=
-        document.getElementById("packageList");
-
-    list.innerHTML="";
-
-    if(product.isVirtualNumber){
-
+    const p=products[id];
+    if(!p || p.coming) return alert(p?.name+" is coming soon.");
+    currentProduct=id; selectedPackage=null; quantity=1;
+    document.getElementById("modalImage").src=p.image;
+    document.getElementById("modalTitle").textContent=p.name;
+    document.getElementById("modalType").textContent=p.type;
+    document.getElementById("qtyValue").textContent=quantity;
+    const noteBox=document.getElementById("modalNote");
+    noteBox.style.display=p.note?(noteBox.textContent=p.note,"block"):"none";
+    document.getElementById("renewalPolicyBanner").style.display=p.isVirtualNumber?"block":"none";
+    const list=document.getElementById("packageList"); list.innerHTML="";
+    if(p.isVirtualNumber){
         list.classList.add("vertical-layout");
-
-        product.packages.forEach((pack)=>{
-
-            const button=
-                document.createElement("div");
-
-            button.className=
-                "virtual-card";
-
-            button.innerHTML=`
-
-                <img
-                    class="card-bg-image"
-                    src="${pack.bgImg}"
-                    alt="${pack.name} Flag Background"
-                >
-
-                <div class="card-content">
-
-                    <img
-                        class="flag-emblem"
-                        src="${pack.badgeImg}"
-                        alt="${pack.name} Emblem"
-                    >
-
-                    <div class="country-name">
-                        ${pack.name}
-                    </div>
-
-                    <div class="service-subtitle">
-                        POS Virtual Number
-                    </div>
-
-                </div>
-
-                <div class="number-badge">
-                    <span>
-                        ${pack.number}
-                    </span>
-                </div>
-
-                <div class="price-button">
-                    ${Number(pack.price).toLocaleString()}
-                    GYD
-                </div>
-
-            `;
-
-            button.onclick=()=>{
-
-                document
-                    .querySelectorAll(".virtual-card")
-                    .forEach(x=>
-                        x.classList.remove("selected")
-                    );
-
-                button.classList.add("selected");
-
-                selectedPackage=[
-                    pack.name +
-                    " (" +
-                    pack.number +
-                    ")",
-                    pack.price
-                ];
-
-                updateTotal();
-            };
-
-            list.appendChild(button);
-
+        p.packages.forEach(pack=>{
+            const b=document.createElement("div"); b.className="virtual-card";
+            b.innerHTML=`<img class="card-bg-image" src="${pack.bgImg}"><div class="card-content"><img class="flag-emblem" src="${pack.badgeImg}"><div class="country-name">${pack.name}</div><div class="service-subtitle">POS Virtual Number</div></div><div class="number-badge"><span>${pack.number}</span></div><div class="price-button">${Number(pack.price).toLocaleString()} GYD</div>`;
+            b.onclick=()=>{document.querySelectorAll(".virtual-card").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedPackage=[pack.name+" ("+pack.number+")",pack.price];updateTotal();};
+            list.appendChild(b);
         });
-
     }else{
-
         list.classList.remove("vertical-layout");
-
-        product.packages.forEach((pack,index)=>{
-
+        p.packages.forEach(pack=>{
             if(pack[2]){
-
-                const label=
-                    document.createElement("div");
-
-                label.className=
-                    "package-label";
-
-                label.textContent=
-                    pack[2];
-
-                list.appendChild(label);
-
-                if(pack[3]){
-
-                    const note=
-                        document.createElement("div");
-
-                    note.className=
-                        "package-note";
-
-                    note.textContent=
-                        pack[3];
-
-                    list.appendChild(note);
-                }
+                const l=document.createElement("div"); l.className="package-label"; l.textContent=pack[2]; list.appendChild(l);
+                if(pack[3]){const n=document.createElement("div"); n.className="package-note"; n.textContent=pack[3]; list.appendChild(n);}
             }
-
-            const button=
-                document.createElement("button");
-
-            button.className=
-                "package";
-
-            button.innerHTML=`
-
-                <strong>
-                    ${pack[0]}
-                </strong>
-
-                <span>
-                    GYD $${Number(pack[1]).toLocaleString()}
-                </span>
-
-            `;
-
-            button.onclick=()=>{
-
-                document
-                    .querySelectorAll(".package")
-                    .forEach(x=>
-                        x.classList.remove("selected")
-                    );
-
-                button.classList.add("selected");
-
-                selectedPackage=
-                    pack;
-
-                updateTotal();
-            };
-
-            list.appendChild(button);
-
+            const b=document.createElement("button"); b.className="package";
+            b.innerHTML=`<strong>${pack[0]}</strong><span>GYD $${Number(pack[1]).toLocaleString()}</span>`;
+            b.onclick=()=>{document.querySelectorAll(".package").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedPackage=pack;updateTotal();};
+            list.appendChild(b);
         });
     }
-
-    const accountWrap=
-        document.getElementById(
-            "accountFieldWrap"
-        );
-
-    const accountInput=
-        document.getElementById(
-            "accountInput"
-        );
-
-    const accountLabel=
-        document.getElementById(
-            "accountLabel"
-        );
-
-    if(product.noAccount){
-
-        accountWrap.style.display=
-            "none";
-
-        accountInput.value="";
-
-    }else{
-
-        accountWrap.style.display=
-            "block";
-
-        accountLabel.textContent=
-            product.accountLabel ||
-            "Gamer ID / Username";
-
-        accountInput.placeholder=
-            product.accountPlaceholder ||
-            "Enter Gamer ID / Username";
-
-    }
-
-    const deliveryWrap=
-        document.getElementById(
-            "deliveryFieldWrap"
-        );
-
-    if(product.showDeliveryField || product.noAccount){
-        deliveryWrap.style.display="block";
-    }else{
-        deliveryWrap.style.display="none";
-    }
-
-    document
-        .getElementById("deliveryInput")
-        .value="";
-
-    document
-        .getElementById("transactionInput")
-        .value="";
-
-    document
-        .getElementById("totalValue")
-        .textContent="GYD $0";
-
-    document
-        .getElementById("productModal")
-        .classList.add("show");
+    document.getElementById("accountFieldWrap").style.display=p.noAccount?"none":"block";
+    document.getElementById("accountLabel").textContent=p.accountLabel||"Gamer ID / Username";
+    document.getElementById("accountInput").placeholder=p.accountPlaceholder||"Enter Gamer ID / Username";
+    document.getElementById("deliveryFieldWrap").style.display=(p.showDeliveryField||p.noAccount)?"block":"none";
+    document.getElementById("deliveryInput").value=""; document.getElementById("transactionInput").value="";
+    document.getElementById("totalValue").textContent="GYD $0";
+    document.getElementById("productModal").classList.add("show");
 }
-
-
-/* =========================================================
-   CLOSE PRODUCT
-========================================================= */
-
-function closeProduct(){
-
-    document
-        .getElementById("productModal")
-        .classList.remove("show");
-}
-
-
-/* =========================================================
-   QUANTITY
-========================================================= */
-
-function changeQty(amount){
-
-    quantity+=amount;
-
-    if(quantity<1){
-        quantity=1;
-    }
-
-    if(quantity>99){
-        quantity=99;
-    }
-
-    document
-        .getElementById("qtyValue")
-        .textContent=quantity;
-
-    updateTotal();
-}
-
-
-/* =========================================================
-   TOTAL
-========================================================= */
-
+function closeProduct(){document.getElementById("productModal").classList.remove("show");}
+function changeQty(amt){quantity=Math.max(1,Math.min(99,quantity+amt));document.getElementById("qtyValue").textContent=quantity;updateTotal();}
 function updateTotal(){
-
-    if(!selectedPackage){
-
-        document
-            .getElementById("totalValue")
-            .textContent="GYD $0";
-
-        return;
-    }
-
-    const total=
-        Number(selectedPackage[1]) *
-        quantity;
-
-    document
-        .getElementById("totalValue")
-        .textContent=
-        "GYD $" +
-        total.toLocaleString();
+    if(!selectedPackage){document.getElementById("totalValue").textContent="GYD $0";return;}
+    document.getElementById("totalValue").textContent="GYD $"+(Number(selectedPackage[1])*quantity).toLocaleString();
 }
-
-
-/* =========================================================
-   SEND ORDER
-========================================================= */
-
 function sendOrder(){
-
-    if(!currentProduct){
-        return;
-    }
-
-    const product=
-        products[currentProduct];
-
-    if(product.coming){
-
-        alert(
-            "This product is coming soon."
-        );
-
-        return;
-    }
-
-    if(product.priceComingSoon){
-
-        alert(
-            product.name +
-            " prices have not been added yet."
-        );
-
-        return;
-    }
-
-    if(!selectedPackage){
-
-        alert(
-            "Please select a package first."
-        );
-
-        return;
-    }
-
-    const accountInput=
-        document.getElementById(
-            "accountInput"
-        );
-
-    const account=
-        accountInput.value.trim();
-
-    if(!product.noAccount && !account){
-
-        alert(
-            "Please enter your " + (product.accountLabel || "Gamer ID / Username") + "."
-        );
-
-        accountInput.focus();
-
-        return;
-    }
-
-    const delivery=
-        document
-        .getElementById("deliveryInput")
-        .value
-        .trim();
-
-    const transaction=
-        document
-        .getElementById(
-            "transactionInput"
-        )
-        .value
-        .trim();
-
-    const total=
-        Number(selectedPackage[1]) *
-        quantity;
-
-    if(!product.noAccount && account){
-
-        const key=
-            "darkPurchases_" +
-            account.toLowerCase();
-
-        let purchases=
-            Number(
-                localStorage.getItem(key) || 0
-            );
-
-        purchases++;
-
-        localStorage.setItem(
-            key,
-            purchases
-        );
-    }
-
-    let message=
-`🎮 DARK STORE ORDER
-
-Product: ${product.name}
-Package: ${selectedPackage[0]}
-Quantity: ${quantity}
-Total: GYD $${total.toLocaleString()}
-`;
-
-    if(!product.noAccount){
-
-        message+=
-`
-${product.accountLabel || 'Gamer ID / Username / Email'}: ${account}`;
-    }
-
-    if(delivery){
-        message+=
-`
-Email / WhatsApp Delivery: ${delivery}`;
-    }
-
-    message+=
-`
-MMG Transaction ID: ${
-    transaction ||
-    "Not provided"
-}
-
-Payment Merchant: CASSIA
-
-Please process my order.`;
-
-    const whatsappNumber=
-        "13436555995";
-
-    const whatsappURL=
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
+    if(!currentProduct) return;
+    const p=products[currentProduct];
+    if(!selectedPackage) return alert("Please select a package first.");
+    const acc=document.getElementById("accountInput").value.trim();
+    if(!p.noAccount && !acc) return alert("Please enter your "+(p.accountLabel||"Gamer ID")+".");
+    const del=document.getElementById("deliveryInput").value.trim();
+    const trx=document.getElementById("transactionInput").value.trim();
+    const total=Number(selectedPackage[1])*quantity;
+    let msg=`🎮 DARK STORE ORDER\n\nProduct: ${p.name}\nPackage: ${selectedPackage[0]}\nQuantity: ${quantity}\nTotal: GYD $${total.toLocaleString()}\n`;
+    if(!p.noAccount) msg+=`${p.accountLabel||'Gamer ID'}: ${acc}\n`;
+    if(del) msg+=`Delivery: ${del}\n`;
+    msg+=`MMG Transaction ID: ${trx||"Not provided"}\n\nPayment Merchant: CASSIA\n\nPlease process my order.`;
     closeProduct();
-
-    const thankYou=
-        document.getElementById(
-            "thankYouPopup"
-        );
-
-    thankYou.classList.add("show");
-
-    setTimeout(()=>{
-
-        window.location.href=
-            whatsappURL;
-
-    },1800);
-
+    document.getElementById("thankYouPopup").classList.add("show");
+    setTimeout(()=>{window.location.href="https://wa.me/13436555995?text="+encodeURIComponent(msg);},1800);
 }
-
-
-/* =========================================================
-   CART
-========================================================= */
-
-function toggleCart(){
-
-    document
-        .getElementById("cartPanel")
-        .classList.toggle("show");
-
-    renderCart();
-}
-
-
-function addToCart(){
-
-    if(!selectedPackage){
-        return;
-    }
-
-    cart.push({
-
-        product:
-            products[currentProduct].name,
-
-        package:
-            selectedPackage[0],
-
-        price:
-            selectedPackage[1],
-
-        quantity:
-            quantity
-
-    });
-
-    updateCartBadge();
-
-    renderCart();
-}
-
-
-function clearCart(){
-
-    cart=[];
-
-    updateCartBadge();
-
-    renderCart();
-}
-
-
-function updateCartBadge(){
-
-    const totalItems=
-        cart.reduce(
-            (sum,item)=>
-                sum + item.quantity,
-            0
-        );
-
-    document
-        .getElementById("cartBadge")
-        .textContent=
-        totalItems;
-}
-
-
+function toggleCart(){document.getElementById("cartPanel").classList.toggle("show");renderCart();}
+function clearCart(){cart=[];updateCartBadge();renderCart();}
+function updateCartBadge(){document.getElementById("cartBadge").textContent=cart.reduce((s,i)=>s+i.quantity,0);}
 function renderCart(){
-
-    const container=
-        document.getElementById(
-            "cartItems"
-        );
-
-    if(cart.length===0){
-
-        container.className=
-            "cart-empty";
-
-        container.innerHTML=
-            "No items selected yet.";
-
-        return;
-    }
-
-    container.className="";
-
-    container.innerHTML=
-        cart.map(item=>`
-
-            <div class="cart-item">
-
-                <div>
-
-                    <strong>
-                        ${item.product}
-                    </strong>
-
-                    <br>
-
-                    <small>
-                        ${item.package}
-                        × ${item.quantity}
-                    </small>
-
-                </div>
-
-                <strong>
-                    GYD $${(
-                        item.price *
-                        item.quantity
-                    ).toLocaleString()}
-                </strong>
-
-            </div>
-
-        `).join("");
+    const c=document.getElementById("cartItems");
+    c.className=cart.length===0?"cart-empty":"";
+    c.innerHTML=cart.length===0?"No items selected yet.":cart.map(i=>`<div class="cart-item"><div><strong>${i.product}</strong><br><small>${i.package} × ${i.quantity}</small></div><strong>GYD $${(i.price*i.quantity).toLocaleString()}</strong></div>`).join("");
 }
-
-
-/* =========================================================
-   HERO SLIDESHOW
-========================================================= */
-
-const slides=
-    document.querySelectorAll(
-        ".hero-slide"
-    );
-
-const dotsContainer=
-    document.getElementById(
-        "sliderDots"
-    );
-
-let currentSlide=0;
-
-slides.forEach((slide,index)=>{
-
-    const dot=
-        document.createElement(
-            "div"
-        );
-
-    dot.className=
-        "dot" +
-        (index===0
-            ? " active"
-            : "");
-
-    dot.onclick=()=>{
-        showSlide(index);
-    };
-
-    dotsContainer.appendChild(dot);
-
-});
-
-
-function showSlide(index){
-
-    slides.forEach(slide=>{
-
-        slide.classList.remove(
-            "active"
-        );
-
-    });
-
-    const dots=
-        document.querySelectorAll(
-            ".dot"
-        );
-
-    dots.forEach(dot=>{
-
-        dot.classList.remove(
-            "active"
-        );
-
-    });
-
-    currentSlide=index;
-
-    slides[currentSlide]
-        .classList.add(
-            "active"
-        );
-
-    dots[currentSlide]
-        .classList.add(
-            "active"
-        );
+const slides=document.querySelectorAll(".hero-slide"),dotsC=document.getElementById("sliderDots");
+let currSlide=0;
+slides.forEach((_,i)=>{const d=document.createElement("div");d.className="dot"+(i===0?" active":"");d.onclick=()=>showSlide(i);dotsC.appendChild(d);});
+function showSlide(i){
+    slides.forEach(s=>s.classList.remove("active"));
+    document.querySelectorAll(".dot").forEach(d=>d.classList.remove("active"));
+    currSlide=i; slides[currSlide].classList.add("active"); document.querySelectorAll(".dot")[currSlide].classList.add("active");
 }
+setInterval(()=>{currSlide=(currSlide+1)%slides.length;showSlide(currSlide);},3000);
+window.onclick=e=>{if(e.target.classList.contains("modal"))e.target.classList.remove("show");}
 
-
-setInterval(()=>{
-
-    currentSlide++;
-
-    if(currentSlide>=slides.length){
-
-        currentSlide=0;
-
-    }
-
-    showSlide(currentSlide);
-
-},3000);
-
-
-/* =========================================================
-   CLOSE MODAL OUTSIDE
-========================================================= */
-
-document
-    .getElementById("productModal")
-    .addEventListener(
-        "click",
-        function(e){
-
-            if(e.target===this){
-
-                closeProduct();
-
-            }
-
-        }
-    );
-
-
-document
-    .getElementById("wheelModal_main")
-    .addEventListener(
-        "click",
-        function(e){
-
-            if(e.target===this){
-
-                closeWheel("main");
-
-            }
-
-        }
-    );
-
-
-document
-    .getElementById("wheelModal_tiktok")
-    .addEventListener(
-        "click",
-        function(e){
-
-            if(e.target===this){
-
-                closeWheel("tiktok");
-
-            }
-
-        }
-    );
-
-
-/* =========================================================
-   SPIN WHEEL
-========================================================= */
-
-const wheelInstances={
-
-    main:{
-
-        requiresUsername:false,
-
-        storagePrefix:
-            "darkWheel",
-
-        prizes:[
-
-            {
-                label:"50 GYD OFF",
-                color:"#7c20d8",
-                text:
-                "You won 50 GYD off your next order!"
-            },
-
-            {
-                label:"TRY AGAIN",
-                color:"#2a1240",
-                text:
-                "No luck this time — come back tomorrow!"
-            },
-
-            {
-                label:"100 GYD OFF",
-                color:"#9b32ff",
-                text:
-                "You won 100 GYD off your next order!"
-            },
-
-            {
-                label:"FREE 60 UC",
-                color:"#2a1240",
-                text:
-                "You won a free 60 UC PUBG top-up!"
-            },
-
-            {
-                label:"8400 UC",
-                color:"#ffb020",
-                text:
-                "You won 8400 UC!",
-                unwinnable:true
-            },
-
-            {
-                label:"TRY AGAIN",
-                color:"#7c20d8",
-                text:
-                "So close! Try again tomorrow."
-            },
-
-            {
-                label:"200 GYD OFF",
-                color:"#9b32ff",
-                text:
-                "Big win! 200 GYD off your next order!"
-            },
-
-            {
-                label:"FREE 100 DIAMONDS",
-                color:"#2a1240",
-                text:
-                "You won 100 free Free Fire diamonds!"
-            },
-
-            {
-                label:"5% OFF NEXT BUY",
-                color:"#7c20d8",
-                text:
-                "You won 5% off your next purchase!"
-            }
-
-        ]
-
-    }
-
-};
-
-
-Object.keys(wheelInstances)
-.forEach(id=>{
-
-    const w=
-        wheelInstances[id];
-
-    w.winnableIndexes=
-        w.prizes
-        .map((p,i)=>i)
-        .filter(
-            i=>
-                !w.prizes[i].unwinnable
-        );
-
-    w.canvas=
-        document.getElementById(
-            "wheelCanvas_"+id
-        );
-
-    w.ctx=
-        w.canvas.getContext("2d");
-
-    w.segAngle=
-        (2*Math.PI) /
-        w.prizes.length;
-
-    w.rotation=0;
-
-    w.spinning=false;
-
-    drawWheel(id);
-
+const wheelInstances={main:{storagePrefix:"darkWheel",prizes:[{label:"50 GYD OFF",color:"#7c20d8",text:"You won 50 GYD off!"},{label:"TRY AGAIN",color:"#2a1240",text:"No luck this time."},{label:"100 GYD OFF",color:"#9b32ff",text:"You won 100 GYD off!"},{label:"FREE 60 UC",color:"#2a1240",text:"You won 60 UC!"},{label:"8400 UC",color:"#ffb020",text:"Won!",unwinnable:true},{label:"TRY AGAIN",color:"#7c20d8",text:"Try again."},{label:"200 GYD OFF",color:"#9b32ff",text:"200 GYD off!"},{label:"FREE 100 DIAMONDS",color:"#2a1240",text:"Diamonds won!"},{label:"5% OFF",color:"#7c20d8",text:"5% off next buy!"}]}};
+Object.keys(wheelInstances).forEach(id=>{
+    const w=wheelInstances[id];
+    w.winnableIndexes=w.prizes.map((p,i)=>i).filter(i=>!w.prizes[i].unwinnable);
+    w.canvas=document.getElementById("wheelCanvas_"+id); w.ctx=w.canvas.getContext("2d");
+    w.segAngle=(2*Math.PI)/w.prizes.length; w.rotation=0; w.spinning=false; drawWheel(id);
 });
-
-
 function drawWheel(id){
-
-    const w=
-        wheelInstances[id];
-
-    const r=
-        w.canvas.width/2;
-
-    w.ctx.clearRect(
-        0,
-        0,
-        w.canvas.width,
-        w.canvas.height
-    );
-
-    w.prizes.forEach(
-        (prize,i)=>{
-
-            const start=
-                i*w.segAngle;
-
-            const end=
-                start+w.segAngle;
-
-            w.ctx.beginPath();
-
-            w.ctx.moveTo(
-                r,
-                r
-            );
-
-            w.ctx.arc(
-                r,
-                r,
-                r,
-                start,
-                end
-            );
-
-            w.ctx.closePath();
-
-            w.ctx.fillStyle=
-                prize.color;
-
-            w.ctx.fill();
-
-            w.ctx.strokeStyle=
-                "rgba(255,255,255,0.12)";
-
-            w.ctx.lineWidth=2;
-
-            w.ctx.stroke();
-
-            w.ctx.save();
-
-            w.ctx.translate(
-                r,
-                r
-            );
-
-            w.ctx.rotate(
-                start+
-                w.segAngle/2
-            );
-
-            w.ctx.textAlign=
-                "right";
-
-            w.ctx.fillStyle=
-                "#fff";
-
-            w.ctx.font=
-                "bold 20px Arial";
-
-            w.ctx.fillText(
-                prize.label,
-                r-18,
-                6
-            );
-
-            w.ctx.restore();
-
-        }
-    );
+    const w=wheelInstances[id],r=w.canvas.width/2;
+    w.ctx.clearRect(0,0,w.canvas.width,w.canvas.height);
+    w.prizes.forEach((p,i)=>{
+        const start=i*w.segAngle,end=start+w.segAngle;
+        w.ctx.beginPath();w.ctx.moveTo(r,r);w.ctx.arc(r,r,r,start,end);w.ctx.closePath();
+        w.ctx.fillStyle=p.color;w.ctx.fill();w.ctx.strokeStyle="rgba(255,255,255,.12)";w.ctx.lineWidth=2;w.ctx.stroke();
+        w.ctx.save();w.ctx.translate(r,r);w.ctx.rotate(start+w.segAngle/2);w.ctx.textAlign="right";w.ctx.fillStyle="#fff";w.ctx.font="bold 20px Arial";w.ctx.fillText(p.label,r-18,6);w.ctx.restore();
+    });
 }
-
-
 function getSpinAvailability(id){
-
-    const w=
-        wheelInstances[id];
-
-    const last=
-        localStorage.getItem(
-            w.storagePrefix+
-            "LastSpin"
-        );
-
-    if(!last){
-        return true;
-    }
-
-    const lastDate=
-        new Date(
-            Number(last)
-        );
-
-    const now=
-        new Date();
-
-    return (
-
-        lastDate.getFullYear() !==
-        now.getFullYear() ||
-
-        lastDate.getMonth() !==
-        now.getMonth() ||
-
-        lastDate.getDate() !==
-        now.getDate()
-
-    );
+    const last=localStorage.getItem(wheelInstances[id].storagePrefix+"LastSpin");
+    if(!last)return true;
+    const d=new Date(Number(last)),now=new Date();
+    return d.getFullYear()!==now.getFullYear()||d.getMonth()!==now.getMonth()||d.getDate()!==now.getDate();
 }
-
-
 function refreshSpinButton(id){
-
-    const w=
-        wheelInstances[id];
-
-    const btn=
-        document.getElementById(
-            "spinBtn_"+id
-        );
-
-    const resultBox=
-        document.getElementById(
-            "wheelResult_"+id
-        );
-
-    if(
-        getSpinAvailability(id)
-    ){
-
-        btn.disabled=false;
-
-        btn.textContent=
-            "SPIN THE WHEEL";
-
-        resultBox.style.display=
-            "none";
-
-    }else{
-
-        btn.disabled=true;
-
-        btn.textContent=
-            "COME BACK TOMORROW";
-
-        const savedPrize=
-            localStorage.getItem(
-                w.storagePrefix+
-                "LastPrize"
-            );
-
-        if(savedPrize){
-
-            document.getElementById(
-                "wheelResultTitle_"+id
-            ).textContent=
-                savedPrize;
-
-            document.getElementById(
-                "wheelResultText_"+id
-            ).textContent=
-                "You already spun today. Come back tomorrow for another try!";
-
-            resultBox.style.display=
-                "block";
-        }
-
-    }
-
+    const w=wheelInstances[id],btn=document.getElementById("spinBtn_"+id),res=document.getElementById("wheelResult_"+id);
+    if(getSpinAvailability(id)){btn.disabled=false;btn.textContent="SPIN THE WHEEL";res.style.display="none";}
+    else{btn.disabled=true;btn.textContent="COME BACK TOMORROW";const p=localStorage.getItem(w.storagePrefix+"LastPrize");if(p){document.getElementById("wheelResultTitle_"+id).textContent=p;document.getElementById("wheelResultText_"+id).textContent="Already spun today.";res.style.display="block";}}
 }
-
-
-function openWheel(id){
-
-    if(id==="tiktok"){
-
-        openTiktokWheel();
-
-        return;
-    }
-
-    document
-        .getElementById(
-            "wheelModal_"+id
-        )
-        .classList.add("show");
-
-    refreshSpinButton(id);
-}
-
-
-function closeWheel(id){
-
-    document
-        .getElementById(
-            "wheelModal_"+id
-        )
-        .classList.remove("show");
-}
-
-
+function openWheel(id){if(id==="tiktok"){openTiktokWheel();return;}document.getElementById("wheelModal_"+id).classList.add("show");refreshSpinButton(id);}
+function closeWheel(id){document.getElementById("wheelModal_"+id).classList.remove("show");}
 function spinWheel(id){
-
-    const w=
-        wheelInstances[id];
-
-    if(
-        w.spinning ||
-        !getSpinAvailability(id)
-    ){
-
-        return;
-
-    }
-
-    w.spinning=true;
-
-    const btn=
-        document.getElementById(
-            "spinBtn_"+id
-        );
-
-    btn.disabled=true;
-
-    const winnerIndex=
-        w.winnableIndexes[
-            Math.floor(
-                Math.random() *
-                w.winnableIndexes.length
-            )
-        ];
-
-    const targetAngle=
-        (2*Math.PI) -
-        (
-            winnerIndex *
-            w.segAngle +
-            w.segAngle/2
-        ) -
-        (Math.PI/2);
-
-    const extraSpins=
-        6*2*Math.PI;
-
-    const finalRotation=
-        w.rotation +
-        extraSpins +
-        targetAngle -
-        (
-            w.rotation %
-            (2*Math.PI)
-        );
-
-    w.rotation=
-        finalRotation;
-
-    w.canvas.style.transform=
-        `rotate(${w.rotation}rad)`;
-
+    const w=wheelInstances[id];if(w.spinning||!getSpinAvailability(id))return;
+    w.spinning=true;document.getElementById("spinBtn_"+id).disabled=true;
+    const winnerIndex=w.winnableIndexes[Math.floor(Math.random()*w.winnableIndexes.length)];
+    const targetAngle=(2*Math.PI)-(winnerIndex*w.segAngle+w.segAngle/2)-(Math.PI/2);
+    w.rotation+=6*2*Math.PI+targetAngle-(w.rotation%(2*Math.PI));
+    w.canvas.style.transform=`rotate(${w.rotation}rad)`;
     setTimeout(()=>{
-
-        const prize=
-            w.prizes[winnerIndex];
-
-        document.getElementById(
-            "wheelResultTitle_"+id
-        ).textContent=
-            prize.label;
-
-        document.getElementById(
-            "wheelResultText_"+id
-        ).textContent=
-            prize.text;
-
-        document.getElementById(
-            "wheelResult_"+id
-        ).style.display=
-            "block";
-
-        localStorage.setItem(
-            w.storagePrefix+
-            "LastSpin",
-            Date.now().toString()
-        );
-
-        localStorage.setItem(
-            w.storagePrefix+
-            "LastPrize",
-            prize.label
-        );
-
-        w.spinning=false;
-
-        refreshSpinButton(id);
-
-    },4600);
-
+        const p=w.prizes[winnerIndex];
+        document.getElementById("wheelResultTitle_"+id).textContent=p.label;
+        document.getElementById("wheelResultText_"+id).textContent=p.text;
+        document.getElementById("wheelResult_"+id).style.display="block";
+        localStorage.setItem(w.storagePrefix+"LastSpin",Date.now().toString());
+        localStorage.setItem(w.storagePrefix+"LastPrize",p.label);
+        w.spinning=false;refreshSpinButton(id);
+    },4000);
 }
 
-
-/* =========================================================
-   TIKTOK GIVEAWAY
-========================================================= */
-
-const tiktokCanvas=
-    document.getElementById(
-        "wheelCanvas_tiktok"
-    );
-
-const tiktokCtx=
-    tiktokCanvas.getContext(
-        "2d"
-    );
-
-const TIKTOK_STORAGE_PREFIX=
-    "darkTiktokWheel";
-
-
+const tiktokCanvas=document.getElementById("wheelCanvas_tiktok"),tiktokCtx=tiktokCanvas.getContext("2d"),TIKTOK_PREFIX="darkTiktokWheel";
 function drawTiktokWheel(text){
-
-    const label=
-        text &&
-        text.length>0
-        ? "@"+text.toUpperCase()
-        : "YOUR TIKTOK NAME";
-
-    const segments=6;
-
-    const segAngle=
-        (2*Math.PI)/segments;
-
-    const colors=[
-        "#25f4ee",
-        "#111827",
-        "#fe2c55",
-        "#25f4ee",
-        "#111827",
-        "#fe2c55"
-    ];
-
-    const r=
-        tiktokCanvas.width/2;
-
-    tiktokCtx.clearRect(
-        0,
-        0,
-        tiktokCanvas.width,
-        tiktokCanvas.height
-    );
-
+    const label=text?("@"+text.toUpperCase()):"YOUR TIKTOK NAME",segments=6,segAngle=(2*Math.PI)/segments,colors=["#25f4ee","#111827","#fe2c55","#25f4ee","#111827","#fe2c55"],r=tiktokCanvas.width/2;
+    tiktokCtx.clearRect(0,0,tiktokCanvas.width,tiktokCanvas.height);
     for(let i=0;i<segments;i++){
-
-        const start=
-            i*segAngle;
-
-        const end=
-            start+segAngle;
-
-        tiktokCtx.beginPath();
-
-        tiktokCtx.moveTo(
-            r,
-            r
-        );
-
-        tiktokCtx.arc(
-            r,
-            r,
-            r,
-            start,
-            end
-        );
-
-        tiktokCtx.closePath();
-
-        tiktokCtx.fillStyle=
-            colors[i];
-
-        tiktokCtx.fill();
-
-        tiktokCtx.strokeStyle=
-            "rgba(255,255,255,0.12)";
-
-        tiktokCtx.lineWidth=2;
-
-        tiktokCtx.stroke();
-
-        tiktokCtx.save();
-
-        tiktokCtx.translate(
-            r,
-            r
-        );
-
-        tiktokCtx.rotate(
-            start+
-            segAngle/2
-        );
-
-        tiktokCtx.textAlign=
-            "right";
-
-        tiktokCtx.fillStyle=
-            "#fff";
-
-        tiktokCtx.font=
-            "bold 20px Arial";
-
-        tiktokCtx.fillText(
-            label,
-            r-18,
-            6
-        );
-
-        tiktokCtx.restore();
-
+        const start=i*segAngle,end=start+segAngle;
+        tiktokCtx.beginPath();tiktokCtx.moveTo(r,r);tiktokCtx.arc(r,r,r,start,end);tiktokCtx.closePath();
+        tiktokCtx.fillStyle=colors[i];tiktokCtx.fill();tiktokCtx.strokeStyle="rgba(255,255,255,.12)";tiktokCtx.lineWidth=2;tiktokCtx.stroke();
+        tiktokCtx.save();tiktokCtx.translate(r,r);tiktokCtx.rotate(start+segAngle/2);tiktokCtx.textAlign="right";tiktokCtx.fillStyle="#fff";tiktokCtx.font="bold 20px Arial";tiktokCtx.fillText(label,r-18,6);tiktokCtx.restore();
     }
 }
-
-
 drawTiktokWheel("");
-
-
-function getTiktokUsername(){
-
-    return document
-        .getElementById(
-            "tiktokUsernameInput"
-        )
-        .value
-        .trim()
-        .replace(/^@/,"");
-
-}
-
-
+function getTiktokUsername(){return document.getElementById("tiktokUsernameInput").value.trim().replace(/^@/,"");}
 function tiktokAlreadyEnteredToday(){
-
-    const last=
-        localStorage.getItem(
-            TIKTOK_STORAGE_PREFIX+
-            "LastSpin"
-        );
-
-    if(!last){
-        return false;
-    }
-
-    const lastDate=
-        new Date(
-            Number(last)
-        );
-
-    const now=
-        new Date();
-
-    return (
-
-        lastDate.getFullYear()===
-        now.getFullYear() &&
-
-        lastDate.getMonth()===
-        now.getMonth() &&
-
-        lastDate.getDate()===
-        now.getDate()
-
-    );
+    const last=localStorage.getItem(TIKTOK_PREFIX+"LastSpin");if(!last)return false;
+    const d=new Date(Number(last)),now=new Date();
+    return d.getFullYear()===now.getFullYear()&&d.getMonth()===now.getMonth()&&d.getDate()===now.getDate();
 }
-
-
 function onTiktokUsernameInput(){
-
-    const val=
-        getTiktokUsername();
-
-    const isFollowing=
-        document.getElementById(
-            "tiktokFollowCheck"
-        ).checked;
-
-    drawTiktokWheel(val);
-
-    document.getElementById(
-        "spinBtn_tiktok"
-    ).disabled=
-        (
-            val.length===0 ||
-            !isFollowing
-        );
+    const val=getTiktokUsername(),f=document.getElementById("tiktokFollowCheck").checked;
+    drawTiktokWheel(val);document.getElementById("spinBtn_tiktok").disabled=(val.length===0||!f);
 }
-
-
 function openTiktokWheel(){
-
-    const modal=
-        document.getElementById(
-            "wheelModal_tiktok"
-        );
-
-    const input=
-        document.getElementById(
-            "tiktokUsernameInput"
-        );
-
-    const canvas=
-        tiktokCanvas;
-
-    const btn=
-        document.getElementById(
-            "spinBtn_tiktok"
-        );
-
-    const resultBox=
-        document.getElementById(
-            "wheelResult_tiktok"
-        );
-
-    const followCheck=
-        document.getElementById(
-            "tiktokFollowCheck"
-        );
-
+    const modal=document.getElementById("wheelModal_tiktok"),input=document.getElementById("tiktokUsernameInput"),btn=document.getElementById("spinBtn_tiktok"),chk=document.getElementById("tiktokFollowCheck");
     modal.classList.add("show");
-
     if(tiktokAlreadyEnteredToday()){
-
-        const savedUsername=
-            localStorage.getItem(
-                TIKTOK_STORAGE_PREFIX+
-                "LastUsername"
-            ) || "";
-
-        input.value=
-            savedUsername;
-
-        input.disabled=true;
-
-        followCheck.checked=true;
-
-        followCheck.disabled=true;
-
-        drawTiktokWheel(
-            savedUsername
-        );
-
-        canvas.classList.add(
-            "spinning"
-        );
-
-        btn.disabled=true;
-
-        btn.textContent=
-            "✓ ENTERED";
-
-        document.getElementById(
-            "wheelResultTitle_tiktok"
-        ).textContent=
-            "YOU'RE ENTERED!";
-
-        document.getElementById(
-            "wheelResultText_tiktok"
-        ).textContent=
-            "@"+
-            savedUsername+
-            " is in the giveaway. Winners are picked once we hit 1,000 followers.";
-
-        resultBox.style.display=
-            "block";
-
+        const user=localStorage.getItem(TIKTOK_PREFIX+"LastUsername")||"";
+        input.value=user;input.disabled=true;chk.checked=true;chk.disabled=true;
+        drawTiktokWheel(user);tiktokCanvas.classList.add("spinning");btn.disabled=true;btn.textContent="✓ ENTERED";
+        document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
+        document.getElementById("wheelResultText_tiktok").textContent="@"+user+" is in the giveaway.";
+        document.getElementById("wheelResult_tiktok").style.display="block";
     }else{
-
-        input.value="";
-
-        input.disabled=false;
-
-        followCheck.checked=false;
-
-        followCheck.disabled=false;
-
-        drawTiktokWheel("");
-
-        canvas.classList.remove(
-            "spinning"
-        );
-
-        btn.disabled=true;
-
-        btn.textContent=
-            "ENTER YOUR TIKTOK USERNAME";
-
-        resultBox.style.display=
-            "none";
+        input.value="";input.disabled=false;chk.checked=false;chk.disabled=false;
+        drawTiktokWheel("");tiktokCanvas.classList.remove("spinning");btn.disabled=true;btn.textContent="ENTER YOUR TIKTOK USERNAME";
+        document.getElementById("wheelResult_tiktok").style.display="none";
     }
 }
-
-
 function enterTiktokGiveaway(){
-
-    const username=
-        getTiktokUsername();
-
-    if(!username){
-
-        alert(
-            "Please enter your TikTok username first."
-        );
-
-        return;
-    }
-
-    if(
-        !document.getElementById(
-            "tiktokFollowCheck"
-        ).checked
-    ){
-
-        alert(
-            "Please confirm you're following @mr.dark.official on TikTok first."
-        );
-
-        return;
-    }
-
-    const input=
-        document.getElementById(
-            "tiktokUsernameInput"
-        );
-
-    const btn=
-        document.getElementById(
-            "spinBtn_tiktok"
-        );
-
-    input.disabled=true;
-
-    document.getElementById(
-        "tiktokFollowCheck"
-    ).disabled=true;
-
-    btn.disabled=true;
-
-    btn.textContent=
-        "✓ ENTERED";
-
-    drawTiktokWheel(
-        username
-    );
-
-    tiktokCanvas.classList.add(
-        "spinning"
-    );
-
-    document.getElementById(
-        "wheelResultTitle_tiktok"
-    ).textContent=
-        "YOU'RE ENTERED!";
-
-    document.getElementById(
-        "wheelResultText_tiktok"
-    ).textContent=
-        "@"+
-        username+
-        " is in the giveaway. Winners are picked once we hit 1,000 followers.";
-
-    document.getElementById(
-        "wheelResult_tiktok"
-    ).style.display=
-        "block";
-
-    localStorage.setItem(
-        TIKTOK_STORAGE_PREFIX+
-        "LastSpin",
-        Date.now().toString()
-    );
-
-    localStorage.setItem(
-        TIKTOK_STORAGE_PREFIX+
-        "LastUsername",
-        username
-    );
-
-    const entryMessage=
-`🎵 TIKTOK GIVEAWAY ENTRY
-
-TikTok Username: @${username}
-
-Entered via the DARK STORE spin wheel.`;
-
-    const whatsappURL=
-        "https://wa.me/13436555995?text=" +
-        encodeURIComponent(
-            entryMessage
-        );
-
-    setTimeout(()=>{
-
-        window.location.href=
-            whatsappURL;
-
-    },1800);
-
+    const user=getTiktokUsername();
+    if(!user)return alert("Please enter your TikTok username.");
+    if(!document.getElementById("tiktokFollowCheck").checked)return alert("Please confirm you're following on TikTok.");
+    document.getElementById("tiktokUsernameInput").disabled=true;
+    document.getElementById("tiktokFollowCheck").disabled=true;
+    const btn=document.getElementById("spinBtn_tiktok"); btn.disabled=true; btn.textContent="✓ ENTERED";
+    drawTiktokWheel(user);tiktokCanvas.classList.add("spinning");
+    document.getElementById("wheelResultTitle_tiktok").textContent="YOU'RE ENTERED!";
+    document.getElementById("wheelResultText_tiktok").textContent="@"+user+" is in the giveaway.";
+    document.getElementById("wheelResult_tiktok").style.display="block";
+    localStorage.setItem(TIKTOK_PREFIX+"LastSpin",Date.now().toString());
+    localStorage.setItem(TIKTOK_PREFIX+"LastUsername",user);
+    setTimeout(()=>{window.location.href="https://wa.me/13436555995?text="+encodeURIComponent(`🎵 TIKTOK GIVEAWAY ENTRY\n\nTikTok Username: @${user}`);},1800);
 }
-
-
-/* =========================================================
-   LOAD CART
-========================================================= */
-
 updateCartBadge();
-
 </script>
-
 </body>
 </html>
