@@ -6,16 +6,16 @@
 <meta name="theme-color" content="#05000a">
 <title>DARK | Digital Gaming Store</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:Arial,Helvetica,sans-serif;background:#05000a;color:#fff;overflow-x:hidden;min-width:320px;transform:translateZ(0);}
-body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),url("images/site-background.jpg") center/cover no-repeat;z-index:-3;will-change:transform;}
+body{font-family:Arial,Helvetica,sans-serif;background:#05000a;color:#fff;overflow-x:hidden;min-width:320px;}
+body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),url("images/site-background.jpg") center/cover no-repeat;z-index:-3;}
 body::after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 0%,rgba(138,43,226,.18),transparent 35%),radial-gradient(circle at 0% 100%,rgba(0,100,255,.12),transparent 30%);z-index:-2;pointer-events:none;}
-header{position:sticky;top:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:rgba(5,0,10,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(180,70,255,.25);transform:translateZ(0);}
+header{position:sticky;top:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:rgba(5,0,10,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(180,70,255,.25);}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:900;font-size:23px;letter-spacing:2px;}
 .logo img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(170,70,255,.7));}
 nav{display:flex;align-items:center;gap:22px;}
-nav a{color:#ddd;text-decoration:none;font-size:13px;font-weight:700;transition:color .2s ease;}
+nav a{color:#ddd;text-decoration:none;font-size:13px;font-weight:700;transition:.25s;}
 nav a:hover{color:#c76cff;text-shadow:0 0 10px rgba(199,108,255,.7);}
 .header-right{display:flex;align-items:center;gap:12px;}
 .cart{position:relative;width:40px;height:40px;border:1px solid rgba(200,100,255,.3);border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.04);cursor:pointer;}
@@ -31,7 +31,7 @@ section{width:min(1200px,92%);margin:auto;}
 .welcome-box h1{font-size:clamp(34px,7vw,65px);font-weight:1000;letter-spacing:5px;}
 .welcome-box h1 span{color:#bb55ff;}
 .welcome-box p{color:#aaa;margin:15px 0 28px;}
-.enter-btn{border:0;border-radius:13px;padding:16px 30px;background:linear-gradient(135deg,#7c20d9,#c047ff);color:white;font-weight:900;cursor:pointer;box-shadow:0 0 25px rgba(181,65,255,.35);transition:transform .2s ease;}
+.enter-btn{border:0;border-radius:13px;padding:16px 30px;background:linear-gradient(135deg,#7c20d9,#c047ff);color:white;font-weight:900;cursor:pointer;box-shadow:0 0 25px rgba(181,65,255,.35);transition:.25s;}
 .enter-btn:hover{transform:translateY(-3px) scale(1.03);}
 .hero{min-height:650px;display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;padding:65px 0;}
 .hero-text small{color:#bd63ff;font-weight:900;letter-spacing:3px;}
@@ -42,24 +42,24 @@ section{width:min(1200px,92%);margin:auto;}
 .primary-btn,.secondary-btn{border-radius:12px;padding:14px 22px;text-decoration:none;font-size:13px;font-weight:900;cursor:pointer;border:0;}
 .primary-btn{background:linear-gradient(135deg,#7920d5,#c84fff);color:white;box-shadow:0 0 25px rgba(175,60,255,.3);}
 .secondary-btn{color:#fff;border:1px solid rgba(200,100,255,.35);background:rgba(255,255,255,.04);}
-.hero-showcase{height:500px;position:relative;overflow:hidden;border-radius:30px;border:1px solid rgba(180,80,255,.4);background:rgba(5,0,12,.72);box-shadow:0 0 45px rgba(140,50,255,.16),inset 0 0 45px rgba(100,30,180,.08);will-change:transform;}
-.hero-slide{position:absolute;inset:0;opacity:0;transform:scale(.88) translateZ(0);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1);pointer-events:none;will-change:opacity,transform;}
-.hero-slide.active{opacity:1;transform:scale(1) translateZ(0);pointer-events:auto;}
-.hero-slide img{width:100%;height:100%;display:block;object-fit:cover;image-rendering:-webkit-optimize-contrast;}
+.hero-showcase{height:500px;position:relative;overflow:hidden;border-radius:30px;border:1px solid rgba(180,80,255,.4);background:rgba(5,0,12,.72);box-shadow:0 0 45px rgba(140,50,255,.16),inset 0 0 45px rgba(100,30,180,.08);}
+.hero-slide{position:absolute;inset:0;opacity:0;transform:scale(.88);transition:opacity .55s ease,transform .65s cubic-bezier(.2,.8,.2,1);pointer-events:none;}
+.hero-slide.active{opacity:1;transform:scale(1);}
+.hero-slide img{width:100%;height:100%;display:block;object-fit:cover;}
 .hero-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(4,0,8,.75),transparent 45%),linear-gradient(to right,rgba(4,0,8,.15),transparent);}
 .hero-caption{position:absolute;left:25px;right:25px;bottom:22px;z-index:3;}
 .hero-caption h3{font-size:25px;font-weight:1000;}
 .hero-caption p{color:#ccc;margin-top:5px;font-size:12px;}
 .slider-dots{position:absolute;z-index:5;left:50%;bottom:10px;transform:translateX(-50%);display:flex;gap:6px;}
-.dot{width:7px;height:7px;border-radius:50%;background:#777;cursor:pointer;}
+.dot{width:7px;height:7px;border-radius:50%;background:#777;}
 .dot.active{background:#c34fff;box-shadow:0 0 10px #c34fff;}
 #gaming{padding:65px 0;}
 .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.product-card{position:relative;overflow:hidden;border:1px solid rgba(190,80,255,.23);border-radius:19px;background:rgba(12,5,19,.82);cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;will-change:transform;transform:translateZ(0);}
-.product-card:hover{transform:translateY(-5px) translateZ(0);border-color:rgba(205,100,255,.7);box-shadow:0 10px 25px rgba(115,40,180,.2);}
+.product-card{position:relative;overflow:hidden;border:1px solid rgba(190,80,255,.23);border-radius:19px;background:rgba(12,5,19,.82);cursor:pointer;transition:.3s;}
+.product-card:hover{transform:translateY(-7px);border-color:rgba(205,100,255,.7);box-shadow:0 15px 35px rgba(115,40,180,.2);}
 .product-image{width:100%;height:180px;overflow:hidden;background:#09050d;}
-.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease;will-change:transform;image-rendering:-webkit-optimize-contrast;}
-.product-card:hover .product-image img{transform:scale(1.05);}
+.product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:.4s;}
+.product-card:hover .product-image img{transform:scale(1.08);}
 .product-info{padding:15px;}
 .product-info h3{font-size:16px;font-weight:900;}
 .product-info p{color:#999;font-size:11px;margin-top:5px;}
@@ -91,12 +91,12 @@ section{width:min(1200px,92%);margin:auto;}
 #contact{padding:65px 0 90px;}
 .contact-box{text-align:center;padding:35px;border-radius:24px;border:1px solid rgba(190,80,255,.25);background:rgba(10,3,17,.8);}
 .contact-box p{color:#aaa;margin:8px 0 20px;}
-.modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:15px;transform:translateZ(0);}
+.modal{position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:15px;}
 .modal.show{display:flex;}
 .modal-box{width:min(560px,100%);max-height:92vh;overflow:auto;border-radius:24px;background:#0d0713;border:1px solid rgba(200,90,255,.45);box-shadow:0 0 50px rgba(130,40,220,.25);padding:25px;position:relative;}
 .close{position:absolute;top:13px;right:15px;width:35px;height:35px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer;}
 .modal-product{display:flex;gap:15px;align-items:center;margin-bottom:22px;}
-.modal-product img{width:100px;height:80px;border-radius:13px;object-fit:cover;image-rendering:-webkit-optimize-contrast;}
+.modal-product img{width:100px;height:80px;border-radius:13px;object-fit:cover;}
 .modal-product h2{font-size:22px;}
 .modal-product p{color:#999;font-size:12px;margin-top:4px;}
 .field-label{display:block;color:#bbb;font-size:11px;font-weight:800;margin:14px 0 7px;text-transform:uppercase;letter-spacing:.5px;}
@@ -104,13 +104,13 @@ section{width:min(1200px,92%);margin:auto;}
 .input:focus{border-color:#b84cff;box-shadow:0 0 12px rgba(184,76,255,.15);}
 .packages{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;}
 .packages.vertical-layout{display:flex;flex-direction:column;gap:16px;}
-.package{padding:13px 10px;border-radius:11px;border:1px solid rgba(190,80,255,.2);background:rgba(255,255,255,.035);color:#fff;cursor:pointer;text-align:left;transition:all .15s ease;}
+.package{padding:13px 10px;border-radius:11px;border:1px solid rgba(190,80,255,.2);background:rgba(255,255,255,.035);color:#fff;cursor:pointer;text-align:left;transition:.2s;}
 .package:hover,.package.selected{border-color:#bd51ff;background:rgba(165,55,230,.16);box-shadow:0 0 14px rgba(190,70,255,.12);}
 .package strong{display:block;font-size:12px;}
 .package span{display:block;color:#c45aff;font-size:11px;margin-top:4px;}
 .package-label{grid-column:1/-1;margin-top:10px;padding-bottom:6px;color:#c85cff;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;border-bottom:1px solid rgba(190,80,255,.25);}
 .package-note{grid-column:1/-1;padding:10px 12px;border-radius:10px;border:1px solid rgba(190,80,255,.3);background:rgba(150,40,220,.08);color:#ddd;font-size:12px;font-weight:700;line-height:1.5;}
-.virtual-card{position:relative;height:230px;border-radius:22px;border:1px solid rgba(190,80,255,.45);background:#0d0519;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:20px 15px;box-sizing:border-box;box-shadow:0 8px 25px rgba(0,0,0,.7),inset 0 0 20px rgba(160,50,255,.15);cursor:pointer;transition:all .2s ease;}
+.virtual-card{position:relative;height:230px;border-radius:22px;border:1px solid rgba(190,80,255,.45);background:#0d0519;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:20px 15px;box-sizing:border-box;box-shadow:0 8px 25px rgba(0,0,0,.7),inset 0 0 20px rgba(160,50,255,.15);cursor:pointer;transition:all .3s ease;}
 .virtual-card:hover,.virtual-card.selected{border-color:#d05aff;box-shadow:0 0 30px rgba(192,71,255,.5),inset 0 0 25px rgba(180,50,255,.25);transform:translateY(-3px);}
 .card-bg-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:.3;mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,1) 10%,rgba(0,0,0,0) 90%);pointer-events:none;z-index:1;}
 .card-content{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;align-items:center;}
@@ -126,16 +126,16 @@ section{width:min(1200px,92%);margin:auto;}
 .total-box span{color:#aaa;font-size:12px;}
 .total-box strong{color:#d15cff;font-size:21px;}
 .send-order{width:100%;margin-top:15px;padding:15px;border:0;border-radius:12px;background:linear-gradient(135deg,#7c1ed6,#c044ff);color:#fff;font-weight:1000;cursor:pointer;box-shadow:0 0 25px rgba(180,60,255,.25);}
-#thankYouPopup{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+#thankYouPopup{position:fixed;inset:0;z-index:6000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);}
 #thankYouPopup.show{display:flex;}
-.thankyou-box{width:min(500px,94%);text-align:center;padding:45px 25px;border-radius:25px;border:1px solid rgba(205,80,255,.5);background:#0d0614;box-shadow:0 0 55px rgba(160,50,240,.3);animation:thankPop .3s ease;}
-@keyframes thankPop{from{opacity:0;transform:scale(.85);}to{opacity:1;transform:scale(1);}}
+.thankyou-box{width:min(500px,94%);text-align:center;padding:45px 25px;border-radius:25px;border:1px solid rgba(205,80,255,.5);background:#0d0614;box-shadow:0 0 55px rgba(160,50,240,.3);animation:thankPop .4s ease;}
+@keyframes thankPop{from{opacity:0;transform:scale(.75);}to{opacity:1;transform:scale(1);}}
 .check{width:70px;height:70px;margin:0 auto 18px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c20d8,#c94dff);font-size:35px;box-shadow:0 0 30px rgba(190,70,255,.45);}
 .thankyou-box h2{font-size:27px;font-weight:1000;}
 .thankyou-box h2 span{color:#c653ff;}
 .thankyou-box p{color:#aaa;margin-top:10px;font-size:13px;line-height:1.6;}
 .redirect-text{color:#c85cff !important;font-weight:900;margin-top:20px !important;}
-.cart-panel{position:fixed;right:20px;top:85px;z-index:2500;width:330px;max-width:calc(100% - 40px);display:none;padding:20px;border-radius:18px;border:1px solid rgba(190,80,255,.3);background:#0c0611;box-shadow:0 20px 50px rgba(0,0,0,.45);transform:translateZ(0);}
+.cart-panel{position:fixed;right:20px;top:85px;z-index:2500;width:330px;max-width:calc(100% - 40px);display:none;padding:20px;border-radius:18px;border:1px solid rgba(190,80,255,.3);background:#0c0611;box-shadow:0 20px 50px rgba(0,0,0,.45);}
 .cart-panel.show{display:block;}
 .cart-panel h3{margin-bottom:15px;}
 .cart-empty{color:#888;font-size:12px;}
@@ -154,18 +154,19 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
 .coming-info{position:absolute;z-index:2;bottom:12px;left:14px;}
 .coming-info h3{font-size:15px;}
 .coming-info span{color:#c354ff;font-size:9px;font-weight:900;}
-.spin-fab{position:fixed;right:20px;bottom:22px;z-index:2400;width:64px;height:64px;border-radius:50%;border:1px solid rgba(200,100,255,.45);background:radial-gradient(circle at 35% 30%,#c94dff,#6f18c9 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 8px 25px rgba(150,40,220,.5),0 0 0 6px rgba(180,70,255,.08);will-change:transform;}
+.spin-fab{position:fixed;right:20px;bottom:22px;z-index:2400;width:64px;height:64px;border-radius:50%;border:1px solid rgba(200,100,255,.45);background:radial-gradient(circle at 35% 30%,#c94dff,#6f18c9 70%);display:flex;align-items:center;justify-content:center;flex-direction:column;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 8px 25px rgba(150,40,220,.5),0 0 0 6px rgba(180,70,255,.08);animation:fabPulse 2.4s infinite;}
 .spin-fab.tiktok-fab{bottom:98px;background:radial-gradient(circle at 35% 30%,#25f4ee,#111 70%);border-color:rgba(37,244,238,.5);box-shadow:0 8px 25px rgba(37,244,238,.35),0 0 0 6px rgba(37,244,238,.08);}
 .spin-fab span{font-size:8px;font-weight:900;letter-spacing:.5px;margin-top:1px;}
+@keyframes fabPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
 .wheel-modal .modal-box{text-align:center;padding:30px 22px 25px;}
 .wheel-modal h2{font-size:22px;font-weight:1000;margin-bottom:4px;}
 .wheel-modal h2 span{color:#c653ff;}
 .wheel-modal .wheel-sub{color:#999;font-size:12px;margin-bottom:20px;}
 .wheel-wrap{position:relative;width:min(300px,80vw);height:min(300px,80vw);margin:0 auto 22px;}
 .wheel-pointer{position:absolute;top:-6px;left:50%;transform:translateX(-50%);z-index:5;width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:24px solid #ffd93d;filter:drop-shadow(0 0 8px rgba(255,217,61,.7));}
-#wheelCanvas_main,#wheelCanvas_tiktok{width:100%;height:100%;border-radius:50%;border:5px solid #1a0d2a;box-shadow:0 0 0 3px rgba(190,80,255,.5),0 0 40px rgba(160,50,255,.4),inset 0 0 20px rgba(0,0,0,.4);transition:transform 4s cubic-bezier(.15,.8,.15,1);will-change:transform;}
+#wheelCanvas_main,#wheelCanvas_tiktok{width:100%;height:100%;border-radius:50%;border:5px solid #1a0d2a;box-shadow:0 0 0 3px rgba(190,80,255,.5),0 0 40px rgba(160,50,255,.4),inset 0 0 20px rgba(0,0,0,.4);transition:transform 4.5s cubic-bezier(.15,.8,.15,1);}
 @keyframes spinForever{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
-#wheelCanvas_tiktok.spinning{animation:spinForever 3.5s linear infinite;transition:none;}
+#wheelCanvas_tiktok.spinning{animation:spinForever 4s linear infinite;transition:none;}
 .wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e0c3ff 60%,#a855f7);border:3px solid #1a0d2a;z-index:4;box-shadow:0 0 15px rgba(190,80,255,.6);}
 .spin-btn{width:100%;padding:15px;border:0;border-radius:12px;background:linear-gradient(135deg,#7c1ed6,#c044ff);color:#fff;font-weight:1000;letter-spacing:.5px;cursor:pointer;box-shadow:0 0 25px rgba(180,60,255,.3);}
 .spin-btn:disabled{opacity:.45;cursor:not-allowed;}
@@ -241,30 +242,30 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
         <p>Choose a product and unlock the packages inside.</p>
     </div>
     <div class="product-grid">
-        <div class="product-card" onclick="openProduct('virtualNumbers')"><div class="product-image"><img src="1794105216909.jpg" alt="POS"></div><div class="product-info"><h3>📱 POS Virtual Numbers</h3><p>SMS & WhatsApp Verification</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('tiktok')"><div class="product-image"><img src="images/IMG_0236.jpeg" alt="TikTok"></div><div class="product-info"><h3>TikTok Coins</h3><p>Coins top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('robloxGift')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox"></div><div class="product-info"><h3>Roblox Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('roblox')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox"></div><div class="product-info"><h3>Roblox Robux</h3><p>Robux top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('virtualNumbers')"><div class="product-image"><img src="1790042958045.png" alt="POS Virtual Numbers"></div><div class="product-info"><h3>📱 POS Virtual Numbers</h3><p>SMS & WhatsApp Verification</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('tiktok')"><div class="product-image"><img src="images/IMG_0236.jpeg" alt="TikTok Coins"></div><div class="product-info"><h3>TikTok Coins</h3><p>Coins top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('robloxGift')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox Gift Card"></div><div class="product-info"><h3>Roblox Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('roblox')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox Robux"></div><div class="product-info"><h3>Roblox Robux</h3><p>Robux top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('freefire')"><div class="product-image"><img src="images/IMG_0232.jpeg" alt="Free Fire"></div><div class="product-info"><h3>Free Fire</h3><p>Diamonds</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('cod')"><div class="product-image"><img src="images/IMG_0243.jpeg" alt="COD"></div><div class="product-info"><h3>Call of Duty Mobile</h3><p>CP top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('pubg')"><div class="product-image"><img src="images/IMG_0231.jpeg" alt="PUBG"></div><div class="product-info"><h3>PUBG Mobile</h3><p>UC top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('apex')"><div class="product-image"><img src="images/IMG_0241.jpeg" alt="Apex"></div><div class="product-info"><h3>Apex Legends</h3><p>Apex Coins</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('cod')"><div class="product-image"><img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile"></div><div class="product-info"><h3>Call of Duty Mobile</h3><p>CP top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('pubg')"><div class="product-image"><img src="images/IMG_0231.jpeg" alt="PUBG Mobile"></div><div class="product-info"><h3>PUBG Mobile</h3><p>UC top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('apex')"><div class="product-image"><img src="images/IMG_0241.jpeg" alt="Apex Legends"></div><div class="product-info"><h3>Apex Legends</h3><p>Apex Coins</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('blood')"><div class="product-image"><img src="images/IMG_0240.jpeg" alt="Blood Strike"></div><div class="product-info"><h3>Blood Strike</h3><p>Gold & Passes</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('amazon')"><div class="product-image"><img src="images/IMG_0234.jpeg" alt="Amazon"></div><div class="product-info"><h3>Amazon Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('binance')"><div class="product-image"><img src="images/IMG_0233.jpeg" alt="Binance"></div><div class="product-info"><h3>Binance Gift Card</h3><p>USDT</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('razer')"><div class="product-image"><img src="images/IMG_0237.jpeg" alt="Razer"></div><div class="product-info"><h3>Razer Gold</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('razer')"><div class="product-image"><img src="images/IMG_0237.jpeg" alt="Razer Gold"></div><div class="product-info"><h3>Razer Gold</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('google')"><div class="product-image"><img src="images/IMG_0230.jpeg" alt="Google Play"></div><div class="product-info"><h3>Google Play</h3><p>Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('netflix')"><div class="product-image"><img src="images/IMG_0238.jpeg" alt="Netflix"></div><div class="product-info"><h3>Netflix</h3><p>Subscriptions</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('prime')"><div class="product-image"><img src="images/IMG_0239.jpeg" alt="Prime"></div><div class="product-info"><h3>Prime Video</h3><p>Subscriptions</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('appleGift')"><div class="product-image"><img src="22256742924f916e0be103a5e2590e88.jpg" alt="Apple"></div><div class="product-info"><h3>Apple Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('virtualVisa')"><div class="product-image"><img src="022c18b3f9a237823b60eb4091b9e933.jpg" alt="Visa"></div><div class="product-info"><h3>Virtual Visa Card</h3><p>Virtual Payment Card</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('prime')"><div class="product-image"><img src="images/IMG_0239.jpeg" alt="Prime Video"></div><div class="product-info"><h3>Prime Video</h3><p>Subscriptions</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('appleGift')"><div class="product-image"><img src="0ec3cd20a1dabd201fdd599538ae70a5.jpg" alt="Apple Gift Card"></div><div class="product-info"><h3>Apple Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('virtualVisa')"><div class="product-image"><img src="61c0edfa-7c8c-401a-81f1-51d3105f44f1.jpeg" alt="Virtual Visa Card"></div><div class="product-info"><h3>Virtual Visa Card</h3><p>Virtual Payment Card</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('gta6')"><div class="product-image"><img src="GTA 6 4K print Poster.jpeg" alt="GTA 6"></div><div class="product-info"><h3>GTA 6</h3><p>Digital Code & Pre-order</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('paramount')"><div class="product-image"><img src="97e1bc04af1d96d369b36b501910eda2.jpg" alt="Paramount"></div><div class="product-info"><h3>Paramount+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('paramount')"><div class="product-image"><img src="97e1bc04af1d96d369b36b501910eda2.jpg" alt="Paramount+"></div><div class="product-info"><h3>Paramount+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('hulu')"><div class="product-image"><img src="c5e9da8d020779eeb43d7725ebf240c4.jpg" alt="Hulu"></div><div class="product-info"><h3>Hulu</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('disney')"><div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg" alt="Disney"></div><div class="product-info"><h3>Disney+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('disney')"><div class="product-image"><img src="22256742924f916e0be103a5e2590e88.jpg" alt="Disney+"></div><div class="product-info"><h3>Disney+</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('appleTv')"><div class="product-image"><img src="b0bb1901e76864883c6042b25cfb353d.jpg" alt="Apple TV"></div><div class="product-info"><h3>Apple TV</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('max')"><div class="product-image"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/HBO_Max_Logo.svg" alt="Max"></div><div class="product-info"><h3>Max</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('website')"><div class="product-image"><img src="1787436314905.png" alt="Website"></div><div class="product-info"><h3>Website Creator</h3><p>Digital service</p><button class="buy-btn">LEARN MORE</button></div></div>
+        <div class="product-card" onclick="openProduct('max')"><div class="product-image"><img src="IMG_e9248b6e-69f7-42fc-9c4a-33130367e5f8.jpg" alt="Max"></div><div class="product-info"><h3>Max</h3><p>Profiles & Accounts</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('website')"><div class="product-image"><img src="1787436314905.png" alt="Website Creator"></div><div class="product-info"><h3>Website Creator</h3><p>Digital service</p><button class="buy-btn">LEARN MORE</button></div></div>
     </div>
 </section>
 <section class="coming">
@@ -428,7 +429,7 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
 </footer>
 <script>
 const products={
-    virtualNumbers:{name:"POS Virtual Numbers",type:"Virtual Numbers",image:"1794105216909.jpg",accountLabel:"Contact Number / WhatsApp",accountPlaceholder:"Enter your active phone number",isVirtualNumber:true,packages:[{name:"USA",price:1500,bgImg:"https://flagcdn.com/w640/us.png",badgeImg:"https://flagcdn.com/w160/us.png",number:"+1 (202) 555-0147"},{name:"UK",price:1500,bgImg:"https://flagcdn.com/w640/gb.png",badgeImg:"https://flagcdn.com/w160/gb.png",number:"+44 20 7946 0183"},{name:"Canada",price:1500,bgImg:"https://flagcdn.com/w640/ca.png",badgeImg:"https://flagcdn.com/w160/ca.png",number:"+1 (416) 555-0128"},{name:"Australia",price:1500,bgImg:"https://flagcdn.com/w640/au.png",badgeImg:"https://flagcdn.com/w160/au.png",number:"+61 2 5550 0184"}]},
+    virtualNumbers:{name:"POS Virtual Numbers",type:"Virtual Numbers",image:"1790042958045.png",accountLabel:"Contact Number / WhatsApp",accountPlaceholder:"Enter your active phone number",isVirtualNumber:true,packages:[{name:"USA",price:1500,bgImg:"https://flagcdn.com/w640/us.png",badgeImg:"https://flagcdn.com/w160/us.png",number:"+1 (202) 555-0147"},{name:"UK",price:1500,bgImg:"https://flagcdn.com/w640/gb.png",badgeImg:"https://flagcdn.com/w160/gb.png",number:"+44 20 7946 0183"},{name:"Canada",price:1500,bgImg:"https://flagcdn.com/w640/ca.png",badgeImg:"https://flagcdn.com/w160/ca.png",number:"+1 (416) 555-0128"},{name:"Australia",price:1500,bgImg:"https://flagcdn.com/w640/au.png",badgeImg:"https://flagcdn.com/w160/au.png",number:"+61 2 5550 0184"}]},
     tiktok:{name:"TikTok Coins",type:"TikTok Coins",image:"images/IMG_0236.jpeg",accountLabel:"TikTok Username / Profile",accountPlaceholder:"Enter TikTok username or profile",packages:[["30 Coins",300],["350 Coins",1200],["700 Coins",2000],["1,400 Coins",4500],["3,500 Coins",10000],["7,000 Coins",20000],["17,500 Coins",42000]]},
     robloxGift:{name:"Roblox Gift Card",type:"Roblox Gift Card",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Username",accountPlaceholder:"Enter Roblox username",showDeliveryField:true,packages:[["$10 USD",2800],["$25 USD",6500],["$50 USD",12000],["$100 USD",24000],["$200 USD",48500]]},
     roblox:{name:"Roblox Robux",type:"Robux",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Gamer ID / Username",accountPlaceholder:"Enter Roblox username",packages:[["400 Robux",1400],["800 Robux",2800],["1,700 Robux",4900],["4,500 Robux",11800],["10,000 Robux",23500]]},
@@ -443,14 +444,14 @@ const products={
     google:{name:"Google Play Gift Card",type:"Google Play Gift Card",image:"images/IMG_0230.jpeg",accountLabel:"Email / Username",accountPlaceholder:"Enter email or username",showDeliveryField:true,packages:[["$10 USD",2800],["$25 USD",6000],["$50 USD",12000],["$100 USD",23700]]},
     netflix:{name:"Netflix Plan",type:"Netflix Subscription",image:"images/IMG_0238.jpeg",noAccount:true,showDeliveryField:true,note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime.",packages:[["BASIC (HD, 1 Device)",1500],["STANDARD (Full HD, 2 Devices)",2500],["PREMIUM (4K + HDR, 4 Devices)",3000]]},
     prime:{name:"Prime Video",type:"Prime Video Subscription",image:"images/IMG_0239.jpeg",noAccount:true,showDeliveryField:true,note:"Accounts are shared. Get a personal slot, create your own password, and cancel your membership anytime.",packages:[["1 Week",400],["1 Month",1200],["Personal Account (1 Month)",4000]]},
-    appleGift:{name:"Apple Gift Card",type:"Apple Gift Card",image:"22256742924f916e0be103a5e2590e88.jpg",noAccount:true,showDeliveryField:true,packages:[["$10 USD",2600],["$15 USD",3600],["$25 USD",5700],["$50 USD",11200],["$100 USD",22000]]},
-    virtualVisa:{name:"Virtual Visa Card",type:"Virtual Payment Card",image:"022c18b3f9a237823b60eb4091b9e933.jpg",noAccount:true,showDeliveryField:true,packages:[["$25 USD",7500],["$50 USD",13000],["$100 USD",24000],["$200 USD",48000]]},
+    appleGift:{name:"Apple Gift Card",type:"Apple Gift Card",image:"0ec3cd20a1dabd201fdd599538ae70a5.jpg",noAccount:true,showDeliveryField:true,packages:[["$10 USD",2600],["$15 USD",3600],["$25 USD",5700],["$50 USD",11200],["$100 USD",22000]]},
+    virtualVisa:{name:"Virtual Visa Card",type:"Virtual Payment Card",image:"61c0edfa-7c8c-401a-81f1-51d3105f44f1.jpeg",noAccount:true,showDeliveryField:true,packages:[["$25 USD",7500],["$50 USD",13000],["$100 USD",24000],["$200 USD",48000]]},
     gta6:{name:"GTA 6",type:"Digital Code",image:"GTA 6 4K print Poster.jpeg",accountLabel:"Platform / Gamer ID / Email",accountPlaceholder:"Enter your platform account ID or email",showDeliveryField:true,packages:[["Standard Edition",21000],["Ultimate Edition",25000]]},
     paramount:{name:"Paramount+",type:"Streaming Subscriptions",image:"97e1bc04af1d96d369b36b501910eda2.jpg",noAccount:true,showDeliveryField:true,note:"Shared profiles are shared with users. Personal accounts are private.",packages:[["Shared Profile (Essential)",2000,"Shared Profiles"],["Shared Profile (Premium - Ad Free)",2500],["Personal Account (Essential)",3400,"Personal Accounts"],["Personal Account (Premium - Ad Free)",4500]]},
     hulu:{name:"Hulu",type:"Streaming Subscriptions",image:"c5e9da8d020779eeb43d7725ebf240c4.jpg",noAccount:true,showDeliveryField:true,note:"Shared profiles max 2 screens. Personal accounts are full private accounts.",packages:[["Shared Profile (With Ads)",2500,"Shared Profiles"],["Shared Profile (Premium - No Ads)",3500],["Personal Account (With Ads)",4000,"Personal Accounts"],["Personal Account (Premium - No Ads)",6000]]},
-    disney:{name:"Disney+",type:"Streaming Subscriptions",image:"https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg",noAccount:true,showDeliveryField:true,note:"Shared profiles are shared with users. Personal accounts are private.",packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Premium - No Ads)",3000],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Premium - No Ads)",4800]]},
+    disney:{name:"Disney+",type:"Streaming Subscriptions",image:"22256742924f916e0be103a5e2590e88.jpg",noAccount:true,showDeliveryField:true,note:"Shared profiles are shared with users. Personal accounts are private.",packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Premium - No Ads)",3000],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Premium - No Ads)",4800]]},
     appleTv:{name:"Apple TV",type:"Streaming Subscriptions",image:"b0bb1901e76864883c6042b25cfb353d.jpg",noAccount:true,showDeliveryField:true,packages:[["Shared Profile",2500,"Shared Profiles"],["Personal Account",4500,"Personal Accounts"]]},
-    max:{name:"Max",type:"Streaming Subscriptions",image:"https://upload.wikimedia.org/wikipedia/commons/c/ce/HBO_Max_Logo.svg",noAccount:true,showDeliveryField:true,packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Standard - Ad Free)",3000],["Shared Profile (Ultimate - 4K Ad Free)",3500],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Standard - Ad Free)",4800],["Personal Account (Ultimate - 4K Ad Free)",5500]]},
+    max:{name:"Max",type:"Streaming Subscriptions",image:"IMG_e9248b6e-69f7-42fc-9c4a-33130367e5f8.jpg",noAccount:true,showDeliveryField:true,packages:[["Shared Profile (Basic - With Ads)",2500,"Shared Profiles"],["Shared Profile (Standard - Ad Free)",3000],["Shared Profile (Ultimate - 4K Ad Free)",3500],["Personal Account (Basic - With Ads)",3400,"Personal Accounts"],["Personal Account (Standard - Ad Free)",4800],["Personal Account (Ultimate - 4K Ad Free)",5500]]},
     arena:{name:"Arena Breakout",type:"Coming Soon",image:"images/IMG_0242.jpeg",coming:true},
     fortnite:{name:"Fortnite V-Bucks",type:"Coming Soon",image:"images/IMG_0235.jpeg",coming:true},
     website:{name:"Website Creator",type:"Digital Service",image:"1787436314905.png",coming:true}
@@ -585,7 +586,7 @@ function spinWheel(id){
         localStorage.setItem(w.storagePrefix+"LastSpin",Date.now().toString());
         localStorage.setItem(w.storagePrefix+"LastPrize",p.label);
         w.spinning=false;refreshSpinButton(id);
-    },4000);
+    },4600);
 }
 
 const tiktokCanvas=document.getElementById("wheelCanvas_tiktok"),tiktokCtx=tiktokCanvas.getContext("2d"),TIKTOK_PREFIX="darkTiktokWheel";
