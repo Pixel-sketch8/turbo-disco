@@ -9,7 +9,7 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:Arial,Helvetica,sans-serif;background:#05000a;color:#fff;overflow-x:hidden;min-width:320px;}
-body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),url("images/site-background.jpg") center/cover no-repeat;z-index:-3;}
+body::before{content:"";position:fixed;inset:0;background:linear-gradient(rgba(5,0,10,.55),rgba(5,0,10,.72)),url("images/6fb0e3607bfe6cb2a19853351a4bfffd.jpg") center/cover no-repeat;z-index:-3;}
 body::after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 0%,rgba(138,43,226,.18),transparent 35%),radial-gradient(circle at 0% 100%,rgba(0,100,255,.12),transparent 30%);z-index:-2;pointer-events:none;}
 header{position:sticky;top:0;z-index:1000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 4%;background:rgba(5,0,10,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(180,70,255,.25);}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:900;font-size:23px;letter-spacing:2px;}
@@ -185,7 +185,7 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
 <body>
 <div id="welcomeScreen">
     <div class="welcome-box">
-        <img class="welcome-logo" src="1787436309105.png" alt="DARK Logo">
+        <img class="welcome-logo" src="images/D9fa641e44d37dab04ec5119c25ea205.jpg" alt="DARK Logo">
         <h1>DARK <span>STORE</span></h1>
         <p>Gaming top-ups, gift cards and digital products. Built for gamers in Guyana.</p>
         <button class="enter-btn" onclick="enterStore()">EXPLORE TO ENTER →</button>
@@ -193,7 +193,7 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
 </div>
 <header>
     <a href="#home" class="logo">
-        <img src="1787436309105.png" alt="DARK">
+        <img src="images/D9fa641e44d37dab04ec5119c25ea205.jpg" alt="DARK">
         DARK
     </a>
     <nav>
@@ -228,9 +228,9 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
     </div>
     <div class="hero-showcase" id="heroShowcase">
         <div class="hero-slide active"><img src="images/IMG_0235.jpeg" alt="Roblox"><div class="hero-caption"><h3>ROBLOX</h3><p>Robux & Gift Cards</p></div></div>
-        <div class="hero-slide"><img src="images/IMG_0232.jpeg" alt="Free Fire"><div class="hero-caption"><h3>FREE FIRE</h3><p>Diamonds top-up</p></div></div>
+        <div class="hero-slide"><img src="images/494b2ca7b438fa88dc2b64f24bffd260.jpg" alt="Free Fire"><div class="hero-caption"><h3>FREE FIRE</h3><p>Diamonds top-up</p></div></div>
         <div class="hero-slide"><img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile"><div class="hero-caption"><h3>CALL OF DUTY MOBILE</h3><p>CP top-up</p></div></div>
-        <div class="hero-slide"><img src="images/IMG_0231.jpeg" alt="PUBG Mobile"><div class="hero-caption"><h3>PUBG MOBILE</h3><p>UC top-up</p></div></div>
+        <div class="hero-slide"><img src="images/1db13989599702ccd0ff309776645755.jpg" alt="PUBG Mobile"><div class="hero-caption"><h3>PUBG MOBILE</h3><p>UC top-up</p></div></div>
         <div class="hero-slide"><img src="images/IMG_0233.jpeg" alt="Binance"><div class="hero-caption"><h3>BINANCE</h3><p>USDT Gift Cards</p></div></div>
         <div class="hero-slide"><img src="images/IMG_0230.jpeg" alt="Google Play"><div class="hero-caption"><h3>GOOGLE PLAY</h3><p>Gift Cards</p></div></div>
         <div class="slider-dots" id="sliderDots"></div>
@@ -246,9 +246,11 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
         <div class="product-card" onclick="openProduct('tiktok')"><div class="product-image"><img src="images/IMG_0236.jpeg" alt="TikTok Coins"></div><div class="product-info"><h3>TikTok Coins</h3><p>Coins top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('robloxGift')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox Gift Card"></div><div class="product-info"><h3>Roblox Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('roblox')"><div class="product-image"><img src="images/IMG_0235.jpeg" alt="Roblox Robux"></div><div class="product-info"><h3>Roblox Robux</h3><p>Robux top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('freefire')"><div class="product-image"><img src="images/IMG_0232.jpeg" alt="Free Fire"></div><div class="product-info"><h3>Free Fire</h3><p>Diamonds</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('freefire')"><div class="product-image"><img src="images/494b2ca7b438fa88dc2b64f24bffd260.jpg" alt="Free Fire"></div><div class="product-info"><h3>Free Fire</h3><p>Diamonds</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('freefireSub')"><div class="product-image"><img src="images/494b2ca7b438fa88dc2b64f24bffd260.jpg" alt="Free Fire Subscription"></div><div class="product-info"><h3>Free Fire Subscription</h3><p>Weekly & Monthly</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('cod')"><div class="product-image"><img src="images/IMG_0243.jpeg" alt="Call of Duty Mobile"></div><div class="product-info"><h3>Call of Duty Mobile</h3><p>CP top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
-        <div class="product-card" onclick="openProduct('pubg')"><div class="product-image"><img src="images/IMG_0231.jpeg" alt="PUBG Mobile"></div><div class="product-info"><h3>PUBG Mobile</h3><p>UC top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('pubg')"><div class="product-image"><img src="images/1db13989599702ccd0ff309776645755.jpg" alt="PUBG Mobile"></div><div class="product-info"><h3>PUBG Mobile</h3><p>UC top-up</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
+        <div class="product-card" onclick="openProduct('pubgSub')"><div class="product-image"><img src="images/1db13989599702ccd0ff309776645755.jpg" alt="PUBG Mobile Subscriptions"></div><div class="product-info"><h3>PUBG Mobile Subscriptions</h3><p>Prime & Prime Plus</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('apex')"><div class="product-image"><img src="images/IMG_0241.jpeg" alt="Apex Legends"></div><div class="product-info"><h3>Apex Legends</h3><p>Apex Coins</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('blood')"><div class="product-image"><img src="images/IMG_0240.jpeg" alt="Blood Strike"></div><div class="product-info"><h3>Blood Strike</h3><p>Gold & Passes</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
         <div class="product-card" onclick="openProduct('amazon')"><div class="product-image"><img src="images/IMG_0234.jpeg" alt="Amazon"></div><div class="product-info"><h3>Amazon Gift Card</h3><p>USD Gift Cards</p><button class="buy-btn">VIEW PACKAGES</button></div></div>
@@ -351,7 +353,7 @@ footer p{color:#777;font-size:11px;margin-top:5px;}
             <label class="field-label">Email / WhatsApp Number <span style="color:#c85cff">(Optional)</span></label>
             <input class="input" id="deliveryInput" type="text" placeholder="Enter email or WhatsApp for digital code delivery">
         </div>
-        <label class="field-label">MMG Transaction ID <span style="color:#c85cff">(Optional)</span></label>
+        <label class="field-label" id="transactionLabel">MMG Transaction ID <span style="color:#c85cff">(Optional)</span></label>
         <input class="input" id="transactionInput" type="text" placeholder="Enter transaction ID or leave blank">
         <label class="field-label">Quantity</label>
         <div class="quantity-row">
@@ -433,9 +435,11 @@ const products={
     tiktok:{name:"TikTok Coins",type:"TikTok Coins",image:"images/IMG_0236.jpeg",accountLabel:"TikTok Username / Profile",accountPlaceholder:"Enter TikTok username or profile",packages:[["30 Coins",300],["350 Coins",1200],["700 Coins",2000],["1,400 Coins",4500],["3,500 Coins",10000],["7,000 Coins",20000],["17,500 Coins",42000]]},
     robloxGift:{name:"Roblox Gift Card",type:"Roblox Gift Card",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Username",accountPlaceholder:"Enter Roblox username",showDeliveryField:true,packages:[["$10 USD",2800],["$25 USD",6500],["$50 USD",12000],["$100 USD",24000],["$200 USD",48500]]},
     roblox:{name:"Roblox Robux",type:"Robux",image:"images/IMG_0235.jpeg",accountLabel:"Roblox Gamer ID / Username",accountPlaceholder:"Enter Roblox username",packages:[["400 Robux",1400],["800 Robux",2800],["1,700 Robux",4900],["4,500 Robux",11800],["10,000 Robux",23500]]},
-    freefire:{name:"Free Fire",type:"Diamonds",image:"images/IMG_0232.jpeg",accountLabel:"Free Fire Player ID",accountPlaceholder:"Enter Free Fire Player ID",packages:[["100 Diamonds",300],["210 Diamonds",600],["530 Diamonds",1300],["1,080 Diamonds",2500],["2,200 Diamonds",5200]]},
+    freefire:{name:"Free Fire",type:"Diamonds",image:"images/494b2ca7b438fa88dc2b64f24bffd260.jpg",accountLabel:"Free Fire Player ID",accountPlaceholder:"Enter Free Fire Player ID",packages:[["100 Diamonds",300],["210 Diamonds",600],["530 Diamonds",1300],["1,080 Diamonds",2500],["2,200 Diamonds",5200]]},
+    freefireSub:{name:"Free Fire Subscription",type:"Memberships",image:"images/494b2ca7b438fa88dc2b64f24bffd260.jpg",accountLabel:"Free Fire Player ID",accountPlaceholder:"Enter Free Fire Player ID",requiresQrCode:true,packages:[["Weekly Membership",1000],["Monthly Membership",2800]]},
     cod:{name:"Call of Duty Mobile",type:"CP",image:"images/IMG_0243.jpeg",accountLabel:"COD Mobile Player ID",accountPlaceholder:"Enter COD Mobile Player ID",packages:[["80 CP",400],["420 CP",1300],["880 CP",2300],["2,400 CP",5500],["5,000 CP",11000],["10,800 CP",21500]]},
-    pubg:{name:"PUBG Mobile",type:"UC",image:"images/IMG_0231.jpeg",accountLabel:"PUBG Mobile Player ID",accountPlaceholder:"Enter PUBG Mobile Player ID",packages:[["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],["325 UC",1300],["660 UC",2300],["1,800 UC",5500],["3,850 UC",11400],["8,100 UC",21500],["Prime - 1 Month",460,"Subscription","QR code required to purchase subscriptions."],["Prime - 2 Months",800],["Prime - 3 Months",1200],["Prime Plus - 1 Month",2600,"Prime Plus"],["Prime Plus - 2 Months",5000],["Prime Plus - 3 Months",7600],["Prime Plus - 4 Months",10000]]},
+    pubg:{name:"PUBG Mobile",type:"UC",image:"images/1db13989599702ccd0ff309776645755.jpg",accountLabel:"PUBG Mobile Player ID",accountPlaceholder:"Enter PUBG Mobile Player ID",packages:[["60 UC",300,"UC Top-Up","UC purchases are done through Midasbuy by in-game UID."],["325 UC",1300],["660 UC",2300],["1,800 UC",5500],["3,850 UC",11400],["8,100 UC",21500]]},
+    pubgSub:{name:"PUBG Mobile Subscriptions",type:"Subscriptions",image:"images/1db13989599702ccd0ff309776645755.jpg",accountLabel:"PUBG Mobile Player ID",accountPlaceholder:"Enter PUBG Mobile Player ID",requiresQrCode:true,packages:[["Prime - 1 Month",500,"PUBG Mobile Prime","QR code required to logo for subscription."],["Prime - 3 Months",1100],["Prime - 6 Months",2200],["Prime - 12 Months",4400],["Prime Plus - 1 Month",2800,"PUBG Mobile Prime Plus"],["Prime Plus - 3 Months",7800],["Prime Plus - 6 Months",14300],["Prime Plus - 12 Months",26500]]},
     apex:{name:"Apex Legends",type:"Apex Coins",image:"images/IMG_0241.jpeg",accountLabel:"EA Account Email / Gamer ID",accountPlaceholder:"Enter EA Account Email or User ID",note:"LootBar Top-Up: Fulfillments require valid EA account credentials / connected profile ID.",packages:[["500 Apex Coins",1500],["1,000 Apex Coins",2500],["2,000 + 150 Extra Coins",4500],["4,000 + 350 Extra Coins",8500],["6,000 + 700 Extra Coins",12500],["10,000 + 1,500 Extra Coins",20500]]},
     blood:{name:"Blood Strike",type:"Gold & Passes",image:"images/IMG_0240.jpeg",accountLabel:"Blood Strike User ID",accountPlaceholder:"Enter Blood Strike User ID",packages:[["100 + 5 Gold",600],["300 + 20 Gold",1000],["500 + 40 Gold",1500],["1,000 + 100 Gold",2500],["2,000 + 260 Gold",4500],["5,000 + 800 Gold",10000],["Strike Pass Elite",1300],["Strike Pass Premium",2500]]},
     amazon:{name:"Amazon Gift Card",type:"Amazon Gift Card",image:"images/IMG_0234.jpeg",accountLabel:"Email / Username",accountPlaceholder:"Enter email or username",showDeliveryField:true,packages:[["$10 USD",2500],["$20 USD",4800],["$25 USD",6000],["$50 USD",12000],["$100 USD",23800]]},
@@ -495,7 +499,17 @@ function openProduct(id){
     document.getElementById("accountLabel").textContent=p.accountLabel||"Gamer ID / Username";
     document.getElementById("accountInput").placeholder=p.accountPlaceholder||"Enter Gamer ID / Username";
     document.getElementById("deliveryFieldWrap").style.display=(p.showDeliveryField||p.noAccount)?"block":"none";
-    document.getElementById("deliveryInput").value=""; document.getElementById("transactionInput").value="";
+    document.getElementById("deliveryInput").value=""; 
+    const trxInput = document.getElementById("transactionInput");
+    trxInput.value="";
+    const trxLabel = document.getElementById("transactionLabel");
+    if(p.requiresQrCode){
+        trxLabel.innerHTML = 'Scan QR Code Logo / Login Credentials <span style="color:#c85cff">(Required)</span>';
+        trxInput.placeholder = "Enter QR code details / login info (All login methods deleted after completion)";
+    }else{
+        trxLabel.innerHTML = 'MMG Transaction ID <span style="color:#c85cff">(Optional)</span>';
+        trxInput.placeholder = "Enter transaction ID or leave blank";
+    }
     document.getElementById("totalValue").textContent="GYD $0";
     document.getElementById("productModal").classList.add("show");
 }
@@ -513,11 +527,17 @@ function sendOrder(){
     if(!p.noAccount && !acc) return alert("Please enter your "+(p.accountLabel||"Gamer ID")+".");
     const del=document.getElementById("deliveryInput").value.trim();
     const trx=document.getElementById("transactionInput").value.trim();
+    if(p.requiresQrCode && !trx) return alert("A QR code / login credential is required for subscriptions. All login methods will be deleted after subscription is completed.");
     const total=Number(selectedPackage[1])*quantity;
     let msg=`🎮 DARK STORE ORDER\n\nProduct: ${p.name}\nPackage: ${selectedPackage[0]}\nQuantity: ${quantity}\nTotal: GYD $${total.toLocaleString()}\n`;
     if(!p.noAccount) msg+=`${p.accountLabel||'Gamer ID'}: ${acc}\n`;
     if(del) msg+=`Delivery: ${del}\n`;
-    msg+=`MMG Transaction ID: ${trx||"Not provided"}\n\nPayment Merchant: CASSIA\n\nPlease process my order.`;
+    if(p.requiresQrCode){
+        msg+=`Subscription Info / QR Verification: ${trx}\n*(Note: All login methods will be deleted after subscription is completed)*\n\n`;
+    }else{
+        msg+=`MMG Transaction ID: ${trx||"Not provided"}\n\n`;
+    }
+    msg+=`Payment Merchant: CASSIA\n\nPlease process my order.`;
     closeProduct();
     document.getElementById("thankYouPopup").classList.add("show");
     setTimeout(()=>{window.location.href="https://wa.me/13436555995?text="+encodeURIComponent(msg);},1800);
